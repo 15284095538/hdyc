@@ -89,5 +89,10 @@ Page({
     that.setData({
       isChecked: true
     })
+  },
+  menulink(){//导航跳转
+    wx.navigateTo({
+      url: '/pages/index/list/list'
+    })
   }
 })
