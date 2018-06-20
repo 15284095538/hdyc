@@ -337,6 +337,13 @@
   font-size: 24rpx;
   color: #a0a0a0;
 }
+.indCarthree .li:nth-child(8n-7) image{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
 
 @keyframes rotate{
   from{
