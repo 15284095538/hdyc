@@ -2,8 +2,6 @@ Page({
   data: {
     display:'none',
     menuIndex:0,
-    layerid:0,
-    select:'',
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -15,13 +13,13 @@ Page({
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
         "text": "全车打蜡",
-        "key": 1
+        "key": 0
       },
       {
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
         "text": "默认排序",
-        "key": 2
+        "key": 0
       }
     ],
     menulist:[
@@ -64,12 +62,24 @@ Page({
       }
     ]
   },
+  onReady: function () {
+    this.animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'linear',
+      delay: 100,
+      transformOrigin: 'left top 0',
+      success: function (res) {
+        console.log(res)
+      }
+    })
+  },
   onLoad() {
 
   },
   listTopclick(e){//头部点击切换样式
     var that = this;
-    var menuid = e.currentTarget.dataset.id;  
+    var menuid = e.currentTarget.dataset.id;
+    var selectkey = e.currentTarget.dataset.key;
     that.setData({
       menuid: menuid,
       display:'block',
@@ -82,17 +92,19 @@ Page({
     }else{
       that.setData({ menulist: that.data.sort });
     }
+    that.setData({ layerid: selectkey});
   },
   listToplayerclick(e){//点击背景隐藏
     var that = this;
-    that.setData({ display: 'none', menuid:'4' });
+    that.setData({ display: 'none', menuid:'99' });
   },
   listToplayerLiclick(e){//点击替换文字
     var that = this;
     var text = e.currentTarget.dataset.text;
+    var key = e.currentTarget.dataset.id;
     var menu = that.data.menu;//获取数组
     menu[that.data.menuIndex].text = text;//改变值
+    menu[that.data.menuIndex].key = key;//改变值
     that.setData({ menu });
-    var menuid = e.currentTarget.dataset.id;
   }
 })

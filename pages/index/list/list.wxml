@@ -1,6 +1,6 @@
 <view class='listTop'>
   <block wx:for="{{menu}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
-    <view bindtap='listTopclick' data-id="{{index}}" class='li {{ index == menuid ? "select":"" }}'>
+    <view bindtap='listTopclick'  data-key="{{item.key}}" data-id="{{index}}" class='li {{ index == menuid ? "select":"" }}'>
       {{item.text}} <image class='img1' src='{{item.path}}'></image> <image class='img2' src='{{item.selectpath}}'></image>
     </view>
   </block>
@@ -8,7 +8,9 @@
 
 <!-- 筛选弹层 -->
 <view bindtap="listToplayerclick" class='listToplayer {{display}}' >
-  <block wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
-    <view bindtap="listToplayerLiclick" data-id="{{index}}" data-text="{{item.text}}" class='li {{ index == layerid ? "select":"" }}'>{{item.text}}</view>
-  </block>
+  <view class='listToplayeranment'>
+    <block wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+      <view bindtap="listToplayerLiclick" data-id="{{index}}" data-text="{{item.text}}" class='li {{ index == layerid ? "select":"" }}'>{{item.text}}</view>
+    </block>
+  </view>
 </view>

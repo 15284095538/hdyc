@@ -53,7 +53,7 @@
   left: 0;
   top: 90rpx;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 99;
+  z-index: 999;
 }
 .listToplayer .li{
   padding: 0 20rpx;
@@ -66,4 +66,22 @@
 }
 .listToplayer .select{
   color: #11a8e1;
+}
+.listToplayeranment{
+  animation:0.3s linear 0s rotate;
+  animation-fill-mode:forwards;
+  -webkit-transition: 0.3s linear 0s rotate;
+  -moz-transition: 0.3s linear 0s rotate;
+  -o-transition: 0.3s linear 0s rotate;
+}
+
+@keyframes rotate{
+  from{
+    transform: translateY(-100%);
+    opacity:0
+  }
+  to{
+    transform: translateY(0);
+    opacity:1
+  }
 }
