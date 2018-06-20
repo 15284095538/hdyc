@@ -19,7 +19,7 @@
         "selectedIconPath": "/images/bar_12.png"
       },
       {
-        "pagePath": "pages/index/home/index",
+        "pagePath": "pages/store/home/index",
         "text": "门店",
         "iconPath": "/images/bar_05.png",
         "selectedIconPath": "/images/bar_13.png"

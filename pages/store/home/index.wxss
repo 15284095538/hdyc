@@ -16,56 +16,8 @@
   overflow: hidden;
 }
 
-.col-1 {
-  width: 8.33333333333333%;
-}
-
-.col-2 {
-  width: 16.6666666666666%;
-}
-
-.col-3 {
-  width: 25%;
-}
-
 .col-4 {
   width: calc(100% / 3);
-}
-
-.col-5 {
-  width: 41.6666666666666%;
-}
-
-.col-6 {
-  width: 50%;
-}
-
-.col-7 {
-  width: 58.333333333333333%;
-}
-
-.col-8 {
-  width: 66.66666666666666%;
-}
-
-.col-9 {
-  width: 75%;
-}
-
-.col-10 {
-  width: 83.33333333333333%;
-}
-
-.col-11 {
-  width: 91.66666666666666%;
-}
-
-.col-12 {
-  width: 100%;
-}
-
-.x-center {
-  text-align: center;
 }
 
 page {
@@ -250,8 +202,9 @@ page {
   border-radius: 6rpx;
   margin-right: 10rpx;
 }
-.list-distance{
-	font-size: 26rpx;
-	line-height: 26rpx;
-	color: #aeaeae;
+
+.list-distance {
+  font-size: 26rpx;
+  line-height: 26rpx;
+  color: #aeaeae;
 }

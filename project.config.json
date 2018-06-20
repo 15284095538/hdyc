@@ -37,7 +37,14 @@
 				{
 					"id": -1,
 					"name": "首页列表",
-					"pathName": "pages/index/list/list"
+					"pathName": "pages/store/home/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "门店首页",
+					"pathName": "pages/store/home/index",
+					"query": ""
 				}
 			]
 		}
