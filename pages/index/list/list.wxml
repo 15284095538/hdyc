@@ -14,3 +14,12 @@
     </block>
   </view>
 </view>
+
+<view class='list'>
+  <view class='li'>
+    <view class='img'><image src='/images/banner.jpg'></image></view>
+    <view class='con'>
+      
+    </view>
+  </view>
+</view>
