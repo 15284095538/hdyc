@@ -74,6 +74,29 @@
   -moz-transition: 0.3s linear 0s rotate;
   -o-transition: 0.3s linear 0s rotate;
 }
+.list{
+  padding: 90rpx 20rpx 0 20rpx;
+}
+.list .li{
+  height: 190rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.list .li .img{
+  width: 210rpx;
+  height: 190rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+  float: left;
+}
+.list .li .img image{
+  width: 100%;
+}
+.list .li .con{
+  width: 450rpx;
+  height: 190rpx;
+  float: right;
+}
 
 @keyframes rotate{
   from{
