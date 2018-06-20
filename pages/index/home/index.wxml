@@ -32,46 +32,45 @@
 </view>
 
 <view class='indCarone'>
-  <view class='li'>
-    <view class='text'>
-      <text class='t'>热销推荐</text>
-      <text class='c'>别克英朗</text>
-      <image src='/images/car_03.png'></image>
+  <block wx:for="{{newcar}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
+    <view class='li'>
+      <view class='text'>
+        <text class='t'>{{item.t}}</text>
+        <text class='c'>{{item.c}}</text>
+        <image src='{{item.path}}'></image>
+      </view>
     </view>
-  </view>
-  <view class='li'>
-    <view class='text'>
-      <text class='t'>热销推荐</text>
-      <text class='c'>别克英朗</text>
-      <image src='/images/car_03.png'></image>
+  </block>
+</view>
+
+<view class='indTit'>
+  <text class='t'>车用品推荐</text>
+</view>
+
+<view class='indCartwo'>
+  <block wx:for="{{newcar}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
+    <view class='li'>
+      <view class='text'>
+        <text class='t'>{{item.t}}</text>
+        <text class='c'>{{item.c}}</text>
+        <image src='{{item.path}}'></image>
+      </view>
     </view>
-  </view>
-  <view class='li'>
-    <view class='text'>
-      <text class='t'>热销推荐</text>
-      <text class='c'>别克英朗</text>
-      <image src='/images/car_03.png'></image>
+  </block>
+</view>
+
+<view class='indTit'>
+  <text class='t'>养护推荐</text>
+</view>
+
+<view class='indCarthree'>
+  <block wx:for="aaaaaaaa" wx:key="this" wx:for-item="item" wx:for-index="index" >
+    <view class='li'>
+      <view class='text'>
+        <text class='t'>养护推荐</text>
+        <text class='c'>仅需288元起</text>
+        <image src='/images/car_03.png'></image>
+      </view>
     </view>
-  </view>
-  <view class='li'>
-    <view class='text'>
-      <text class='t'>热销推荐</text>
-      <text class='c'>别克英朗</text>
-      <image src='/images/car_03.png'></image>
-    </view>
-  </view>
-  <view class='li'>
-    <view class='text'>
-      <text class='t'>热销推荐</text>
-      <text class='c'>别克英朗</text>
-      <image src='/images/car_03.png'></image>
-    </view>
-  </view>
-  <view class='li'>
-    <view class='text'>
-      <text class='t'>热销推荐</text>
-      <text class='c'>别克英朗</text>
-      <image src='/images/car_03.png'></image>
-    </view>
-  </view>
+  </block>
 </view>

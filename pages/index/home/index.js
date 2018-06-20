@@ -48,6 +48,38 @@ Page({
         "text": "车用品购买"
       }
     ],
+    newcar:[// 新车购买
+      {
+        'path':'/images/car_03.png',
+        "t":'热销推荐',
+        "c":'热销推荐'
+      },
+      {
+        'path': '/images/car_03.png',
+        "t": '热销推荐',
+        "c": '热销推荐'
+      },
+      {
+        'path': '/images/car_03.png',
+        "t": '热销推荐',
+        "c": '热销推荐'
+      },
+      {
+        'path': '/images/car_03.png',
+        "t": '热销推荐',
+        "c": '热销推荐'
+      },
+      {
+        'path': '/images/car_03.png',
+        "t": '热销推荐',
+        "c": '热销推荐'
+      },
+      {
+        'path': '/images/car_03.png',
+        "t": '热销推荐',
+        "c": '热销推荐'
+      }
+    ]
   },
   onLoad(){
     
