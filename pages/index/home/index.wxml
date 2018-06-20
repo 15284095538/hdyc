@@ -1,0 +1,77 @@
+<view class='indTop'>
+  <view class='city' bindtap='standalone' >
+    成都市 <image src='/images/xiala@2x.png' class="{{isChecked?'bottom':''}}"></image>
+  </view>
+  <view class='search'>
+    <view class='button'> <image src='/images/sousuo@3x.png'></image> </view>
+    <input class='text' confirm-type="search" placeholder-style="color:#fff" placeholder='请输入您想要的商品或服务'></input>
+  </view>
+</view>
+
+<swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+  indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
+  interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
+  <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='indmenu'>
+  <block wx:for="{{menu}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <view class='li'>
+      <view class='img'><image src='{{item.path}}'></image></view>
+      <view class='t'>{{item.text}}</view>
+    </view>
+  </block>
+</view>
+
+<view class='indTit'>
+  <text class='t'>新车购买推荐</text>
+</view>
+
+<view class='indCarone'>
+  <view class='li'>
+    <view class='text'>
+      <text class='t'>热销推荐</text>
+      <text class='c'>别克英朗</text>
+      <image src='/images/car_03.png'></image>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='text'>
+      <text class='t'>热销推荐</text>
+      <text class='c'>别克英朗</text>
+      <image src='/images/car_03.png'></image>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='text'>
+      <text class='t'>热销推荐</text>
+      <text class='c'>别克英朗</text>
+      <image src='/images/car_03.png'></image>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='text'>
+      <text class='t'>热销推荐</text>
+      <text class='c'>别克英朗</text>
+      <image src='/images/car_03.png'></image>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='text'>
+      <text class='t'>热销推荐</text>
+      <text class='c'>别克英朗</text>
+      <image src='/images/car_03.png'></image>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='text'>
+      <text class='t'>热销推荐</text>
+      <text class='c'>别克英朗</text>
+      <image src='/images/car_03.png'></image>
+    </view>
+  </view>
+</view>

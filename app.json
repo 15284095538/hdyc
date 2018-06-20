@@ -1,0 +1,37 @@
+{
+  "pages":[
+    "pages/index/home/index"
+  ],
+  "tabBar":{
+    "color": "#7f7f7f",
+    "selectedColor": "#11a8e1",
+    "backgroundColor":"#ffffff",
+    "borderStyle":"#e9e9e9",
+    "list": [
+      {
+        "pagePath": "pages/index/home/index",
+        "text": "首页",
+        "iconPath":"/images/bar_03.png",
+        "selectedIconPath": "/images/bar_12.png"
+      },
+      {
+        "pagePath": "pages/index/home/index",
+        "text": "门店",
+        "iconPath": "/images/bar_05.png",
+        "selectedIconPath": "/images/bar_13.png"
+      },
+      {
+        "pagePath": "pages/index/home/index",
+        "text": "我的",
+        "iconPath": "/images/bar_07.png",
+        "selectedIconPath": "/images/bar_14.png"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#11a8e1",
+    "navigationBarTitleText": "海逗养车",
+    "navigationBarTextStyle":"white"
+  }
+}
