@@ -1,2 +1,55 @@
 <!--pages/store/home/index.wxml-->
-<text>pages/store/home/index.wxml</text>
+<view class="row" id='menu'>
+  <view class="col">
+    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="itemName">
+      <view class='menu-img'>
+        <image src="{{itemName.path}}" />
+      </view>
+      <view class='menu-text'>{{itemName.text}}</view>
+    </view>
+  </view>
+</view>
+<view id='ad'>
+  <view class='line line-left'></view>
+  离我最近
+  <view class='line line-right'></view>
+</view>
+<view id='list'>
+  <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item">
+    <view class='list-box'>
+      <view class='list-img'>
+        <image src='{{item.path}}'></image>
+      </view>
+      <view class='list-info'>
+        <view class='list-title'>
+          <view class='list-name left'>{{item.name}}</view>
+          <view class='list-name-img left'>
+            <image src='/images/grade_01.png'></image>
+          </view>
+          <view class='clear'></view>
+        </view>
+        <view class='list-evaluate'>
+          <view class='list-evaluate-left left'>
+            总评价：3.5分
+          </view>
+          <view class='list-evaluate-line left'>
+            |
+          </view>
+          <view class='list-evaluate-right left'>
+            总订单：4笔
+          </view>
+          <view class='clear'></view>
+        </view>
+        <view class='list-address'>
+        <text>{{item.address}}</text>
+        </view>
+        <view class='list-more'>
+          <view class='list-tag left' wx:for="{{item.tag}}" wx:key="tag" wx:for-item="itemTag">{{itemTag}}</view>
+          <view class='list-distance right'>{{item.distance}}</view>
+          <view class='clear'></view>
+        </view>
+      </view>
+      <view class='clear'></view>
+    </view>
+  </view>
+</view>
