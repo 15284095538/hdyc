@@ -231,6 +231,10 @@ Page({
     })
   },
   confirm() { //筛选确定
+    var that = this;
+    that.setData({
+      sort: that.data.menulist,
+    })
     this.listToplayerclick();
   },
   ToDetails() { //跳转详情
