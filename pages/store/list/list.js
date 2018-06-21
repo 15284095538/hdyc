@@ -3,13 +3,7 @@ Page({
   data: {
     display: 'none',
     menuid: 0,
-    ischenced: false,
     menuIndex: 0,
-    Selectarray: [{
-      "id": [1, 2, 3]
-    }, {
-      "id": [0]
-    }],
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -61,60 +55,79 @@ Page({
     sort: [//筛选
       {
         "text": '门店类型',
-        "sub": ["美容保养", "维修厂", "保养"],
+        "sub": [
+          {
+            "text": "美容保养",
+            "key": false
+          },
+          {
+            "text": "美容保养",
+            "key": false
+          },
+          {
+            "text": "安装",
+            "key": false
+          }
+        ]
       },
       {
         "text": '到店服务',
-        "sub": ["美容", "安装"],
+        "sub": [
+          {
+            "text": "安装",
+            "key": false
+          },
+          {
+            "text": "美容保养",
+            "key": false
+          }
+        ],
       }
-    ],
-    list: [{
+    ], list: [{
       "path": "/images/store_menu_01.png",
       "name": "邛崃市天和车王养护",
-      "grade": 0,
+      "grade": 1,
+      "order": {
+        "status": "hass",
+        "score": 3.5,
+        "order_num": 12,
+      },
       "address": "成都市崇州市老陈大路462号（汇蜀路口）",
       "tag": ["美容", "安装"],
       "distance": "3.1KM"
     }, {
       "path": "/images/store_menu_01.png",
       "name": "邛崃市天和车王养护",
-      "grade": 0,
+      "grade": 2,
+      "order": {
+        "status": "none",
+        "score": 3.5,
+        "order_num": 12,
+      },
       "address": "成都市崇州市老陈大路462号（汇蜀路口）",
       "tag": ["美容", "安装"],
       "distance": "3.1KM"
     }, {
       "path": "/images/store_menu_01.png",
       "name": "邛崃市天和车王养护",
-      "grade": 0,
+      "grade": 1,
+      "order": {
+        "status": "none",
+        "score": 3.5,
+        "order_num": 102,
+      },
       "address": "成都市崇州市老陈大路462号（汇蜀路口）",
       "tag": ["美容", "安装"],
       "distance": "3.1KM"
     }, {
       "path": "/images/store_menu_01.png",
       "name": "邛崃市天和车王养护",
-      "grade": 0,
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    },
-    {
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 0,
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    }, {
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 0,
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    }, {
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 0,
+      "grade": 3,
+      "order": {
+        "status": "none",
+        "score": 3.5,
+        "order_num": 1221,
+      },
       "address": "成都市崇州市老陈大路462号（汇蜀路口）",
       "tag": ["美容", "安装"],
       "distance": "3.1KM"
@@ -175,34 +188,31 @@ Page({
   },
   ScreenClick(e) {// 筛选选中
     var that = this;
-    var Array = that.data.Selectarray;
-    let id = e.currentTarget.dataset.id;
-    let type = e.currentTarget.dataset.type;
-    let has = 0;
-    for (var i = 0; i < Array.length; ++i) {
-      if (type == i) {
-        for (var s = 0; s < Array[i].id.length; ++s) {
-          if (id == Array[i].id[s]) {
-            has = 1;
-            Array[i].id.splice(Array[i].id.indexOf(id), 1);
-          }
-        }
+    var sort = that.data.sort;
+    var menulist = e.currentTarget.dataset.menulist;
+    var id = e.currentTarget.dataset.id;
+    var arry = sort[menulist].sub;
+    for (var i = 0; i < arry.length; i++) {
+      if (id == i) {
+        arry[i].key = !arry[i].key;
       }
     }
-    if (has == 0) {
-      Array[type].id.push(id)
-    }
-    that.setData({ Selectarray: Array })
+    that.setData({
+      menulist: sort,
+    })
   },
   reset() {//筛选重置
     var that = this;
-    var Array = that.data.Selectarray;
+    var Array = that.data.sort;
     for (var i = 0; i < Array.length; ++i) {
-      for (var s = 0; s < Array[i].id.length; ++s) {
-        Array[i].id = [];
+      for (var s = 0; s < Array[i].sub.length; ++s) {
+        Array[i].sub[s].key = false;
       }
     }
-    that.setData({ Selectarray: Array })
+    that.setData({ sort: Array });
+    that.setData({
+      menulist: that.data.sort,
+    })
   },
   confirm() {//筛选确定
     this.listToplayerclick();

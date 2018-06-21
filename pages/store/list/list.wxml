@@ -19,21 +19,26 @@
         <view class='list-title'>
           <view class='list-name left'>{{item.name}}</view>
           <view class='list-name-img left'>
-            <image src='/images/grade_01.png'></image>
+            <image src='/images/grade_0{{item.grade}}.png'></image>
           </view>
           <view class='clear'></view>
         </view>
         <view class='list-evaluate'>
-          <view class='list-evaluate-left left'>
-            总评价：3.5分
+          <view wx:if="{{item.order.status != 'none'}}">
+            <view class='list-evaluate-left left'>
+              总评价：{{item.order.score}}分
+            </view>
+            <view class='list-evaluate-line left'>
+              |
+            </view>
+            <view class='list-evaluate-right left'>
+              总订单：{{item.order.order_num}}笔
+            </view>
+            <view class='clear'></view>
           </view>
-          <view class='list-evaluate-line left'>
-            |
+          <view wx:else class='list-evaluate-left'>
+            暂无数据
           </view>
-          <view class='list-evaluate-right left'>
-            总订单：4笔
-          </view>
-          <view class='clear'></view>
         </view>
         <view class='list-address'>
           <text>{{item.address}}</text>
@@ -60,23 +65,7 @@
           {{item.text}}
         </view>
         <view class='screen-sub'>
-          <wxs module="foo">
-            var select = function(type, id, Selectarray) {
-              for (var i = 0; i < Selectarray.length; ++i) {
-                if (type == i) {
-                  for (var s = 0; s < Selectarray[i].id.length; ++s) {
-                    if (id == Selectarray[i].id[s]) {
-                      return 'select';
-                    }
-                  }
-                }
-              }
-            }
-            module.exports = {
-              Select: select,
-            }
-          </wxs>
-          <view wx:for="{{item.sub}}" wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" data-id="{{subindex}}" data-type="{{index}}" class='screen-tag {{foo.Select(index,subindex,Selectarray)}}' bindtap="ScreenClick">{{sublist}}</view>
+          <view wx:for="{{item.sub}}" data-menulist='{{index}}' wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" class='screen-tag {{ sublist.key ? "select":"" }}' data-id="{{subindex}}" bindtap="ScreenClick">{{sublist.text}}</view>
           <view class='clear'></view>
         </view>
       </view>

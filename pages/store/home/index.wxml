@@ -24,21 +24,26 @@
         <view class='list-title'>
           <view class='list-name left'>{{item.name}}</view>
           <view class='list-name-img left'>
-            <image src='/images/grade_01.png'></image>
+            <image src='/images/grade_0{{item.grade}}.png'></image>
           </view>
           <view class='clear'></view>
         </view>
         <view class='list-evaluate'>
-          <view class='list-evaluate-left left'>
-            总评价：3.5分
+          <view wx:if="{{item.order.status != 'none'}}">
+            <view class='list-evaluate-left left'>
+              总评价：{{item.order.score}}分
+            </view>
+            <view class='list-evaluate-line left'>
+              |
+            </view>
+            <view class='list-evaluate-right left'>
+              总订单：{{item.order.order_num}}笔
+            </view>
+            <view class='clear'></view>
           </view>
-          <view class='list-evaluate-line left'>
-            |
+          <view wx:else class='list-evaluate-left'>
+          暂无数据
           </view>
-          <view class='list-evaluate-right left'>
-            总订单：4笔
-          </view>
-          <view class='clear'></view>
         </view>
         <view class='list-address'>
           <text>{{item.address}}</text>
