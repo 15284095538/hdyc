@@ -67,7 +67,58 @@ Page({
         "text": '到店服务',
         "sub": ["美容", "安装"],
       }
-    ]
+    ],
+    list: [{
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    },
+    {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 0,
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }]
   },
   onReady: function () {
     this.animation = wx.createAnimation({
