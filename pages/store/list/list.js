@@ -5,6 +5,11 @@ Page({
     menuid: 0,
     ischenced: false,
     menuIndex: 0,
+    Selectarray: [{
+      "id": [1, 2, 3]
+    }, {
+      "id": [0]
+    }],
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -106,8 +111,27 @@ Page({
     menu[that.data.menuIndex].key = key;//改变值
     that.setData({ menu });
   },
-  ScreenClick(e){// 筛选选中
-  console.log(e);
-    // this.setData({ ischenced:true })
+  ScreenClick(e) {// 筛选选中
+    var that = this;
+    var Array = that.data.Selectarray;
+    let id = e.currentTarget.dataset.id;
+    let type = e.currentTarget.dataset.type;
+    let has = 0;
+    for (var i = 0; i < Array.length; ++i) {
+      if (type == i) {
+        for (var s = 0; s < Array[i].id.length; ++s) {
+          if (id == Array[i].id[s]) {
+            has = 1;
+            console.log(id);
+            Array[i].id.splice(Array[i].id.indexOf(id), 1);
+          }
+        }
+      }
+    }
+    if(has == 0){
+      Array[type].id.push(id)
+    }
+    // Array.push(id);
+    that.setData({ Selectarray: Array })
   }
 })

@@ -1,7 +1,7 @@
 <!--pages/store/home/index.wxml-->
 <view class="row" id='menu'>
   <view class="col">
-    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="itemName">
+    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="itemName" bindtap="ToPage">
       <view class='menu-img'>
         <image src="{{itemName.path}}" />
       </view>
@@ -41,7 +41,7 @@
           <view class='clear'></view>
         </view>
         <view class='list-address'>
-        <text>{{item.address}}</text>
+          <text>{{item.address}}</text>
         </view>
         <view class='list-more'>
           <view class='list-tag left' wx:for="{{item.tag}}" wx:key="tag" wx:for-item="itemTag">{{itemTag}}</view>

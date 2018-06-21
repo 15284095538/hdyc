@@ -137,4 +137,5 @@
 .screen .select {
   background-color: #11a8e1;
   color: #fff;
+  border: 1rpx solid rgba(255, 0, 0, 0);
 }

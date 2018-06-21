@@ -21,7 +21,24 @@
           {{item.text}}
         </view>
         <view class='screen-sub'>
-          <view wx:for="{{item.sub}}" wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" class='screen-tag' bindtap="ScreenClick">{{sublist}}</view>
+          <wxs module="foo">
+            var select = function(type, id, Selectarray) {
+              for (var i = 0; i < Selectarray.length; ++i) {
+                if (type == i) {
+                  console.log(Selectarray[i].id.length);
+                  for (var s = 0; s < Selectarray[i].id.length; ++s) {
+                    if (id == Selectarray[i].id[s]) {
+                      return 'select';
+                    }
+                  }
+                }
+              }
+            }
+            module.exports = {
+              Select: select,
+            }
+          </wxs>
+          <view wx:for="{{item.sub}}" wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" data-id="{{subindex}}" data-type="{{index}}" class='screen-tag {{foo.Select(index,subindex,Selectarray)}}' bindtap="ScreenClick">{{sublist}}</view>
           <view class='clear'></view>
         </view>
       </view>
