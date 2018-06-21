@@ -184,7 +184,6 @@ Page({
         for (var s = 0; s < Array[i].id.length; ++s) {
           if (id == Array[i].id[s]) {
             has = 1;
-            console.log(id);
             Array[i].id.splice(Array[i].id.indexOf(id), 1);
           }
         }
