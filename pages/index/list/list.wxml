@@ -16,10 +16,13 @@
 </view>
 
 <view class='list'>
-  <view class='li'>
-    <view class='img'><image src='/images/banner.jpg'></image></view>
+  <view class='li' wx:for="{{list}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+    <view class='img'><image src='{{item.path}}'></image></view>
     <view class='con'>
-      
+      <view class='name'>{{item.name}}</view>
+      <view class='num'>总评价：<text>{{item.num}}</text>分  |  总订单：<text>{{item.order}}</text>笔</view>
+      <view class='address'>{{item.address}}</view>
+      <view class='price'><text class='l'>{{item.price}}</text><text class='r'>{{item.jl}}</text></view>
     </view>
   </view>
 </view>

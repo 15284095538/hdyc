@@ -97,6 +97,49 @@
   height: 190rpx;
   float: right;
 }
+.list .li .con .name{
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #333333;
+}
+.list .li .con .num{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.list .li .con .num text{
+  color: #ff7979;
+  font-weight: bold;
+  margin: 0 5rpx;
+}
+.list .li .con .address{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list .li .con .price{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.list .li .con .price .l{
+  float: left;
+  font-size: 30rpx;
+  color: #ff7979;
+}
+.list .li .con .price .r{
+  float: right;
+}
 
 @keyframes rotate{
   from{
