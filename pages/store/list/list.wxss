@@ -1,1 +1,140 @@
 /* pages/store/list/list.wxss */
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.listTop {
+  width: 100%;
+  height: 89rpx;
+  border-bottom: 1px solid #e7e7e7;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.listTop .li {
+  width: 249rpx;
+  height: 35rpx;
+  border-right: 1rpx solid #e7e7e7;
+  float: left;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 35rpx;
+  margin-top: 27.5rpx;
+  position: relative;
+}
+
+.listTop .select {
+  color: #11a8e1;
+}
+
+.listTop .li:last-child {
+  border: 0;
+}
+
+.listTop .li image {
+  width: 22rpx;
+  height: 12rpx;
+  position: absolute;
+  left: 190rpx;
+  top: 13rpx;
+}
+
+.listTop .li .img2 {
+  display: none;
+}
+
+.listTop .select .img2 {
+  display: block;
+}
+
+.listTop .select .img1 {
+  display: none;
+}
+
+.listToplayer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 90rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.listToplayer .li {
+  padding: 0 20rpx;
+  border-bottom: 1px solid #e7e7e7;
+  height: 99rpx;
+  line-height: 99rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.listToplayer .select {
+  color: #11a8e1;
+}
+
+.listToplayeranment {
+  animation: 0.3s linear 0s rotate;
+  animation-fill-mode: forwards;
+  -webkit-transition: 0.3s linear 0s rotate;
+  -moz-transition: 0.3s linear 0s rotate;
+  -o-transition: 0.3s linear 0s rotate;
+}
+
+@keyframes rotate {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* screen */
+
+.clear {
+  clear: both;
+}
+
+.screen {
+  background-color: #fff;
+}
+
+.screen-box {
+  padding: 30rpx 30rpx 0rpx 30rpx;
+}
+
+.screen-title {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.screen-tag {
+  float: left;
+  font-size: 26rpx;
+  line-height: 46rpx;
+  padding: 10rpx 24rpx;
+  border: 1rpx solid #767676;
+  border-radius: 5rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.screen .select {
+  background-color: #11a8e1;
+  color: #fff;
+}
