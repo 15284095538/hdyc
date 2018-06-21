@@ -16,7 +16,7 @@
 </view>
 
 <view class='list'>
-  <view class='li' wx:for="{{list}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+  <view class='li' catchtap='detLink' wx:for="{{list}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
     <view class='img'><image src='{{item.path}}'></image></view>
     <view class='con'>
       <view class='name'>{{item.name}}</view>

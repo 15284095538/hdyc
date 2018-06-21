@@ -119,5 +119,10 @@ Page({
     menu[that.data.menuIndex].text = text;//改变值
     menu[that.data.menuIndex].key = key;//改变值
     that.setData({ menu });
+  },
+  detLink(e){ //详情
+    wx.navigateTo({
+      url: '/pages/index/details/details'
+    })
   }
 })
