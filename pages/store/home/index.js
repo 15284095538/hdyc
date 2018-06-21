@@ -64,9 +64,14 @@ Page({
       "distance": "3.1KM"
     }]
   },
-  ToPage() {
+  ToPage() {//页面跳转
     wx.navigateTo({
       url: '../list/list'
+    })
+  },
+  ToDetails(){//跳转详情
+    wx.navigateTo({
+      url: '../details/details'
     })
   }
 })

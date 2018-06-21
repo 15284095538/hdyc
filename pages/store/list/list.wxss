@@ -1,5 +1,9 @@
 /* pages/store/list/list.wxss */
 
+page {
+  background-color: #f6f6f6;
+}
+
 .none {
   display: none;
 }
@@ -251,6 +255,10 @@
   font-size: 24rpx;
   line-height: 24rpx;
   color: #aeaeae;
+}
+
+.list-evaluate-left text, .list-evaluate-right text {
+  color: #ff7979;
 }
 
 .list-evaluate-line {

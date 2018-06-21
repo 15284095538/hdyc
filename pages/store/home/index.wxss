@@ -168,6 +168,10 @@ page {
   color: #aeaeae;
 }
 
+.list-evaluate-left text, .list-evaluate-right text {
+  color: #ff7979;
+}
+
 .list-evaluate-line {
   width: 51rpx;
   height: 24rpx;

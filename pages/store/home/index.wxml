@@ -15,7 +15,7 @@
   <view class='line line-right'></view>
 </view>
 <view id='list'>
-  <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item">
+  <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item" catchtap='ToDetails'>
     <view class='list-box'>
       <view class='list-img'>
         <image src='{{item.path}}'></image>
@@ -31,18 +31,20 @@
         <view class='list-evaluate'>
           <view wx:if="{{item.order.status != 'none'}}">
             <view class='list-evaluate-left left'>
-              总评价：{{item.order.score}}分
+              总评价：
+              <text>{{item.order.score}}分</text>
             </view>
             <view class='list-evaluate-line left'>
               |
             </view>
             <view class='list-evaluate-right left'>
-              总订单：{{item.order.order_num}}笔
+              总订单：
+              <text>{{item.order.order_num}}笔</text>
             </view>
             <view class='clear'></view>
           </view>
           <view wx:else class='list-evaluate-left'>
-          暂无数据
+            暂无数据
           </view>
         </view>
         <view class='list-address'>

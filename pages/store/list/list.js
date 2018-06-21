@@ -4,7 +4,7 @@ Page({
     display: 'none',
     menuid: 0,
     menuIndex: 0,
-    menu: [//导航
+    menu: [ //导航
       {
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
@@ -27,7 +27,7 @@ Page({
     menulist: [
       //导航列表
     ],
-    city: [//城市列表
+    city: [ //城市列表
       {
         "text": "成都市"
       },
@@ -38,7 +38,7 @@ Page({
         "text": "青羊"
       }
     ],
-    listtype: [//类型
+    listtype: [ //类型
       {
         "text": '全车打蜡'
       },
@@ -52,11 +52,10 @@ Page({
         "text": '全车镀晶'
       }
     ],
-    sort: [//筛选
+    sort: [ //筛选
       {
         "text": '门店类型',
-        "sub": [
-          {
+        "sub": [{
             "text": "美容保养",
             "key": false
           },
@@ -72,8 +71,7 @@ Page({
       },
       {
         "text": '到店服务',
-        "sub": [
-          {
+        "sub": [{
             "text": "安装",
             "key": false
           },
@@ -83,7 +81,8 @@ Page({
           }
         ],
       }
-    ], list: [{
+    ],
+    list: [{
       "path": "/images/store_menu_01.png",
       "name": "邛崃市天和车王养护",
       "grade": 1,
@@ -133,13 +132,13 @@ Page({
       "distance": "3.1KM"
     }]
   },
-  onReady: function () {
+  onReady: function() {
     this.animation = wx.createAnimation({
       duration: 1000,
       timingFunction: 'linear',
       delay: 100,
       transformOrigin: 'left top 0',
-      success: function (res) {
+      success: function(res) {
         console.log(res)
       }
     })
@@ -147,7 +146,7 @@ Page({
   onLoad() {
 
   },
-  listTopclick(e) {//头部点击切换样式
+  listTopclick(e) { //头部点击切换样式
     var that = this;
     var menuid = e.currentTarget.dataset.id;
     var selectkey = e.currentTarget.dataset.key;
@@ -156,37 +155,52 @@ Page({
       display: 'block',
       menuIndex: menuid,
     });
-    that.setData({ menuid: menuid });
+    that.setData({
+      menuid: menuid
+    });
     if (menuid == 0) {
-      that.setData({ menulist: that.data.city });
+      that.setData({
+        menulist: that.data.city
+      });
     } else if (menuid == 1) {
-      that.setData({ menulist: that.data.listtype });
+      that.setData({
+        menulist: that.data.listtype
+      });
     } else {
-      that.setData({ menulist: that.data.sort });
+      that.setData({
+        menulist: that.data.sort
+      });
     }
-    that.setData({ layerid: selectkey });
+    that.setData({
+      layerid: selectkey
+    });
   },
-  listToplayerLiclick(e) {//点击替换文字
+  listToplayerLiclick(e) { //点击替换文字
     var that = this;
     var text = e.currentTarget.dataset.text;
     var key = e.currentTarget.dataset.id;
-    var menu = that.data.menu;//获取数组
-    menu[that.data.menuIndex].text = text;//改变值
-    menu[that.data.menuIndex].key = key;//改变值
-    that.setData({ menu });
+    var menu = that.data.menu; //获取数组
+    menu[that.data.menuIndex].text = text; //改变值
+    menu[that.data.menuIndex].key = key; //改变值
+    that.setData({
+      menu
+    });
     this.listToplayerclick();
   },
-  Close(e) {//点击关闭遮罩
+  Close(e) { //点击关闭遮罩
     this.listToplayerclick();
   },
   CloseStop() { //阻止冒泡事件
     return true;
   },
-  listToplayerclick(e) {//点击背景隐藏
+  listToplayerclick(e) { //点击背景隐藏
     var that = this;
-    that.setData({ display: 'none', menuid: '99' });
+    that.setData({
+      display: 'none',
+      menuid: '99'
+    });
   },
-  ScreenClick(e) {// 筛选选中
+  ScreenClick(e) { // 筛选选中
     var that = this;
     var sort = that.data.sort;
     var menulist = e.currentTarget.dataset.menulist;
@@ -201,7 +215,7 @@ Page({
       menulist: sort,
     })
   },
-  reset() {//筛选重置
+  reset() { //筛选重置
     var that = this;
     var Array = that.data.sort;
     for (var i = 0; i < Array.length; ++i) {
@@ -209,12 +223,19 @@ Page({
         Array[i].sub[s].key = false;
       }
     }
-    that.setData({ sort: Array });
+    that.setData({
+      sort: Array
+    });
     that.setData({
       menulist: that.data.sort,
     })
   },
-  confirm() {//筛选确定
+  confirm() { //筛选确定
     this.listToplayerclick();
+  },
+  ToDetails() { //跳转详情
+    wx.navigateTo({
+      url: '../details/details'
+    })
   }
 })
