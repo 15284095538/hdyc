@@ -10,8 +10,8 @@
 </view>
 
 <!-- 筛选弹层 -->
-<view bindtap="listToplayerclick" class='listToplayer {{display}}'>
-  <view class='listToplayeranment'>
+<view class='listToplayer {{display}}' catchtap='Close'>
+  <view class='listToplayeranment' catchtap='CloseStop'>
     <block wx:if="{{menuid != 2}}" wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
       <view bindtap="listToplayerLiclick" data-id="{{index}}" data-text="{{item.text}}" class='li {{ index == layerid ? "select":"" }}'>{{item.text}}</view>
     </block>
@@ -25,7 +25,6 @@
             var select = function(type, id, Selectarray) {
               for (var i = 0; i < Selectarray.length; ++i) {
                 if (type == i) {
-                  console.log(Selectarray[i].id.length);
                   for (var s = 0; s < Selectarray[i].id.length; ++s) {
                     if (id == Selectarray[i].id[s]) {
                       return 'select';
@@ -41,6 +40,11 @@
           <view wx:for="{{item.sub}}" wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" data-id="{{subindex}}" data-type="{{index}}" class='screen-tag {{foo.Select(index,subindex,Selectarray)}}' bindtap="ScreenClick">{{sublist}}</view>
           <view class='clear'></view>
         </view>
+      </view>
+      <view class='screen-btn'>
+        <view class='reset' bindtap='reset'>重置</view>
+        <view class='confirm' bindtap='confirm'>确认</view>
+        <view class='clear'></view>
       </view>
     </view>
   </view>

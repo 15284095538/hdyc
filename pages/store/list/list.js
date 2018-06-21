@@ -61,7 +61,7 @@ Page({
     sort: [//筛选
       {
         "text": '门店类型',
-        "sub": ["美容保养", "维修厂", "保养", "美容保养", "维修厂", "保养", "美容保养", "维修厂", "保养"],
+        "sub": ["美容保养", "维修厂", "保养"],
       },
       {
         "text": '到店服务',
@@ -110,6 +110,17 @@ Page({
     menu[that.data.menuIndex].text = text;//改变值
     menu[that.data.menuIndex].key = key;//改变值
     that.setData({ menu });
+    this.listToplayerclick();
+  },
+  Close(e) {//点击关闭遮罩
+    this.listToplayerclick();
+  },
+  CloseStop() { //阻止冒泡事件
+    return true;
+  },
+  listToplayerclick(e) {//点击背景隐藏
+    var that = this;
+    that.setData({ display: 'none', menuid: '99' });
   },
   ScreenClick(e) {// 筛选选中
     var that = this;
@@ -128,10 +139,22 @@ Page({
         }
       }
     }
-    if(has == 0){
+    if (has == 0) {
       Array[type].id.push(id)
     }
-    // Array.push(id);
     that.setData({ Selectarray: Array })
+  },
+  reset() {//筛选重置
+    var that = this;
+    var Array = that.data.Selectarray;
+    for (var i = 0; i < Array.length; ++i) {
+      for (var s = 0; s < Array[i].id.length; ++s) {
+        Array[i].id = [];
+      }
+    }
+    that.setData({ Selectarray: Array })
+  },
+  confirm() {//筛选确定
+    this.listToplayerclick();
   }
 })
