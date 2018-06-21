@@ -1,1 +1,88 @@
-/* pages/index/details/detaols.wxss */
+.indSwiper{
+  width: 100%;
+  height: 420rpx;
+}
+.indSwiper .slide-image{
+  width: 100%;
+  height: 420rpx;
+}
+.detalsCon{
+  padding: 0 30rpx;
+  border-bottom: 20rpx solid #f6f6f6;
+}
+.detalsCon .price{
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #ff7979;
+  font-size: 44rpx;
+}
+.detalsCon .price text{
+  font-size: 28rpx;
+  color: #aeaeae;
+  line-height: 80rpx;
+  margin-left: 30rpx;
+}
+.detalsCon .name{
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  font-size: 36rpx;
+  color: #333;
+}
+.detalsCon .label{
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.detalsCon .label .t{
+  margin-left: 20rpx;
+  float: left;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.detalsCon .label .t image{
+  width: 27rpx;
+  height: 27rpx;
+  vertical-align: middle;
+  margin: 0 10rpx 4rpx 0;
+}
+.detalsAdr{
+  padding: 10rpx 30rpx;
+  border-bottom: 20rpx solid #f6f6f6;
+  position: relative;
+}
+.detalsAdr .name{
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.detalsAdr .adr{
+  height: 80rpx;
+  line-height: 40rpx;
+  font-size: 30rpx;
+  color: #aeaeae;
+  width: 500rpx;
+}
+.detalsAdr .Navigation{
+  width: 100rpx;
+  height: 150rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+  text-align: center;
+  font-size: 30rpx;
+  color: #aeaeae;
+}
+.detalsAdr .Navigation .img{
+  height: 33rpx;
+  line-height: 33rpx;
+  margin-top: 30rpx;
+}
+.detalsAdr .Navigation .img image{
+  width: 33rpx;
+  height: 33rpx;
+}
+.detalsAdr .Navigation .jl{
+  line-height: 40rpx;
+  margin-top: 15rpx;
+}

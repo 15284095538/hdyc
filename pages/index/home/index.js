@@ -17,35 +17,43 @@ Page({
     menu:[//导航
       {
         "path":"/images/menu_10.png",
-        "text":"洗车"
+        "text":"洗车",
+        "link":"/pages/index/list/list"
       },
       {
         "path": "/images/menu_17.png",
-        "text": "养护推荐"
+        "text": "养护推荐",
+        "link": "/pages/index/list/list"
       },
       {
         "path": "/images/menu_05.png",
-        "text": "隐形车衣"
+        "text": "隐形车衣",
+        "link": "/pages/index/list/list"
       },
       {
         "path": "/images/menu_07.png",
-        "text": "汽车除甲醛"
+        "text": "汽车除甲醛",
+        "link": "/pages/index/list/list"
       },
       {
         "path": "/images/menu_19.png",
-        "text": "贴膜"
+        "text": "贴膜",
+        "link": "/pages/index/list/list"
       },
       {
         "path": "/images/menu_16.png",
-        "text": "新车销售"
+        "text": "钣金喷漆",
+        "link": "/pages/index/list/list"
       },
       {
         "path": "/images/menu_17.png",
-        "text": "全车镀晶"
+        "text": "全车镀晶",
+        "link": "/pages/index/list/list"
       },
       {
         "path": "/images/menu_18.png",
-        "text": "车用品购买"
+        "text": "车用品购买",
+        "link": "/pages/index/list/list"
       }
     ],
     newcar:[// 新车购买
@@ -90,9 +98,10 @@ Page({
       isChecked: true
     })
   },
-  menulink(){//导航跳转
+  menulink(e){//导航跳转
+    var link = e.currentTarget.dataset.link;
     wx.navigateTo({
-      url: '/pages/index/list/list'
+      url: link
     })
   }
 })
