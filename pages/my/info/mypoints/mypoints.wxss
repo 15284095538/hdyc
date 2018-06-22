@@ -46,12 +46,11 @@
 }
 .mypoints .tuijian{
   font-size: 28rpx;
-  width: 690rpx;
   height: 327rpx;
-  margin-left: 30rpx;
 }
 .tuijian .wntj{
   float: left;
+  margin-left: 30rpx;
   margin-top: 2rpx;
 }
 .tuijian .gd{
@@ -63,11 +62,13 @@
   float: right;
   width: 18rpx;
   height: 33rpx;
+  margin-right: 30rpx;
 }
 .tuijian .tuitu{
   background: #fff;
   height: 208rpx;
   margin-top: 15rpx;
+  padding-left: 30rpx;
   padding-top: 30rpx;
 }
 .tuitu .xiao{

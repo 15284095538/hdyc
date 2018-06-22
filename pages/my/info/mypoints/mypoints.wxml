@@ -45,7 +45,7 @@
         <view class='xiao'>
           <image src='/images/car_03.png'></image>
           <view>只能后视镜</view>
-        </view>
+        </view> 
       </block>
     </view>
   </view>
