@@ -4,47 +4,46 @@
   background-color: #f6f6f6;
 }
 
-.conter {
+.body .conter {
   height: 400rpx;
   width: 100%;
 }
 
-.swiper {
+.body .swiper {
   height: 400rpx;
 }
 
-.slide-image {
+.body .slide-image {
   width: 100%;
   height: 400rpx;
 }
 
-.address {
+.body .address {
   height: 170rpx;
-  width: 100%;
   background-color: #fff;
 }
 
-.clear {
+.body .clear {
   clear: both;
 }
 
-.adress_left {
-  width: 70%;
+.body .adress_left {
+  width: 377rpx;
 }
 
-.adress_left image {
-  float: left;
+.body .adress_left image {
+  position: absolute;
   padding-top: 30rpx;
+  margin-left: 10rpx;
 }
 
-.name {
+.body .name {
   float: left;
   padding-top: 30rpx;
   padding-left: 20rpx;
 }
 
-.adressName {
-  width: 70%;
+.body .adressName {
   font-size: 28rpx;
   padding-top: 10rpx;
   padding-left: 20rpx;
@@ -56,45 +55,44 @@
   -webkit-box-orient: vertical;
 }
 
-.address_right {
+.body .address_right {
   position: absolute;
   top: 440rpx;
-  left: 85%;
+  left: 633rpx;
   font-size: 28rpx;
   color: #d7d7d7;
   text-align: center;
 }
 
-.address_right image {
+.body .address_right image {
   width: 30rpx;
   height: 30rpx;
 }
 
-.pic {
+.body .pic {
   width: 35rpx;
   height: 30rpx;
 }
 
-.navbar{ 
- display: flex; 
- width: 100%; 
+.body .navbar{ 
+ display: flex;
  flex-direction: row; 
  line-height: 80rpx; 
   
 } 
-.navbar .item{ 
+.body .navbar .item{ 
  flex: auto; 
  font-size: 30rpx; 
  text-align: center; 
  background: #fff; 
  font-weight: bold; 
 } 
-.navbar .item.active{ 
+.body .navbar .item.active{ 
  color: #11a8e1; 
  position: relative; 
+ border-bottom: 5rpx solid #11a8e1;
 } 
-.navbar .item.active::after{ 
- content: ""; 
+.body .navbar .item.active::after{ 
  display: block; 
  position: absolute; 
  height: 4rpx; 
@@ -103,32 +101,32 @@
  right: 0; 
  background: #11a8e1; 
 } 
-.first {
+.body .first {
   background-color: #fff;
   height: 550rpx;
-  width: 100%;
+  
   /* border-bottom: 2px solid #ccc; */
 }
 
-.type {
-  width: 25%;
+.body .type {
+  width: 180rpx;
   height: 200rpx;
   text-align: center;
   float: left;
 }
 
-.type image {
+.body .type image {
   padding-top: 40rpx;
   width: 85rpx;
   height: 85rpx;
   padding-bottom: 20rpx;
 }
 
-.secend {
+.body .secend {
   background-color: #fff;
 }
 
-.fotter {
+.body .fotter {
   height: 50rpx;
   text-align: center;
   width: 80%;
@@ -140,97 +138,98 @@
   color: #11a8e1;
 }
 
-.fl {
+.body .fl {
   background-color: #fff;
 }
 
-.tou {
-  width: 100%;
-  padding-top: 15rpx;
+.body .tou {
+  padding-top: 25rpx;
+
 }
 
-.q {
+.body .q {
   float: left;
   font-size: 30rpx;
   padding-left: 30rpx;
 }
 
-.h {
+.body .h {
   float: right;
   font-size: 30rpx;
 }
 
-.nu {
+.body .nu {
   color: #11a8e1;
 }
 
-.h image {
+.body .h image {
   width: 15rpx;
   height: 25rpx;
   padding-right: 30rpx;
   padding-left: 10rpx;
 }
-.ping{
-  width: 92%;
+.body .ping{
+  padding-left: 30rpx;
   font-size: 28rpx;
-  margin: 35rpx auto 0 auto;
+  border-top: 1px solid #d7d7d7;
+  margin: 25rpx auto 0 auto;
 }
-.npic{
+.body .npic{
   width: 90rpx;
   height: 90rpx;
   float: left;
   border-radius: 45rpx;
   border: 1px solid #ccc;
 }
-.name1{
+.body .name1{
   float: left;
-  width: 82%;
+  width: 577rpx;
   margin-left: 20rpx;
 }
-.name1 image{
+.body .name1 image{
   width: 26rpx;
   height: 26rpx;
   float: left;
 }
-.uname{
+.body .uname{
   margin-top: 15rpx;
   font-size: 28rpx;
 }
-.stars{
+.body .stars{
     width: 26rpx;
     height: 26rpx;
     float: left;
     margin-left: 5rpx;
     transition: 600ms;
 }
-.on{
+.body .on{
    display: block;
    margin-top: -26rpx;
 }
-.xing{
+.body .xing{
   margin-top: -26rpx;
   display: none;
 }
-.times{
+.body .times{
   float: right;
   font-size: 28rpx;
   color: #d7d7d7;
 }
-.ptext{
-  width: 84%;
+.body .ptext{
+  width: 577rpx;
   margin-left: 16%;
   margin-top: 20rpx;
 }
-.ptext image{
+.body .ptext image{
  width: 165rpx;
  height: 165rpx;
  margin-right: 25rpx;
  margin-top: 20rpx;
 }
-.fwtype{
+.body .fwtype{
   color: #aeaeae;
 }
-.dpl{
+.body .dpl{
   margin-top: 20rpx;
   padding-bottom: 20rpx;
   border-bottom: 1px solid #ccc;
