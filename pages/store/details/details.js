@@ -19,71 +19,70 @@ Page({
     currentIndex: 0,//tabbar索引 
     address:{
       'da':'成都市邛崃市老陈大路462号天和车王养护（汇蜀路口）',
-      'sn':'邛崃市天河车王养护'
+      'sn':'邛崃市天河车王养护',
+      "grade": 1
     },
-    pics:[
-      '../../../images/pics.png'
-    ],
+   
     fulb:[
       {
-        "fulbp": "../../../images/menu_03.png",
+        "fulbp": "/images/menu_03.png",
         "fwlbc":"洗车"
       },
      {
-        "fulbp": "../../../images/menu_03.png",
+        "fulbp": "/images/menu_03.png",
         "fwlbc": "洗车"
       },
       {
-       "fulbp": "../../../images/menu_03.png",
+       "fulbp": "/images/menu_03.png",
        "fwlbc": "洗车"
      },
      {
-        "fulbp": "../../../images/menu_03.png",
+        "fulbp": "/images/menu_03.png",
         "fwlbc": "洗车"
       },
       {
-       "fulbp": "../../../images/menu_03.png",
+       "fulbp": "/images/menu_03.png",
        "fwlbc": "洗车"
      },
      {
-        "fulbp": "../../../images/menu_03.png",
+        "fulbp": "/images/menu_03.png",
         "fwlbc": "洗车"
       },
       {
-       "fulbp": "../../../images/menu_03.png",
+       "fulbp": "/images/menu_03.png",
        "fwlbc": "洗车"
      },
      {
-        "fulbp": "../../../images/menu_03.png",
+        "fulbp": "/images/menu_03.png",
         "fwlbc": "洗车"
       }
     ],
     pinglun:[
       {
-        npic:'../../../images/car_03.png',
+        npic:'/images/car_03.png',
         name:'李小姐',
         flag:'4',
         time:'2018-05-21',
         message:'每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
         pic:[
-          '../../../images/car_03.png',
-          '../../../images/car_03.png',
-          '../../../images/car_03.png',
-          '../../../images/car_03.png',
+          '/images/car_03.png',
+          '/images/car_03.png',
+          '/images/car_03.png',
+          '/images/car_03.png',
         ],
         stype:'标准洗车'
       },
       {
-        npic: '../../../images/car_03.png',
+        npic: '/images/car_03.png',
         name: '李小姐',
         flag: '4',
         time: '2018-05-21',
         message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
         pic: [
-          '../../../images/car_03.png',
-          '../../../images/car_03.png',
-          '../../../images/car_03.png',
-          '../../../images/car_03.png',
+          '/images/car_03.png',
+          '/images/car_03.png',
+          '/images/car_03.png',
+          '/images/car_03.png',
         ],
         stype: '标准洗车'
       },

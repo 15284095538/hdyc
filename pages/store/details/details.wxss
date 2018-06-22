@@ -71,8 +71,8 @@
 }
 
 .pic {
-  width: 37rpx;
-  height: 27rpx;
+  width: 35rpx;
+  height: 30rpx;
 }
 
 .navbar{ 
@@ -197,7 +197,6 @@
   font-size: 28rpx;
 }
 .stars{
-    /* background:url("../../../images/start.png"); */
     width: 26rpx;
     height: 26rpx;
     float: left;

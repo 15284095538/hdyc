@@ -12,12 +12,12 @@
   <view class='address'>
     <view class='adress_left'>
       <view class='name'>{{address.sn}}</view>
-      <image src='{{pics}}' class='pic' />
+      <image src='/images/grade_0{{address.grade}}.png' class='pic' />
       <view class='clear'></view>
       <view class='adressName'>{{address.da}}</view>
     </view>
     <view class='address_right'>
-      <image src='../../../images/dh.png'></image>
+      <image src='/images/dh.png'></image>
       <view>1.3km</view>
       <view>导航</view>
     </view>
@@ -63,24 +63,24 @@
                 <view class='uname'>{{item.name}}</view>
                 <view style='margin-top:10rpx;'>
                   <view class="stars">
-                    <image src='../../../images/start.png'></image>
-                    <image class=" {{item.flag>=1? 'on': 'xing'}} " src='../../../images/rstart.png'></image>
+                    <image src='/images/start.png'></image>
+                    <image class=" {{item.flag>=1? 'on': 'xing'}} " src='/images/rstart.png'></image>
                   </view>
                   <view class="stars ">
-                    <image src='../../../images/start.png'></image>
-                    <image class="{{item.flag>=2? 'on': 'xing'}}  " src='../../../images/rstart.png'></image>
+                    <image src='/images/start.png'></image>
+                    <image class="{{item.flag>=2? 'on': 'xing'}}  " src='/images/rstart.png'></image>
                   </view>
                   <view class="stars">
-                    <image src='../../../images/start.png'></image>
-                    <image class=" {{item.flag>=3? 'on': 'xing'}}  " src='../../../images/rstart.png'></image>
+                    <image src='/images/start.png'></image>
+                    <image class=" {{item.flag>=3? 'on': 'xing'}}  " src='/images/rstart.png'></image>
                   </view>
                   <view class="stars ">
-                    <image src='../../../images/start.png'></image>
-                    <image class="  {{item.flag>=4? 'on': 'xing'}}" src='../../../images/rstart.png'></image> 
+                    <image src='/images/start.png'></image>
+                    <image class="  {{item.flag>=4? 'on': 'xing'}}" src='/images/rstart.png'></image> 
                   </view>
                   <view class="stars ">
-                    <image src='../../../images/start.png'></image>
-                    <image class=" {{item.flag>=5? 'on': 'xing'}} " src='../../../images/rstart.png'></image>
+                    <image src='/images/start.png'></image>
+                    <image class=" {{item.flag>=5? 'on': 'xing'}} " src='/images/rstart.png'></image>
                   </view>
                   <view class='times'>{{item.time}}</view>
                 </view>
