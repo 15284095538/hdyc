@@ -40,29 +40,16 @@
   width: 577rpx;
   margin-left: 20rpx;
 }
-.content .name1 image{
-  width: 26rpx;
-  height: 26rpx;
-  float: left;
-}
 .content .uname{
   margin-top: 15rpx;
   font-size: 28rpx;
 }
-.content .stars{
+.content .stars image{
     width: 26rpx;
     height: 26rpx;
-    float: left;
     margin-left: 5rpx;
     transition: 600ms;
-}
-.content .on{
-   display: block;
-   margin-top: -26rpx;
-}
-.content .xing{
-  margin-top: -26rpx;
-  display: none;
+    display: inline-block;
 }
 .content .times{
   float: right;

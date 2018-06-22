@@ -18,25 +18,14 @@
                 <view class='uname'>{{item.name}}</view>
                 <view style='margin-top:10rpx;'>
                   <view class="stars">
-                    <image src='../../../images/start.png'></image>
-                    <image class=" {{item.flag>=1? 'on': 'xing'}} " src='../../../images/rstart.png'></image>
-                  </view>
-                  <view class="stars ">
-                    <image src='../../../images/start.png'></image>
-                    <image class="{{item.flag>=2? 'on': 'xing'}}  " src='../../../images/rstart.png'></image>
-                  </view>
-                  <view class="stars">
-                    <image src='../../../images/start.png'></image>
-                    <image class=" {{item.flag>=3? 'on': 'xing'}}  " src='../../../images/rstart.png'></image>
-                  </view>
-                  <view class="stars ">
-                    <image src='../../../images/start.png'></image>
-                    <image class="  {{item.flag>=4? 'on': 'xing'}}" src='../../../images/rstart.png'></image> 
-                  </view>
-                  <view class="stars ">
-                    <image src='../../../images/start.png'></image>
-                    <image class=" {{item.flag>=5? 'on': 'xing'}} " src='../../../images/rstart.png'></image>
-                  </view>
+                  <block wx:for="{{item.flag}}">
+                    <image src='/images/rstart.png'></image>
+                  </block> 
+                  <block wx:for="{{5 - item.flag}}">
+                    <image src='/images/start.png'></image>
+                  </block>
+                </view>
+                  
                   <view class='times'>{{item.time}}</view>
                 </view>
               </view>
