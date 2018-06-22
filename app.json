@@ -4,6 +4,7 @@
     "pages/index/list/list",
     "pages/index/details/details",
     "pages/index/comment/comment",
+    "pages/index/shoppingcar/shoppingcar",
     "pages/store/home/index",
     "pages/store/list/list",
     "pages/store/details/details",

@@ -1,0 +1,164 @@
+.indSwiper{
+  width: 100%;
+  height: 370rpx;
+}
+.indSwiper .slide-image{
+  width: 100%;
+  height: 370rpx;
+}
+
+.carBt{
+  height: 80rpx;
+  padding: 0 30rpx;
+  background-color: #f6f6f6;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.carBt image{
+  width: 32rpx;
+  height: 36rpx;
+  vertical-align: middle;
+  margin: 0 10rpx 8rpx 0;
+}
+
+.carHote{
+  overflow: hidden;
+}
+.carHote .li{
+  width: 33%;
+  float: left;
+  text-align: center;
+}
+.carHote .li .top{
+  width: 188rpx;
+  height: 37rpx;
+  position: relative;
+  margin: 30rpx auto 20rpx;
+}
+.carHote .li .top image{
+  width: 188rpx;
+  height: 37rpx;
+}
+.carHote .li .top text{
+  width: 188rpx;
+  height: 37rpx;
+  line-height: 45rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+}
+.carHote .li .price{
+  font-size: 28rpx;
+  color: #ff7979;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.carHote .li .price text{
+  font-size: 30rpx;
+}
+.carHote .li .name{
+  font-size: 28rpx;
+  color: #333;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.carHote .li .img{
+  margin-top: 10rpx;
+}
+.carHote .li .img image{
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.carscreen .ul{
+  height: 90rpx;
+}
+.carscreen .ul .li{
+  width: 20%;
+  height: 90rpx;
+  float: left;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 90rpx;
+}
+.carscreen .ul .li:first-child{
+  font-weight: bold;
+}
+.carscreen .ul .img{
+  width: 80%;
+  float: right;
+}
+.carscreen .ul .img .m{
+  width: 25%;
+  float: left;
+  height: 90rpx;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.carscreen .ul .img .m image{
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align: middle;
+  margin: 0 10rpx 7rpx 0;
+}
+.carscreenCar{
+  padding: 0 30rpx;
+}
+.carscreenCar .li{
+  width: 343rpx;
+  float: left;
+  border-top: 1rpx solid #f6f6f6;
+  border-left: 1px solid #f6f6f6;
+  padding-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+.carscreenCar .li:nth-child(2n-1){
+  border-left: 0;
+}
+.carscreenCar .li .img{
+  text-align: center;
+  margin: 20rpx auto;
+}
+.carscreenCar .li .img image{
+  width: 140rpx;
+  height: 140rpx;
+}
+.carscreenCar .li .name{
+  font-size: 28rpx;
+  color: #333;
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 90%;
+  margin: 0 auto;  
+}
+.carscreenCar .li .cj{
+  font-size: 24rpx;
+  color: #767676;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 90%;
+  margin: 10rpx auto 0;
+}
+.carscreenCar .li .price{
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 90%;
+  margin: 10rpx auto 0;
+}
+.carscreenCar .li .price .l{
+  color: #ff7979;
+  float: left;
+}
+.carscreenCar .li .price .r{
+  float: right;
+}

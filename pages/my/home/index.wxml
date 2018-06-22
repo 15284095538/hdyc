@@ -3,11 +3,11 @@
   <view id='header'>
     <view class='info-box'>
       <view class='info-img left'>
-        <image src="/images/store_menu_01.png"></image>
+        <image src="{{userinfo.path}}"></image>
       </view>
       <view class='info-infos left'>
         <view class='info-name'>
-          大块头
+          {{userinfo.name}}
         </view>
         <view class='info-code'>
           <view class='info-codeimg'>
@@ -15,7 +15,7 @@
           </view>
           <view class='info-codetext'>
             我的邀请码:
-            <text id='code'>X34G7</text>
+            <text id='code'>{{userinfo.code}}</text>
           </view>
         </view>
       </view>
@@ -34,15 +34,15 @@
         </view>
         <view class='archives-info'>
           <view class='archives-info-img left'>
-            <image src="/images/store_menu_01.png"></image>
+            <image src="{{userinfo.card_path}}"></image>
           </view>
           <view class='archives-info-box left'>
             <view class='archives-info-title'>
-              <text class='archives-title-name left'>上海大众-凌渡</text>
-              <text class='archives-title-code right'>川A UIX99</text>
+              <text class='archives-title-name left'>{{userinfo.card_name}}</text>
+              <text class='archives-title-code right'>{{userinfo.card_code}}</text>
             </view>
             <view class='archives-info-subtitle'>
-              2017款 1.8TSI 双离合 330TSI豪华款
+              {{userinfo.card_info}}
             </view>
           </view>
         </view>
@@ -60,12 +60,158 @@
     </view>
     <view class='order-menu row'>
       <view class='col'>
-        <view class='col-3' wx:for="{{usermenu}}" wx:for-index="idx" wx:for-item="item">
+        <view class='col-3' wx:for="{{usermenu}}" wx:for-index="idx" wx:key="index" wx:for-item="item">
           <view class='order-menu-img'>
             <image src="{{item.path}}"></image>
           </view>
           <view class='order-menu-text'>
             {{item.text}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view id='more'>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/wodejifen.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        我的积分
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <text class='number'>{{userinfo.integral}}</text>海豆币
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/gouwuche.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        我的购物车
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/youhuiquan.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        优惠券
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <text class='dian'>·</text>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/wodeziliao.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        我的资料
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/kehufuwu.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        客户服务
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list border-none'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/wodejifen.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        设置
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- business -->
+<view id='business'>
+ <view id='header'>
+    <view class='info-box'>
+      <view class='info-img left'>
+        <image src="{{userinfo.path}}"></image>
+      </view>
+      <view class='info-infos left'>
+        <view class='info-name'>
+          {{userinfo.name}}
+        </view>
+        <view class='info-code'>
+          <view class='info-codeimg'>
+            <image src="/images/tuijianma.png"></image>
+          </view>
+          <view class='info-codetext'>
+            我的邀请码:
+            <text id='code'>{{userinfo.code}}</text>
+          </view>
+        </view>
+      </view>
+      <view class='clear'></view>
+    </view>
+    <view id='archives'>
+      <view class='archives-box'>
+        <view class='archives-title'>
+          <view class='archives-title-text'>
+            当前余额
+          </view>
+          <view class='archives-title-line'>
+            <view class='archives-line'></view>
+            <view class='archives-line'></view>
+          </view>
+        </view>
+        <view class='archives-info'>
+          <view class='archives-business-img left'>
+            <image src="/images/balance.png"></image>
+          </view>
+          <view class='archives-info-box left'>
+            <view class='archives-info-title'>
+              <text class='archives-title-name left'>{{userinfo.card_name}}</text>
+              <text class='archives-title-code right'>{{userinfo.card_code}}</text>
+            </view>
+            <view class='archives-info-subtitle'>
+              {{userinfo.card_info}}
+            </view>
           </view>
         </view>
       </view>
