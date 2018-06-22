@@ -1,0 +1,43 @@
+<swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+  indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
+  interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
+  <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='carBt'>
+  <image src='/images/re@2x.png'></image> 热销推荐
+</view>
+
+<view class='carHote'>
+  <view class='con'>
+    <view class='li' wx:for="{{hotecar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+      <view class='price'>首付<text>￥1.43</text>万</view>
+      <view class='name'>雪佛兰科沃兹</view>
+      <view class='img'> <image src='/images/car_03.png'></image> </view>
+    </view>
+  </view>
+</view>
+
+<view class='carBt'>
+  <image src='/images/bao@2x.png'></image> 爆款推荐
+</view>
+
+<view class='carHote'>
+  <view class='con'>
+    <view class='li' wx:for="{{hotecar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+      <view class='price'>首付<text>￥1.43</text>万</view>
+      <view class='name'>雪佛兰科沃兹</view>
+      <view class='img'> <image src='/images/car_03.png'></image> </view>
+    </view>
+  </view>
+</view>
+
+<view class='carBt'>
+  <image src='/images/jinxuan.png'></image> 精选车型
+</view>
