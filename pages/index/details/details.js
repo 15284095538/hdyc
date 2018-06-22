@@ -44,5 +44,10 @@ Page({
       },
 
     ]
+  },
+  ToPage(){
+    wx.navigateTo({
+      url: '/pages/index/comment/comment'
+    })
   }
 })
