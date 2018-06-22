@@ -73,3 +73,92 @@
   width: 140rpx;
   height: 140rpx;
 }
+
+.carscreen .ul{
+  height: 90rpx;
+}
+.carscreen .ul .li{
+  width: 20%;
+  height: 90rpx;
+  float: left;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 90rpx;
+}
+.carscreen .ul .li:first-child{
+  font-weight: bold;
+}
+.carscreen .ul .img{
+  width: 80%;
+  float: right;
+}
+.carscreen .ul .img .m{
+  width: 25%;
+  float: left;
+  height: 90rpx;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+.carscreen .ul .img .m image{
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align: middle;
+  margin: 0 10rpx 7rpx 0;
+}
+.carscreenCar{
+  padding: 0 30rpx;
+}
+.carscreenCar .li{
+  width: 343rpx;
+  float: left;
+  border-top: 1rpx solid #f6f6f6;
+  border-left: 1px solid #f6f6f6;
+  padding-bottom: 20rpx;
+  margin-top: 10rpx;
+}
+.carscreenCar .li:nth-child(2n-1){
+  border-left: 0;
+}
+.carscreenCar .li .img{
+  text-align: center;
+  margin: 20rpx auto;
+}
+.carscreenCar .li .img image{
+  width: 140rpx;
+  height: 140rpx;
+}
+.carscreenCar .li .name{
+  font-size: 28rpx;
+  color: #333;
+  height: 40rpx;
+  line-height: 40rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  width: 90%;
+  margin: 0 auto;  
+}
+.carscreenCar .li .cj{
+  font-size: 24rpx;
+  color: #767676;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 90%;
+  margin: 10rpx auto 0;
+}
+.carscreenCar .li .price{
+  font-size: 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  width: 90%;
+  margin: 10rpx auto 0;
+}
+.carscreenCar .li .price .l{
+  color: #ff7979;
+  float: left;
+}
+.carscreenCar .li .price .r{
+  float: right;
+}

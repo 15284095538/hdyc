@@ -41,3 +41,60 @@
 <view class='carBt'>
   <image src='/images/jinxuan.png'></image> 精选车型
 </view>
+
+<view class='carscreen'>
+  <view class='ul'>
+    <view class='li'>首付</view>
+    <view class='li'>1万以下</view>
+    <view class='li'>1-2万</view>
+    <view class='li'>2-3万</view>
+    <view class='li'>3万以上</view>
+  </view>
+  <view class='ul'>
+    <view class='li'>月供</view>
+    <view class='li'>2千以下</view>
+    <view class='li'>2-3千</view>
+    <view class='li'>3-4千</view>
+    <view class='li'>4千以上</view>
+  </view>
+  <view class='ul'>
+    <view class='li'>品牌</view>
+    <view class='img'>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+    </view>
+  </view>
+</view>
+
+<view class='carscreenCar'>
+  <view class='li'>
+    <view class='img'> <image src='/images/car_03.png'></image> </view>
+    <view class='name'>2018晶锐Health Plus定制版...</view>
+    <view class='cj'>厂商指导价10.54万</view>
+    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/car_03.png'></image> </view>
+    <view class='name'>2018晶锐Health Plus定制版...</view>
+    <view class='cj'>厂商指导价10.54万</view>
+    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/car_03.png'></image> </view>
+    <view class='name'>2018晶锐Health Plus定制版...</view>
+    <view class='cj'>厂商指导价10.54万</view>
+    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/car_03.png'></image> </view>
+    <view class='name'>2018晶锐Health Plus定制版...</view>
+    <view class='cj'>厂商指导价10.54万</view>
+    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
+  </view>
+</view>
