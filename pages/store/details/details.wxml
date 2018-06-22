@@ -37,8 +37,6 @@
               <view class='text'>{{item.fwlbc}}</view>
             </view>
           </block>
-          <view class='clear'></view>
-          <!-- <view class='fotter'>查看全部服务类别（{{lei}}条）</view> -->
         </view>
    
      
@@ -51,7 +49,6 @@
             </view>
           <view class='clear'></view>
           </view>
-          <view class='clear'></view>
           <view class='ping'>
           <!-- 评论开始 -->
           <block wx:for="{{pinglun}}" wx:key="this" wx:for-item="item" wx:for-index="index">

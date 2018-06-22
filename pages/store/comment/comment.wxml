@@ -1,3 +1,5 @@
+
+<view class='content'>
 <view class='header service_selection'>
 <text data-num="1" class="{{_num==1 ? 'active':''}}" bindtap="click">全部(105)</text>
 <text data-num="2" class="{{_num==2 ? 'active':''}}" bindtap="click">有图(105)</text>
@@ -52,4 +54,5 @@
             
             </view>
             </block>
+            </view>
             </view>
