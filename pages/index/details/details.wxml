@@ -1,4 +1,4 @@
-<swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+<!-- <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
   <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
@@ -23,5 +23,66 @@
   <view class='Navigation'>
     <view class='img'> <image src='/images/dh.png'></image> </view>
     <view class='jl'>1.3km \n\t 导航 </view>
+  </view>
+</view>
+
+<view class='detalsKnow'>
+  <view class='tit'>购买须知</view>
+  <view class='li'>
+    <view class='img'> <image src='/images/shiyongchexing@2x.png'></image> </view>
+    <view class='text'>
+      <view class='t'>适用车型</view>
+      <view class='c'>五座轿车</view>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/youxiaoqi@2x.png'></image> </view>
+    <view class='text'>
+      <view class='t'>有效期</view>
+      <view class='c'>付款成功后七天</view>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/yuyuexinxi@2x.png'></image> </view>
+    <view class='text'>
+      <view class='t'>预约信息</view>
+      <view class='c'>此服务需提前致电门店进行预约</view>
+    </view>
+  </view>
+</view> -->
+
+<view class='detalsPl'>
+  <view class='tou'>
+    <view class='q'>全部评价（105）</view>
+    <view class='h'>好评度
+      <text class='nu'>96%</text>
+      <image src='/images/more.png'></image>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='li' wx:for="{{pinglun}}" wx:for-index="index" wx:for-item="item" wx:key="key" >
+      <view class='portrait'> <image src='{{item.npic}}'></image> </view>
+      <view class='righttext'>
+        <view class='name'>{{item.name}}</view>
+        <view class='Stars'>
+          <view class='img'>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/start.png'></image>
+          </view>
+          <view class='time'>{{item.time}}</view>
+        </view>
+        <view class='text'>{{item.message}}</view>
+        <view class='plimg'>
+          <image src='/images/banner.jpg'></image>
+          <image src='/images/banner.jpg'></image>
+          <image src='/images/banner.jpg'></image>
+          <image src='/images/banner.jpg'></image>
+        </view>
+        <view class='type'>{{item.stype}}</view>
+      </view>
+    </view>
   </view>
 </view>
