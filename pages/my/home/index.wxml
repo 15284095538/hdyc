@@ -1,2 +1,28 @@
 <!--pages/my/home/index.wxml-->
-<text>pages/my/home/index.wxml</text>
+<view id='user'>
+  <view id='header'>
+    <view class='info-box'>
+      <view class='info-img left'>
+        <image src="/images/store_menu_01.png"></image>
+      </view>
+      <view class='info-infos left'>
+        <view class='info-name'>
+          大块头
+        </view>
+        <view class='info-code'>
+          <view class='info-codeimg'>
+            <image src="/images/tuijianma.png"></image>
+          </view>
+          <view class='info-codetext'>
+            我的邀请码:
+            <text id='code'>X34G7</text>
+          </view>
+        </view>
+      </view>
+      <view class='clear'></view>
+    </view>
+    <view id='archives'>
+      <view class='archives-box'></view>
+    </view>
+  </view>
+</view>
