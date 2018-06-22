@@ -1,1 +1,121 @@
 /* pages/my/home/index.wxss */
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+page {
+  background-color: #f6f6f6;
+}
+
+/* user */
+
+#user {
+  position: relative;
+}
+
+#header {
+  height: 330rpx;
+  width: 100%;
+  background-color: #11a8e1;
+}
+
+.info-box {
+  height: 130rpx;
+  padding: 30rpx;
+  padding-top: 100rpx;
+}
+
+.info-img {
+  height: 130rpx;
+  width: 130rpx;
+  margin-right: 30rpx;
+  border-radius: 50%;
+}
+
+.info-img image {
+  width: 100%;
+  height: 100%;
+  border: 4rpx solid #fff;
+  border-radius: 50%;
+}
+
+.info-infos {
+  height: 130rpx;
+  width: calc(100% - 160rpx);
+}
+
+.info-name {
+  width: 100%;
+  height: 65rpx;
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+  color: #fff;
+  line-height: 65rpx;
+}
+
+.info-code {
+  width: 284rpx;
+  margin-top: 6.5rpx;
+  height: 52rpx;
+  background-color: #4481b6;
+  border-radius: 25rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-codeimg {
+  width: 52rpx;
+  height: 52rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.info-codeimg image {
+  width: 22rpx;
+  height: 22rpx;
+  padding: 15rpx;
+}
+
+.info-codetext {
+  width: 232rpx;
+  height: 52rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  line-height: 52rpx;
+  white-space: nowrap;
+  font-size: 22rpx;
+  letter-spacing: 1rpx;
+  color: #fff;
+}
+
+/* archives */
+
+#archives {
+  width: 690rpx;
+  height: 125rpx;
+  background-color: #fff;
+  border-radius: 22rpx;
+  position: absolute;
+  bottom: -62.5rpx;
+  left: calc((100% - 690rpx) / 2);
+  overflow: hidden;
+}
+.archives-box{
+  height: 100%;
+  width: 100%;
+  border-radius: 22rpx;
+}
