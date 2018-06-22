@@ -1,0 +1,116 @@
+.header{
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 25rpx;
+}
+.header text{
+  display: block;
+  float: left;
+ width: 20%;
+ border: 1px solid #eee;
+ font-size: 28rpx;
+ padding: 10rpx 20rpx;
+ margin-right: 5%;
+ margin-top: 30rpx;
+ border-radius: 8rpx;
+}
+.active{
+  background-color: #11a8e1;
+  color: #fff;
+}
+.clear{
+  clear: both;
+}
+.tou {
+  width: 100%;
+  padding-top: 15rpx;
+}
+
+.q {
+  float: left;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+
+.h {
+  float: right;
+  font-size: 30rpx;
+}
+
+.nu {
+  color: #11a8e1;
+}
+
+.h image {
+  width: 15rpx;
+  height: 25rpx;
+  padding-right: 30rpx;
+  padding-left: 10rpx;
+}
+.ping{
+  width: 92%;
+  font-size: 28rpx;
+  margin: 35rpx auto 0 auto;
+}
+.npic{
+  width: 90rpx;
+  height: 90rpx;
+  float: left;
+  border-radius: 45rpx;
+  border: 1px solid #ccc;
+}
+.name1{
+  float: left;
+  width: 82%;
+  margin-left: 20rpx;
+}
+.name1 image{
+  width: 26rpx;
+  height: 26rpx;
+  float: left;
+}
+.uname{
+  margin-top: 15rpx;
+  font-size: 28rpx;
+}
+.stars{
+    /* background:url("../../../images/start.png"); */
+    width: 26rpx;
+    height: 26rpx;
+    float: left;
+    margin-left: 5rpx;
+    transition: 600ms;
+}
+.on{
+   display: block;
+   margin-top: -26rpx;
+}
+.xing{
+  margin-top: -26rpx;
+  display: none;
+}
+.times{
+  float: right;
+  font-size: 28rpx;
+  color: #d7d7d7;
+}
+.ptext{
+  width: 84%;
+  margin-left: 16%;
+  margin-top: 20rpx;
+}
+.ptext image{
+ width: 165rpx;
+ height: 165rpx;
+ margin-right: 25rpx;
+ margin-top: 20rpx;
+}
+.fwtype{
+  color: #aeaeae;
+}
+.dpl{
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ccc;
+}

@@ -146,7 +146,7 @@
 
 .tou {
   width: 100%;
-  padding-top: 10rpx;
+  padding-top: 15rpx;
 }
 
 .q {
@@ -182,17 +182,18 @@
   border-radius: 45rpx;
   border: 1px solid #ccc;
 }
-.name{
+.name1{
   float: left;
-  width: 83%;
-  margin-top: -10rpx;
+  width: 82%;
+  margin-left: 20rpx;
 }
-.name image{
+.name1 image{
   width: 26rpx;
   height: 26rpx;
   float: left;
 }
 .uname{
+  margin-top: 15rpx;
   font-size: 28rpx;
 }
 .stars{
@@ -225,6 +226,7 @@
  width: 165rpx;
  height: 165rpx;
  margin-right: 25rpx;
+ margin-top: 20rpx;
 }
 .fwtype{
   color: #aeaeae;

@@ -38,7 +38,7 @@
             </view>
           </block>
           <view class='clear'></view>
-          <view class='fotter'>查看全部服务类别（{{lei}}条）</view>
+          <!-- <view class='fotter'>查看全部服务类别（{{lei}}条）</view> -->
         </view>
    
      
@@ -49,6 +49,7 @@
               <text class='nu'>96%</text>
               <image src='../../../images/more.png'></image>
             </view>
+          <view class='clear'></view>
           </view>
           <view class='clear'></view>
           <view class='ping'>
@@ -58,7 +59,7 @@
               <view>
                 <image class='npic' src='{{item.npic}}'></image>
               </view>
-              <view class='name'>
+              <view class='name1'>
                 <view class='uname'>{{item.name}}</view>
                 <view style='margin-top:10rpx;'>
                   <view class="stars">
@@ -90,8 +91,7 @@
             <view>{{item.message}}</view>     
              <block wx:for="{{item.pic}}" wx:key="this" wx:for-item="items" wx:for-index="index">
             <image src='{{items}}'></image>
-           
-            </block>
+            </block> 
              <view class='fwtype'>{{item.stype}}</view>
             </view>
            
@@ -101,11 +101,9 @@
             </block>
           <!-- 评论结束 -->
 
-            <view class='fotter'>查看全部评论（{{lei}}条）</view>
+            <view class='fotter' bindtap='ToPage'>查看全部评论</view>
 
           </view>
-
-          
           <view class='clear'></view>
         </view>
      
