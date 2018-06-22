@@ -1,6 +1,5 @@
 // pages/my/home/index.js
 Page({
-
   data: {
     userinfo: {
       "path": "/images/store_menu_01.png",
