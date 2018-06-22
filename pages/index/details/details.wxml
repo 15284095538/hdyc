@@ -85,4 +85,14 @@
       </view>
     </view>
   </view>
+  <view class='fotter' bindtap='ToPage'>查看全部评论</view>
+</view>
+
+<view class='detalsPay'>
+  <view class='price'>实付：<text>¥297.00</text></view>
+  <view class='img'>
+    <image src='/images/tel.png'></image>
+    <view>预约/咨询</view>
+  </view>
+  <view class='pay'>去结算</view>
 </view>
