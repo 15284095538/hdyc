@@ -22,7 +22,53 @@
       <view class='clear'></view>
     </view>
     <view id='archives'>
-      <view class='archives-box'></view>
+      <view class='archives-box'>
+        <view class='archives-title'>
+          <view class='archives-title-text'>
+            爱车档案
+          </view>
+          <view class='archives-title-line'>
+            <view class='archives-line'></view>
+            <view class='archives-line'></view>
+          </view>
+        </view>
+        <view class='archives-info'>
+          <view class='archives-info-img left'>
+            <image src="/images/store_menu_01.png"></image>
+          </view>
+          <view class='archives-info-box left'>
+            <view class='archives-info-title'>
+              <text class='archives-title-name left'>上海大众-凌渡</text>
+              <text class='archives-title-code right'>川A UIX99</text>
+            </view>
+            <view class='archives-info-subtitle'>
+              2017款 1.8TSI 双离合 330TSI豪华款
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view id='order'>
+    <view class='order-title'>
+      <text class='order-title-text left'>我的订单</text>
+      <view class='order-title-more right'>查看更多订单
+        <view class='order-more-img right'>
+          <image src="/images/more.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class='order-menu row'>
+      <view class='col'>
+        <view class='col-3' wx:for="{{usermenu}}" wx:for-index="idx" wx:for-item="item">
+          <view class='order-menu-img'>
+            <image src="{{item.path}}"></image>
+          </view>
+          <view class='order-menu-text'>
+            {{item.text}}
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
