@@ -1,1 +1,41 @@
 /* pages/my/info/infodata/infodata.wxss */
+.myInfo .input {
+  width: 690rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  margin-left: 30rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px #d7d7d7 solid;
+}
+.myInfo .input .word{
+ width: 122rpx;
+ float: left;
+ line-height: 30rpx;
+ margin-top: 40rpx;
+}
+.myInfo .input image{
+ width: 80rpx;
+ height: 80rpx;
+ padding-top: 20rpx;
+ border-radius: 40rpx;
+ float: right;
+ border-bottom: 5px soild #4d4d4d;
+}
+.myInfo .input input{
+  float: right;
+  text-align: right;
+  margin-top: 30rpx;
+}
+.myInfo .input .zname{
+  float: right;
+  text-align: right;
+  margin-top: 40rpx;
+}
+.myInfo .input .sex{
+  float: right;
+  margin-top: 30rpx;
+}
+.myInfo .input .sex radio{
+  margin-left: 15rpx;
+}

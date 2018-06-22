@@ -43,7 +43,7 @@
         <view class='q'>全部评价（105）</view>
         <view class='h'>好评度
           <text class='nu'>96%</text>
-          <image src='../../../images/more.png'></image>
+          <image src='/images/more.png'></image>
         </view>
         <view class='clear'></view>
       </view>

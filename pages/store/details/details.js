@@ -112,7 +112,7 @@ Page({
   },
   ToPage() {
     wx.navigateTo({
-      url: '../comment/comment'
+      url: '/pages/store/comment/comment'
     })
   },
   /**

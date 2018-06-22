@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+        user:{
+          'pic':'/images/car_03.png',
+          'zname':'',
+          'tel':'13618045260',
+          'sex':'女',
+          'usname':'阴雨小城',
+        }
   },
 
   /**
