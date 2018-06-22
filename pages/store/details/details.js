@@ -57,7 +57,7 @@ Page({
       {
         npic:'/images/car_03.png',
         name:'李小姐',
-        flag:'4',
+        flag:5,
         time:'2018-05-21',
         message:'每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
         pic:[
@@ -71,7 +71,7 @@ Page({
       {
         npic: '/images/car_03.png',
         name: '李小姐',
-        flag: '4',
+        flag: 4,
         time: '2018-05-21',
         message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
         pic: [
