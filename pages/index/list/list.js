@@ -60,7 +60,18 @@ Page({
       {
         "text": "评分最高"
       }
-    ]
+    ],
+    list:[
+      {
+        "path":"/images/banner.jpg",
+        "name":'全车打蜡',
+        "num":'3.55',
+        "order":"43",
+        "address":"成都市崇州市老陈大路462号（汇蜀路口）",
+        "price":"￥80.00",
+        "jl":"1.3km",
+      }
+    ],
   },
   onReady: function () {
     this.animation = wx.createAnimation({
@@ -80,19 +91,21 @@ Page({
     var that = this;
     var menuid = e.currentTarget.dataset.id;
     var selectkey = e.currentTarget.dataset.key;
+    var menulist;
+    if (menuid == 0 ){
+      menulist = that.data.city 
+    } else if (menuid == 1 ){
+      menulist = that.data.listtype
+    }else{
+      menulist = that.data.sort
+    }
     that.setData({
       menuid: menuid,
-      display:'block',
+      display: 'block',
       menuIndex: menuid,
+      layerid: selectkey,
+      menulist: menulist
     });
-    if (menuid == 0 ){
-      that.setData({ menulist: that.data.city });
-    } else if (menuid == 1 ){
-      that.setData({ menulist: that.data.listtype });
-    }else{
-      that.setData({ menulist: that.data.sort });
-    }
-    that.setData({ layerid: selectkey});
   },
   listToplayerclick(e){//点击背景隐藏
     var that = this;
@@ -106,5 +119,10 @@ Page({
     menu[that.data.menuIndex].text = text;//改变值
     menu[that.data.menuIndex].key = key;//改变值
     that.setData({ menu });
+  },
+  detLink(e){ //详情
+    wx.navigateTo({
+      url: '/pages/index/details/details'
+    })
   }
 })
