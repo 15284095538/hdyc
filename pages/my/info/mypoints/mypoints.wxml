@@ -1,0 +1,52 @@
+<view class='mypoints'>
+  <!-- 头部 -->
+  <view class='header'>
+    <view class='nei'>
+      <view class='pic'>
+        <image class='pic' src='/images/car_03.png'></image>
+      </view>
+      <view class='text'>
+        <view class='name'>阴雨小城</view>
+        <view class='number'>5429
+          <text>海豆币</text>
+        </view>
+      </view>
+      <image class='more' src='/images/more_bai.png'></image>
+    </view>
+  </view>
+  <!-- 头部结束 -->
+  <!-- 推荐 -->
+  <view class='tuijian'>
+    <view class='tou'>
+      <view class='wntj'>为你推荐</view>
+      <image src='/images/more.png'></image>
+      <view class='gd'>更多</view>
+      <view style='clear:both;'></view>
+    </view>
+    <view class='tuitu'>
+      <block wx:for="{{4}}">
+        <view class='xiao'>
+          <image src='/images/car_03.png'></image>
+          <view>只能后视镜</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 兑换 -->
+  <view class='tuijian'>
+    <view class='tou'>
+      <view class='wntj'>超值推荐</view>
+      <image src='/images/more.png'></image>
+      <view class='gd'>更多</view>
+      <view style='clear:both;'></view>
+    </view>
+    <view class='tuitu'>
+      <block wx:for="{{4}}">
+        <view class='xiao'>
+          <image src='/images/car_03.png'></image>
+          <view>只能后视镜</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -10,6 +10,7 @@
     "pages/store/comment/comment",
     "pages/my/home/index",
     "pages/my/info/infodata/infodata",
+    "pages/my/info/mypoints/mypoints",
     "pages/my/business/mystore/mystore"
   ],
   "tabBar": {
