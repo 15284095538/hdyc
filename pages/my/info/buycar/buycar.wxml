@@ -10,7 +10,7 @@
   <view wx:for="{{carts}}"  wx:key="this">
     <view class="cart_container">
       <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
-      <view style='width:60rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
+      <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
       <image class="item-image" src="{{item.pic}}"></image>
 
       <view class="column">
