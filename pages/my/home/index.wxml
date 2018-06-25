@@ -239,7 +239,7 @@
   <view id='archivesmore'>
     <view class='more-list'>
       <view class='more-list-img left'>
-        <image class='max' src='/images/wodejifen.png'></image>
+        <image class='max' src='/images/wodehuiyuan.png'></image>
       </view>
       <view class='more-list-text left'>
         我的会员
@@ -255,7 +255,7 @@
     </view>
     <view class='more-list'>
       <view class='more-list-img left'>
-        <image class='max' src='/images/gouwuche.png'></image>
+        <image class='max' src='/images/wodemendian.png'></image>
       </view>
       <view class='more-list-text left'>
         我的门店
@@ -270,7 +270,7 @@
     </view>
     <view class='more-list'>
       <view class='more-list-img left'>
-        <image class='max' src='/images/wodeziliao.png'></image>
+        <image class='max' src='/images/wodezhanghu.png'></image>
       </view>
       <view class='more-list-text left'>
         我的账户
@@ -285,7 +285,7 @@
     </view>
     <view class='more-list border-none'>
       <view class='more-list-img left'>
-        <image class='max' src='/images/kehufuwu.png'></image>
+        <image class='max' src='/images/shangjiajinhuo.png'></image>
       </view>
       <view class='more-list-text left'>
         商家进货
