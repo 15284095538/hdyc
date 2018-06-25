@@ -5,6 +5,9 @@
     "pages/index/details/details",
     "pages/index/comment/comment",
     "pages/index/buycar/home/home",
+    "pages/index/buycar/list/list",
+    "pages/index/buycar/details/details",
+    "pages/index/buycar/payinformation/payinformation",
     "pages/store/home/index",
     "pages/store/list/list",
     "pages/store/details/details",
@@ -16,11 +19,9 @@
     "pages/my/info/setup/setup",
     "pages/my/info/carlove/carlove",
     "pages/my/business/mystore/mystore",
-    "pages/index/buycar/list/list",
     "pages/my/info/buycar/buycar",
-    "pages/index/buycar/details/details",
-    "pages/index/buycar/payinformation/payinformation",
-    "pages/my/info/coupon/coupon"
+    "pages/my/info/coupon/coupon",
+    "pages/index/washcar/list/list"
   ],
   "tabBar": {
     "color": "#7f7f7f",
