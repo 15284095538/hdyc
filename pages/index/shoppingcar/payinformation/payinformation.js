@@ -1,66 +1,20 @@
-// pages/index/shoppingcar/payinformation/payinformation.js
+// pages/store/list/list.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    listCon: [
+      {
+        "path": '/images/car_03.png',
+        "name": '晶锐Health Plus定制版',
+        "cs": "厂商指导价10.54万",
+        "l": "￥0.81万",
+        "r": "1681元"
+      }
+    ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
+  onLoad() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
   }
 })
