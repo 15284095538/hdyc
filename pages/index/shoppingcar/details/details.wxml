@@ -1,2 +1,126 @@
-<!--pages/index/shoppingcar/details/details.wxml-->
-<text>pages/index/shoppingcar/details/details.wxml</text>
+ <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+  indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
+  interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
+  <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='detalisTop'>
+  <view class='price'>
+    <view class='p'>￥11.84万</view>
+    <view class='r'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+  </view>
+  <view class='name'>别克威朗2018款Health Plus定制版别克威</view>
+  <view class='det'>
+    <text class='l'>首付:￥1.2万</text>
+    <text class='c'>月供:1761元</text>
+    <text class='r'>四川成都</text>
+  </view>
+</view>
+
+<view class='detalisbody'>
+  <view class='li'>
+    <view class='l'>优惠券</view>
+    <view class='r'> <image src='/images/more.png'></image> </view>
+    <view class='c'>暂无优惠券可用</view>
+  </view>
+  <view class='li' catchtap='layerColorclick'>
+    <view class='l'>已选</view>
+    <view class='r'> <image src='/images/more.png'></image> </view>
+    <view class='c'>玛瑙红</view>
+  </view>
+  <view class='li' catchtap='layerLiftcarclick'>
+    <view class='l'>提车流程</view>
+    <view class='r'> <image src='/images/more.png'></image> </view>
+    <view class='c'></view>
+  </view>
+  <view class='li'>
+    <view class='l'>分期付款方案</view>
+    <view class='r'> <image src='/images/more.png'></image> </view>
+    <view class='c'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+  </view>
+</view>
+
+<view class='detalifot'>
+  <view class='li'>
+    <view><image src='/images/tel.png'></image></view>
+    <view>在线咨询</view>
+  </view>
+  <view class='li'>加入购物车</view>
+  <view class='li'>1.2万开回家</view>
+</view>
+
+<view class='detalisCon'>
+  <view class='tit'>----- 商品图片 -----</view>
+</view>
+
+
+
+<!-- 颜色选择 -->
+<view class='layerColor {{layerColorDisplay}} ' catchtap='bglayerColorclick' >
+  <view class='box'>
+    <view class='sp'>
+      <view class='img'><image src='/images/banner.jpg'></image></view>
+      <view class='xq'>
+        <view class='t'>￥11.84万</view>
+        <view class='t'>库存：12辆</view>
+        <view class='t'>已选：玛瑙红</view>
+      </view>
+      <view class='close' catchtap='closelayerColor' > <image src='/images/cha@3x.png'></image> </view>
+    </view>
+    <view class='bt'>车身颜色：</view>
+    <view class='ul'>
+      <view class='li select'>玛瑙红</view>
+      <view class='li'>玛瑙红</view>
+      <view class='li'>玛瑙红</view>
+      <view class='li'>玛瑙红</view>
+      <view class='li'>玛瑙红</view>
+      <view class='li'>玛瑙红</view>
+      <view class='li'>玛瑙红</view>
+    </view>
+    <view class='sure'>确定</view>
+  </view>
+</view>
+
+<!-- 提车流程 -->
+<view class='layerLiftcar {{layerLiftcarDisplay}}' catchtap='bglayerLiftcarclick'>
+  <view class='box'>
+    <view class='top'>
+      <view class='tit'>提车流程</view>
+      <view class='img'><image src='/images/cha@3x.png'></image></view>
+    </view>
+    <view class='ul'>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow1.png'></image></view>
+        <view class='text'>
+          <view class='t'>在线预约</view>
+          <view class='b'>选中意向车型，在线提交手机号、身份证号客服将在24小时内向您核对身份信息</view>
+        </view>
+      </view>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow2.png'></image></view>
+        <view class='text'>
+          <view class='t'>支付定金</view>
+          <view class='b'>身份信息审核通过后在线支付定金</view>
+        </view>
+      </view>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow3.png'></image></view>
+        <view class='text'>
+          <view class='t'>支付费用</view>
+          <view class='b'>再次确定首付和月供方案可线上或线下支付相关费用</view>
+        </view>
+      </view>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow4.png'></image></view>
+        <view class='text'>
+          <view class='t'>坐等提车</view>
+          <view class='b'>车辆完成保险、上牌等相关手续后客服将在第一时间联系您提车，请保持手机通畅</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

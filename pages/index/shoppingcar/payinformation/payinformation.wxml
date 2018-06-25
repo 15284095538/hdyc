@@ -1,0 +1,42 @@
+<view class='listCon'>
+  <view class='li' wx:for="{{listCon}}"  wx:key="this" wx:for-index="index" wx:for-item="item" >
+    <view class='img'> <image src='{{item.path}}'></image> </view>
+    <view class='text'>
+      <view class='name'>{{item.name}}</view>
+      <view class='cs'>{{item.cs}}</view>
+      <view class='price'> <text class='l'>首付{{item.l}}万</text> <text class='r'>月供{{item.r}}</text> </view>
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+    </view>
+  </view>
+</view>
+
+<view class='payxinx'>
+  <view class='li'>
+    <text class='l'>姓名</text>
+    <text class='r'>张峻宁</text>
+  </view>
+  <view class='li'>
+    <text class='l'>手机号</text>
+    <text class='r'>13618045260</text>
+  </view>
+  <view class='li'>
+    <text class='l'>姓名</text>
+    <input class='r' type='number' value='' placeholder='请输入您的身份证号'></input>
+  </view>
+</view>
+
+<view class='paypic'>
+  <view class='tit'>请上传身份证正反面照</view>
+  <view class='pic'>
+    <view class='just'>
+      <view><image src='/images/zhaopian@3x.png' ></image></view>
+      <view>正面</view>
+    </view>
+    <view class='just'>
+      <view><image src='/images/zhaopian@3x.png'></image></view>
+      <view>反面</view>
+    </view>
+  </view>
+</view>
+
+<view class='sure'>定金￥199</view>

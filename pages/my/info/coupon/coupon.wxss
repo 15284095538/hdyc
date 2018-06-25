@@ -1,0 +1,167 @@
+/* pages/my/info/coupon/coupon.wxss */
+
+/* page */
+
+page {
+  background-color: #f6f6f6;
+}
+
+.row {
+  display: block;
+  margin: 0px;
+}
+
+.col {
+  display: flex;
+  font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  height: 100%;
+}
+
+.col>.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9,
+.col-10, .col-11, .col-12 {
+  overflow: hidden;
+}
+
+.col-6 {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.col-4 {
+  width: calc(100% / 3);
+  height: 100%;
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.indent {
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top */
+
+#top {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.top-menu {
+  font-size: 30rpx;
+  line-height: 98rpx;
+  letter-spacing: 3rpx;
+  color: #333;
+  border-bottom: 2rpx solid rgba(0, 0, 0, 0);
+}
+
+#top .select {
+  color: #11a8e1;
+  border-bottom: 2rpx solid #11a8e1;
+}
+
+/* list */
+
+#list {
+  margin-top: 100rpx;
+  padding: 30rpx;
+}
+
+.list {
+  width: 100%;
+  height: 169rpx;
+  background-color: #fff;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.list-money {
+  width: 200rpx;
+  height: 169rpx;
+  background-color: #11a8e1;
+  font-size: 46rpx;
+  text-align: center;
+  line-height: 169rpx;
+  letter-spacing: 0rpx;
+  color: #fff;
+}
+
+.list-info {
+  width: calc(100% - 230rpx);
+  height: 169rpx;
+  padding-left: 30rpx;
+}
+
+.list-info .list-info-condition {
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #333;
+  width: calc(100% - 200rpx);
+  margin-top: 35rpx;
+}
+
+.list-info .list-info-condition1 {
+  font-size: 30rpx;
+  line-height: 50rpx;
+  color: #333;
+  width: calc(100% - 200rpx);
+  margin-top: 15rpx;
+}
+
+.list-info .list-info-time {
+  font-size: 26rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 44rpx;
+  letter-spacing: 0rpx;
+  color: #767676;
+}
+
+.list-info-days {
+  font-size: 20rpx;
+  line-height: 48rpx;
+  letter-spacing: 0rpx;
+  color: #ff7979;
+}
+
+/* 遮罩 */
+
+.mask {
+  width: 100%;
+  height: 169rpx;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-bottom: 30rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.mask-img {
+  width: 122rpx;
+  height: 123rpx;
+  margin: 23rpx 30rpx;
+}
+
+.mask-img image {
+  width: 100%;
+  height: 100%;
+}
