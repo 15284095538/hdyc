@@ -4,7 +4,7 @@
     "pages/index/list/list",
     "pages/index/details/details",
     "pages/index/comment/comment",
-    "pages/index/shoppingcar/shoppingcar",
+    "pages/index/shoppingcar/home/home",
     "pages/store/home/index",
     "pages/store/list/list",
     "pages/store/details/details",
@@ -12,10 +12,16 @@
     "pages/my/home/index",
     "pages/my/info/infodata/infodata",
     "pages/my/info/mypoints/mypoints",
+<<<<<<< HEAD
     "pages/my/info/changpw/changpw",
     "pages/my/info/setup/setup",
     "pages/my/info/carlove/carlove",
     "pages/my/business/mystore/mystore"
+=======
+    "pages/my/business/mystore/mystore",
+    "pages/index/shoppingcar/list/list",
+    "pages/index/shoppingcar/details/details"
+>>>>>>> 5f4aa18316c5d42982bf6e78d4a5278d6097fdef
   ],
   "tabBar": {
     "color": "#7f7f7f",
@@ -46,7 +52,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#11a8e1",
-    "navigationBarTitleText": "海逗养车",
+    "navigationBarTitleText": "海豆养车",
     "navigationBarTextStyle": "white"
   }
 }

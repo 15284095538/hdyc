@@ -1,6 +1,7 @@
 // pages/my/home/index.js
 Page({
   data: {
+    IsUser: false,
     userinfo: {
       "path": "/images/store_menu_01.png",
       "name": "Leslie",
@@ -28,6 +29,18 @@ Page({
         "path": "/images/tuihuanhuo.png",
         "text": "退换货"
       }],
+    archivesIndent: 81923.05,
+    archivesOrder: [{
+      "num": 12,
+      "text": "今日订单"
+    },{
+      "num": 122,
+      "text": "历史订单"
+    }],
+    archivesMember: {
+      "num": 12,
+      "indent": 6201,
+    }
   },
   onLoad: function (options) {
 
