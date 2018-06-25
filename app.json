@@ -17,14 +17,10 @@
     "pages/my/info/carlove/carlove",
     "pages/my/business/mystore/mystore",
     "pages/index/shoppingcar/list/list",
-<<<<<<< HEAD
     "pages/my/info/buycar/buycar",
-    "pages/index/shoppingcar/details/details"
-=======
     "pages/index/shoppingcar/details/details",
     "pages/index/shoppingcar/payinformation/payinformation",
     "pages/my/info/coupon/coupon"
->>>>>>> 398859e11bfe57dfbe47b75532b486fffbde4c91
   ],
   "tabBar": {
     "color": "#7f7f7f",
