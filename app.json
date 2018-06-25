@@ -14,7 +14,8 @@
     "pages/my/info/mypoints/mypoints",
     "pages/my/business/mystore/mystore",
     "pages/index/shoppingcar/list/list",
-    "pages/index/shoppingcar/details/details"
+    "pages/index/shoppingcar/details/details",
+    "pages/index/shoppingcar/payinformation/payinformation"
   ],
   "tabBar": {
     "color": "#7f7f7f",
