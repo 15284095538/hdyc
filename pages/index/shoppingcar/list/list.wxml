@@ -1,2 +1,56 @@
-<!--pages/index/shoppingcar/list/list.wxml-->
-<text>pages/index/shoppingcar/list/list.wxml</text>
+<view class='listTop'>
+  <block wx:for="{{menu}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+    <view bindtap='listTopclick' data-key="{{item.key}}" data-id="{{index}}" class='li {{ index == menuid ? "select":"" }}'>
+      {{item.text}}
+      <image class='img1' src='{{item.path}}'></image>
+      <image class='img2' src='{{item.selectpath}}'></image>
+    </view>
+  </block>
+</view>
+
+<!-- 筛选弹层 -->
+<view class='listToplayer {{display}}' bindtap='layerNone'>
+  <view class='listToplayeranment'>
+    <!-- 品牌 -->
+    <block wx:if="{{menuid == 0 }}" wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
+      <view data-id="{{index}}" catchtap='brandclick' data-text="{{item.text}}" class='li {{ index == layerid ? "select":"" }}'> 
+       <image wx:if="{{ item.path }}" src='{{item.path}}'></image>
+       {{item.text}}
+      </view>
+    </block>
+    <!-- 筛选 -->
+    <view class='screen' wx:if="{{menuid == 1 || menuid == 3}}">
+      <view class='screen-box' wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
+        <view class='screen-title'>
+          {{item.text}}
+        </view>
+        <view class='screen-sub'>
+          <view wx:for="{{item.sub}}" data-menulist='{{index}}' wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" class='screen-tag {{ sublist.key ? "select":"" }}' data-id="{{subindex}}" catchtap="screenclick">{{sublist.text}}</view>
+          <view class='clear'></view>
+        </view>
+      </view>
+      <view class='screen-btn'>
+        <view class='reset' catchtap='reset'>重置</view>
+        <view class='confirm' catchtap='confirm'>确认</view>
+        <view class='clear'></view>
+      </view>
+    </view>
+    <!-- 级别 -->
+    <view wx:if="{{menuid == 2 }}" class='level'>
+      <text catchtap='levelclick' data-index="{{index}}" class='li {{ index == levelid ? "select":"" }}' wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">{{item.text}}</text>
+    </view>
+  </view>
+</view>
+
+
+<view class='listCon'>
+  <view class='li' wx:for="{{listCon}}"  wx:key="this" wx:for-index="index" wx:for-item="item" >
+    <view class='img'> <image src='{{item.path}}'></image> </view>
+    <view class='text'>
+      <view class='name'>{{item.name}}</view>
+      <view class='cs'>{{item.cs}}</view>
+      <view class='price'> <text class='l'>首付{{item.l}}万</text> <text class='r'>月供{{item.r}}</text> </view>
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+    </view>
+  </view>
+</view>
