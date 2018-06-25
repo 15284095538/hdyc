@@ -16,7 +16,11 @@
 .col-10, .col-11, .col-12 {
   overflow: hidden;
 }
-
+.col-6 {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
 .col-3 {
   width: 25%;
   height: 100%;
@@ -35,6 +39,13 @@
   clear: both;
 }
 
+.indent {
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
 page {
   background-color: #f6f6f6;
 }
@@ -42,7 +53,6 @@ page {
 /* user */
 
 #user {
-  display: none;
   position: relative;
 }
 
@@ -395,4 +405,64 @@ page {
   position: absolute;
   top: 22rpx;
   left: 22rpx;
+}
+
+.archives-info-balance {
+  height: 79rpx;
+  line-height: 79rpx;
+  font-size: 48rpx;
+  letter-spacing: -1rpx;
+  color: #11a8e1;
+  max-width: 224rpx;
+}
+
+.archives-info-balance text {
+  font-size: 22rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 48rpx;
+  letter-spacing: 0rpx;
+  color: #5c5c5c;
+}
+
+.archives-info-withdraw {
+  width: 122rpx;
+  height: 45rpx;
+  background-color: rgba(17, 168, 225, 0.9);
+  border-radius: 22rpx;
+  font-size: 22rpx;
+  line-height: 45rpx;
+  letter-spacing: 2rpx;
+  color: #fff;
+  text-align: center;
+  margin-top: 17rpx;
+}
+/* order */
+.order-number{
+  font-size: 20rpx;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #5c5c5c;
+}
+.order-number text{
+  font-size: 45rpx;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #11a8e1;
+}
+.order-text{
+  font-size: 24rpx;
+	line-height: 48rpx;
+	letter-spacing: 0rpx;
+	color: #6d6d6d;
+}
+/* more */
+#archivesmore {
+  width: 690rpx;
+  height: 400rpx;
+  background-color: #fff;
+  border-radius: 22rpx;
+  margin-left: calc((100% - 690rpx) / 2);
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }

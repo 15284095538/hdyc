@@ -1,5 +1,5 @@
 <!--pages/my/home/index.wxml-->
-<view id='user'>
+<view id='user' wx:if="{{IsUser}}">
   <view id='header'>
     <view class='info-box'>
       <view class='info-img left'>
@@ -167,8 +167,8 @@
   </view>
 </view>
 <!-- business -->
-<view id='business'>
- <view id='header'>
+<view id='business' wx:if="{{!IsUser}}">
+  <view id='header'>
     <view class='info-box'>
       <view class='info-img left'>
         <image src="{{userinfo.path}}"></image>
@@ -205,13 +205,95 @@
             <image src="/images/balance.png"></image>
           </view>
           <view class='archives-info-box left'>
-            <view class='archives-info-title'>
-              <text class='archives-title-name left'>{{userinfo.card_name}}</text>
-              <text class='archives-title-code right'>{{userinfo.card_code}}</text>
+            <view class='archives-info-balance left indent'>{{archivesIndent}}
+              <text>元</text>
             </view>
-            <view class='archives-info-subtitle'>
-              {{userinfo.card_info}}
-            </view>
+            <view class='archives-info-withdraw right'>提现</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view id='order'>
+    <view class='order-title'>
+      <text class='order-title-text left'>我的订单</text>
+      <view class='order-title-more right'>查看更多订单
+        <view class='order-more-img right'>
+          <image src="/images/more.png"></image>
+        </view>
+      </view>
+    </view>
+    <view class='order-menu row'>
+      <view class='col'>
+        <view class='col-6' wx:for="{{archivesOrder}}" wx:for-index="idx" wx:key="index" wx:for-item="item">
+          <view class='order-number'>
+            <text>{{item.num}}</text> 笔
+          </view>
+          <view class='order-text'>
+            {{item.text}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view id='archivesmore'>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/wodejifen.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        我的会员
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <text class='number'>{{archivesMember.num}}</text>名，收益<text class='number'>{{archivesMember.indent}}</text>元
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/gouwuche.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        我的门店
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/wodeziliao.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        我的账户
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more-list border-none'>
+      <view class='more-list-img left'>
+        <image class='max' src='/images/kehufuwu.png'></image>
+      </view>
+      <view class='more-list-text left'>
+        商家进货
+      </view>
+      <view class='more-list-icon right'>
+        <view class='more-title-more right'>
+          <view class='more-more-img right'>
+            <image src="/images/more.png"></image>
           </view>
         </view>
       </view>
