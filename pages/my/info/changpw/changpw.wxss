@@ -1,0 +1,32 @@
+.changepw .input {
+  width: 690rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  color: #4d4d4d;
+  margin-left: 30rpx;
+  padding-bottom: 10rpx;
+  border-bottom: 1px #d7d7d7 solid;
+}
+.changepw .input .word{
+ width: 122rpx;
+ float: left;
+ line-height: 30rpx;
+ margin-top: 40rpx;
+}
+.changepw .input input{
+  float: left;
+  margin-left: 55rpx;
+  width: 401rpx;
+  margin-top: 30rpx;
+}
+.changepw .button{
+  position: absolute;
+  top: 1065rpx;
+  left: 30rpx;
+  width: 642rpx;
+  text-align: center;
+  background: #11a8e1;
+  color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
