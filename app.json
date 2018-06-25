@@ -4,7 +4,7 @@
     "pages/index/list/list",
     "pages/index/details/details",
     "pages/index/comment/comment",
-    "pages/index/shoppingcar/home/home",
+    "pages/index/buycar/home/home",
     "pages/store/home/index",
     "pages/store/list/list",
     "pages/store/details/details",
@@ -20,6 +20,10 @@
     "pages/my/info/buycar/buycar",
     "pages/index/shoppingcar/details/details",
     "pages/index/shoppingcar/payinformation/payinformation",
+    "pages/index/buycar/list/list",
+    "pages/my/info/buycar/buycar",
+    "pages/index/buycar/details/details",
+    "pages/index/buycar/payinformation/payinformation",
     "pages/my/info/coupon/coupon"
   ],
   "tabBar": {
