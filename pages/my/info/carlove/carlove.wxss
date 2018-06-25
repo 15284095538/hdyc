@@ -1,0 +1,72 @@
+page{ 
+  background-color:#f6f6f6;
+  height:100%; 
+   }
+.carlove .button{
+  position: absolute;
+  top: 1065rpx;
+  left: 30rpx;
+  width: 642rpx;
+  text-align: center;
+  background: #11a8e1;
+  color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+.carlove .bg{
+  height: 370rpx;
+  background-color: #11a8e1;
+}
+.carlove swiper{
+  height: 298rpx;
+  margin: 0 auto 0 auto;
+  position: relative;
+  top: 200rpx;
+  margin-bottom: 10rpx;
+}
+.carlove .car{
+  width: 493rpx;
+  height: 298rpx;
+  margin: 0 auto;
+  border-radius: 12rpx;
+  background-color: #fff;
+}
+.carlove .carname{
+  width: 110rpx;
+  height: 40rpx;
+  border: 1rpx #11a8e1 solid;
+  position: relative;
+  top: 104rpx;
+  left: 60rpx;
+}
+.carname image{
+  width: 110rpx;
+  height: 40rpx;
+}
+.carlove .ping{
+  font-size: 28rpx;
+  position: relative;
+  top: 54rpx;
+  left: 187rpx;
+}
+.carlove .kuan {
+  font-size: 26rpx;
+  color: #aeaeae;
+  position: relative;
+  top: 72rpx;
+  left: 187rpx;
+}
+.carlove .mr{
+  width: 125rpx;
+  height: 35rpx;
+  font-size: 20rpx;
+  font-weight: bold;
+  background-color: #ff7979;
+  color: #fff;
+  padding: 15rpx 0 0 0;
+  text-align: center;
+  border-radius: 8rpx;
+  position: relative;
+  top: 82rpx;
+  left: 185rpx; 
+}

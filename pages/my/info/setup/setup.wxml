@@ -1,0 +1,15 @@
+<view class='setup'>
+<view bindtap='changepw'class='input'>
+<view  class='word'>修改密码</view> 
+<image src='/images/more.png'></image>
+</view>
+<view class='input'>
+<view class='word'>收货地址</view>
+<image src='/images/more.png'></image>
+</view>
+<view class='input'>
+<view class='word'>关于海豆</view>
+<image src='/images/more.png'></image>
+</view>
+<view class='button'>退出登录</view>
+</view>
