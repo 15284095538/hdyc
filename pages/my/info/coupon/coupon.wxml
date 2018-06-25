@@ -1,0 +1,28 @@
+<!--pages/my/info/coupon/coupon.wxml-->
+<view id='top'>
+  <view class='row'>
+    <view class='col'>
+      <view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='col-4 top-menu {{ index == selectid ? "select":"" }}' data-id='{{index}}' bindtap='ChangeSelect'>
+        {{item.text}}
+        <text wx:if="{{item.num != 0}}">({{item.num}})</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view id='list'>
+  <view wx:for="{{ShowList}}" wx:key="index" wx:for-item="item" class='list'>
+    <view class='list-money left'>
+      {{item.money}}元
+    </view>
+    <view class='list-info right'>
+      <view class='{{ item.days <= 10 && selectid == 0 ? "list-info-condition1":"list-info-condition" }}'>满{{item.condition}}可用</view>
+      <view class='list-info-time'>有效期：{{item.time.str}}-{{item.time.end}}</view>
+      <view class='list-info-days' wx:if="{{item.days <= 10 && selectid == 0 }}">优惠券还有{{item.days}}天将过期，请您尽快使用！</view>
+    </view>
+    <view wx:if="{{selectid != 0}}" class='mask'>
+      <view class='mask-img right'>
+        <image src='/images/mask{{selectid}}.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
