@@ -12,16 +12,13 @@
     "pages/my/home/index",
     "pages/my/info/infodata/infodata",
     "pages/my/info/mypoints/mypoints",
-<<<<<<< HEAD
     "pages/my/info/changpw/changpw",
     "pages/my/info/setup/setup",
     "pages/my/info/carlove/carlove",
-    "pages/my/business/mystore/mystore"
-=======
     "pages/my/business/mystore/mystore",
     "pages/index/shoppingcar/list/list",
+    "pages/my/info/buycar/buycar",
     "pages/index/shoppingcar/details/details"
->>>>>>> 5f4aa18316c5d42982bf6e78d4a5278d6097fdef
   ],
   "tabBar": {
     "color": "#7f7f7f",

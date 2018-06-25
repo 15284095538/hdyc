@@ -1,0 +1,161 @@
+.buycar .cart_container {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #aeaeae;
+}
+
+.buycar .scroll {
+  margin-bottom: 120rpx;
+}
+
+.buycar .column {
+  display: flex;
+  width: 422rpx;
+  margin-left: 20rpx;
+  flex-direction: column;
+}
+
+.buycar .row {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  align-items: center;
+}
+
+.buycar .sku {
+  margin-top: 60rpx;
+  margin-left: 100rpx;
+}
+
+.buycar .sku-price {
+  color: red;
+  position: relative;
+  margin-top: 40rpx;
+}
+
+.buycar .price {
+  color: red;
+  position: relative;
+}
+
+.buycar .title {
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+
+.buycar .xq {
+  font-size: 26rpx;
+  color: #aeaeae;
+  margin-top: 10rpx;
+}
+
+.buycar .small_text {
+  font-size: 28rpx;
+  margin-right: 40rpx;
+  margin-left: 10rpx;
+}
+
+.buycar .item-select {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 90rpx;
+  margin-left: 40rpx;
+}
+
+.buycar .item-allselect {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+
+.buycar .item-image {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx 20rpx 20rpx 40rpx;
+}
+
+.buycar .bottom_line {
+  width: 100%;
+  height: 2rpx;
+  background: lightgray;
+}
+
+.buycar .bottom_total {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  background: white;
+}
+
+.buycar .button-red {
+  background-color: #11a8e1; /* 红色 */
+}
+
+.buycar .button {
+  position: fixed;
+  right: 0;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 30rpx;
+  border-radius: 0rpx;
+  width: 271rpx;
+  height: 120rpx;
+}
+
+.buycar .hj {
+  height: 55rpx;
+  margin-top: -20rpx;
+}
+
+.buycar .js {
+  height: 55rpx;
+  margin-top: -10rpx;
+}
+
+.buycar .navbar {
+  display: flex;
+  flex-direction: row;
+  line-height: 80rpx;
+}
+
+.buycar .navbar .item {
+  flex: auto;
+  font-size: 30rpx;
+  text-align: center;
+  background: #fff;
+  font-weight: bold;
+}
+
+.buycar .navbar .item.active {
+  color: #11a8e1;
+  position: relative;
+  border-bottom: 5rpx solid #11a8e1;
+}
+
+.buycar .navbar .item.active::after {
+  display: block;
+  position: absolute;
+  height: 4rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #11a8e1;
+}
+
+.buycar .yg {
+  color: red;
+  width: 200rpx;
+  position: relative;
+  top: 20rpx;
+  font-size: 30rpx;
+  left: 88rpx;
+}
+
+.buycar .row1 {
+  width: 500rpx;
+}
