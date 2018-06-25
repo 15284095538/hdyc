@@ -13,7 +13,8 @@
     "pages/my/info/infodata/infodata",
     "pages/my/info/mypoints/mypoints",
     "pages/my/business/mystore/mystore",
-    "pages/index/shoppingcar/list/list"
+    "pages/index/shoppingcar/list/list",
+    "pages/index/shoppingcar/details/details"
   ],
   "tabBar": {
     "color": "#7f7f7f",
