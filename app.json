@@ -19,8 +19,7 @@
     "pages/index/shoppingcar/list/list",
     "pages/index/shoppingcar/details/details",
     "pages/index/shoppingcar/payinformation/payinformation",
-    "pages/my/info/coupon/coupon",
-    "pages/index/shoppingcar/details/details"
+    "pages/my/info/coupon/coupon"
   ],
   "tabBar": {
     "color": "#7f7f7f",
