@@ -56,7 +56,7 @@
         "selectedIconPath": "/images/bar_13.png"
       },
       {
-        "pagePath": "pages/index/home/index",
+        "pagePath": "pages/my/home/index",
         "text": "我的",
         "iconPath": "/images/bar_07.png",
         "selectedIconPath": "/images/bar_14.png"
