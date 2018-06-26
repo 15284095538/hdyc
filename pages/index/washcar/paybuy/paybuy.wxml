@@ -1,0 +1,27 @@
+<view class="info">
+  <view class='tit'>基本信息</view>
+  <view class='int'>
+    <view class='text'>服务门店</view>
+    <view class='name'>成都剑南大道店</view>
+  </view>
+
+  <view class='int'>
+    <view class='text'>联系电话</view>
+    <view class='name'>13618045260</view>
+  </view>
+  <view class='int'>
+    <view class='text'>联系人</view>
+    <input placeholder='联系人' class='name'></input>
+  </view>
+
+  <view class='tit'>服务项目</view>
+  <view class='int'>
+    <view class='text'>普通洗车</view>
+    <view class='name price'>￥30.00</view>
+  </view>
+
+  <view class='fot'>
+    <view class='l'>在线支付：<text>¥30.00</text></view>
+    <view class='r'>去支付</view>
+  </view>
+</view>

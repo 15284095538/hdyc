@@ -19,7 +19,7 @@
     "pages/my/info/setup/setup",
     "pages/my/info/carlove/carlove",
     "pages/my/business/mystore/mystore",
-    "pages/my/info/buycar/buycar",
+    "pages/my/info/shoppingcar/shoppingcar",
     "pages/my/info/coupon/coupon",
     "pages/index/washcar/list/list",
     "pages/index/washcar/details/details",
@@ -27,7 +27,10 @@
     "pages/index/washcar/payinformation/payinformation",
     "pages/my/business/balance/balance",
     "pages/my/business/withdraw/withdraw",
-    "pages/my/business/member/member"
+    "pages/my/business/member/member",
+    "pages/index/washcar/payselect/payselect",
+    "pages/index/washcar/paybuy/paybuy",
+    "pages/index/suppliescar/list/list"
   ],
   "tabBar": {
     "color": "#7f7f7f",

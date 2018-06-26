@@ -159,3 +159,15 @@
 .buycar .row1 {
   width: 500rpx;
 }
+
+.buycar .del {
+  background-color: #e64340;
+  width: 180rpx;
+  z-index: 4;
+  right: 0;
+  color: #fff;
+  display: none;
+  padding-top: 80rpx;
+  padding-left: 70rpx;
+}
+
