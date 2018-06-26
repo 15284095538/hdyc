@@ -6,8 +6,8 @@
   </view>
   <view class='int'>
     <view class='text'>服务门店</view>
-    <picker mode="date" value="time" bindchange="bindDateChange">
-      <view class='name picker'>请选择时间</view>
+    <picker mode="multiSelector" value="{{dateTime}}" bindchange="changeDateTime" bindcolumnchange="changeDateTimeColumn" range="{{dateTimeArray}}">
+      <view class='name picker'>{{dateTimeArray[0][dateTime[0]]}}-{{dateTimeArray[1][dateTime[1]]}}-{{dateTimeArray[2][dateTime[2]]}} {{dateTimeArray[3][dateTime[3]]}}:{{dateTimeArray[4][dateTime[4]]}}</view>
     </picker>
   </view>
   <view class='int'>
@@ -26,7 +26,9 @@
   <view class='int'>
     <view class='text'>联系电话</view>
     <input placeholder='请输入车牌号' style='width:180rpx;' class='name'></input>
-    <view class='carp'>川</view>
+    <picker mode="selector" range="{{range}}" >
+      <view class='carp'>川</view>
+    </picker>
   </view>
   <view class='tit'>服务项目</view>
   <view class='int'>
