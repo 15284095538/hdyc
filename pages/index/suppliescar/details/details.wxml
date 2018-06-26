@@ -1,4 +1,4 @@
- <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+<swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
   <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
@@ -77,11 +77,9 @@
   </view>
   <view class='fotter' bindtap='ToPage'>查看全部评论</view>
 
-  <scroll-view scroll-y style="height: 50px;" >
-    11111111
-  </scroll-view>
 
   <view class='upMore' > <image src='/images/up.png'></image> 上拉查看商品详情</view>
+
 
 </view>
 

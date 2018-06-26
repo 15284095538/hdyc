@@ -12,10 +12,10 @@ Page({
         '/images/banner.jpg',
         '/images/banner.jpg'
       ],
-      
     },
     layerColorDisplay:'none',
     layerLiftcarDisplay: 'none',
+    upMoreDisplay:'none',
     cans: [
       {
         "bt": "套餐分类",
@@ -70,7 +70,7 @@ Page({
         stype: '标准洗车'
       },
 
-    ]
+    ],
   },
   layerColorclick(e){
     this.setData({ layerColorDisplay:'block' })
@@ -87,7 +87,4 @@ Page({
   layerLiftcarclick(e){
     this.setData({ layerLiftcarDisplay: 'block' })
   },
-  onReachBottom(e){
-    console.log( e )
-  }
 })
