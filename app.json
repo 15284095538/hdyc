@@ -21,12 +21,13 @@
     "pages/my/business/mystore/mystore",
     "pages/my/info/shoppingcar/shoppingcar",
     "pages/my/info/coupon/coupon",
-    "pages/index/washcar/list/list" ,
+    "pages/index/washcar/list/list",
     "pages/index/washcar/details/details",
     "pages/index/washcar/comment/comment",
     "pages/index/washcar/payinformation/payinformation",
     "pages/my/business/balance/balance",
-    "pages/my/business/withdraw/withdraw"
+    "pages/my/business/withdraw/withdraw",
+    "pages/index/washcar/payselect/payselect"
   ],
   "tabBar": {
     "color": "#7f7f7f",
