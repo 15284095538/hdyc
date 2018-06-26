@@ -1,0 +1,9 @@
+<!--pages/my/business/order/order.wxml-->
+<view id='order'>
+  <view class='order-list'>
+    <view class='order-title'>
+      <view class='order-ns left'>订单编号：TH28497737</view>
+      <view class='order-status right'>已到店</view>
+    </view>
+  </view>
+</view>
