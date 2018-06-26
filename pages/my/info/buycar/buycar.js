@@ -261,7 +261,7 @@ Page({
     if (!this.data.isAllSelect) {
       for (i = 0; i < this.data.carts.length; i++) {
         this.data.carts[i].isSelect = true;
-        this.data.totalMoney = this.data.totalMoney + this.data.carts[i].price;
+        this.data.totalMoney = Math.floor((this.data.totalMoney + this.data.carts[i].price) * 100) / 100 ;
       }
     }
     else {

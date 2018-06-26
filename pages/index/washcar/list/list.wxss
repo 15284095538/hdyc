@@ -1,0 +1,182 @@
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
+.listTop{
+  width: 100%;
+  height: 89rpx;
+  border-bottom: 1px solid #e7e7e7;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.listTop .li{
+  width: 750rpx;
+  height: 35rpx;
+  float: left;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 35rpx;
+  margin-top: 27.5rpx;
+  position: relative;
+}
+.listTop .select{
+  color: #11a8e1;
+}
+.listTop .li:last-child{
+  border: 0;
+}
+.listTop .li image{
+  width: 22rpx;
+  height: 12rpx;
+  position: absolute;
+  left: 470rpx;
+  top: 13rpx;
+}
+.listTop .li .img2{
+  display: none;
+}
+.listTop .select .img2{
+  display: block;
+}
+.listTop .select .img1{
+  display: none;
+}
+.listToplayer{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 90rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+.listToplayer .li{
+  padding: 0 20rpx;
+  border-bottom: 1px solid #e7e7e7;
+  height: 99rpx;
+  line-height: 99rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #333333;
+  text-align: center;
+}
+.listToplayer .select{
+  color: #11a8e1;
+}
+.listToplayeranment{
+  animation:0.3s linear 0s rotate;
+  animation-fill-mode:forwards;
+  -webkit-transition: 0.3s linear 0s rotate;
+  -moz-transition: 0.3s linear 0s rotate;
+  -o-transition: 0.3s linear 0s rotate;
+}
+@keyframes rotate{
+  from{
+    transform: translateY(-100%);
+    opacity:0
+  }
+  to{
+    transform: translateY(0);
+    opacity:1
+  }
+}
+
+.washlist{
+  padding-top: 90rpx;
+}
+.washlist .li{
+  height: 185rpx;
+  padding: 30rpx 30rpx;
+  border-bottom: 20rpx solid #f6f6f6;
+}
+.washlist .li .img{
+  width: 210rpx;
+  height: 185rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+  float: left;
+}
+.washlist .li .img image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210rpx;
+  height: 185rpx;
+}
+.washlist .li .img .t{
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 210rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+}
+.washlist .li .text{
+  width: 450rpx;
+  height: 185rpx;
+  float: right;
+}
+.washlist .li .text .name{
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #333333;
+}
+.washlist .li .text .name image{
+  width: 35rpx;
+  height: 29rpx;
+  vertical-align: middle;
+  margin: 0 0 5rpx 10rpx;
+}
+.washlist .li .text .num{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.washlist .li .text .num text{
+  color: #ff7979;
+  font-weight: bold;
+  margin: 0 5rpx;
+}
+.washlist .li .text .address{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.washlist .li .text .bot{
+  height: 40rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+.washlist .li .text .bot .l{
+  width: 370rpx;
+  float: left;
+}
+.washlist .li .text .bot .l text{
+  border: 1px solid #11a8e1;
+  color: #11a8e1;
+  padding: 3rpx 5rpx;
+  margin-right: 10rpx;
+  border-radius: 5rpx;
+}
+.washlist .li .text .bot .r{
+  float: right;
+  color: #aeaeae;
+}

@@ -1,0 +1,64 @@
+.info{
+  font-size: 28rpx;
+  color: #333;
+}
+.info .tit{
+  height: 50rpx;
+  background-color: #f6f6f6;
+  padding: 20rpx 30rpx 0;
+  font-size: 30rpx;
+}
+.info .int{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 0 30rpx;
+}
+.info .int .text{
+  float: left;
+}
+.info .int .name{
+  float: right;
+}
+.info .int .picker{
+  color: #11a8e1;
+}
+.info .int input{
+  border: 0;
+  line-height: 100rpx;
+  text-align: right;
+  height: 100rpx;
+}
+.info .int .carp{
+  float: right;
+  margin-right: 20rpx;
+}
+.info .int .price{
+  color: #ff7979;
+}
+.info .fot{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 1rpx solid #f6f6f6;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.info .fot .l{
+  width: 450rpx;
+  float: left;
+  height: 100rpx;
+  padding-left: 30rpx;
+}
+.info .fot .l text{
+  color: #ff7979;
+}
+.info .fot .r{
+  width: 270rpx;
+  float: right;
+  height: 100rpx;
+  background-color: #11a8e1;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+}

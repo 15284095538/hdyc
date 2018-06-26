@@ -1,0 +1,47 @@
+
+<view class='content'>
+<view class='header service_selection'>
+<text data-num="1" class="{{_num==1 ? 'active':''}}" bindtap="click">全部(105)</text>
+<text data-num="2" class="{{_num==2 ? 'active':''}}" bindtap="click">有图(105)</text>
+<text data-num="3" class="{{_num==3 ? 'active':''}}" bindtap="click">好评(105)</text>
+<text data-num="4" class="{{_num==4 ? 'active':''}}" bindtap="click">中评(105)</text>
+<text data-num="5" class="{{_num==5 ? 'active':''}}" bindtap="click">差评(105)</text>
+<view class='clear'></view>
+</view>
+<view class='ping'>
+<block wx:for="{{pinglun}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+            <view class='dpl'>
+              <view>
+                <image class='npic' src='{{item.npic}}'></image>
+              </view>
+              <view class='name1'>
+                <view class='uname'>{{item.name}}</view>
+                <view style='margin-top:10rpx;'>
+                  <view class="stars">
+                  <block wx:for="{{item.flag}}">
+                    <image src='/images/rstart.png'></image>
+                  </block> 
+                  <block wx:for="{{5 - item.flag}}">
+                    <image src='/images/start.png'></image>
+                  </block>
+                </view>
+                  
+                  <view class='times'>{{item.time}}</view>
+                </view>
+              </view>
+              <view class='clear'></view>
+           
+            <view class='ptext'>
+            <view>{{item.message}}</view>     
+             <block wx:for="{{item.pic}}" wx:key="this" wx:for-item="items" wx:for-index="index">
+            <image src='{{items}}'></image>
+            </block> 
+             <view class='fwtype'>{{item.stype}}</view>
+            </view>
+           
+            
+            
+            </view>
+            </block>
+            </view>
+            </view>

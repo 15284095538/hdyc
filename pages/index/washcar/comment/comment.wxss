@@ -1,0 +1,77 @@
+.content .header{
+ padding-left: 30rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 25rpx;
+}
+ .content .header text{
+  display: block;
+  float: left;
+ width: 155rpx;
+ border: 1px solid #eee;
+ font-size: 28rpx;
+ padding: 10rpx 20rpx;
+ margin-right: 5%;
+ margin-top: 30rpx;
+ border-radius: 8rpx;
+}
+.content .active{
+  background-color: #11a8e1;
+  color: #fff;
+}
+.content .clear{
+  clear: both;
+}
+
+.content .ping{
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  margin: 25rpx auto 0 auto;
+}
+.content .npic{
+  width: 90rpx;
+  height: 90rpx;
+  float: left;
+  border-radius: 45rpx;
+  border: 1px solid #ccc;
+}
+.content .name1{
+  float: left;
+  width: 577rpx;
+  margin-left: 20rpx;
+}
+.content .uname{
+  margin-top: 15rpx;
+  font-size: 28rpx;
+}
+.content .stars image{
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 5rpx;
+    transition: 600ms;
+    display: inline-block;
+}
+.content .times{
+  float: right;
+  font-size: 28rpx;
+  color: #d7d7d7;
+}
+.content .ptext{
+  width: 577rpx;
+  margin-left: 16%;
+  margin-top: 20rpx;
+}
+.content .ptext image{
+ width: 165rpx;
+ height: 165rpx;
+ margin-right: 25rpx;
+ margin-top: 20rpx;
+}
+.content .fwtype{
+  color: #aeaeae;
+}
+.content .dpl{
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
