@@ -32,7 +32,9 @@
     "pages/index/washcar/paybuy/paybuy",
     "pages/index/suppliescar/list/list",
     "pages/my/business/news/news",
-    "pages/my/business/money_details/money_details"
+    "pages/my/business/money_details/money_details",
+    "pages/index/suppliescar/details/details",
+    "pages/index/suppliescar/pic/pic"
   ],
   "tabBar": {
     "color": "#7f7f7f",

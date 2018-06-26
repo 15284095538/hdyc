@@ -286,3 +286,18 @@
   line-height: 110rpx;
   float: left;
 }
+
+.upMore{
+  width: 100%;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+.upMore image{
+  width: 28rpx;
+  height: 15rpx;
+  vertical-align: middle;
+  margin: 0 20rpx 7rpx 0;
+}
