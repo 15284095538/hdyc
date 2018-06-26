@@ -8,7 +8,8 @@
 <scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
   <view class="separate"></view>
   <view wx:for="{{carts}}"  wx:key="this">
-    <view class="cart_container">
+    <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
+ 
       <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
       <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
       <image class="item-image" src="{{item.pic}}"></image>
@@ -25,8 +26,10 @@
         </view>
 
       </view>
+       <view data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
     </view>
-    <view class="separate"></view>
+    
+
   </view>
 </scroll-view>
 <view class="{{currentIndex==0?'bottom_total':''}}" hidden="{{currentIndex!==0}}">

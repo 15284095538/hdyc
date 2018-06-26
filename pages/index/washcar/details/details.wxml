@@ -1,0 +1,104 @@
+<!--pages/store/details/details.wxml-->
+<view class='body'>
+  <view class='conter'>
+    <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{imgUrls}}" wx:key="this" wx:for-item="item">
+        <swiper-item style="height:400rpx">
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='address'>
+    <view class='adress_left'>
+      <view class='name'>{{address.sn}}</view>
+      <image src='/images/grade_0{{address.grade}}.png' class='pic' />
+      <view class='clear'></view>
+      <view class='adressName'>{{address.da}}</view>
+    </view>
+    <view class='address_right'>
+      <image src='/images/dh.png'></image>
+      <view>1.3km</view>
+      <view>导航</view>
+    </view>
+  </view>
+  <view class='fl'>
+    <view class="navbar">
+      <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
+    </view>
+
+
+    <view class="first" hidden="{{currentIndex!==0}}">
+
+      <view class='ul'>
+        <block wx:for="{{fulb}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+          <view class='type'>
+            <image src='{{item.fulbp}}'></image>
+            <view class='text'>{{item.fwlbc}}</view>
+          </view>
+        </block>
+      </view>
+      
+
+      <view class='sure'>选择此门店</view>
+    </view>
+
+
+    <view class='secend' hidden="{{currentIndex!==1}}">
+      <view class='tou'>
+        <view class='q'>全部评价（105）</view>
+        <view class='h'>好评度
+          <text class='nu'>96%</text>
+          <image src='/images/more.png'></image>
+        </view>
+        <view class='clear'></view>
+      </view>
+      <view class='ping'>
+        <!-- 评论开始 -->
+        <block wx:for="{{pinglun}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+          <view class='dpl'>
+            <view>
+              <image class='npic' src='{{item.npic}}'></image>
+            </view>
+            <view class='name1'>
+              <view class='uname'>{{item.name}}</view>
+              <view style='margin-top:10rpx;'>
+                <view class="stars">
+                  <block wx:for="{{item.flag}}">
+                    <image src='/images/rstart.png'></image>
+                  </block> 
+                  <block wx:for="{{5 - item.flag}}">
+                    <image src='/images/start.png'></image>
+                  </block>
+                </view>
+
+                <view class='times'>{{item.time}}</view>
+              </view>
+            </view>
+            <view class='clear'></view>
+
+            <view class='ptext'>
+              <view>{{item.message}}</view>
+              <block wx:for="{{item.pic}}" wx:key="this" wx:for-item="items" wx:for-index="index">
+                <image src='{{items}}'></image>
+              </block>
+              <view class='fwtype'>{{item.stype}}</view>
+            </view>
+
+
+
+          </view>
+        </block>
+        <!-- 评论结束 -->
+
+        <view class='fotter' bindtap='ToPage'>查看全部评论</view>
+
+      </view>
+      <view class='clear'></view>
+    </view>
+
+
+
+  </view>
+
+</view>

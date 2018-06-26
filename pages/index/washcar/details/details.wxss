@@ -1,0 +1,236 @@
+/* pages/store/details/details.wxss */
+
+.body {
+  background-color: #f6f6f6;
+}
+
+.body .conter {
+  height: 400rpx;
+  width: 100%;
+}
+
+.body .swiper {
+  height: 400rpx;
+}
+
+.body .slide-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.body .address {
+  height: 170rpx;
+  background-color: #fff;
+}
+
+.body .clear {
+  clear: both;
+}
+
+.body .adress_left {
+  width: 377rpx;
+}
+
+.body .adress_left image {
+  position: absolute;
+  padding-top: 30rpx;
+  margin-left: 10rpx;
+}
+
+.body .name {
+  float: left;
+  padding-top: 30rpx;
+  padding-left: 20rpx;
+}
+
+.body .adressName {
+  font-size: 28rpx;
+  padding-top: 10rpx;
+  padding-left: 20rpx;
+  color: #d7d7d7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.body .address_right {
+  position: absolute;
+  top: 440rpx;
+  left: 633rpx;
+  font-size: 28rpx;
+  color: #d7d7d7;
+  text-align: center;
+}
+
+.body .address_right image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.body .pic {
+  width: 35rpx;
+  height: 30rpx;
+}
+
+.body .navbar{ 
+ display: flex;
+ flex-direction: row; 
+ line-height: 80rpx; 
+  
+} 
+.body .navbar .item{ 
+ flex: auto; 
+ font-size: 30rpx; 
+ text-align: center; 
+ background: #fff; 
+} 
+.body .navbar .item.active{ 
+ color: #11a8e1; 
+ position: relative; 
+ border-bottom: 5rpx solid #11a8e1;
+} 
+.body .navbar .item.active::after{ 
+ display: block; 
+ position: absolute; 
+ height: 4rpx; 
+ bottom: 0; 
+ left: 0; 
+ right: 0; 
+ background: #11a8e1; 
+} 
+.body .first {
+  background-color: #fff;
+  height: 550rpx;
+  
+  /* border-bottom: 2px solid #ccc; */
+}
+
+.body .type {
+  width: 180rpx;
+  height: 200rpx;
+  text-align: center;
+  float: left;
+}
+
+.body .type image {
+  padding-top: 40rpx;
+  width: 85rpx;
+  height: 85rpx;
+  padding-bottom: 20rpx;
+}
+
+.body .secend {
+  background-color: #fff;
+}
+
+.body .fotter {
+  height: 50rpx;
+  text-align: center;
+  width: 80%;
+  margin: 40rpx auto;
+  border: 2px solid #11a8e1;
+  padding-top: 10rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #11a8e1;
+}
+
+.body .fl {
+  background-color: #fff;
+}
+
+.body .tou {
+  padding-top: 25rpx;
+
+}
+
+.body .q {
+  float: left;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+
+.body .h {
+  float: right;
+  font-size: 30rpx;
+}
+
+.body .nu {
+  color: #11a8e1;
+}
+
+.body .h image {
+  width: 15rpx;
+  height: 25rpx;
+  padding-right: 30rpx;
+  padding-left: 10rpx;
+}
+.body .ping{
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  border-top: 1px solid #d7d7d7;
+  margin: 25rpx auto 0 auto;
+}
+.body .npic{
+  width: 90rpx;
+  height: 90rpx;
+  float: left;
+  border-radius: 45rpx;
+  border: 1px solid #ccc;
+}
+.body .name1{
+  float: left;
+  width: 577rpx;
+  margin-left: 20rpx;
+}
+.body .uname{
+  margin-top: 15rpx;
+  font-size: 28rpx;
+}
+.body .stars image {
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 5rpx;
+    display: inline-block;
+}
+.body .times{
+  float: right;
+  font-size: 28rpx;
+  color: #d7d7d7;
+}
+.body .ptext{
+  width: 577rpx;
+  margin-left: 16%;
+  margin-top: 20rpx;
+}
+.body .ptext image{
+ width: 165rpx;
+ height: 165rpx;
+ margin-right: 25rpx;
+ margin-top: 20rpx;
+}
+.body .fwtype{
+  color: #aeaeae;
+}
+.body .dpl{
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+.first .ul{
+  overflow: hidden;
+}
+.first .sure{
+  width: 100%;
+  height: 100rpx;
+  background-color: #11a8e1;
+  line-height: 100rpx;
+  text-align: center;
+  color: #fff;
+  margin-top: 30rpx;
+}
