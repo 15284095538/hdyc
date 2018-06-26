@@ -1,4 +1,4 @@
-<!--pages/my/info/coupon/coupon.wxml-->
+<!--优惠券-->
 <view id='top'>
   <view class='row'>
     <view class='col'>

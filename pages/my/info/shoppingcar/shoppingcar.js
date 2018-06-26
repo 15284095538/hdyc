@@ -339,7 +339,7 @@ Page({
           carts: that.data.carts,
           index: index,
         })
-        console.log(that.data.carts);
+        // console.log(that.data.carts);
       }
     }
   },

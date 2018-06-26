@@ -1,3 +1,4 @@
+<!-- 爱车档案 -->
 <view class="carlove">
 <view class='bg'>
 <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="88rpx"next-margin="88rpx">
