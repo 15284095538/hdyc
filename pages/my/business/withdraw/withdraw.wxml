@@ -1,0 +1,15 @@
+<view id='number'>
+  <view class='number-box'>
+    <view class='number-box-left left'>
+      金额（元）
+    </view>
+    <view class='number-box-right right'>
+      <view class="section">
+        <input id='number_input' type="digit" placeholder="请输入提现金额" />
+      </view>
+    </view>
+  </view>
+</view>
+<view id='out'>
+  <button type="primary" size="default" bindtap="primary" hover-class="other-button-hover"> 提现 </button>
+</view>

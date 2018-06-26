@@ -1,7 +1,7 @@
 // pages/my/home/index.js
 Page({
   data: {
-    IsUser: true,
+    IsUser: false,
     userinfo: {
       "path": "/images/store_menu_01.png",
       "name": "Leslie",
