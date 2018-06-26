@@ -1,0 +1,16 @@
+<!--pages/my/business/news/news.wxml-->
+<view class='list' wx:for="{{news}}" wx:key="index" wx:for-item="item">
+  <view class='list-box {{news.length == index + 1 ? "border-none" : ""}}'>
+    <view class='list-box-img left'>
+      <image class='max' src="{{item.path}}"></image>
+    </view>
+    <view class='list-box-info left'>
+      <view class='list-info-name'>{{item.title}}</view>
+      <view class='list-info-time indent'>{{item.news}}</view>
+      <view class='clear'></view>
+    </view>
+    <view class='list-box-time right'>
+      {{item.time}}
+    </view>
+  </view>
+</view>

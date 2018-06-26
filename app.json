@@ -30,7 +30,9 @@
     "pages/my/business/member/member",
     "pages/index/washcar/payselect/payselect",
     "pages/index/washcar/paybuy/paybuy",
-    "pages/index/suppliescar/list/list"
+    "pages/index/suppliescar/list/list",
+    "pages/my/business/news/news",
+    "pages/my/business/money_details/money_details"
   ],
   "tabBar": {
     "color": "#7f7f7f",
