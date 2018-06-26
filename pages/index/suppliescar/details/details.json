@@ -1,0 +1,5 @@
+{
+  "disableScroll": false,
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance":50
+}

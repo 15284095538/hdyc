@@ -1,0 +1,15 @@
+<!--pages/my/business/member/member.wxml-->
+<view wx:for="{{user}}" wx:key="index" wx:for-item="item" class='list'>
+  <view class='list-box {{user.length == index + 1 ? "border-none" : ""}}'>
+    <view class='list-box-img left'>
+      <image class='max' src="{{item.path}}"></image>
+    </view>
+    <view class='list-box-info left'>
+      <view class='list-info-name'>{{item.name}}</view>
+      <view class='list-info-time'>{{item.time}}</view>
+    </view>
+    <view class='list-box-info right'>
+      共消费{{item.num}}
+    </view>
+  </view>
+</view>

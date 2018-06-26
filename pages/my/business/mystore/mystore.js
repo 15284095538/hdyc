@@ -1,66 +1,60 @@
 // pages/my/business/mystore/mystore.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    list: [{
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 1,
+      "order": {
+        "status": "hass",
+        "score": 3.5,
+        "order_num": 12,
+      },
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 2,
+      "order": {
+        "status": "none",
+        "score": 3.5,
+        "order_num": 12,
+      },
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 1,
+      "order": {
+        "status": "none",
+        "score": 3.5,
+        "order_num": 102,
+      },
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "name": "邛崃市天和车王养护",
+      "grade": 3,
+      "order": {
+        "status": "none",
+        "score": 3.5,
+        "order_num": 1221,
+      },
+      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
+      "tag": ["美容", "安装"],
+      "distance": "3.1KM"
+    }]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  },
   onReady: function () {
-  
-  },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
   }
 })

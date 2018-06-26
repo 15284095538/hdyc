@@ -1,0 +1,15 @@
+<!--pages/my/business/money_details/money_details.wxml-->
+<view wx:for="{{list}}" wx:key="index" wx:for-item="item" class='list'>
+  <view class='list-box {{list.length == index + 1 ? "border-none" : ""}}'>
+    <view class='list-box-img left'>
+      <image class='max' src="{{item.path}}"></image>
+    </view>
+    <view class='list-box-info left'>
+      <view class='list-info-name'>{{item.title}}</view>
+      <view class='list-info-time'>{{item.time}}</view>
+    </view>
+    <view class='list-box-info right {{item.type == 0 ? "in" : "out"}}'>
+      {{item.num}}
+    </view>
+  </view>
+</view>

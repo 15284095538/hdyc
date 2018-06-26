@@ -1,0 +1,147 @@
+<swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+  indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
+  interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
+  <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='detalisTop'>
+  <view class='price'>
+    <view class='p'>￥11.84万</view>
+  </view>
+  <view class='name'>别克威朗2018款Health Plus定制版别克威</view>
+  <view class='det'>
+    <text class='l'>快递:￥1.2万</text>
+    <text class='c'>月销:1761笔</text>
+    <text class='r'>四川成都</text>
+  </view>
+</view>
+
+<view class='detalisbody'>
+  <view class='li' catchtap='layerColorclick'>
+    <view class='l'>已选</view>
+    <view class='r'> <image src='/images/more.png'></image> </view>
+    <view class='c'>玛瑙红</view>
+  </view>
+  <view class='li' catchtap='layerLiftcarclick'>
+    <view class='l'>产品参数</view>
+    <view class='r'> <image src='/images/more.png'></image> </view>
+    <view class='c'></view>
+  </view>
+</view>
+
+<view class='detalifot'>
+  <view class='li'>加入购物车</view>
+  <view class='li'>立即购买</view>
+</view>
+
+
+
+
+<view class='detalsPl'>
+  <view class='tou'>
+    <view class='q'>全部评价（105）</view>
+    <view class='h'>好评度
+      <text class='nu'>96%</text>
+      <image src='/images/more.png'></image>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='li' wx:for="{{pinglun}}" wx:for-index="index" wx:for-item="item" wx:key="key" >
+      <view class='portrait'> <image src='{{item.npic}}'></image> </view>
+      <view class='righttext'>
+        <view class='name'>{{item.name}}</view>
+        <view class='Stars'>
+          <view class='img'>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/rstart.png'></image>
+            <image src='/images/start.png'></image>
+          </view>
+          <view class='time'>{{item.time}}</view>
+        </view>
+        <view class='text'>{{item.message}}</view>
+        <view class='plimg'>
+          <image src='/images/banner.jpg'></image>
+          <image src='/images/banner.jpg'></image>
+          <image src='/images/banner.jpg'></image>
+          <image src='/images/banner.jpg'></image>
+        </view>
+        <view class='type'>{{item.stype}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='fotter' bindtap='ToPage'>查看全部评论</view>
+
+
+  <view class='upMore' > <image src='/images/up.png'></image> 上拉查看商品详情</view>
+
+
+</view>
+
+
+<!-- 选择 -->
+<view class='layerColor {{layerColorDisplay}} ' catchtap='bglayerColorclick' >
+  <view class='box'>
+    <view class='sp'>
+      <view class='img'><image src='/images/banner.jpg'></image></view>
+      <view class='xq'>
+        <view class='t'>￥11.84万</view>
+        <view class='t'>库存：12辆</view>
+        <view class='t'>已选：玛瑙红</view>
+      </view>
+      <view class='close' catchtap='closelayerColor' > <image src='/images/cha@3x.png'></image> </view>
+    </view>
+    <block wx:for="{{cans}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+      <view class='bt'>{{item.bt}}</view>
+      <view class='ul'>
+         <view wx:for="{{item.sub}}" wx:key="this" wx:for-index="index" wx:for-item="itemd" class='li'>{{itemd.text}}</view> 
+      </view>
+    </block>
+    <view class='sure'>确定</view>
+  </view>
+</view>
+
+<!-- 参数 -->
+<view class='layerLiftcar {{layerLiftcarDisplay}}' catchtap='bglayerLiftcarclick'>
+  <view class='box'>
+    <view class='top'>
+      <view class='tit'>提车流程</view>
+      <view class='img'><image src='/images/cha@3x.png'></image></view>
+    </view>
+    <view class='ul'>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow1.png'></image></view>
+        <view class='text'>
+          <view class='t'>在线预约</view>
+          <view class='b'>选中意向车型，在线提交手机号、身份证号客服将在24小时内向您核对身份信息</view>
+        </view>
+      </view>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow2.png'></image></view>
+        <view class='text'>
+          <view class='t'>支付定金</view>
+          <view class='b'>身份信息审核通过后在线支付定金</view>
+        </view>
+      </view>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow3.png'></image></view>
+        <view class='text'>
+          <view class='t'>支付费用</view>
+          <view class='b'>再次确定首付和月供方案可线上或线下支付相关费用</view>
+        </view>
+      </view>
+      <view class='li'>
+        <view class='img'><image src='/images/netcar_flow4.png'></image></view>
+        <view class='text'>
+          <view class='t'>坐等提车</view>
+          <view class='b'>车辆完成保险、上牌等相关手续后客服将在第一时间联系您提车，请保持手机通畅</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

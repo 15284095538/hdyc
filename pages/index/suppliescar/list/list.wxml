@@ -1,0 +1,21 @@
+<view id='top'>
+  <view class='row'>
+    <view class='col'>
+      <view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='col-4 top-menu {{ index == selectid ? "select":"" }}' data-id='{{index}}' bindtap='ChangeSelect'>
+        {{item.text}}
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='list'>
+  <view class='li' wx:for="{{list}}" wx:key="this" wx:for-item="item" >
+    <view class='img'> <image src='{{item.path}}'></image> </view>
+    <view class='text'>
+      <view class='name'>{{item.name}}</view>
+      <view class='p'> <text>已售{{item.j}}件</text> | <text>{{item.num}}人评论</text> </view>
+      <view class='price'>{{item.price}}</view>
+    </view>
+  </view>
+</view>
