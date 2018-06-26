@@ -28,7 +28,8 @@
     "pages/my/business/balance/balance",
     "pages/my/business/withdraw/withdraw",
     "pages/index/washcar/payselect/payselect",
-    "pages/index/washcar/paybuy/paybuy"
+    "pages/index/washcar/paybuy/paybuy",
+    "pages/index/suppliescar/list/list"
   ],
   "tabBar": {
     "color": "#7f7f7f",

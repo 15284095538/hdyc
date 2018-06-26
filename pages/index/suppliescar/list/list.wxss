@@ -1,0 +1,114 @@
+.row {
+  display: block;
+  margin: 0px;
+}
+
+.col {
+  display: flex;
+  font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  height: 100%;
+}
+
+.col>.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9,
+.col-10, .col-11, .col-12 {
+  overflow: hidden;
+}
+
+.col-6 {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.col-4 {
+  width: calc(100% / 3);
+  height: 100%;
+  text-align: center;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.indent {
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* top */
+
+#top {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  overflow: hidden;
+}
+
+.top-menu {
+  font-size: 30rpx;
+  line-height: 98rpx;
+  letter-spacing: 3rpx;
+  color: #333;
+  border-bottom: 2rpx solid #f6f6f6;
+}
+
+#top .select {
+  color: #11a8e1;
+  border-bottom: 2rpx solid #11a8e1;
+}
+
+.list{
+  padding: 100rpx 30rpx 0;
+  color: #333;
+  font-size: 28rpx;
+}
+.list .li{
+  padding: 30rpx 0;
+  height: 150rpx;
+  border-bottom: 1px solid #f6f6f6;
+}
+.list .li .img{
+  width: 150rpx;
+  height: 150rpx;
+  float: left;
+}
+.list .li .img image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.list .li .text{
+  float: right;
+  width: 500rpx;
+}
+.list .li .name{
+  height: 50rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list .li .p{
+  color: #aeaeae;
+  font-size: 24rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.list .li .price{
+  color: #ff7979;
+  margin-top: 10rpx;
+}
