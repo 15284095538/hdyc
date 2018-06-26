@@ -26,7 +26,8 @@
     "pages/index/washcar/comment/comment",
     "pages/index/washcar/payinformation/payinformation",
     "pages/my/business/balance/balance",
-    "pages/my/business/withdraw/withdraw"
+    "pages/my/business/withdraw/withdraw",
+    "pages/my/business/member/member"
   ],
   "tabBar": {
     "color": "#7f7f7f",
