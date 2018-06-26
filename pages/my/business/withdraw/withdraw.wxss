@@ -1,0 +1,61 @@
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.indent {
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+page {
+  background-color: #f6f6f6;
+}
+
+/* number */
+
+#number {
+  height: 100rpx;
+  background-color: #fff;
+  padding: 0rpx 30rpx;
+}
+
+.number-box {
+  height: 40rpx;
+  padding: 30rpx 0rpx;
+}
+
+.number-box-left {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #333;
+}
+
+#number_input {
+  width: 220rpx;
+  height: 40rpx;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  min-height: 40rpx;
+  font-size: 30rpx;
+	line-height: 30rpx;
+	letter-spacing: 0px;
+	color: #c5c5c5;
+}
+/* out */
+#out{
+  width: 80%;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+}

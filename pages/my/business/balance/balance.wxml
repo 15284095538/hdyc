@@ -1,0 +1,31 @@
+<view id="header">
+  <view class='balance-box'>
+    <view class='balance-num'>89102.60</view>
+    <view class='balance-text'>余额</view>
+  </view>
+</view>
+<view id='menu'>
+  <view class='menu-list'>
+    <view class='menu-list-img left'>
+      <image src='/images/tixian@2x.png'></image>
+    </view>
+    <view class='menu-list-text left'>提现</view>
+    <view class='menu-list-more right'>
+    <view class='menu-more-img right'>
+      <image src="/images/more.png"></image>
+    </view>
+    </view>
+  </view>
+  <view class='menu-list border-none'>
+    <view class='menu-list-img left'>
+      <image src='/images/zhangdan@2x.png'></image>
+    </view>
+    <view class='menu-list-text left'>收入详情</view>
+    <view class='menu-list-more right'>
+    <view class='number left'>{{number}}条</view>
+    <view class='menu-more-img right'>
+      <image src="/images/more.png"></image>
+    </view>
+    </view>
+  </view>
+</view>
