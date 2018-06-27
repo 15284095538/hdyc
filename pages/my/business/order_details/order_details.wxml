@@ -1,0 +1,78 @@
+<!--pages/my/business/order_details/order_details.wxml-->
+<view id='header'>
+  <view class='text left'>张钧蜜</view>
+  <view class='text left'>136****6510</view>
+</view>
+<view id='store'>
+  <view class='title'>
+    配送至门店
+  </view>
+  <view class='store-info'>
+    <view class='store-info-img left'>
+      <image src='/images/store_menu_01.png'></image>
+    </view>
+    <view class='store-info-infos left'>
+      <view class='store-infos-box'>
+        <view class='store-infos-name'>
+          邛崃市天和车王养护
+        </view>
+        <view class='store-infos-address indent'>
+          成都市崇州市
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='store-to'>
+    <view class='map-img left'>
+      <image src='/images/dh.png'></image>
+    </view>
+    <view class='map-distance left'>
+      导航至门店（1.2KM）
+    </view>
+    <view class='map-more right'>
+      <image src='/images/more.png'></image>
+    </view>
+  </view>
+</view>
+<view id='order'>
+  <view class='order-list'>
+    <view class='order-list-img left'>
+      <image src='/images/store_menu_01.png'></image>
+    </view>
+    <view class='order-list-info left'>
+      <view class='order-info-name indent'>
+        3M高效
+      </view>
+      <view class='order-info-price indent'>
+        <view class='price left'>￥68.00</view>
+        <view class='number left'>x1</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view id='order_info'>
+  <view class='info-list'>
+    <view class='info-list-title left'>
+      订单编号：
+    </view>
+    <view class='info-list-infos right'>
+      TH687132233
+    </view>
+  </view>
+  <view class='info-list'>
+    <view class='info-list-title left'>
+      下单时间：
+    </view>
+    <view class='info-list-infos right'>
+      2018-05-20 08:30
+    </view>
+  </view>
+  <view class='info-list'>
+    <view class='info-list-title left'>
+      订单状态：
+    </view>
+    <view class='info-list-infos right'>
+      待评价
+    </view>
+  </view>
+</view>

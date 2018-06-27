@@ -35,7 +35,8 @@
     "pages/my/business/money_details/money_details",
     "pages/index/suppliescar/details/details",
     "pages/index/suppliescar/pic/pic",
-    "pages/my/business/order/order"
+    "pages/my/business/order/order",
+    "pages/my/business/order_details/order_details"
   ],
   "tabBar": {
     "color": "#7f7f7f",

@@ -49,6 +49,9 @@ Page({
     ]
   },
   onLoad() {
+    wx.setNavigationBarTitle({
+      title: '我的订单'
+    });
     var that = this;
     that.setData({
       ShowList: that.data.list1

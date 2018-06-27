@@ -44,5 +44,11 @@ Page({
   },
   onLoad: function (options) {
 
+  },
+  ToPage(e) {//导航跳转
+    var link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link
+    })
   }
 })

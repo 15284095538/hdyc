@@ -52,7 +52,9 @@ Page({
     }]
   },
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '我的门店'
+    });
   },
   onReady: function () {
 
