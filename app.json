@@ -30,16 +30,14 @@
     "pages/my/business/member/member",
     "pages/index/washcar/payselect/payselect",
     "pages/index/washcar/paybuy/paybuy",
-<<<<<<< HEAD
-    "pages/my/info/order/aftersale/aftersale"
-=======
+    "pages/my/info/order/aftersale/aftersale",
     "pages/index/suppliescar/list/list",
     "pages/my/business/news/news",
     "pages/my/business/money_details/money_details",
     "pages/index/suppliescar/details/details",
     "pages/index/suppliescar/pic/pic",
-    "pages/my/business/order/order"
->>>>>>> b8a428a35d8c0d6f5ea6c8f4f79fcee1f7558950
+    "pages/my/business/order/order",
+    "pages/my/info/order/myorder/myorder"
   ],
   "tabBar": {
     "color": "#7f7f7f",

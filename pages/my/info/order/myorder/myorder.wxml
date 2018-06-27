@@ -1,0 +1,33 @@
+<!--订单-->
+<view class='myorder'>
+<view class='fl'>
+    <view class="navbar">
+      <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
+    </view>
+    </view>
+<scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
+  <view wx:for="{{carts}}"  wx:key="this">
+<view class='dingdan'>
+<view class='dingnum'>
+<text>订单编号：{{item.dnum}} <text class='status'>{{item.status}}</text></text>
+</view>
+<view class='shang'style="{{item.stype==2?'height:175rpx':''}}">
+<image src='{{item.pic}}'></image>
+<view class='names'style="{{item.stype==2?'border:none':''}}">
+<view class='sname'>{{item.sname}} </view>
+<text class='nums'>共{{item.snum}}件<text class='price'>￥{{item.price}}</text></text>
+</view>
+<view class='button'>
+<view class='first'hidden="{{item.stype!==1}}">取消订单</view>
+<view class='secend'hidden="{{item.stype!==1}}">立即付款</view>
+<view class='first'hidden="{{item.stype!==3}}">申请售后</view>
+<view class='secend'hidden="{{item.stype!==3}}">评价商品</view>
+<view class='secend'hidden="{{item.stype!==4}}" style='border:none;'>退货中</view>
+</view>
+</view>
+</view>
+  </view>
+</scroll-view>
+
+
+</view>

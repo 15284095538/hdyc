@@ -5,7 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+        name:'3M高效发动机内部清洗剂296ML',
+        pic:'/images/car_03.png',
+        price:'68.00',
+        num:1,
   },
 
   /**
