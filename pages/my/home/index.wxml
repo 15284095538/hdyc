@@ -225,7 +225,7 @@
     </view>
     <view class='order-menu row'>
       <view class='col'>
-        <view class='col-6' wx:for="{{archivesOrder}}" wx:for-index="idx" wx:key="index" wx:for-item="item" data-link='/pages/my/business/order/order' bindtap="ToPage">
+        <view class='col-6' wx:for="{{archivesOrder}}" wx:for-index="idx" wx:key="index" wx:for-item="item" data-link='/pages/my/business/order/order?id={{idx}}' bindtap="ToPage">
           <view class='order-number'>
             <text>{{item.num}}</text> 笔
           </view>

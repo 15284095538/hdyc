@@ -54,6 +54,7 @@ page {
 
 #user {
   position: relative;
+  padding-bottom: 50rpx;
 }
 
 #header {
