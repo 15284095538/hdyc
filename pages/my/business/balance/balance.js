@@ -1,7 +1,8 @@
 // pages/my/business/balance/balance.js
 Page({
   data: {
-    "number": 16
+    "allnumber": 89102.60,
+    "number": 16,
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({

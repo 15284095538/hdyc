@@ -269,7 +269,7 @@
         </view>
       </view>
     </view>
-    <view class='more-list'>
+    <view class='more-list' data-link='/pages/my/business/account/account' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/wodezhanghu.png'></image>
       </view>

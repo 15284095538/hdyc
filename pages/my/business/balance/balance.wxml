@@ -1,6 +1,6 @@
 <view id="header">
   <view class='balance-box'>
-    <view class='balance-num'>89102.60</view>
+    <view class='balance-num'>{{allnumber}}</view>
     <view class='balance-text'>余额</view>
   </view>
 </view>

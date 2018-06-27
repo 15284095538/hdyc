@@ -36,7 +36,9 @@
     "pages/index/suppliescar/details/details",
     "pages/index/suppliescar/pic/pic",
     "pages/my/business/order/order",
-    "pages/my/business/order_details/order_details"
+    "pages/my/business/order_details/order_details",
+    "pages/my/business/account/account",
+    "pages/my/business/authentication/authentication"
   ],
   "tabBar": {
     "color": "#7f7f7f",
