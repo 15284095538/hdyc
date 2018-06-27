@@ -71,7 +71,7 @@ page {
   line-height: 98rpx;
   letter-spacing: 3rpx;
   color: #333;
-  border-bottom: 2rpx solid rgba(0, 0, 0, 0);
+  border-bottom: 2rpx solid #e7e7e7;
 }
 
 #top .select {

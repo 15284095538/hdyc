@@ -389,6 +389,7 @@ page {
 
 #business {
   position: relative;
+  padding-bottom: 50rpx;
 }
 
 .archives-business-img {

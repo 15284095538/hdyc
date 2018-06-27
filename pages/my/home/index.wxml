@@ -246,7 +246,8 @@
       </view>
       <view class='more-list-icon right'>
         <view class='more-title-more right'>
-          <text class='number'>{{archivesMember.num}}</text>名，收益<text class='number'>{{archivesMember.indent}}</text>元
+          <text class='number'>{{archivesMember.num}}</text>名，收益
+          <text class='number'>{{archivesMember.indent}}</text>元
           <view class='more-more-img right'>
             <image src="/images/more.png"></image>
           </view>
