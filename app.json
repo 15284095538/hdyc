@@ -30,6 +30,7 @@
     "pages/my/business/member/member",
     "pages/index/washcar/payselect/payselect",
     "pages/index/washcar/paybuy/paybuy",
+    "pages/my/info/order/aftersale/aftersale",
     "pages/index/suppliescar/list/list",
     "pages/my/business/news/news",
     "pages/my/business/money_details/money_details",
@@ -38,7 +39,9 @@
     "pages/my/business/order/order",
     "pages/my/business/order_details/order_details",
     "pages/my/business/account/account",
-    "pages/my/business/authentication/authentication"
+    "pages/my/business/authentication/authentication",
+    "pages/my/info/order/myorder/myorder",
+    "pages/my/business/order_details/order_details"
   ],
   "tabBar": {
     "color": "#7f7f7f",

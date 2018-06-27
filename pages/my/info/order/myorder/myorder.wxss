@@ -1,0 +1,131 @@
+/* pages/my/info/order/myorder/myorder.wxss */
+page{
+  background-color: #f6f6f6;
+}
+.myorder .navbar {
+  display: flex;
+  flex-direction: row;
+  line-height: 80rpx;
+}
+
+.myorder .navbar .item {
+  flex: auto;
+  font-size: 30rpx;
+  text-align: center;
+  background: #fff;
+}
+
+.myorder .navbar .item.active {
+  color: #11a8e1;
+  position: relative;
+  border-bottom: 5rpx solid #11a8e1;
+}
+
+.myorder .navbar .item.active::after {
+  display: block;
+  position: absolute;
+  height: 4rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #11a8e1;
+}
+
+.myorder .dingdan {
+  padding-top: 35rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.myorder .dingdan .dingnum {
+  font-size: 28rpx;
+  padding-left: 30rpx;
+  color: #aeaeae;
+  padding-bottom: 35rpx;
+  border-bottom: 1px solid #aeaeae;
+}
+
+.myorder .dingdan .status {
+  margin-left: 270rpx;
+  color: #11a8e1;
+}
+
+.myorder .shang {
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+  padding-right: 30rpx;
+  background-color: #fff;
+  height: 270rpx; 
+}
+
+.shang image {
+  width: 125rpx;
+  height: 80rpx;
+  margin-top: 45rpx;
+}
+
+.myorder .names {
+  width: 550rpx;
+  height: 140rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #aeaeae;
+  position: relative;
+  top: -100rpx;
+  left: 140rpx;
+}
+
+.myorder .sname {
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.myorder .nums{
+  position: relative;
+  top: 50rpx;
+  left: 0rpx;
+}
+.myorder .price{
+  margin-left: 369rpx;
+  color: #ff7979;
+}
+.myorder .button{
+  width: 550rpx;
+  position: relative;
+  top: -80rpx;
+  left: 140rpx;
+}
+.button .first{
+  border: 1px solid #aeaeae;
+  width: 165rpx;
+  height: 38rpx;
+  font-size: 26rpx;
+  padding-top: 19rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  position: absolute;
+  left: 200rpx;
+}
+.myorder .secend{
+  border: 1px solid #11a8e1;
+  width: 165rpx;
+  height: 38rpx;
+  font-size: 26rpx;
+  padding-top: 19rpx;
+  text-align: center;
+  color:#11a8e1;
+  border-radius: 8rpx;
+  position: absolute;
+  left: 380rpx;
+}
+.myorder .secend1{
+  width: 165rpx;
+  height: 38rpx;
+  font-size: 26rpx;
+  padding-top: 19rpx;
+  text-align: center;
+  color:#11a8e1;
+  border-radius: 8rpx;
+  position: absolute;
+  left: 380rpx;
+}

@@ -1,4 +1,4 @@
-<!--pages/my/info/infodata/infodata.wxml-->
+<!--我的资料-->
 <view class='myInfo'>
 <view class='input'>
 <view class='word'>头像</view>

@@ -1,0 +1,89 @@
+/* pages/my/info/order/aftersale/aftersale.wxss */
+page{
+  background-color: #f6f6f6;
+}
+.aftersale .hearder{
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+  border-bottom: 2px solid #f6f6f6;
+  padding-bottom: 30rpx;
+  padding-right: 30rpx;
+  background-color: #fff;
+}
+.aftersale .hearder image{
+  width: 110rpx;
+  height: 110rpx;
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+}
+.aftersale .name{
+  position: absolute;
+  top: 50rpx;
+  left: 180rpx;
+  font-size: 28rpx;
+}
+.aftersale .price{
+  color: #ff7979;
+  margin-left: 10rpx;
+}
+.aftersale .num{
+  color: #000;
+  margin-left: 20rpx;
+}
+.aftersale .qes{
+  height: 200rpx;
+  background-color: #fff;
+  padding-top: 10rpx;
+}
+.aftersale .qes textarea{
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  color: #000;
+  width: 690rpx;
+  height: 179rpx;
+}
+.aftersale .tx{
+  font-size: 26rpx;
+  padding-left: 30rpx;
+  margin-top: 10rpx;
+}
+.tx .xing{
+  color: #45b3e4;
+}
+.tx .wen{
+  color: #c5c5c5;
+}
+.aftersale .button{
+  width: 690rpx;
+  height: 69rpx;
+  text-align: center;
+  background-color: #11a8e1;
+  position: relative;
+  top: 500rpx;
+  left: 30rpx;
+  padding-top: 20rpx;
+  color: #fff;
+  border-radius: 12rpx;
+}
+.aftersale .footter{
+  display: flex;
+  margin-top: 560rpx;
+  height: 109rpx;
+  flex-direction: row;
+  background-color: #fff;
+}
+ .aftersale .footter .item {
+  flex: auto;
+  font-size: 30rpx;
+  text-align: center;
+  background: #fff;
+  padding-top: 35rpx;
+  margin-left:-40rpx;
+} 
+.footter image{
+  width: 35rpx;
+  height: 35rpx;
+  position: relative;
+  top: 35rpx;
+  left: 60rpx;
+}

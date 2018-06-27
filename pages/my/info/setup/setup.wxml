@@ -1,3 +1,4 @@
+<!-- 设置 -->
 <view class='setup'>
 <view bindtap='changepw'class='input'>
 <view  class='word'>修改密码</view> 

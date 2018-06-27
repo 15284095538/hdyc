@@ -1,0 +1,22 @@
+<!--售后服务-->
+<view class='aftersale'>
+<view class='hearder'>
+ <image src='{{pic}}'></image>
+ <view class='name'>{{name}}</view>
+ <text class='price'>￥{{price}}<text class='num'>x{{num}}</text></text>
+</view>
+<view class='qes'>
+<textarea type='text' placeholder='请您在此输入商品问题'></textarea>
+</view>
+<view class='tx'>
+<text class='xing'>*<text class='wen'>提交售后单后，我们将尽快为您处理问题，请耐心等待</text></text>
+</view>
+<view class='button'>提交</view>
+
+<view class='footter'>
+<image src='/images/kf.png'></image> 
+<text class='item'>在线咨询</text>
+<image src='/images/phone.png'></image>
+<text class='item' style='border-left:1px solid #f6f6f6;'>电话咨询</text>
+</view>
+</view>
