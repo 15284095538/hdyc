@@ -1,3 +1,7 @@
+<view bindtap = "handletap" bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+
+
+
 <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
@@ -144,4 +148,7 @@
       </view>
     </view>
   </view>
+</view>
+
+
 </view>

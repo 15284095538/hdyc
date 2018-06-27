@@ -71,6 +71,10 @@ Page({
       },
 
     ],
+    lastX: 0,     //滑动开始x轴位置
+    lastY: 0,     //滑动开始y轴位置
+    currentGesture: 0, //标识手势
+    isScroll:false
   },
   layerColorclick(e){
     this.setData({ layerColorDisplay:'block' })
@@ -87,4 +91,47 @@ Page({
   layerLiftcarclick(e){
     this.setData({ layerLiftcarDisplay: 'block' })
   },
+  //滑动移动事件
+  handletouchmove: function (event) {
+    var currentX = event.touches[0].pageX
+    var currentY = event.touches[0].pageY
+    var tx = currentX - this.data.lastX
+    var ty = currentY - this.data.lastY
+    var isScroll = this.data.isScroll
+    var text = ""
+    //左右方向滑动
+    if (Math.abs(tx) > Math.abs(ty)) {
+      if (tx < 0)
+        text = "向左滑动"
+      else if (tx > 0)
+        text = "向右滑动"
+    }
+    //上下方向滑动
+    else {
+      if (ty < 0)
+        text = "向上滑动"
+      else if (ty > 0)
+        text = "向下滑动", this.data.isScroll = false
+    }
+    //将当前坐标进行保存以进行下一次计算
+    this.data.lastX = currentX
+    this.data.lastY = currentY
+  },
+  //滑动开始事件
+  handletouchtart: function (event) {
+    this.data.lastX = event.touches[0].pageX
+    this.data.lastY = event.touches[0].pageY
+  },
+  //滑动结束事件
+  handletouchend: function (event) {
+    this.data.currentGesture = 0;
+    if (this.data.isScroll) {
+      wx.navigateTo({
+        url: '/pages/index/suppliescar/pic/pic'
+      })
+    }
+  },
+  onReachBottom(e){
+    this.setData({ isScroll: true })
+  }
 })
