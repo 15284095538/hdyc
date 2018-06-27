@@ -37,7 +37,11 @@
     "pages/index/suppliescar/details/details",
     "pages/index/suppliescar/pic/pic",
     "pages/my/business/order/order",
+<<<<<<< HEAD
     "pages/my/info/order/myorder/myorder"
+=======
+    "pages/my/business/order_details/order_details"
+>>>>>>> 2b66e85208ccdab5ad7a1adc166c6e3b83f90347
   ],
   "tabBar": {
     "color": "#7f7f7f",

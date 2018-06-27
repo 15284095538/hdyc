@@ -27,9 +27,9 @@
   </block>
 </view>
 
-<view class='indTit'>
+ <view class='indTit'>
   <text class='t'>新车购买推荐</text>
-</view>
+</view> 
 
 <view class='indCarone'>
   <block wx:for="{{newcar}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
@@ -41,7 +41,7 @@
       </view>
     </view>
   </block>
-</view>
+</view> 
 
 <view class='indTit'>
   <text class='t'>车用品推荐</text>
@@ -57,7 +57,7 @@
       </view>
     </view>
   </block>
-</view>
+</view> 
 
 <view class='indTit'>
   <text class='t'>养护推荐</text>

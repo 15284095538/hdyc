@@ -106,6 +106,8 @@
 
 .indCarone{
   height: 500rpx;
+  width: 750rpx;
+  overflow: hidden;
 }
 .indCarone .li{
   float: left;
@@ -207,6 +209,8 @@
 
 .indCartwo{
   height: 500rpx;
+  width: 750rpx;
+  overflow: hidden;
 }
 .indCartwo .li{
   float: left;
@@ -310,6 +314,8 @@
 
 .indCarthree{
   height: 750rpx;
+  width: 750rpx;
+  overflow: hidden;
 }
 .indCarthree .li{
   position: relative;

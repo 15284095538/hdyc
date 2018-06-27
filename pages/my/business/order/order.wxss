@@ -4,6 +4,35 @@ page {
   background-color: #f6f6f6;
 }
 
+.row {
+  display: block;
+  margin: 0px;
+}
+
+.col {
+  display: flex;
+  font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  height: 100%;
+}
+
+.col>.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9,
+.col-10, .col-11, .col-12 {
+  overflow: hidden;
+}
+
+.col-6 {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+}
+
+.col-4 {
+  width: calc(100% / 3);
+  height: 100%;
+  text-align: center;
+}
+
 .max {
   width: 100%;
   height: 100%;
@@ -27,7 +56,36 @@ page {
   white-space: nowrap;
 }
 
+/* top */
+
+#top {
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+
+.top-menu {
+  font-size: 30rpx;
+  line-height: 98rpx;
+  letter-spacing: 3rpx;
+  color: #333;
+  border-bottom: 2rpx solid #e7e7e7;
+}
+
+#top .select {
+  color: #11a8e1;
+  border-bottom: 2rpx solid #11a8e1;
+}
+
 /* order */
+
+#order {
+  margin-top: 100rpx;
+}
 
 .order-list {
   height: 267rpx;
@@ -52,4 +110,51 @@ page {
   font-size: 30rpx;
   line-height: 30rpx;
   color: #11a8e1;
+}
+
+.order-info {
+  height: 107rpx;
+  padding: 30rpx;
+}
+
+.order-info-img {
+  height: 107rpx;
+  width: 107rpx;
+}
+
+.order-info-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.order-info-infos {
+  height: 107rpx;
+  width: calc(100% - 137rpx);
+  padding-left: 30rpx;
+}
+
+.order-infos-name {
+  height: 77rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  letter-spacing: 0rpx;
+  color: #333;
+}
+
+.order-infos-more {
+  height: 30rpx;
+}
+
+.order-more-num {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  letter-spacing: 0rpx;
+  color: #aeaeae;
+}
+
+.order-more-price {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  letter-spacing: 0rpx;
+  color: #ff7979;
 }
