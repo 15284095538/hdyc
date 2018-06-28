@@ -1,23 +1,17 @@
-<view class='washlist'>
-  <view class='li'>
-    <view class='img'> <image src='/images/banner.jpg'></image> <view class='t'>快修店</view> </view>
-    <view class='text'>
-      <view class='name'>邛崃市天和车王养护 <image src='/images/grade_01.png'></image></view>
-      <view class='num'>总评价：<text>3.55</text>分  |  总订单：<text>4</text>笔</view>
-      <view class='address'>成都市崇州市老陈大路462号（汇蜀路口）</view>
-      <view class='bot'>
-        <view class='l'>
-          <text>美容</text>
-          <text>安装</text>
-        </view>
-        <view class='r'>1.3km</view>
-      </view>
-    </view>
-  </view>
-</view>
+
+<view class='paselectTit'>您当前购买喷漆服务的车型</view>
+
+<view class='paselectType'>奥迪-200  <image src='/images/car_eit.png'></image> </view>
+
+<view class='paselectTs'> <text>* </text> 请您确认车型，如果到店车型与所选车型不符，门店有权拒绝服
+务或要求您补车型差价~</view>
+
+<view class='paselectTit'>数量</view>
+
+<view class='paselectType'>4个标准面</view>
 
 <view class='washselect'>
-  <view class='tit'>基本信息</view>
+  <view class='tit'>选择油漆产品</view>
   <view catchtap='selectclick' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="this" >
     <image class='washsure' src='/images/washsure.png'></image>
     <view style='overflow: hidden' >
@@ -31,8 +25,7 @@
   </view>
 </view>
 
-
 <view class='fot'>
-  <view class='li'>预约服务</view>
-  <view class='li'>购买套餐</view>
+  <view class='l'>共计：<text>¥837.20</text></view>
+  <view class='r'>下一步</view>
 </view>
