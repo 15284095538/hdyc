@@ -1,0 +1,175 @@
+.washlist .li{
+  height: 185rpx;
+  padding: 30rpx 30rpx;
+  border-bottom: 20rpx solid #f6f6f6;
+}
+.washlist .li .img{
+  width: 210rpx;
+  height: 185rpx;
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+  float: left;
+}
+.washlist .li .img image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 210rpx;
+  height: 185rpx;
+}
+.washlist .li .img .t{
+  height: 40rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 210rpx;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+}
+.washlist .li .text{
+  width: 450rpx;
+  height: 185rpx;
+  float: right;
+}
+.washlist .li .text .name{
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #333333;
+}
+.washlist .li .text .name image{
+  width: 35rpx;
+  height: 29rpx;
+  vertical-align: middle;
+  margin: 0 0 5rpx 10rpx;
+}
+.washlist .li .text .num{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.washlist .li .text .num text{
+  color: #ff7979;
+  font-weight: bold;
+  margin: 0 5rpx;
+}
+.washlist .li .text .address{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.washlist .li .text .bot{
+  height: 40rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+.washlist .li .text .bot .l{
+  width: 370rpx;
+  float: left;
+}
+.washlist .li .text .bot .l text{
+  border: 1px solid #11a8e1;
+  color: #11a8e1;
+  padding: 3rpx 5rpx;
+  margin-right: 10rpx;
+  border-radius: 5rpx;
+}
+.washlist .li .text .bot .r{
+  float: right;
+  color: #aeaeae;
+}
+
+.washselect{
+  font-size: 28rpx;
+  color: #333333;
+}
+.washselect .tit{
+  height: 50rpx;
+  background-color: #f6f6f6;
+  padding: 10rpx 30rpx 10rpx;
+  font-size: 30rpx;
+}
+
+.washselect .li{
+  padding: 20rpx 30rpx;
+  border: 5rpx solid #fff;
+  margin-top: 20rpx;
+  position: relative;
+}
+.washselect .select{
+  border: 5rpx solid #11a8e1;
+}
+.washselect .li .img{
+  width: 91rpx;
+  height: 91rpx;
+  float: left;
+}
+.washselect .li .img image{
+  width: 91rpx;
+  height: 91rpx;
+}
+.washselect .li .text{
+  width: 570rpx;
+  float: right;
+  height: 91rpx;
+}
+.washselect .li .text .name{
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 30rpx;
+}
+.washselect .li .text .price{
+  height: 45rpx;
+  line-height: 45rpx;
+  margin-bottom: 10rpx;
+}
+.washselect .li .bot{
+  line-height: 40rpx;
+  margin-top: 10rpx;
+}
+.washselect .washsure{
+  width: 55rpx;
+  height: 52rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.washselect .select .washsure{
+  display: block;
+}
+
+.fot{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #fff;
+  text-align: center;
+  font-size: 30rpx;
+}
+.fot .li{
+  width: 50%;
+  float: left;
+  height: 100rpx;
+}
+.fot .li:first-child{
+  background-color: #70c745;
+}
+.fot .li:last-child{
+  background-color: #11a8e1;
+}

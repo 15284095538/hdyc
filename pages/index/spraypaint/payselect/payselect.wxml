@@ -1,0 +1,38 @@
+<view class='washlist'>
+  <view class='li'>
+    <view class='img'> <image src='/images/banner.jpg'></image> <view class='t'>快修店</view> </view>
+    <view class='text'>
+      <view class='name'>邛崃市天和车王养护 <image src='/images/grade_01.png'></image></view>
+      <view class='num'>总评价：<text>3.55</text>分  |  总订单：<text>4</text>笔</view>
+      <view class='address'>成都市崇州市老陈大路462号（汇蜀路口）</view>
+      <view class='bot'>
+        <view class='l'>
+          <text>美容</text>
+          <text>安装</text>
+        </view>
+        <view class='r'>1.3km</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='washselect'>
+  <view class='tit'>基本信息</view>
+  <view catchtap='selectclick' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="this" >
+    <image class='washsure' src='/images/washsure.png'></image>
+    <view style='overflow: hidden' >
+      <view class='img'> <image src='{{item.path}}'></image> </view>
+      <view class='text'>
+        <view class='name'>{{item.name}}</view>
+        <view class='price'>{{item.price}}</view>
+      </view>
+    </view>
+    <view class='bot'>{{item.t}}</view>
+  </view>
+</view>
+
+
+<view class='fot'>
+  <view class='li'>预约服务</view>
+  <view class='li'>购买套餐</view>
+</view>
