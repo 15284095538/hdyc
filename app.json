@@ -42,7 +42,8 @@
     "pages/my/business/account/account_home/account_home",
     "pages/my/business/account/authentication/authentication",
     "pages/my/info/order/myorder/myorder",
-    "pages/my/business/account/account_success/account_success"
+    "pages/my/business/account/account_success/account_success",
+    "pages/index/spraypaint/home/home"
   ],
   "tabBar": { 
     "color": "#7f7f7f", 
