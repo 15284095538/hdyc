@@ -36,8 +36,6 @@
     "pages/my/business/balance/money_details/money_details",
     "pages/index/suppliescar/details/details",
     "pages/index/suppliescar/pic/pic",
-    "pages/my/info/order/myorder/myorder",
-    "pages/my/business/order_details/order_details",
     "pages/my/info/order/evaluate/evaluate",
     "pages/my/business/order/order_list/order_list",
     "pages/my/business/order/order_details/order_details",
@@ -46,7 +44,7 @@
     "pages/my/info/order/myorder/myorder",
     "pages/my/business/account/account_success/account_success"
   ],
-  "tabBar": {
+  "tabBar": { 
     "color": "#7f7f7f", 
     "selectedColor": "#11a8e1",
     "backgroundColor": "#ffffff",

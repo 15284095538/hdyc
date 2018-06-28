@@ -25,10 +25,11 @@
 <view class='pics'>
 <view class="img-v">
  <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+  <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg"><image src='/images/dels.png'></image></view>
   <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
-  <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">删除</view>
+ 
  </view>
- <view class="upload-img-btn" bindtap="chooseImg">上传</view>
+ <view class="upload-img-btn" bindtap="chooseImg"><image src='/images/xj.png'></image></view>
 </view>
 </view>
 

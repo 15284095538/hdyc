@@ -38,9 +38,10 @@ page{
 }
 .ping  textarea{
   font-size: 30rpx;
+  height: 195rpx;
 }
 .evaluate .pics{
-
+margin-bottom: 200rpx;
 background-color: #fff;
 }
 .evaluate .button{
@@ -50,8 +51,32 @@ background-color: #fff;
   background-color: #11a8e1;
   border-radius: 8rpx;
   padding-top: 25rpx;
-  position:  fixed;
-  top: 1065rpx;
-  left: 30rpx;
+  margin-bottom: 50rpx;
+  margin-left: 30rpx;
   color: #fff;
+}
+.pics .img{
+  width: 215rpx;
+  height: 215rpx;
+  margin-left: 20rpx;
+  display: inline-block;
+}
+.pics image{
+  width:215rpx;
+  height: 215rpx;
+  display: inline-block;
+}
+.pics .upload-img-btn{
+  margin-left: 20rpx;
+  display: inline-block;
+}
+.pics .delete-btn{
+  position: relative;
+  top: 55rpx;
+  left: 170rpx;
+}
+.delete-btn image{
+  width: 45rpx;
+  height: 45rpx;
+  
 }
