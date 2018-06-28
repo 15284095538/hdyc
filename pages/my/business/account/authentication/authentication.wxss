@@ -1,0 +1,130 @@
+/* pages/my/business/authentication/authentication.wxss */
+
+page {
+  background-color: #f6f6f6;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/* input_box */
+
+#input_box {
+  height: 200rpx;
+  background-color: #fff;
+}
+
+.input-list {
+  height: 40rpx;
+  padding: 30rpx;
+}
+
+.input-list-left {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  letter-spacing: 0rpx;
+  color: #333;
+}
+
+input {
+  display: block;
+  height: 40rpx;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowrap;
+  min-height: 40rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #c5c5c5;
+}
+
+/* mask */
+
+#mask {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0rpx;
+  left: 0rp;
+  background-color: rgba(51, 51, 51, 0.7);
+  z-index: 9;
+}
+
+.confirm {
+  width: 690rpx;
+  height: 350rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text {
+  height: 240rpx;
+  width: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 240rpx;
+  letter-spacing: 0rpx;
+  color: #333;
+}
+
+.btn {
+  height: 109rpx;
+  border-top: 1rpx solid #f2f2f2;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-modify {
+  width: 50%;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 110rpx;
+  letter-spacing: 0rpx;
+  color: #767676;
+}
+
+.btn-confirm {
+  width: 50%;
+  text-align: center;
+  font-size: 36rpx;
+  line-height: 110rpx;
+  letter-spacing: 0rpx;
+  color: #11a8e1;
+}
+
+.line {
+  height: 110rpx;
+  width: 1rpx;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 0rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* post */
+
+#post {
+  width: 684rpx;
+  position: absolute;
+  left: calc((100% - 684rpx) / 2);
+  bottom: 50rpx;
+}
+
+button[type=primary] {
+  color: #fff;
+  border: none;
+  background-color: #11a8e1;
+}
+.button-hover{
+  background-color: #11a8e1;
+}

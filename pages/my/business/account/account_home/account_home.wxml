@@ -1,0 +1,41 @@
+<!--pages/my/business/account/account.wxml-->
+<view id='header'>
+  <view class='header-box'>
+    <view class='user-img'>
+      <image src='{{userinfo.path}}'></image>
+    </view>
+    <view class='user-name'>
+      {{userinfo.name}} - 商家
+    </view>
+  </view>
+</view>
+<view id='menu'>
+  <view class='menu-list' data-link='/pages/my/business/account/authentication/authentication' bindtap="ToPage">
+    <view class='menu-list-img left'>
+      <image src='/images/shimingrenzheng@2x.png'></image>
+    </view>
+    <view class='menu-list-title left'>
+      实名认证
+    </view>
+    <view class='menu-list-status right'>
+      <view class='left'>
+        <image src='{{id.status == 0 ? "/images/renzheng_normal@2x.png": "/images/yuyuexinxi@2x.png"}}'></image>
+      </view>
+      {{id.status == 0 ? "未认证": "已认证"}}
+    </view>
+  </view>
+  <view class='menu-list'>
+    <view class='menu-list-img left'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+    </view>
+    <view class='menu-list-title left'>
+      爱车认证
+    </view>
+    <view class='menu-list-status right'>
+      <view class='left'>
+        <image src='{{card.status == 0 ? "/images/renzheng_normal@2x.png": "/images/yuyuexinxi@2x.png"}}'></image>
+      </view>
+      {{card.status == 0 ? "未认证": "已认证"}}
+    </view>
+  </view>
+</view>

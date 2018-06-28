@@ -1,4 +1,3 @@
-// pages/my/business/order/order.js
 Page({
   data: {
     menu: [ //导航
@@ -70,6 +69,12 @@ Page({
         });
       }
     };
+  },
+  ToPage(e) {//导航跳转
+    var link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link
+    })
   },
   ChangeSelect(e) {
     var that = this;
