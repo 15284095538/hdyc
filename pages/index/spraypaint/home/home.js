@@ -204,31 +204,89 @@ Page({
     topimg[selectid].display = !topimg[selectid].display
 
 
-    if (selectid == 2 || selectid == 3 ){
+    if (selectid == 2 || selectid == 3 ){//左右前翼子板
       this.hbimgFun(2,3,0)
+    }
+
+    if (selectid == 4 || selectid == 5) {//左右后翼子板
+      this.hbimgFun(4,5,1)
+    }
+
+    if (selectid == 6 || selectid == 7) {//左右前车门
+      this.hbimgFun(6, 7, 2)
+    }
+
+    if (selectid == 8 || selectid == 9) {//左右后车门
+      this.hbimgFun(8, 9, 3)
+    }
+
+    if (selectid == 13 || selectid == 14) {//左右裙边
+      this.hbimgFun(13, 14, 4)
+    }
+
+    if (selectid == 15 || selectid == 16) {//左右后视镜
+      this.hbimgFun(15, 16, 5)
+    }
+
+    if (selectid == 17 || selectid == 18) {//左右A柱
+      this.hbimgFun(17, 18, 6)
+    }
+
+    if (selectid == 19 || selectid == 20) {//左右C柱
+      this.hbimgFun(19, 20, 7)
+    }
+
+    if (topimg[21].key) {
+      for (let i = 0; i < hbimg.length; i++) {
+        hbimg[i].display = false
+      }
+      for (let i = 0; i < topimg.length; i++) {
+        topimg[i].display = false
+      }
+    }
+
+    if (topimg[21].key ){//整车喷漆
+      topimg[21].display = true
+    }else{
+      topimg[21].display = false
+    }
+
+    if (selectid == 21 ){
+      for (let i = 0; i < hbimg.length; i++){
+        hbimg[i].display = false
+      }
+      for (let i = 0; i < topimg.length; i++) {
+        topimg[i].display = false
+      }
+      if (topimg[21].key) {
+        topimg[21].display = true
+      } else {
+        topimg[21].display = false
+      }
     }
     this.setData({ topimg: topimg, hbimg: hbimg })
   },
-  hbimgFun(q,w,e){
+  hbimgFun(firstid,twoid,lastid){
     var topimg = this.data.topimg;
     var hbimg = this.data.hbimg;
-    if (topimg[q].display && topimg[w].display) {
-      topimg[q].display = false
-      topimg[w].display = false
-      hbimg[e].display = true
+    if (topimg[firstid].display && topimg[twoid].display) {
+      topimg[firstid].display = false
+      topimg[twoid].display = false
+      hbimg[lastid].display = true
     } else {
-      hbimg[0].display = false
-      if (topimg[q].key) {
-        topimg[q].display = true
+      hbimg[lastid].display = false
+      if (topimg[firstid].key) {
+        topimg[firstid].display = true
       } else {
-        topimg[q].display = false
+        topimg[firstid].display = false
       }
-      if (topimg[w].key) {
-        topimg[w].display = true
+      if (topimg[twoid].key) {
+        topimg[twoid].display = true
       } else {
-        topimg[w].display = false
+        topimg[twoid].display = false
       }
     }
+
   }
   
 })

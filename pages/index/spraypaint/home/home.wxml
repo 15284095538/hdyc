@@ -11,3 +11,5 @@
     {{item.text}}
   </view> 
 </view>
+
+<view class='sure'>选产品</view>
