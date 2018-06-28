@@ -5,7 +5,7 @@
   </view>
 </view>
 <view id='menu'>
-  <view class='menu-list'>
+  <view class='menu-list' data-link='/pages/my/business/balance/withdraw/withdraw' bindtap="ToPage">
     <view class='menu-list-img left'>
       <image src='/images/tixian@2x.png'></image>
     </view>
@@ -16,7 +16,7 @@
     </view>
     </view>
   </view>
-  <view class='menu-list border-none'>
+  <view class='menu-list border-none' data-link='/pages/my/business/balance/money_details/money_details' bindtap="ToPage">
     <view class='menu-list-img left'>
       <image src='/images/zhangdan@2x.png'></image>
     </view>

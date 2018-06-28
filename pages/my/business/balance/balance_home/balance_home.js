@@ -9,6 +9,12 @@ Page({
       title: '当前余额'
     })
   },
+  ToPage(e) {//导航跳转
+    var link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link
+    })
+  },
   onReady: function () {
   
   }

@@ -191,7 +191,7 @@
     </view>
     <view id='archives'>
       <view class='archives-box'>
-        <view class='archives-title' data-link='/pages/my/business/balance/balance' bindtap="ToPage">
+        <view class='archives-title' data-link='/pages/my/business/balance/balance_home/balance_home' bindtap="ToPage">
           <view class='archives-title-text'>
             当前余额
           </view>
@@ -208,7 +208,7 @@
             <view class='archives-info-balance left indent'>{{archivesIndent}}
               <text>元</text>
             </view>
-            <view class='archives-info-withdraw right' data-link='/pages/my/business/withdraw/withdraw' bindtap="ToPage">提现</view>
+            <view class='archives-info-withdraw right' data-link='/pages/my/business/balance/withdraw/withdraw' bindtap="ToPage">提现</view>
           </view>
         </view>
       </view>
@@ -217,7 +217,7 @@
   <view id='order'>
     <view class='order-title'>
       <text class='order-title-text left'>我的订单</text>
-      <view class='order-title-more right' data-link='/pages/my/business/order/order' bindtap="ToPage">查看更多订单
+      <view class='order-title-more right' data-link='/pages/my/business/order/order_list/order_list' bindtap="ToPage">查看更多订单
         <view class='order-more-img right'>
           <image src="/images/more.png"></image>
         </view>
@@ -225,7 +225,7 @@
     </view>
     <view class='order-menu row'>
       <view class='col'>
-        <view class='col-6' wx:for="{{archivesOrder}}" wx:for-index="idx" wx:key="index" wx:for-item="item" data-link='/pages/my/business/order/order?id={{idx}}' bindtap="ToPage">
+        <view class='col-6' wx:for="{{archivesOrder}}" wx:for-index="idx" wx:key="index" wx:for-item="item" data-link='/pages/my/business/order/order_list/order_list?id={{idx}}' bindtap="ToPage">
           <view class='order-number'>
             <text>{{item.num}}</text> 笔
           </view>
@@ -269,7 +269,7 @@
         </view>
       </view>
     </view>
-    <view class='more-list' data-link='/pages/my/business/account/account' bindtap="ToPage">
+    <view class='more-list' data-link='/pages/my/business/account/account_home/account_home' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/wodezhanghu.png'></image>
       </view>

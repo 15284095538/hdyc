@@ -1,11 +1,31 @@
-// pages/my/business/authentication/authentication.js
+// pages/my/business/money_details/money_details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    "list": [{
+      "path": "/images/store_menu_01.png",
+      "title": "提现",
+      "type": "0",
+      "time": "50-20 08:00",
+      "num": "+5432.10"
+    },
+    {
+      "path": "/images/store_menu_01.png",
+      "title": "转账",
+      "type": "1",
+      "time": "50-20 08:00",
+      "num": "-5432.10"
+    }, {
+      "path": "/images/store_menu_01.png",
+      "title": "转账",
+      "type": "1",
+      "time": "50-20 08:00",
+      "num": "+5432.10"
+    }
+    ]
   },
 
   /**
@@ -13,7 +33,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '实名认证'
+      title: '收入详情'
     })
   },
 

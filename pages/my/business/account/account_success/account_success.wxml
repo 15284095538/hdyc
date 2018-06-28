@@ -1,0 +1,15 @@
+<!--pages/my/business/account/account_success/account_success.wxml-->
+<view id='main'>
+  <view class='image'>
+    <image src='/images/success.png'></image>
+  </view>
+  <view class='text'>
+    实名认证成功
+  </view>
+  <view class='name'>
+    张军宁
+  </view>
+  <view class='id'>
+    511************210
+  </view>
+</view>

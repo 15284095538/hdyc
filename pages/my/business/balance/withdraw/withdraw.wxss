@@ -59,3 +59,8 @@ page {
   left: 10%;
   bottom: 10%;
 }
+button[type=primary] {
+  color: #fff;
+  border: none;
+  background-color: #11a8e1;
+}

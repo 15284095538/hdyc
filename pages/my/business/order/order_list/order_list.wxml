@@ -14,7 +14,7 @@
       <view class='order-ns left'>订单编号：{{item.order_ns}}</view>
       <view class='order-status right'>{{item.status}}</view>
     </view>
-    <view class='order-info'>
+    <view class='order-info' data-link='/pages/my/business/order/order_details/order_details' bindtap="ToPage">
       <view class='order-info-img left'>
         <image src='{{item.path}}'></image>
       </view>

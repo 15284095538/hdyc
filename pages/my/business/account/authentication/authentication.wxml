@@ -17,17 +17,18 @@
     </view>
   </view>
 </view>
-<view id='mask'>
+<view id='mask' wx:if="{{mask}}">
   <view class='confirm'>
     <view class='text'>
       实名认证提交后将不能再做任何修改!
     </view>
     <view class='btn'>
-    <view class='btn-modify left'>修改</view>
-    <view class='btn-confirm left'>确定</view>
+    <view class='btn-modify left' bindtap="modify">修改</view>
+    <view class='btn-confirm left' bindtap="confirm">确定</view>
+    <view class='line'></view>
     </view>
   </view>
 </view>
 <view id='post'>
-  <button type="primary" size="default" bindtap="primary"> 提交 </button>
+  <button type="primary" size="default" bindtap="primary" hover-class="other-button-hover">提交</button>
 </view>

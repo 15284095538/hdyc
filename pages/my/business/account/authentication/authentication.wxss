@@ -75,26 +75,42 @@ input {
   letter-spacing: 0rpx;
   color: #333;
 }
-.btn{
-  height: 99rpx;
+
+.btn {
+  height: 109rpx;
   border-top: 1rpx solid #f2f2f2;
+  position: relative;
+  overflow: hidden;
 }
-.btn-modify{
+
+.btn-modify {
   width: 50%;
   text-align: center;
   font-size: 36rpx;
-	line-height: 100rpx;
-	letter-spacing: 0rpx;
-	color: #767676;
+  line-height: 110rpx;
+  letter-spacing: 0rpx;
+  color: #767676;
 }
-.btn-confirm{
+
+.btn-confirm {
   width: 50%;
   text-align: center;
-    font-size: 36rpx;
-	line-height: 100rpx;
-	letter-spacing: 0rpx;
-	color: #11a8e1;
+  font-size: 36rpx;
+  line-height: 110rpx;
+  letter-spacing: 0rpx;
+  color: #11a8e1;
 }
+
+.line {
+  height: 110rpx;
+  width: 1rpx;
+  background-color: #f2f2f2;
+  position: absolute;
+  top: 0rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* post */
 
 #post {
@@ -107,5 +123,8 @@ input {
 button[type=primary] {
   color: #fff;
   border: none;
+  background-color: #11a8e1;
+}
+.button-hover{
   background-color: #11a8e1;
 }

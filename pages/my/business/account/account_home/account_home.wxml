@@ -10,7 +10,7 @@
   </view>
 </view>
 <view id='menu'>
-  <view class='menu-list'>
+  <view class='menu-list' data-link='/pages/my/business/account/authentication/authentication' bindtap="ToPage">
     <view class='menu-list-img left'>
       <image src='/images/shimingrenzheng@2x.png'></image>
     </view>
