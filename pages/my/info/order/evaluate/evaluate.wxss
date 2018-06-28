@@ -1,0 +1,57 @@
+/* pages/my/info/order/evaluate/evaluate.wxss */
+page{
+  background-color: #f6f6f6; 
+}
+.evaluate .header{
+  height: 190rpx;
+  border-bottom: 2px solid #e7e7e7;
+  background-color: #fff;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+.evaluate .spic{
+  width: 170rpx;
+  height: 170rpx;
+}
+.evaluate .text{
+  width: 495rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 220rpx;
+}
+.text text{
+  font-size: 30rpx;
+}
+.header .starts{
+  font-size: 30rpx;
+  margin-top: 40rpx;
+}
+.starts image{  
+  height: 26rpx;  
+  width: 26rpx;  
+  display: inline-block;
+  margin-left: 15rpx;  
+}  
+.evaluate .ping{
+  height: 195rpx;
+  background-color: #fff;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+.ping  textarea{
+  font-size: 30rpx;
+}
+.evaluate .pics{
+
+background-color: #fff;
+}
+.evaluate .button{
+  width: 690rpx;
+  height: 60rpx;
+  text-align: center;
+  background-color: #11a8e1;
+  border-radius: 8rpx;
+  padding-top: 25rpx;
+  position:  fixed;
+  top: 1065rpx;
+  left: 30rpx;
+  color: #fff;
+}

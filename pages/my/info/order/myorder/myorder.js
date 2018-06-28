@@ -4,7 +4,7 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
+  data: { 
     navbar: ["全部", "代付款", "待安装","待评价","退换货"],
     currentIndex: 0,//tabbar索引
     carts:[
