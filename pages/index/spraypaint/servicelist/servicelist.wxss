@@ -1,0 +1,59 @@
+page{
+  background-color: #f6f6f6;
+}
+.l{
+  float: left;
+}
+.r{
+  float: right;
+}
+
+.list{
+  background-color: #fff;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+.list .top{
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+.list .top .r{
+  font-size: 36rpx;
+  color: #ff7979;
+}
+.list .li{
+  height: 120rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+.list .li .img{
+  width: 58rpx;
+  height: 58rpx;
+  margin-top: 31rpx;
+}
+.list .li .img image{
+  width: 58rpx;
+  height: 58rpx;
+}
+.list .li .text{
+  width: 600rpx;
+  height: 120rpx;
+}
+.list .li .a{
+  line-height: 120rpx;
+}
+.list .li .t{
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 90rpx;
+  text-align: right;
+  color: #ff7979;
+}
+.list .li .b{
+  text-align: right;
+  width: 300rpx;
+  height: 60rpx;
+  line-height: 30rpx;
+  color: #aeaeae;
+}

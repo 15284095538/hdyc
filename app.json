@@ -44,7 +44,9 @@
     "pages/my/info/order/myorder/myorder",
     "pages/my/business/account/account_success/account_success",
     "pages/index/spraypaint/home/home",
-    "pages/index/spraypaint/payselect/payselect"
+    "pages/index/spraypaint/payselect/payselect",
+    "pages/index/spraypaint/pay/pay",
+    "pages/index/spraypaint/servicelist/servicelist"
   ],
   "tabBar": {
     "color": "#7f7f7f",
