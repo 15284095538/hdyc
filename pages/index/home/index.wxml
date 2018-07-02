@@ -20,9 +20,9 @@
 
 <view class='indmenu'>
   <block wx:for="{{menu}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
-    <view bindtap='menulink' data-link='{{item.link}}' class='li'>
-      <view class='img'><image src='{{item.path}}'></image></view>
-      <view class='t'>{{item.text}}</view>
+    <view data-menuid="{{item.id}}" bindtap='menulink' data-link='{{item.link}}' class='li'>
+      <view class='img'><image src='{{item.menu_logo}}'></image></view>
+      <view class='t'>{{item.type_name}}</view>
     </view>
   </block>
 </view>
