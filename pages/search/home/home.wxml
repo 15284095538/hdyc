@@ -1,0 +1,23 @@
+<view class='indTop'>
+  <view class='city'>搜索</view>
+  <view class='search'>
+    <view class='button'> <image src='/images/sousuo@3x.png'></image> </view>
+    <input class='text' confirm-type="search" placeholder-style="color:#fff" placeholder='请输入您想要的商品或服务'></input>
+  </view>
+</view>
+
+<view class='tit'>热门搜索</view>
+
+<view class='hote'>
+  <text>dsad</text> <text>dsa</text> <text>dsa</text>
+</view>
+
+<view class='tit'>历史搜索</view>
+
+<view class='his'>
+  <view class='li'>电车</view>
+
+  <view class='sure'>
+    <image src='/images/del.png'></image>清空搜索记录
+  </view>
+</view>

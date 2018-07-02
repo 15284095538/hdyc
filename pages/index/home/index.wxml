@@ -13,7 +13,7 @@
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
   <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
     <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
+      <image src="{{item.b_image}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>

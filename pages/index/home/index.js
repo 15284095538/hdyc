@@ -1,3 +1,5 @@
+var url = getApp().globalData.publicUrl;
+
 Page({
   data: {
     isChecked:false,
@@ -8,11 +10,7 @@ Page({
       duration: 500,
       indicatorcolor: '#d5d5d5',
       indicatoractivecolor: "#0084ff",
-      imgUrl:[
-        '/images/banner.jpg',
-        '/images/banner.jpg',
-        '/images/banner.jpg'
-      ]
+      imgUrl:[]
     },
     menu:[//导航
       {
@@ -90,7 +88,7 @@ Page({
     ]
   },
   onLoad(){
-    
+    this.getSwiper();
   },
   standalone(){//城市选择
     var that = this;
@@ -102,6 +100,21 @@ Page({
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
       url: link
+    })
+  },
+  getSwiper(e){//获取轮播图
+  var that = this;
+    wx.request({
+      url: url + 'home/lb',
+      data:{
+        'cate':'1'
+      },
+      method:'POST',
+      success: function (res) {
+        that.setData({
+          ['swiper.imgUrl']:res.data.data
+        })
+      }
     })
   }
 })
