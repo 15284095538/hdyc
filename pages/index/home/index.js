@@ -14,9 +14,11 @@ Page({
     },
     menu:'',//导航
     classify:'',
+    Userinfo:true
   },
   onLoad(){
     this.getdata();
+    this.onGoUserinfoSetting();
   },
   standalone(){//城市选择
     var that = this;
@@ -28,6 +30,29 @@ Page({
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
       url: link
+    })
+  },
+  onGotUserInfo(e){//用户授权
+    var that = this;
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo;
+        that.setData({
+          Userinfo:false
+        })
+      }
+    })
+  },
+  onGoUserinfoSetting(e){//授权判断
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userInfo']) {
+          that.setData({
+            Userinfo: false
+          })
+        }
+      }
     })
   },
   getdata(e){//获取数据
