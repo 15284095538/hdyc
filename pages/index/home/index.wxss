@@ -8,7 +8,7 @@
   width: 170rpx;
   height: 60rpx;
   text-align: center;
-  font-size: 26rpx;
+  font-size: 10px;
   color: #fff;
   cursor: pointer;
   float: left;
@@ -19,6 +19,18 @@
   height: 12rpx;
   vertical-align: middle;
   margin: 0 3px 2px 0;
+}
+.indTop .city button{
+  background-color: #11a8e1;
+  width: 170rpx;
+  height: 60rpx;
+  text-align: center;
+  font-size: 10px;
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  line-height: 60rpx;
+  border: 0;
 }
 .indTop .city .bottom{
   animation:0.3s linear 0s rotate;
@@ -494,6 +506,7 @@
   top: 0;
   width: 100%;
   height: 100%;
+  margin-top: 100rpx;
   opacity: 0;
   z-index: 9999;
 }
