@@ -54,41 +54,10 @@ Page({
         "link": "/pages/index/list/list"
       }
     ],
-    newcar:[// 新车购买
-      {
-        'path':'/images/car_03.png',
-        "t":'热销推荐',
-        "c":'热销推荐'
-      },
-      {
-        'path': '/images/car_03.png',
-        "t": '热销推荐',
-        "c": '热销推荐'
-      },
-      {
-        'path': '/images/car_03.png',
-        "t": '热销推荐',
-        "c": '热销推荐'
-      },
-      {
-        'path': '/images/car_03.png',
-        "t": '热销推荐',
-        "c": '热销推荐'
-      },
-      {
-        'path': '/images/car_03.png',
-        "t": '热销推荐',
-        "c": '热销推荐'
-      },
-      {
-        'path': '/images/car_03.png',
-        "t": '热销推荐',
-        "c": '热销推荐'
-      }
-    ]
+    classify:'',
   },
   onLoad(){
-    this.getSwiper();
+    this.getdata();
   },
   standalone(){//城市选择
     var that = this;
@@ -102,19 +71,55 @@ Page({
       url: link
     })
   },
-  getSwiper(e){//获取轮播图
-  var that = this;
-    wx.request({
+  getdata(e){//获取数据
+    var that = this;
+    var lb = false;
+    var classify = false;
+    var classifyS = false;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      mask:true
+    })
+
+    wx.request({//获取轮播图
       url: url + 'home/lb',
-      data:{
-        'cate':'1'
+      data: {
+        'cate': '1'
       },
-      method:'POST',
+      method: 'POST',
       success: function (res) {
         that.setData({
-          ['swiper.imgUrl']:res.data.data
+          ['swiper.imgUrl']: res.data.data
         })
+        lb = true
       }
     })
+    wx.request({//获取推荐
+      url: url + 'home/classify',
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          classify: res.data.data
+        })
+        classify = true
+      }
+    })
+    wx.request({//获取分类
+      url: url + 'home/classifyS',
+      method: 'POST',
+      success: function (res) {
+        for (let i = 0; i < res.data.data.length; i++) {
+          res.data.data[i].link = '/pages/index/list/list'
+        }
+        console.log(res)
+        classifyS = true
+        
+      }
+    })
+
+    if (lb && classify && classifyS ){
+      wx.hideToast();
+    }
   }
 })
