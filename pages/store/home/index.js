@@ -65,6 +65,9 @@ Page({
       "distance": "3.1KM"
     }]
   },
+  onLoad(e) {
+    this.onGoUserinfoSetting();
+  },
   ToPage() {//页面跳转
     wx.navigateTo({
       url: '../list/list'
@@ -90,7 +93,7 @@ Page({
     var that = this;
     wx.getSetting({
       success(res) {
-        if (!res.authSetting['scope.userInfo']) {
+        if (res.authSetting['scope.userInfo']) {
           that.setData({
             Userinfo: false
           })

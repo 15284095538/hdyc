@@ -43,8 +43,8 @@ Page({
       "indent": 6201,
     }
   },
-  onLoad: function (options) {
-
+  onLoad(e) {
+    this.onGoUserinfoSetting();
   },
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;
@@ -67,7 +67,7 @@ Page({
     var that = this;
     wx.getSetting({
       success(res) {
-        if (!res.authSetting['scope.userInfo']) {
+        if (res.authSetting['scope.userInfo']) {
           that.setData({
             Userinfo: false
           })

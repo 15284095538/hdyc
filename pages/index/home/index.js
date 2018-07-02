@@ -32,22 +32,23 @@ Page({
       url: link
     })
   },
-  onGotUserInfo(e){//用户授权
+  onGotUserInfo(e) {//用户授权
     var that = this;
     wx.getUserInfo({
       success: function (res) {
         var userInfo = res.userInfo;
         that.setData({
-          Userinfo:false
+          Userinfo: false
         })
       }
     })
   },
-  onGoUserinfoSetting(e){//授权判断
+  onGoUserinfoSetting(e) {//授权判断
     var that = this;
     wx.getSetting({
       success(res) {
-        if (!res.authSetting['scope.userInfo']) {
+        console.log( res )
+        if (res.authSetting['scope.userInfo']) {
           that.setData({
             Userinfo: false
           })
