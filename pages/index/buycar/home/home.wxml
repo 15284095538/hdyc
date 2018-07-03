@@ -1,3 +1,5 @@
+<wxs module="filters" src="../../../modul/filters.wxs"></wxs>
+
 <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
@@ -15,10 +17,10 @@
 <view class='carHote'>
   <view class='con'>
     <view class='li' wx:for="{{hotecar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
-      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
-      <view class='price'>首付<text>￥1.43</text>万</view>
-      <view class='name'>雪佛兰科沃兹</view>
-      <view class='img'> <image src='/images/car_03.png'></image> </view>
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
+      <view class='price'>首付<text>￥{{filters.toFix(item.first_pay)}}</text>万</view>
+      <view class='name'>{{item.car_name}}</view>
+      <view class='img'> <image src='{{item.car_img}}'></image> </view>
     </view>
   </view>
 </view>
@@ -30,10 +32,10 @@
 <view class='carHote'>
   <view class='con'>
     <view class='li' wx:for="{{bkcar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
-      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
-      <view class='price'>首付<text>￥1.43</text>万</view>
-      <view class='name'>雪佛兰科沃兹</view>
-      <view class='img'> <image src='/images/car_03.png'></image> </view>
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
+      <view class='price'>首付<text>￥{{filters.toFix(item.first_pay)}}</text>万</view>
+      <view class='name'>{{item.car_name}}</view>
+      <view class='img'> <image src='{{item.car_img}}'></image> </view>
     </view>
   </view>
 </view>
