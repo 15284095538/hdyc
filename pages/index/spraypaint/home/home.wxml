@@ -1,0 +1,15 @@
+<view class="topimg">
+  <image src='/images/SprayPaint/no@2x.png'></image>
+
+    <image wx:for="{{topimg}}" data-index='{{index}}' class='{{ item.display ? "block":"none"}}' wx:key="this" wx:for-index="index" wx:for-item="item" src='{{item.path}}'></image>  
+
+   <image wx:for="{{hbimg}}" data-index='{{index}}' class='{{ item.display ? "block":"none"}}' wx:key="this" wx:for-index="index" wx:for-item="item" src='{{item.path}}'></image> 
+</view>
+
+<view class='context'>
+   <view data-selectid='{{index}}'  wx:for="{{topimg}}" wx:key="this" wx:for-index="index" wx:for-item="item" class='li {{ item.key ? "select":""}}' catchtap='liclick' >
+    {{item.text}}
+  </view> 
+</view>
+
+<view class='sure'>选产品</view>

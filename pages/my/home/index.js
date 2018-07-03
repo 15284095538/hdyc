@@ -12,6 +12,7 @@ Page({
       "card_info": "2017款 1.8TSI 双离合 330TSI豪华款",
       "integral": 2398
     },
+    Userinfo:true,
     usermenu: [//订单导航
       {
         "path": "/images/daifukuan.png",
@@ -42,13 +43,36 @@ Page({
       "indent": 6201,
     }
   },
-  onLoad: function (options) {
-
+  onLoad(e) {
+    this.onGoUserinfoSetting();
   },
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
       url: link
     })
-  }
+  },
+  onGotUserInfo(e) {//用户授权
+    var that = this;
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo;
+        that.setData({
+          Userinfo: false
+        })
+      }
+    })
+  },
+  onGoUserinfoSetting(e) {//授权判断
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({
+            Userinfo: false
+          })
+        }
+      }
+    })
+  },
 })

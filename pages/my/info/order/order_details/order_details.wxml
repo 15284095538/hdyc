@@ -2,20 +2,72 @@
 <view class='order_details'>
 <view class='uname'>
 <text class='name'>张钧甯<text class='tel'>136****6510</text></text>
+<view style='font-size:30rpx;' hidden="{{status!==0&&status!==4}}">四川省成都市武侯区景馨园东区3栋1701</view>
 </view>
 
-<view class='store'>
+<view class='store'  hidden="{{status!==0&&status!==2}}">
 <view class='peisong'>
 <text>配送至门店</text>
 </view>
 <view class='stores'>
-
+<image class='address' src='/images/car_03.png'></image>
+<view class='saddress'>
+<view class='first'>邛崃市天和车王养护</view>
+<view class='secend'>成都市崇州市老陈大路462号（汇蜀路口）</view>
+</view>
 </view>
 <view class='daohang'>
 <view class='text'><image class='dh' src='/images/dh.png'></image>导航至门店(12.2km)
 <image class='more' src='/images/more.png'></image>
 </view>
 </view>
+</view>
+
+<view class='sp'>
+<view wx:for="{{carts}}"  wx:key="this">
+<view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
+      <image class="item-image" src="{{item.pic}}"></image>
+
+      <view class="column">
+        <text class="title">{{item.name}}</text>
+        <text class='xq'>已售{{item.yishou}}件<text style='margin-left:10rpx;color:#000'>x{{item.pinglun}}</text></text>
+      </view>
+    </view>
+</view>
+</view>
+
+<view class="order_type {{status===0&&status===4?'mar':''}}">
+<view class='ddzt'>
+订单编号：<text class='text'>TH28497737</text>
+</view>
+<view  class='ddzt'>
+下单时间：<text class='text'>2018-5-13  15:02:24</text>
+</view>
+<view class='ddzt'> 
+订单状态：<text class='text'>待安装</text>
+</view>
+</view>
+
+<view class="footter {{status!==0&&status!==4?'dis':''}}">
+<image src='/images/kf.png'></image> 
+<text class='item'>在线咨询</text>
+<image src='/images/phone.png'></image>
+<text class='item' style='border-left:1px solid #f6f6f6;'>电话咨询</text>
+</view>
+<view class="footter {{status!==1?'dis':''}}" >
+<view class='first'>取消订单</view>
+<view class='secend'>立即付款</view>
+</view>
+
+<view class="footter {{status!==2?'dis':''}}" >
+<view class='first'>删除订单</view>
+<view class='secend'>评价门店</view>
+</view>
+
+<view class="footter {{status!==3?'dis':''}}" >
+<view class='first1'>删除订单</view>
+<view class='first1'>申请售后</view>
+<view class='first1'>评价商品</view>
 </view>
 
 </view>

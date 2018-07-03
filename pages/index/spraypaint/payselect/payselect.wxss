@@ -1,0 +1,128 @@
+page{
+  background-color: #f6f6f6;
+}
+
+.washselect{
+  font-size: 28rpx;
+  color: #333333;
+  background-color: #fff;
+}
+.washselect .tit{
+  height: 50rpx;
+  background-color: #f6f6f6;
+  padding: 10rpx 30rpx 10rpx;
+  font-size: 30rpx;
+}
+
+.washselect .li{
+  padding: 20rpx 30rpx;
+  border: 5rpx solid #fff;
+  margin-top: 20rpx;
+  position: relative;
+}
+.washselect .select{
+  border: 5rpx solid #11a8e1;
+}
+.washselect .li .img{
+  width: 91rpx;
+  height: 91rpx;
+  float: left;
+}
+.washselect .li .img image{
+  width: 91rpx;
+  height: 91rpx;
+}
+.washselect .li .text{
+  width: 570rpx;
+  float: right;
+  height: 91rpx;
+}
+.washselect .li .text .name{
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 30rpx;
+}
+.washselect .li .text .price{
+  height: 45rpx;
+  line-height: 45rpx;
+  margin-bottom: 10rpx;
+}
+.washselect .li .bot{
+  line-height: 40rpx;
+  margin-top: 10rpx;
+}
+.washselect .washsure{
+  width: 55rpx;
+  height: 52rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+}
+.washselect .select .washsure{
+  display: block;
+}
+
+.paselectTit{
+  padding: 20rpx 30rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  background-color: #f6f6f6;
+  font-size: 30rpx;
+  color: #333;
+}
+.paselectType{
+  padding: 20rpx 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  color: #333;
+  background-color: #fff;
+}
+.paselectType image{
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  float: right;
+  margin: 10rpx 0 0 0;
+}
+.paselectTs{
+  padding: 20rpx 30rpx;
+  line-height: 30rpx;
+  background-color: #f6f6f6;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.paselectTs text{
+  color: #11a8e1;
+}
+
+.fot{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 1rpx solid #f6f6f6;
+  background-color: #fff;
+}
+.fot .l{
+  float: left;
+  width: 450rpx;
+  padding-left: 30rpx;
+  font-size: 36rpx;
+  color: #333;
+}
+.fot .l text{
+  color: #ff7979;
+}
+.fot .r{
+  float: right;
+  width: 270rpx;
+  background-color: #11a8e1;
+  font-size: 36rpx;
+  color: #fff;
+  text-align: center;
+}

@@ -1,20 +1,19 @@
-<!--pages/store/home/index.wxml-->
-<view class="row" id='menu'>
-  <view class="col">
-    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="itemName" bindtap="ToPage">
-      <view class='menu-img'>
-        <image src="{{itemName.path}}" />
-      </view>
-      <view class='menu-text'>{{itemName.text}}</view>
-    </view>
+<view class="payli">
+  <view class='li'>
+    <text class='l'>联系人</text>
+    <input class='r' placeholder='请输入联系人姓名'></input>
   </view>
 </view>
-<view id='ad'>
-  <view class='line line-left'></view>
-  离我最近
-  <view class='line line-right'></view>
+
+<view class="payli">
+  <view class='li' style='border:0;'>
+    <text class='l'>联系电话</text>
+    <input class='r' placeholder='请输入联系人电话'></input>
+  </view>
 </view>
-<view id='list'>
+
+<view class='paystore'>
+  <view id='list'>
   <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item" catchtap='ToDetails'>
     <view class='list-box'>
       <view class='list-img'>
@@ -60,5 +59,46 @@
     </view>
   </view>
 </view>
+</view>
 
-<button class='Userinfo' wx:if="{{Userinfo}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
+<view class="payli" style='margin-top:20rpx;'>
+  <view class='li'>
+    <text class='l'>标准漆</text>
+    <text class='r'>共3个标准面</text>
+    <image class='more' src='/images/more.png'></image>
+  </view>
+</view>
+
+<view class="payli" style='margin-top:20rpx;'>
+  <view class='li'>
+    <text class='l'>支付方式</text>
+    <text class='r' style='margin:0;' >在线支付</text>
+  </view>
+</view>
+
+<view class="payli" style='margin-top:20rpx;'>
+  <view class='li'>
+    <text class='l'>优惠券</text>
+    <text class='r'>有3张可用</text>
+    <image class='more' src='/images/more.png'></image>
+  </view>
+</view>
+
+<view class="payli" style='margin-top:20rpx;'>
+  <view class='li'>
+    <text class='l'>商品总价</text>
+    <text class='r red' style='margin:0;' >￥248.00</text>
+  </view>
+</view>
+
+<view class="payli" style='margin-bottom:100rpx;'>
+  <view class='li' style='border:0;'>
+    <text class='l'>优惠券</text>
+    <text class='r red' style='margin:0;' >抵扣20元</text>
+  </view>
+</view>
+
+<view class='fot'>
+  <view class='l'>共计：<text>¥837.20</text></view>
+  <view class='r'>提交订单</view>
+</view>

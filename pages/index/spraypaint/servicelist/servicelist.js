@@ -1,37 +1,11 @@
-// pages/my/info/order/order_derails/order_details.js
+// pages/index/spraypaint/servicelist/servicelist.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    status:3,
-    carts: [
-      {
-        pic: "/images/car_03.png",
-        name: "3M高效发动机内部清洗剂296ML ",
-        price: 200.08,
-        yishou: 333,
-        pinglun: 1,
-        isSelect: false,
-      },
-      {
-        pic: '/images/car_03.png',
-        name: "3M高效发动机内部清洗剂296ML ",
-        price: 340.09,
-        yishou: 365,
-        pinglun: 2,
-        isSelect: false,
-      },
-      {
-        pic: '/images/car_03.png',
-        name: "3M高效发动机内部清洗剂296ML ",
-        price: 390.09,
-        yishou: 365,
-        pinglun: 3,
-        isSelect: false,
-      },
-    ],
+  
   },
 
   /**

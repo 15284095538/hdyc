@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    publicUrl: 'https://hd.mmqo.com/wechatApi/'
   }
 })

@@ -1,6 +1,7 @@
 // pages/store/home/index.js
 Page({
   data: {
+    Userinfo:true,
     menu: [//导航
       {
         "path": "/images/store_menu_01.png",
@@ -64,6 +65,9 @@ Page({
       "distance": "3.1KM"
     }]
   },
+  onLoad(e) {
+    this.onGoUserinfoSetting();
+  },
   ToPage() {//页面跳转
     wx.navigateTo({
       url: '../list/list'
@@ -73,5 +77,28 @@ Page({
     wx.navigateTo({
       url: '../details/details'
     })
-  }
+  },
+  onGotUserInfo(e) {//用户授权
+    var that = this;
+    wx.getUserInfo({
+      success: function (res) {
+        var userInfo = res.userInfo;
+        that.setData({
+          Userinfo: false
+        })
+      }
+    })
+  },
+  onGoUserinfoSetting(e) {//授权判断
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({
+            Userinfo: false
+          })
+        }
+      }
+    })
+  },
 })

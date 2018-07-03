@@ -301,3 +301,6 @@
     </view>
   </view>
 </view>
+
+
+<button class='Userinfo' wx:if="{{Userinfo}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
