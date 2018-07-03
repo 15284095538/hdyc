@@ -28,7 +28,7 @@
   </block>
 </view>
 
-<view class='indTit' wx:if="{{ classify.xc.length > 0 }}" >
+<view class='indTit' data-link='/pages/index/buycar/home/home' catchtap='carlink' wx:if="{{ classify.xc.length > 0 }}" >
   <text class='t'>新车购买推荐</text>
 </view> 
 

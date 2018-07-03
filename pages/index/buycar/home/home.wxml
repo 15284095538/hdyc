@@ -3,7 +3,7 @@
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
   <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
     <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
+      <image src="{{item.b_image}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>
@@ -29,7 +29,7 @@
 
 <view class='carHote'>
   <view class='con'>
-    <view class='li' wx:for="{{hotecar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <view class='li' wx:for="{{bkcar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
       <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
       <view class='price'>首付<text>￥1.43</text>万</view>
       <view class='name'>雪佛兰科沃兹</view>

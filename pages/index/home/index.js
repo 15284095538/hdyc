@@ -34,6 +34,12 @@ Page({
       url: link
     })
   },
+  carlink(e){//
+    var link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link
+    })
+  },
   onGotUserInfo(e) {//用户授权
     var that = this;
     wx.login({
@@ -136,12 +142,10 @@ Page({
   },
   getdata(e){//获取数据
     var that = this;
-    var lb = false;
-    var classify = false;
-    var classifyS = false;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
+      duration: 55000,
       mask:true
     })
     wx.request({//获取轮播图
@@ -154,7 +158,6 @@ Page({
         that.setData({
           ['swiper.imgUrl']: res.data.data
         })
-        lb = true
       }
     })
     wx.request({//获取推荐
@@ -164,7 +167,6 @@ Page({
         that.setData({
           classify: res.data.data
         })
-        classify = true
       }
     })
     wx.request({//获取分类
@@ -177,16 +179,11 @@ Page({
         res.data.data[0].link = '/pages/index/washcar/list/list';//洗车
         res.data.data[5].link = '/pages/index/spraypaint/home/home';//钣金喷漆
         res.data.data[7].link = '/pages/index/suppliescar/list/list';//车用品购买
-        classifyS = true
         that.setData({
           menu: res.data.data,
         })
+        wx.hideToast();
       }
     })
-    
-    if (lb && classify && classifyS ){
-      wx.hideToast();
-    }
-    
   }
 })

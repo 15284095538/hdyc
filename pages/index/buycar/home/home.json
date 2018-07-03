@@ -1,4 +1,5 @@
 {
   "disableScroll": false,
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "新车购买"
 }
