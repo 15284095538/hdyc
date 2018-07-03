@@ -97,9 +97,12 @@
   width: 25%;
   float: left;
   height: 90rpx;
-  font-size: 28rpx;
+  font-size: 24rpx;
   line-height: 90rpx;
   text-align: center;
+  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
 }
 .carscreen .ul .img .m image{
   width: 25rpx;
