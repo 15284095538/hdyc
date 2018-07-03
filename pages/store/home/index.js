@@ -80,11 +80,27 @@ Page({
   },
   onGotUserInfo(e) {//用户授权
     var that = this;
-    wx.getUserInfo({
-      success: function (res) {
-        var userInfo = res.userInfo;
-        that.setData({
-          Userinfo: false
+    wx.login({
+      success: res => {
+        var code = res.code;
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
+              url: url + 'user/myInfo',
+              method: 'post',
+              data: {
+                encryptedData: res.encryptedData,
+                iv: res.iv,
+                code: code
+              },
+              success: function (data) {
+                console.log(data)
+                that.setData({
+                  Userinfo: false
+                })
+              }
+            })
+          }
         })
       }
     })
