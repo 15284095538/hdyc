@@ -47,7 +47,8 @@
     "pages/index/spraypaint/payselect/payselect",
     "pages/index/spraypaint/pay/pay",
     "pages/index/spraypaint/servicelist/servicelist",
-    "pages/search/home/home"
+    "pages/search/home/home",
+    "pages/my/info/order/logistics/logistics"
   ],
   "tabBar": {
     "color": "#7f7f7f",

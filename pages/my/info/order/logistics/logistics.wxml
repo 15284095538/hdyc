@@ -1,0 +1,41 @@
+<!--pages/my/info/order/logistics/logistics.wxml-->
+<view id='header'>
+  <view class='header-item left' wx:for="{{list}}" wx:key="index" wx:for-item="item">
+    <image src='{{item.path}}'></image>
+  </view>
+  <view class='header-more right'>
+    <view class='more-text left indent'>共4件商品</view>
+    <view class='more-img right'>
+      <image src='/images/more.png'></image>
+    </view>
+  </view>
+</view>
+<view id='info'>
+  <view class='time'>
+    发货时间：2018-07-01 10：08：06
+  </view>
+  <view class='order-ns'>
+    订单编号：2132141311
+  </view>
+</view>
+<view id='status'>
+  <view class='title'>
+    物流状态
+  </view>
+  <view class='status' wx:for="{{status}}" wx:key="index" wx:for-item="item">
+    <view class='line_1 left' wx:if="{{index == 0}}">
+      <view class='line2'></view>
+      <view class='circular'></view>
+      <view class='circular2'></view>
+    </view>
+    <view class='line_2 left' wx:else>
+      <view class='line1'></view>
+      <view class='line2'></view>
+      <view class='circular'></view>
+    </view>
+    <view class='info left {{ index != 0 ? "border":"" }}'>
+      <view class='info-title'>{{item.title}}</view>
+      <view class='info-subtitle'>{{item.time}}</view>
+    </view>
+  </view>
+</view>
