@@ -43,6 +43,7 @@
     "pages/my/business/account/authentication/authentication",
     "pages/my/info/order/myorder/myorder",
     "pages/my/business/account/account_success/account_success",
+    "pages/my/info/order/order_details/order_details",
     "pages/index/spraypaint/home/home",
     "pages/index/spraypaint/payselect/payselect",
     "pages/index/spraypaint/pay/pay",
