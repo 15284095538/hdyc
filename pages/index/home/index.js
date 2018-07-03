@@ -84,6 +84,9 @@ Page({
           ["loadCity.longitude"]: res.longitude,
           loadCityFail: true
         });
+        wx.setStorageSync('latitude', res.latitude)
+        wx.setStorageSync('longitude', res.longitude)
+        that.getCity();
       }, fail: function () {
         that.setData({
           loadCityFail:false
@@ -103,6 +106,9 @@ Page({
             ["loadCity.longitude"]: res.longitude,
             loadCityFail:true
           });
+          wx.setStorageSync('latitude', res.latitude)
+          wx.setStorageSync('longitude', res.longitude)
+          that.getCity();
         }, fail: function () {
           that.setData({
             loadCityFail: false
@@ -110,6 +116,23 @@ Page({
         }
       })
     }
+  },
+  getCity(){//获取城市
+    var that = this;
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + that.data.loadCity.latitude + ',' + that.data.loadCity.longitude + 
+      '&key=VVIBZ-MLDK2-5XBUN-CZCJG-MEDMT-FTFE6&get_poi=1&get_poi=1',
+      data: {},
+      success: function (res) {
+        wx.setStorageSync('address_component', res.data.result.address_component)
+        that.setData({
+          ["loadCity.text"]: res.data.result.address_component.city
+        });
+      },
+      fail: function (res) {
+        
+      },
+    })
   },
   getdata(e){//获取数据
     var that = this;
