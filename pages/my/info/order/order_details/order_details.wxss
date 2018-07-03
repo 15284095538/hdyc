@@ -1,0 +1,52 @@
+/* pages/my/info/order/order_derails/order_details.wxss */
+page{
+  background-color: #f6f6f6;
+}
+.order_details .uname{
+  height: 100rpx;
+  padding-left: 30rpx;
+  background: #fff;
+  font-size: 30rpx;
+}
+.uname .name{
+  line-height: 100rpx;
+}
+.uname .tel{
+  margin-left: 30rpx;
+}
+.order_details .store{
+  height: 400rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.order_details .peisong{
+  height: 100rpx;
+  border-bottom: 1px solid #e7e7e7;
+}
+.peisong text{
+  line-height: 100rpx;
+  font-size: 30rpx;
+  padding-left: 30rpx;
+}
+.store .stores{
+  height: 200rpx;
+  width: 690rpx;
+  border-bottom:  1px solid #e7e7e7;
+  margin-left: 30rpx;
+}
+.store .daohang .dh {
+width: 35rpx;
+height: 35rpx;
+margin: 30rpx 30rpx -5rpx 30rpx;
+}
+.daohang .text{
+  line-height: 100rpx;
+ font-size: 30rpx; 
+}
+.daohang .more {
+  width: 18rpx;
+  height: 33rpx;
+  float: right;
+  margin-top: 30rpx;
+  margin-right: 30rpx;
+}

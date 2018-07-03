@@ -1,0 +1,21 @@
+<!--订单详情-->
+<view class='order_details'>
+<view class='uname'>
+<text class='name'>张钧甯<text class='tel'>136****6510</text></text>
+</view>
+
+<view class='store'>
+<view class='peisong'>
+<text>配送至门店</text>
+</view>
+<view class='stores'>
+
+</view>
+<view class='daohang'>
+<view class='text'><image class='dh' src='/images/dh.png'></image>导航至门店(12.2km)
+<image class='more' src='/images/more.png'></image>
+</view>
+</view>
+</view>
+
+</view>
