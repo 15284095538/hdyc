@@ -26,12 +26,18 @@ Page({
       label:'',
       gt_guide:'',
       lt_guide:'',
+      car_type:'不限',
     },
     detaillist:'',
   },
   onLoad() {
     this.getdata();
     this.getcarList();
+  },
+  urllink(e){
+    wx.navigateTo({
+      url: '/pages/index/buycar/list/list'
+    })
   },
   first_pay(e){
     var gt_first = e.currentTarget.dataset.gt_first;
@@ -76,9 +82,10 @@ Page({
         brand: that.data.detail.brand,
         brand: that.data.detail.brand,
         keywords: that.data.detail.keywords,
-        label: that.data.detail.label,
+        label: that.data.detail.label, 
         gt_guide: that.data.detail.gt_guide,
         lt_guide: that.data.detail.lt_guide,
+        car_type: that.data.detail.car_type,
       },
       method: 'POST',
       success: res => {

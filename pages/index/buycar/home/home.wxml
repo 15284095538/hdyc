@@ -44,7 +44,7 @@
   <image src='/images/jinxuan.png'></image> 精选车型
 </view>
 
-<view class='carscreen'>
+<view class='carscreen' catchtap='urllink'>
   <view class='ul'>
     <view class='li'>首付</view>
 
