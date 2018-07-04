@@ -56,7 +56,7 @@ Page({
                 code: code
               },
               success: function (data) {
-                console.log(data)
+                wx.setStorageSync('userinfo', data.data.data)
                 that.setData({
                   Userinfo: false
                 })

@@ -1,3 +1,5 @@
+var url = getApp().globalData.publicUrl;
+
 // pages/my/home/index.js
 Page({
   data: {
@@ -68,7 +70,7 @@ Page({
                 code: code
               },
               success: function (data) {
-                console.log(data)
+                wx.setStorageSync('userinfo', data.data.data)
                 that.setData({
                   Userinfo: false
                 })

@@ -85,6 +85,7 @@ Page({
       url: url + 'car/recommend',
       method:'POST',
       success: res => {
+        console.log( res )
         if( res.data.code == 200 ){
           that.setData({
             hotecar: res.data.data.rx,
