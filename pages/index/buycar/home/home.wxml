@@ -47,22 +47,20 @@
 <view class='carscreen'>
   <view class='ul'>
     <view class='li'>首付</view>
-    <view class='li'>1万以下</view>
-    <view class='li'>1-2万</view>
-    <view class='li'>2-3万</view>
-    <view class='li'>3万以上</view>
+
+    <view catchtap='first_pay' wx:for="{{first_pay}}" data-gt_first='{{item.gt_first}}' data-lt_first='{{item.lt_first}}' wx:for-index="index" wx:key="this" wx:for-item="item" class='li'>{{item.title}}</view>
+
   </view>
   <view class='ul'>
     <view class='li'>月供</view>
-    <view class='li'>2千以下</view>
-    <view class='li'>2-3千</view>
-    <view class='li'>3-4千</view>
-    <view class='li'>4千以上</view>
+    
+    <view catchtap='month_pay' wx:for="{{month_pay}}" data-gt_month='{{item.gt_month}}' data-lt_month='{{item.lt_month}}' wx:for-index="index" wx:key="this" wx:for-item="item" class='li'>{{item.title}}</view>
+
   </view>
   <view class='ul'>
     <view class='li'>品牌</view>
     <view class='img'>
-      <view wx:if="{{index<8}}" wx:for="{{brand}}" wx:for-item="item" wx:key="this" wx:for-index="index" class='m'> <image src='{{item.car_logo}}'></image>{{item.car_brand}}</view>
+      <view catchtap='brand' data-brand='{{item.brand_id}}' wx:if="{{index<8}}" wx:for="{{brand}}" wx:for-item="item" wx:key="this" wx:for-index="index" class='m'> <image src='{{item.car_logo}}'></image>{{item.car_brand}}</view>
     </view>
   </view>
 </view>
