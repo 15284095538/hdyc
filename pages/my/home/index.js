@@ -1,4 +1,5 @@
 // pages/my/home/index.js
+var url = getApp().globalData.publicUrl;
 Page({
   data: {
     IsUser: true,
