@@ -64,7 +64,7 @@ Page({
     this.data.currentGesture = 0;
     if (this.data.isScroll) {
       wx.navigateTo({
-        url: '/pages/index/suppliescar/pic/pic'
+        url: '/pages/index/buycar/pic/pic?id=' + this.data.detailsid
       })
     }
   },
