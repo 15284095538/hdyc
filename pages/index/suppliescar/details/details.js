@@ -109,9 +109,9 @@ Page({
     //上下方向滑动
     else {
       if (ty < 0)
-        text = "向上滑动"
+        text = "向上滑动", this.data.isScroll = true
       else if (ty > 0)
-        text = "向下滑动", this.data.isScroll = false
+        text = "向下滑动"
     }
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX
