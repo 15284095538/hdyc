@@ -1,7 +1,5 @@
 var url = getApp().globalData.publicUrl;
-
 // pages/my/home/index.js
-var url = getApp().globalData.publicUrl;
 Page({
   data: {
     IsUser: true,
@@ -48,6 +46,7 @@ Page({
   },
   onLoad(e) {
     this.onGoUserinfoSetting();
+    this.onGotUserInfo();
   },
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;

@@ -1,4 +1,5 @@
 // pages/my/info/infodata/infodata.js
+var url = getApp().globalData.publicUrl;
 Page({
 
   /**
@@ -18,9 +19,32 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getdata();
   },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    var value = wx.getStorageSync('userinfo');
+    wx.request({//获取爱车信息
+      url: url + 'user/myData',
+      data: {
+        'openid': value.openid
+      },
+      method: 'POST',
+      success: function (res) {
+        // that.setData({
+        //   ['swiper.imgUrl']: res.data.data
+        // })
+        console.log(res);
+      }
+    })
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
