@@ -1,23 +1,27 @@
+ <wxs module="filters" src="../../../modul/filters.wxs"></wxs>
+
+<view bindtap = "handletap" bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+
  <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
   <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
     <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
+      <image src="{{item.path}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>
 
 <view class='detalisTop'>
   <view class='price'>
-    <view class='p'>￥11.84万</view>
-    <view class='r'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+    <view class='p'>￥{{filters.toFix(detailslist.car_price,10000,2)}}万</view>
+    <view class='r'><image src='/images/car_net_bac.png'></image> <text>{{detailslist.adv_label}}</text> </view>
   </view>
-  <view class='name'>别克威朗2018款Health Plus定制版别克威</view>
+  <view class='name'>{{detailslist.car_name}}</view>
   <view class='det'>
-    <text class='l'>首付:￥1.2万</text>
-    <text class='c'>月供:1761元</text>
-    <text class='r'>四川成都</text>
+    <text class='l'>首付:￥{{filters.toFix(detailslist.first_pay,10000,1)}}万</text>
+    <text class='c'>月供:{{filters.toFix(detailslist.month_pay,1,0)}}元</text>
+    <!-- <text class='r'>四川成都</text> -->
   </view>
 </view>
 
@@ -37,7 +41,7 @@
     <view class='r'> <image src='/images/more.png'></image> </view>
     <view class='c'></view>
   </view>
-  <view class='li'>
+  <view class='li' catchtap='layerfqclick' >
     <view class='l'>分期付款方案</view>
     <view class='r'> <image src='/images/more.png'></image> </view>
     <view class='c'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
@@ -50,12 +54,10 @@
     <view>在线咨询</view>
   </view>
   <view class='li'>加入购物车</view>
-  <view class='li'>1.2万开回家</view>
+  <view class='li'>{{filters.toFix(detailslist.first_pay,10000,1)}}万开回家</view>
 </view>
 
-<view class='detalisCon'>
-  <view class='tit'>----- 商品图片 -----</view>
-</view>
+<view class='upMore' > <image src='/images/up.png'></image> 上拉查看商品详情</view>
 
 
 
@@ -123,4 +125,23 @@
       </view>
     </view>
   </view>
+</view>
+
+<!-- 分期付款 -->
+<view class='layerLiftcar {{bglayerfqDisplay}}' catchtap='bglayerfqclick'>
+  <view class='box'>
+    <view class='top'>
+      <view class='tit'>提车流程</view>
+      <view class='img'><image src='/images/cha@3x.png'></image></view>
+    </view>
+    <view class='fq'>
+      <view class='text' wx:for="{{scheme}}" wx:key="this" wx:-item="item" >
+        <view class='tb'> <text>首付(10%)</text> <text>月供</text> <text>期数</text> </view>
+        <view class='wb'> <text>{{filters.toFix(item.first_pay,10000,2)}}万</text> <text>{{filters.toFix(item.month_pay,1,0)}}元</text> <text>{{item.periods}}期</text> </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+
 </view>
