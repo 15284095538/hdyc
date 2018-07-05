@@ -5,9 +5,9 @@ Page({
   data: {
     IsUser: true,
     userinfo: {
-      "path": "/images/store_menu_01.png",
-      "name": "Leslie",
-      "code": "X34G7",
+      "header": "/images/store_menu_01.png",
+      "user_name": "",
+      "code": "",
       "card_path": "/images/store_menu_01.png",
       "card_name": "上海大众-凌渡",
       "card_code": "川A UIX99",
@@ -47,6 +47,7 @@ Page({
   },
   onLoad(e) {
     this.onGoUserinfoSetting();
+    this.onGotUserInfo();
   },
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;
@@ -70,9 +71,13 @@ Page({
                 code: code
               },
               success: function (data) {
+                console.log(data.data.data);
                 wx.setStorageSync('userinfo', data.data.data)
                 that.setData({
                   Userinfo: false
+                })
+                that.setData({
+                  userinfo: data.data.data
                 })
               }
             })

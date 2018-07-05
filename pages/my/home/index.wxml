@@ -3,11 +3,11 @@
   <view id='header'>
     <view class='info-box'>
       <view class='info-img left'>
-        <image src="{{userinfo.path}}"></image>
+        <image src="{{userinfo.header}}"></image>
       </view>
       <view class='info-infos left'>
         <view class='info-name'>
-          {{userinfo.name}}
+          {{userinfo.user_name}}
         </view>
         <view class='info-code'>
           <view class='info-codeimg'>
