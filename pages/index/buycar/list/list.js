@@ -70,6 +70,18 @@ Page({
     this.getdata();
     this.getlist();
   },
+  page: {
+    pages: 1,
+  },
+  onReachBottom: function () {//下拉加载更多
+    this.page.pages++;
+    this.getlist();
+  },
+  onPullDownRefresh: function () {//上拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
+    this.getlist();
+  },
   first_payclick(e){
     var gt_first = e.currentTarget.dataset.gt_first;
     var lt_first = e.currentTarget.dataset.lt_first;
@@ -139,12 +151,16 @@ Page({
   brandclick(e){ //品牌点击
     var brandid = e.currentTarget.dataset.brandid;
     this.setData({ ["detail.brand"]: brandid, });
+    this.page.pages = 1;
+    this.getlist();
     this.layerNone();
   },
   levelclick(e){ // 级别点击
     var index = e.currentTarget.dataset.index;
     var title = e.currentTarget.dataset.title;
     this.setData({ levelid: index, ["detail.car_type"]: title, });
+    this.getlist();
+    this.page.pages = 1;
     this.layerNone();
   },
   screenclick(e){//筛选
@@ -154,25 +170,53 @@ Page({
     var label = e.currentTarget.dataset.label;
     var data = that.data.more;
     var arry = data[menulist].children;
+    var array = new Array();
     for (let i = 0; i < arry.length; i++) {
       if (id == i) {
         arry[i].key = !arry[i].key
       }
     }
-    that.setData({ menulist: data, ["detail.label"]:5 , })
+    for (let i = 0; i < data.length; i++) {
+      for (let x = 0; x < data[i].children.length; x++) {
+        if ( data[i].children[x].key ){
+          array.push(data[i].children[x].id)
+        }
+      }
+    }
+    var label = array.join(",");//转化为字符串
+    that.setData({ menulist: data, ["detail.label"]: label, })
   },
   morereset(e){ //重置
     var that = this;
     var data = that.data.more;
-    console.log( data )
     for (let i = 0; i < data.length; i++ ){
       for (let x = 0; x < data[i].children.length; x++ ){
         data[i].children[x].key = false
       }
     }
-    that.setData({ menulist: data })
+    that.setData({ menulist: data, ["detail.label"]: '', })
   },
   moreconfirm(e){
+    this.getlist();
+    this.page.pages = 1;
+    this.layerNone();
+  },
+  pricereset(e){
+    this.setData({
+      ["priceindex.first_payindex"]:99,
+      ["priceindex.month_payindex"]: 99,
+      ["priceindex.guide_priceindex"]: 99,
+      ["detail.gt_first"]:'',
+      ["detail.lt_first"]: '',
+      ["detail.gt_month"]: '',
+      ["detail.lt_month"]: '',
+      ["detail.gt_guide"]: '',
+      ["detail.lt_guide"]: '',
+    })
+  },
+  priceconfirm(e){
+    this.getlist();
+    this.page.pages = 1;
     this.layerNone();
   },
   getdata(e){
@@ -217,9 +261,14 @@ Page({
         gt_guide: that.data.detail.gt_guide,
         lt_guide: that.data.detail.lt_guide,
         car_type: that.data.detail.car_type,
+        pages: that.page.pages,
       },
       success: res => {
-        console.log( res )
+        // console.log( res )
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
         if (res.data.code == 200) {
           that.setData({
             listCon: res.data.data,
