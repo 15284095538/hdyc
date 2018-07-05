@@ -1,12 +1,16 @@
 var filters = {
-  toFix: function (value) {
-    
-    var num = (parseInt(value) / 10000).toFixed(2);
-
+  toFix: function (value, divisor,size) {
+    var num = (parseInt(value) / divisor).toFixed(size);
     return num
-
+  },
+  toWords:function( text, size){
+    if ( text.length > size ){
+      var text = text.substring(0, size) + '...';
+    }
+    return text
   }
 }
 module.exports = {
-  toFix: filters.toFix
+  toFix: filters.toFix,
+  toWords: filters.toWords
 }

@@ -176,28 +176,32 @@
 
 .level{
   background-color: #fff;
-  padding: 10rpx 30rpx;
+  padding: 20rpx 30rpx 10rpx;
+  display: flex;
+  flex-wrap: wrap;
   overflow: hidden;
 }
 
-.level .li{
+.level .levelli{
   text-align: center;
-  margin: 0rpx 20rpx 30rpx 0;
+  margin: 0rpx 20rpx 20rpx 0;
   color: #767676;
   border-radius: 10rpx;
   font-size: 28rpx;
   border: 1px solid #767676;
   padding: 10rpx 20rpx;
+  display: block;
 }
 .level .select{
   background-color: #11a8e1;
   text-align: center;
-  margin: 40rpx 20rpx 0 0;
+  margin: 0rpx 20rpx 20rpx 0;
   color: #fff;
   border-radius: 10rpx;
   font-size: 28rpx;
   border: 1px solid #e7e7e7;
   padding: 10rpx 20rpx;
+  display: block;
 }
 .listCon{
   padding-top: 90rpx;

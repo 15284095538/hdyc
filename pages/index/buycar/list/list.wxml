@@ -1,3 +1,5 @@
+<wxs module="filters" src="../../../modul/filters.wxs"></wxs>
+
 <view class='listTop'>
   <block wx:for="{{menu}}" wx:key="this" wx:for-item="item" wx:for-index="index">
     <view bindtap='listTopclick' data-key="{{item.key}}" data-id="{{index}}" class='li {{ index == menuid ? "select":"" }}'>
@@ -12,45 +14,75 @@
 <view class='listToplayer {{display}}' bindtap='layerNone'>
   <view class='listToplayeranment'>
     <!-- 品牌 -->
-    <block wx:if="{{menuid == 0 }}" wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
-      <view data-id="{{index}}" catchtap='brandclick' data-text="{{item.text}}" class='li {{ index == layerid ? "select":"" }}'> 
-       <image wx:if="{{ item.path }}" src='{{item.path}}'></image>
-       {{item.text}}
-      </view>
-    </block>
-    <!-- 筛选 -->
-    <view class='screen' wx:if="{{menuid == 1 || menuid == 3}}">
-      <view class='screen-box' wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
-        <view class='screen-title'>
-          {{item.text}}
+    <scroll-view scroll-y wx:if="{{menuid == 0 }}" style="height: {{winHeight+'px'}};">
+      <block  wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
+        <view data-id="{{index}}" catchtap='brandclick' data-brandid="{{item.id}}" class='li {{ index == layerid ? "select":"" }}'> 
+        <image wx:if="{{ item.car_logo }}" src='{{item.car_logo}}'></image>
+        {{item.car_brand}}
         </view>
+      </block>
+    </scroll-view>
+
+    <!-- 价格 -->
+    <view class='screen' wx:if="{{menuid == 1}}">
+      <view class='screen-box'>
+        <view class='screen-title'>首付</view>
         <view class='screen-sub'>
-          <view wx:for="{{item.sub}}" data-menulist='{{index}}' wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" class='screen-tag {{ sublist.key ? "select":"" }}' data-id="{{subindex}}" catchtap="screenclick">{{sublist.text}}</view>
+          <view class='screen-tag {{ priceindex.first_payindex == index ? "select":"" }}' data-lt_first='{{item.lt_first}}' data-gt_first='{{item.gt_first}}' wx:for="{{menulist.first_pay}}" data-index='{{index}}'  wx:key="subthis" wx:for-index="index" wx:for-item="item"  catchtap="first_payclick">{{item.title}}</view>
+          <view class='clear'></view>
+        </view>
+        <view class='screen-title'>月付</view>
+        <view class='screen-sub'>
+          <view class='screen-tag {{ priceindex.month_payindex == index ? "select":"" }}' data-gt_month='{{item.gt_month}}' data-lt_month='{{item.lt_month}}' wx:for="{{menulist.month_pay}}" data-index='{{index}}' wx:key="subthis" wx:for-index="index" wx:for-item="item"  catchtap="month_payclick">{{item.title}}</view>
+          <view class='clear'></view>
+        </view>
+        <view class='screen-title'>指导价</view>
+        <view class='screen-sub'>
+          <view class='screen-tag {{ priceindex.guide_priceindex == index ? "select":"" }}' data-gt_guide='{{item.gt_guide}}' data-lt_guide='{{item.lt_guide}}' wx:for="{{menulist.guide_price}}" data-index='{{index}}'  wx:key="subthis" wx:for-index="index" wx:for-item="item"  catchtap="guide_priceclick">{{item.title}}</view>
           <view class='clear'></view>
         </view>
       </view>
       <view class='screen-btn'>
-        <view class='reset' catchtap='reset'>重置</view>
-        <view class='confirm' catchtap='confirm'>确认</view>
+        <view class='reset' catchtap='pricereset'>重置</view>
+        <view class='confirm' catchtap='priceconfirm'>确认</view>
         <view class='clear'></view>
       </view>
     </view>
+
+    <!-- 筛选 -->
+    <view class='screen' wx:if="{{ menuid == 3}}">
+      <view class='screen-box' wx:if="{{ item.children.length > 0 }}" wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
+        <view class='screen-title'>
+          {{item.label_name}}
+        </view>
+        <view class='screen-sub'>
+          <view wx:for="{{item.children}}" data-menulist='{{index}}' wx:key="subthis" wx:for-index="subindex" wx:for-item="sublist" class='screen-tag {{ sublist.key ? "select":"" }}' data-label='{{sublist.id}}' data-id="{{subindex}}" catchtap="screenclick">{{sublist.label_name}}</view>
+          <view class='clear'></view>
+        </view>
+      </view>
+      <view class='screen-btn'>
+        <view class='reset' catchtap='morereset'>重置</view>
+        <view class='confirm' catchtap='moreconfirm'>确认</view>
+        <view class='clear'></view>
+      </view>
+    </view>
+
     <!-- 级别 -->
     <view wx:if="{{menuid == 2 }}" class='level'>
-      <text catchtap='levelclick' data-index="{{index}}" class='li {{ index == levelid ? "select":"" }}' wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">{{item.text}}</text>
+      <text catchtap='levelclick' data-title='{{item.title}}' data-index="{{index}}" class='levelli {{ index == levelid ? "select":"" }}' wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">{{item.title}}</text>
     </view>
   </view>
 </view>
 
 
 <view class='listCon'>
-  <view class='li' wx:for="{{listCon}}"  wx:key="this" wx:for-index="index" wx:for-item="item" >
-    <view class='img'> <image src='{{item.path}}'></image> </view>
+  <view class='li' data-id='{{item.id}}' wx:for="{{listCon}}"  wx:key="this" wx:for-index="index" wx:for-item="item" >
+    <view class='img'> <image src='{{item.car_img}}'></image> </view>
     <view class='text'>
-      <view class='name'>{{item.name}}</view>
+      <view class='name'>{{item.car_name}}</view>
       <view class='cs'>{{item.cs}}</view>
-      <view class='price'> <text class='l'>首付{{item.l}}万</text> <text class='r'>月供{{item.r}}</text> </view>
-      <view class='top'><image src='/images/car_net_bac.png'></image> <text>含购置税 送1年保险</text> </view>
+      <view class='price'> <text class='l'>首付{{filters.toFix(item.first_pay,10000,2)}}万</text> <text class='r'>月供{{filters.toFix(item.month_pay,1,0)}}元</text> </view>
+      <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
     </view>
   </view>
 </view>

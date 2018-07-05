@@ -16,9 +16,9 @@
 
 <view class='carHote'>
   <view class='con'>
-    <view class='li' wx:for="{{hotecar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <view class='li' wx:for="{{hotecar}}" wx:if="{{index<3}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
       <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
-      <view class='price'>首付<text>￥{{filters.toFix(item.first_pay)}}</text>万</view>
+      <view class='price'>首付<text>￥{{filters.toFix(item.first_pay,10000,2)}}</text>万</view>
       <view class='name'>{{item.car_name}}</view>
       <view class='img'> <image src='{{item.car_img}}'></image> </view>
     </view>
@@ -31,9 +31,9 @@
 
 <view class='carHote'>
   <view class='con'>
-    <view class='li' wx:for="{{bkcar}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <view class='li' wx:for="{{bkcar}}" wx:if="{{index<3}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
       <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
-      <view class='price'>首付<text>￥{{filters.toFix(item.first_pay)}}</text>万</view>
+      <view class='price'>首付<text>￥{{filters.toFix(item.first_pay,10000,2)}}</text>万</view>
       <view class='name'>{{item.car_name}}</view>
       <view class='img'> <image src='{{item.car_img}}'></image> </view>
     </view>
@@ -44,59 +44,33 @@
   <image src='/images/jinxuan.png'></image> 精选车型
 </view>
 
-<view class='carscreen'>
+<view class='carscreen' catchtap='urllink'>
   <view class='ul'>
     <view class='li'>首付</view>
-    <view class='li'>1万以下</view>
-    <view class='li'>1-2万</view>
-    <view class='li'>2-3万</view>
-    <view class='li'>3万以上</view>
+
+    <view catchtap='first_pay' wx:for="{{first_pay}}" data-gt_first='{{item.gt_first}}' data-lt_first='{{item.lt_first}}' wx:for-index="index" wx:key="this" wx:for-item="item" class='li'>{{item.title}}</view>
+
   </view>
   <view class='ul'>
     <view class='li'>月供</view>
-    <view class='li'>2千以下</view>
-    <view class='li'>2-3千</view>
-    <view class='li'>3-4千</view>
-    <view class='li'>4千以上</view>
+    
+    <view catchtap='month_pay' wx:for="{{month_pay}}" data-gt_month='{{item.gt_month}}' data-lt_month='{{item.lt_month}}' wx:for-index="index" wx:key="this" wx:for-item="item" class='li'>{{item.title}}</view>
+
   </view>
   <view class='ul'>
     <view class='li'>品牌</view>
     <view class='img'>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
-      <view class='m'> <image src='/images/store_menu_01.png'></image>大众 </view>
+      <view catchtap='brand' data-brand='{{item.brand_id}}' wx:if="{{index<8}}" wx:for="{{brand}}" wx:for-item="item" wx:key="this" wx:for-index="index" class='m'> <image src='{{item.car_logo}}'></image>{{item.car_brand}}</view>
     </view>
   </view>
 </view>
 
 <view class='carscreenCar'>
-  <view class='li'>
-    <view class='img'> <image src='/images/car_03.png'></image> </view>
-    <view class='name'>2018晶锐Health Plus定制版...</view>
-    <view class='cj'>厂商指导价10.54万</view>
-    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
+  <view data-id='{{item.id}}' wx:for="{{detaillist}}" wx:for-item="item" wx:key="this" wx:for-index="index" class='li'>
+    <view class='img'> <image src='{{item.car_img}}'></image> </view>
+    <view class='name'>{{item.car_name}}</view>
+    <view class='cj'>厂商指导价{{filters.toFix(item.guide_price,10000,2)}}万</view>
+    <view class='price'> <text class='l'>首付￥{{filters.toFix(item.first_pay,10000,2)}}万</text> <text class='r'>月供{{filters.toFix(item.month_pay,1,0)}}元</text> </view>
   </view>
-  <view class='li'>
-    <view class='img'> <image src='/images/car_03.png'></image> </view>
-    <view class='name'>2018晶锐Health Plus定制版...</view>
-    <view class='cj'>厂商指导价10.54万</view>
-    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
-  </view>
-  <view class='li'>
-    <view class='img'> <image src='/images/car_03.png'></image> </view>
-    <view class='name'>2018晶锐Health Plus定制版...</view>
-    <view class='cj'>厂商指导价10.54万</view>
-    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
-  </view>
-  <view class='li'>
-    <view class='img'> <image src='/images/car_03.png'></image> </view>
-    <view class='name'>2018晶锐Health Plus定制版...</view>
-    <view class='cj'>厂商指导价10.54万</view>
-    <view class='price'> <text class='l'>首付￥0.81万</text> <text class='r'>月供1681元</text> </view>
-  </view>
+  
 </view>
