@@ -1,5 +1,4 @@
 var url = getApp().globalData.publicUrl;
-
 // pages/my/home/index.js
 Page({
   data: {

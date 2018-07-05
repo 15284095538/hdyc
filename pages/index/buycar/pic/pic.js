@@ -1,27 +1,20 @@
-// pages/my/info/infodata/infodata.js
 var url = getApp().globalData.publicUrl;
+
+var WxParse = require('../../../../wxParse/wxParse.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-        user:{
-          'pic':'/images/car_03.png',
-          'zname':'',
-          'tel':'13618045260',
-          'sex':'女',
-          'usname':'阴雨小城',
-        }
+    pic:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getdata();
-  },
-  getdata(e) {//获取数据
     var that = this;
     wx.showToast({
       title: '加载中',
@@ -29,22 +22,25 @@ Page({
       duration: 55000,
       mask: true
     })
-    var value = wx.getStorageSync('userinfo');
-    wx.request({//获取爱车信息
-      url: url + 'user/myData',
+    wx.request({//获取内容
+      url: url + 'car/car_details',
       data: {
-        'openid': value.openid
+        id: options.id
       },
       method: 'POST',
-      success: function (res) {
-        // that.setData({
-        //   ['swiper.imgUrl']: res.data.data
-        // })
-        console.log(res);
+      success: res => {
+        console.log(res)
+        if (res.data.code == 200) {
+          WxParse.wxParse('article', 'html', res.data.data.car_detail, that, 5);
+          that.setData({
+            pic: res.data.data
+          })
+          wx.hideToast();
+        }
       }
     })
-
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

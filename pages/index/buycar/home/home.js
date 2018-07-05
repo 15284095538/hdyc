@@ -30,6 +30,9 @@ Page({
     },
     detaillist:'',
   },
+  page: {
+    pages: 1,
+  },
   onLoad() {
     this.getdata();
     this.getcarList();
@@ -37,6 +40,12 @@ Page({
   urllink(e){
     wx.navigateTo({
       url: '/pages/index/buycar/list/list'
+    })
+  },
+  cardetils(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/index/buycar/details/details?id='+ id,
     })
   },
   first_pay(e){
@@ -86,6 +95,7 @@ Page({
         gt_guide: that.data.detail.gt_guide,
         lt_guide: that.data.detail.lt_guide,
         car_type: that.data.detail.car_type,
+        pages: that.page.pages,
       },
       method: 'POST',
       success: res => {
