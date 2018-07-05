@@ -1,1 +1,1 @@
-/* pages/index/buycar/pic/pic.wxss */
+@import "/wxParse/wxParse.wxss";
