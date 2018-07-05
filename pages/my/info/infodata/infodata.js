@@ -33,7 +33,7 @@ Page({
     wx.request({//获取爱车信息
       url: url + 'user/myData',
       data: {
-        'openid': value.openid
+        'openid': value.openid 
       },
       method: 'POST',
       success: function (res) {
