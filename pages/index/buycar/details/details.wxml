@@ -34,7 +34,7 @@
   <view class='li' catchtap='layerColorclick'>
     <view class='l'>已选</view>
     <view class='r'> <image src='/images/more.png'></image> </view>
-    <view class='c'>玛瑙红</view>
+    <view class='c'>{{carattribute.carattributeval}} {{displacement.displacementval}}</view>
   </view>
   <view class='li' catchtap='layerLiftcarclick'>
     <view class='l'>提车流程</view>
@@ -53,7 +53,7 @@
     <view><image src='/images/tel.png'></image></view>
     <view>在线咨询</view>
   </view>
-  <view class='li'>加入购物车</view>
+  <view catchtap='addshoppingcar' class='li'>加入购物车</view>
   <view class='li'>{{filters.toFix(detailslist.first_pay,10000,1)}}万开回家</view>
 </view>
 
@@ -65,24 +65,28 @@
 <view class='layerColor {{layerColorDisplay}} ' catchtap='bglayerColorclick' >
   <view class='box'>
     <view class='sp'>
-      <view class='img'><image src='/images/banner.jpg'></image></view>
+      <view class='img'><image src='{{carattribute.carattributeimg}}'></image></view>
       <view class='xq'>
-        <view class='t'>￥11.84万</view>
-        <view class='t'>库存：12辆</view>
-        <view class='t'>已选：玛瑙红</view>
+        <view class='t'>￥{{ filters.toFix(carattribute.carattributeprice,10000,2) }}万</view>
+        <view class='t'>库存：{{carattribute.carattributeinventory}}辆</view>
+        <view class='t'>已选：{{carattribute.carattributeval}} {{displacement.displacementval}} </view>
       </view>
       <view class='close' catchtap='closelayerColor' > <image src='/images/cha@3x.png'></image> </view>
     </view>
-    <view class='bt'>车身颜色：</view>
+    <view class='bt'>{{carcolor.name}}:</view>
     <view class='ul'>
-      <view class='li select'>玛瑙红</view>
-      <view class='li'>玛瑙红</view>
-      <view class='li'>玛瑙红</view>
-      <view class='li'>玛瑙红</view>
-      <view class='li'>玛瑙红</view>
-      <view class='li'>玛瑙红</view>
-      <view class='li'>玛瑙红</view>
+      <view wx:for="{{carcolor.data}}" data-index='{{index}}' wx:key="this" data-price='{{item.price}}' data-img='{{item.img}}' data-pid='{{item.id}}' data-inventory='{{item.inventory}}' data-val='{{item.val}}' wx:for-item="item" wx:for-index="index" catchtap='colorclick'
+      class='li {{ carattribute.carattributeindex == index ? "select":""}}'>{{item.val}}</view>
     </view>
+
+
+    <view class='bt'>{{carattributeTwo.name}}:</view>
+    <view class='ul'>
+      <view wx:for="{{carattributeTwo.data}}" data-index='{{index}}' wx:key="this" data-price='{{item.price}}' data-pid='{{item.id}}' data-inventory='{{item.inventory}}' data-val='{{item.val}}' wx:for-item="item" wx:for-index="index" catchtap='displacementclick'
+      class='li {{ displacement.displacementindex == index ? "select":""}}'>{{item.val}}</view>
+    </view>
+
+
     <view class='sure'>确定</view>
   </view>
 </view>
