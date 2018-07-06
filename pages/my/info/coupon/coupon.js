@@ -54,9 +54,9 @@ Page({
         if (res.data.code == 200) {
           var menu = that.data.menu;
           for (var i = 0; i < menu.length; i++) {
-            if(i == 1){
+            if(i == 0){
               menu[i].num = res.data.data.notUse
-            } else if (i == 2){
+            } else if (i == 1){
               menu[i].num = res.data.data.used
             }else{
               menu[i].num = res.data.data.validity
