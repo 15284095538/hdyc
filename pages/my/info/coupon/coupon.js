@@ -1,16 +1,17 @@
 // pages/my/info/coupon/coupon.js
+var url = getApp().globalData.publicUrl;
 Page({
   data: {
     menu: [ //导航
       {
         "id": 0,
         "text": "未使用",
-        "num": 2
+        "num": 0
       },
       {
         "id": 1,
         "text": "已使用",
-        "num": 2
+        "num": 0
       },
       {
         "id": 2,
@@ -18,71 +19,15 @@ Page({
         "num": 0
       }
     ],
+    "notUse": 1,
+    "used": 0,
+    "validity": 1,
     selectid: 0,
-    ShowList: [],
-    list1: [{
-        "money": 80,
-        "condition": 600,
-        "time": {
-          "str": "2018.07.15",
-          "end": "2018.09.15",
-        },
-        "days": 20
-      },
-      {
-        "money": 80,
-        "condition": 600,
-        "time": {
-          "str": "2018.07.15",
-          "end": "2018.09.15",
-        },
-        "days": 2
-      }
-    ],
-    list2: [{
-        "money": 800,
-        "condition": 600,
-        "time": {
-          "str": "2018.07.15",
-          "end": "2018.09.15",
-        },
-        "days": 20
-      },
-      {
-        "money": 200,
-        "condition": 600,
-        "time": {
-          "str": "2018.07.15",
-          "end": "2018.09.15",
-        },
-        "days": 2
-      }
-    ],
-    list3: [{
-        "money": 500,
-        "condition": 600,
-        "time": {
-          "str": "2018.07.15",
-          "end": "2018.09.15",
-        },
-        "days": 20
-      },
-      {
-        "money": 80,
-        "condition": 600,
-        "time": {
-          "str": "2018.07.15",
-          "end": "2018.09.15",
-        },
-        "days": 2
-      }
-    ],
+    ShowList: []
   },
   onLoad() {
     var that = this;
-    that.setData({
-      ShowList: that.data.list1
-    });
+    that.getdata()
   },
   ChangeSelect(e) {
     var that = this;
@@ -90,18 +35,39 @@ Page({
     that.setData({
       selectid: id
     });
-    if (id == 0) {
-      that.setData({
-        ShowList: that.data.list1
-      });
-    } else if (id == 1) {
-      that.setData({
-        ShowList: that.data.list2
-      });
-    } else {
-      that.setData({
-        ShowList: that.data.list3
-      });
-    }
-  }
+    that.setData({
+      ShowList: ''
+    });
+    that.getdata()
+  },
+  getdata() {
+    var that = this;
+    wx.request({ //获取内容
+      url: url + 'user/myCoupon',
+      method: 'POST',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+        status: that.data.selectid
+      },
+      success: res => {
+        console.log(res)
+        if (res.data.code == 200) {
+          var menu = that.data.menu;
+          for (var i = 0; i < menu.length; i++) {
+            if(i == 1){
+              menu[i].num = res.data.data.notUse
+            } else if (i == 2){
+              menu[i].num = res.data.data.used
+            }else{
+              menu[i].num = res.data.data.validity
+            }
+          };
+          that.setData({
+            ShowList: res.data.data.list,
+            menu: menu
+          });
+        }
+      }
+    })
+  },
 })

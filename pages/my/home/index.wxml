@@ -34,11 +34,11 @@
         </view>
         <view class='archives-info'>
           <view class='archives-info-img left'>
-            <image src="{{userinfo.card_path}}"></image>
+            <image src="{{userinfo.car.car_logo}}"></image>
           </view>
           <view class='archives-info-box left'>
             <view class='archives-info-title'>
-              <text class='archives-title-name left'>{{userinfo.card_name}}</text>
+              <text class='archives-title-name left'>{{userinfo.car.car_brand}}</text>
               <text class='archives-title-code right'>{{userinfo.card_code}}</text>
             </view>
             <view class='archives-info-subtitle'>
@@ -103,7 +103,7 @@
         </view>
       </view>
     </view>
-    <view class='more-list'>
+    <view class='more-list' data-link='/pages/my/info/coupon/coupon' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/youhuiquan.png'></image>
       </view>

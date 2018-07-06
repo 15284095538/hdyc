@@ -18,13 +18,13 @@
   <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item" catchtap='ToDetails'>
     <view class='list-box'>
       <view class='list-img'>
-        <image src='{{item.path}}'></image>
+        <image src='{{item.s_img}}'></image>
       </view>
       <view class='list-info'>
         <view class='list-title'>
-          <view class='list-name left'>{{item.name}}</view>
+          <view class='list-name left'>{{item.s_name}}</view>
           <view class='list-name-img left'>
-            <image src='/images/grade_0{{item.grade}}.png'></image>
+            <image src='/images/grade_0{{item.s_level}}.png'></image>
           </view>
           <view class='clear'></view>
         </view>
@@ -32,14 +32,14 @@
           <view wx:if="{{item.order.status != 'none'}}">
             <view class='list-evaluate-left left'>
               总评价：
-              <text>{{item.order.score}}分</text>
+              <text>{{item.grade}}分</text>
             </view>
             <view class='list-evaluate-line left'>
               |
             </view>
             <view class='list-evaluate-right left'>
               总订单：
-              <text>{{item.order.order_num}}笔</text>
+              <text>{{item.count}}笔</text>
             </view>
             <view class='clear'></view>
           </view>
@@ -48,11 +48,11 @@
           </view>
         </view>
         <view class='list-address'>
-          <text>{{item.address}}</text>
+          <text>{{item.s_address}}</text>
         </view>
         <view class='list-more'>
-          <view class='list-tag left' wx:for="{{item.tag}}" wx:key="tag" wx:for-item="itemTag">{{itemTag}}</view>
-          <view class='list-distance right'>{{item.distance}}</view>
+          <view class='list-tag left' wx:for="{{item.s_service_tag}}" wx:key="tag" wx:for-item="itemTag">{{itemTag}}</view>
+          <view class='list-distance right'>{{item.km}}</view>
           <view class='clear'></view>
         </view>
       </view>
