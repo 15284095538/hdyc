@@ -73,17 +73,6 @@ Page({
       }
     ],
   },
-  onReady: function () {
-    this.animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'linear',
-      delay: 100,
-      transformOrigin: 'left top 0',
-      success: function (res) {
-        console.log(res)
-      }
-    })
-  },
   onLoad() {
 
   },

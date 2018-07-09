@@ -3,7 +3,10 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     display: 'none',
+    waschcarid:'',
     layerid:0,
+    areaId:'',
+    windowHeight:'',
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -13,34 +16,91 @@ Page({
       }
     ],
     menulist: [],//城市列表
+    washlist:[],
+  },
+  page: {
+    pages: 1,
   },
   onLoad(e) {
     console.log( e )
-    //this.getdata();
+    this.setData({ waschcarid: e.id })
+    this.getdata();
+  },
+  onReachBottom: function () {//下拉加载更多
+    this.page.pages++;
+    this.getdata();
+  },
+  onPullDownRefresh: function () {//上拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
+    this.getdata();
   },
   listTopclick(e){
     var menuid = e.currentTarget.dataset.id;
     this.setData({ display: 'block', menuid: 0 })
   },
   listToplayerLiclick(e){
-    this.setData({ display: 'none', menuid: 2 })
+    var layerid = e.currentTarget.dataset.id;
+    var areaId = e.currentTarget.dataset.areaid;
+    this.setData({ display: 'none', menuid: 2, layerid: layerid, areaId: areaId })
+    this.getdata();
+  },
+  washdetClick(e){//列表点击
+    var store_id = e.currentTarget.dataset.store_id;
+    var class_id = e.currentTarget.dataset.class_id;
+    console.log(store_id  , class_id )
+    wx.navigateTo({
+      url: '/pages/store/details/details?store_id=' + store_id + '&class_id=' + class_id,
+    })
   },
   getdata(e) {
     var that = this;
+    var height,address;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     wx.request({//获取内容
       url: url + 'car/store',
       data:{
-        id:'',
-        to: '' + ',' + '',
-        address:'',
-        areaId:'',
+        id: this.data.waschcarid,
+        to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+        address: wx.getStorageSync('address_component').city,
+        areaId: this.data.areaId ,
+        type:1,
+        sort:'',
       },
       method: 'POST',
       success: res => {
-        //console.log( res )
         if (res.data.code == 200) {
-          
+          if (res.data.data.store.length !== 0 ){
+            if ( res.data.data.address.length * 100 >= wx.getSystemInfoSync().windowHeight ){//计算高度
+              height = wx.getSystemInfoSync().windowHeight
+            }else{
+              height = res.data.data.address.length*100
+            }
+            address = res.data.data.address
+          }
+        }else{
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
         }
+        that.setData({
+          menulist: address,
+          windowHeight: height,
+          washlist: res.data.data.store
+        });
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
+        wx.hideToast();
       }
     })
   },

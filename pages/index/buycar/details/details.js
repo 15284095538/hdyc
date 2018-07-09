@@ -209,6 +209,13 @@ Page({
   bglayerfqclick(e){
     this.setData({ bglayerfqDisplay: 'none' })
   },
+  onShareAppMessage(e) {//分享
+    return {
+      title: this.data.detailslist.car_name,
+      path: '/pages/index/buycar/details/details?id=' + this.data.detailsid,
+      imageUrl: this.data.swiper.imgUrl[0].path
+    }
+  },
   getdata(e){
     var that = this;
     wx.showToast({

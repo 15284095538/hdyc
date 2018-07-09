@@ -8,26 +8,30 @@
 
 <!-- 筛选弹层 -->
 <view bindtap="listToplayerclick" class='listToplayer {{display}}' >
-  <view class='listToplayeranment'>
+  <scroll-view scroll-y style='height:{{ windowHeight + "px" }}'  class='listToplayeranment'>
     <block wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
-      <view catchtap="listToplayerLiclick" data-id="{{index}}" data-text="{{item.text}}" class='li {{ index == layerid ? "select":"" }}'>{{item.text}}</view>
+      <view catchtap="listToplayerLiclick" data-areaid='{{item.areaId}}' data-id="{{index}}" data-text="{{item.areaName}}" class='li {{ index == layerid ? "select":"" }}'>{{item.areaName}}</view>
     </block>
-  </view>
+  </scroll-view>
 </view>
 
-<view class='washlist'>
-  <view class='li'>
-    <view class='img'> <image src='/images/banner.jpg'></image> <view class='t'>快修店</view> </view>
+<view class='washlist'  >
+  <view catchtap='washdetClick' wx:for="{{washlist}}" data-store_id='{{item.store_id}}' wx:key="this" wx:for-index="index" wx:for-item="item" class='li' data-class_id='{{item.class_id}}' >
+    <view class='img'> <image src='{{item.s_img}}'></image> <view class='t'>{{item.s_tag}}</view> </view>
     <view class='text'>
-      <view class='name'>邛崃市天和车王养护 <image src='/images/grade_01.png'></image></view>
-      <view class='num'>总评价：<text>3.55</text>分  |  总订单：<text>4</text>笔</view>
-      <view class='address'>成都市崇州市老陈大路462号（汇蜀路口）</view>
+      <view class='name'>
+        {{item.s_name}}
+        <image wx:if="{{ item.s_level == 3 }}" src='/images/grade_01.png'></image>
+        <image wx:if="{{ item.s_level == 2 }}" src='/images/grade_02.png'></image>
+        <image wx:if="{{ item.s_level == 1 }}" src='/images/grade_03.png'></image>
+      </view>
+      <view class='num'>总评价：<text>{{item.grade}}</text>分  |  总订单：<text>{{item.count}}</text>笔</view>
+      <view class='address'>{{item.s_address}}</view>
       <view class='bot'>
         <view class='l'>
-          <text>美容</text>
-          <text>安装</text>
+          <text wx:for="{{item.s_service_tag}}" wx:for-index="tagindex" wx:if="{{ tagindex < 5 }}" wx:key="this" wx:for-item="tag" >{{tag}}</text>
         </view>
-        <view class='r'>1.3km</view>
+        <view class='r'>{{item.km}}</view>
       </view>
     </view>
   </view>

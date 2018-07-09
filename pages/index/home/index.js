@@ -30,18 +30,20 @@ Page({
   },
   menulink(e){//导航跳转
     var link = e.currentTarget.dataset.link;
+    var id = e.currentTarget.dataset.menuid;
     wx.navigateTo({
-      url: link
+      url: link + id,
     })
   },
   carlink(e){//
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
-      url: link
+      url: link 
     })
   },
   buycarlink(e){
     var id = e.currentTarget.dataset.id;
+    console.log( id )
     wx.navigateTo({
       url: '/pages/index/buycar/details/details?id=' + id,
     })
@@ -180,11 +182,11 @@ Page({
       method: 'POST',
       success: function (res) {
         for (let i = 0; i < res.data.data.length; i++) {
-          res.data.data[i].link = '/pages/index/list/list'
+          res.data.data[i].link = '/pages/index/list/list?id='
         }
-        res.data.data[0].link = '/pages/index/washcar/list/list';//洗车
-        res.data.data[5].link = '/pages/index/spraypaint/home/home';//钣金喷漆
-        res.data.data[7].link = '/pages/index/suppliescar/list/list';//车用品购买
+        res.data.data[0].link = '/pages/index/washcar/list/list?id=';//洗车
+        res.data.data[5].link = '/pages/index/spraypaint/home/home?id=';//钣金喷漆
+        res.data.data[7].link = '/pages/index/suppliescar/list/list?id=';//车用品购买
         that.setData({
           menu: res.data.data,
         })

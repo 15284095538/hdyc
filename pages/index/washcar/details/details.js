@@ -91,17 +91,15 @@ Page({
    */
   onLoad: function (options) {
 
+    console.log(options )
+
     var that = this;
-
-
     wx.getSystemInfo({
-
       success: function (res) {
         that.setData({
           aheight: res.windowHeight
         });
       }
-
     });
   },
 

@@ -24,7 +24,7 @@
   </view>
   <view class='fl'>
     <view class="navbar">
-      <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
+      <text wx:for="{{navbar}}" wx:key="this" wx:for-item="item" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
     </view>
 
 
@@ -64,10 +64,10 @@
               <view class='uname'>{{item.name}}</view>
               <view style='margin-top:10rpx;'>
                 <view class="stars">
-                  <block wx:for="{{item.flag}}">
+                  <block wx:for="{{item.flag}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
                     <image src='/images/rstart.png'></image>
                   </block> 
-                  <block wx:for="{{5 - item.flag}}">
+                  <block wx:for="{{5 - item.flag}}" wx:key="this" wx:for-item="item" wx:for-index="index">
                     <image src='/images/start.png'></image>
                   </block>
                 </view>
