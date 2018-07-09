@@ -45,12 +45,6 @@ Page({
     })
     this.getdata();
   },
-  onPageScroll(e){
-    this.setData({ isScroll: false })
-  },
-  onReachBottom(e) {
-    this.setData({ isScroll: true })
-  },
   telphone(e){//拨打电话
     wx.makePhoneCall({
       phoneNumber: this.data.tel,
@@ -74,7 +68,7 @@ Page({
     //上下方向滑动
     else {
       if (ty < 0)
-        text = "向上滑动", this.data.isScroll = true
+        text = "向上滑动", this.setData({ isScroll: true })
       else if (ty > 0)
         text = "向下滑动"
     }
