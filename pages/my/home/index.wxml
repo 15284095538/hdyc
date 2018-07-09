@@ -39,7 +39,6 @@
           <view class='archives-info-box left'>
             <view class='archives-info-title'>
               <text class='archives-title-name left'>{{userinfo.car.car_brand}}</text>
-              <text class='archives-title-code right'>{{userinfo.card_code}}</text>
             </view>
             <view class='archives-info-subtitle'>
               {{userinfo.card_info}}
@@ -72,7 +71,7 @@
     </view>
   </view>
   <view id='more'>
-    <view class='more-list'>
+    <view class='more-list' data-link='/pages/my/info/mypoints/mypoints' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/wodejifen.png'></image>
       </view>
@@ -81,14 +80,14 @@
       </view>
       <view class='more-list-icon right'>
         <view class='more-title-more right'>
-          <text class='number'>{{userinfo.integral}}</text>海豆币
+          <text class='number'>{{userinfo.hd_coin}}</text>海豆币
           <view class='more-more-img right'>
             <image src="/images/more.png"></image>
           </view>
         </view>
       </view>
     </view>
-    <view class='more-list'>
+    <view class='more-list' data-link='/pages/my/info/shoppingcar/shoppingcar' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/gouwuche.png'></image>
       </view>
@@ -119,7 +118,7 @@
         </view>
       </view>
     </view>
-    <view class='more-list'>
+    <view class='more-list' data-link='/pages/my/info/infodata/infodata' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/wodeziliao.png'></image>
       </view>
@@ -134,7 +133,7 @@
         </view>
       </view>
     </view>
-    <view class='more-list'>
+    <view class='more-list' data-link='/pages/my/info/coupon/coupon' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/kehufuwu.png'></image>
       </view>
@@ -149,7 +148,7 @@
         </view>
       </view>
     </view>
-    <view class='more-list border-none'>
+    <view class='more-list border-none' data-link='/pages/my/info/setup/setup' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/wodejifen.png'></image>
       </view>
