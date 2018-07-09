@@ -220,9 +220,9 @@ page {
   height: 40rpx;
 }
 
-.archives-title-name, .archives-title-code {
+.archives-title-name {
   font-size: 24rpx;
-  line-height: 40rpx;
+  line-height: 79rpx;
   letter-spacing: 1rpx;
   color: #484848;
 }

@@ -5,13 +5,12 @@ Page({
     IsUser: true,
     userinfo: {
       "header": "/images/store_menu_01.png",
-      "user_name": "",
-      "code": "",
+      "user_name": "海豆养车",
+      "code": "TvT",
       "card_path": "/images/store_menu_01.png",
       "card_name": "上海大众-凌渡",
       "card_code": "川A UIX99",
-      "card_info": "2017款 1.8TSI 双离合 330TSI豪华款",
-      "integral": 2398
+      "hd_coin": 0
     },
     Userinfo:true,
     usermenu: [//订单导航
@@ -70,7 +69,6 @@ Page({
                 code: code
               },
               success: function (data) {
-                console.log(data.data.data);
                 wx.setStorageSync('userinfo', data.data.data)
                 that.setData({
                   Userinfo: false
