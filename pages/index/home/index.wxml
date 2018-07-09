@@ -34,7 +34,7 @@
 
 <view class='indCarone' wx:if="{{ classify.xc.length > 0 }}" >
   <block wx:for="{{classify.xc}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
-    <view class='li' data-id='{{item.id}}' >
+    <view catchtap='buycarlink' class='li' data-id='{{item.id}}' >
       <view class='text'>
         <text class='t'>{{item.rec_title}}</text>
         <text class='c'>{{item.rec_decribe}}</text>

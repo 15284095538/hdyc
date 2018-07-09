@@ -40,6 +40,12 @@ Page({
       url: link
     })
   },
+  buycarlink(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/index/buycar/details/details?id=' + id,
+    })
+  },
   onGotUserInfo(e) {//用户授权
     var that = this;
     wx.login({
