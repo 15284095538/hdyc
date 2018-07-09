@@ -34,7 +34,6 @@ page{
 .carlove .carname{
   width: 110rpx;
   height: 40rpx;
-  border: 1rpx #11a8e1 solid;
   position: relative;
   top: 104rpx;
   left: 60rpx;
@@ -46,8 +45,12 @@ page{
 .carlove .ping{
   font-size: 28rpx;
   position: relative;
-  top: 54rpx;
+  top: 70rpx;
   left: 187rpx;
+  width: 300rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .carlove .kuan {
   font-size: 26rpx;

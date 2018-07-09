@@ -44,23 +44,17 @@ Page({
   },
   getdata(e) {//获取数据
     var that = this;
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 55000,
-      mask: true
-    }) 
     var value = wx.getStorageSync('userinfo');
     wx.request({//获取爱车信息
       url: url + 'user/myCar',
       data: {
-        openid: value.openid
+        'openid': value.openid, 
       },
       method: 'POST',
       success: function (res) {
-        // that.setData({
-        //   ['swiper.imgUrl']: res.data.data
-        // })
+        that.setData({
+          ['cars']: res.data.data
+        })
         console.log(res);
       } 
     })

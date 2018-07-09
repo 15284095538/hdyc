@@ -1,4 +1,5 @@
 // pages/my/info/order/order_derails/order_details.js
+var url = getApp().globalData.publicUrl;
 Page({
 
   /**
@@ -6,6 +7,7 @@ Page({
    */
   data: {
     status:3,
+    // loadCity: '',
     carts: [
       {
         pic: "/images/car_03.png",
@@ -38,7 +40,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    var to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
+  wx.request({//获取订单详情
+    url: url + 'user/myOrderInfo',
+    data: {
+      'order_id': options.id,
+       'to': to,
+    },
+    method: 'POST',
+    success: function (res) {
+      that.setData({
+        ['carts']: res.data.data,
+      })
+      console.log(res)
+    }
+  })
   },
 
   /**

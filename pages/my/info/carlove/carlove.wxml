@@ -6,11 +6,11 @@
         <swiper-item style="width:493rpx">
           <view class='car'>
           <view class='carname'>
-          <image src='{{item.img}}'></image>
+          <image src='{{item.car_logo}}'></image>
           </view>
-          <view class='ping'>{{item.name}}</view>
-          <view class='kuan'>{{item.kuan}}</view>
-          <view class="mr " hidden='{{item.mr!==1}}'>已设为默认</view>
+          <view class='ping'>{{item.car_brand}}</view>
+          <!-- <view class='kuan'>{{item.car_type}}</view> -->
+          <view class="mr " hidden='{{item.is_default!==1}}'>已设为默认</view>
           </view>
         </swiper-item>
       </block>

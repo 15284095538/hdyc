@@ -7,25 +7,27 @@
     </view>
 <scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
   <view wx:for="{{carts}}"  wx:key="this">
+  <navigator url="/pages/my/info/order/order_details/order_details?id={{item.id}}">
 <view class='dingdan'>
 <view class='dingnum'>
-<text>订单编号：{{item.dnum}} <text class='status'>{{item.status}}</text></text>
+<text>订单编号：{{item.order_sn}} <text class='status'hidden="{{item.order_status!==0}}">待付款</text><text class='status'hidden="{{item.order_status!==1}}">待安装</text><text class='status'hidden="{{item.order_status!==2}}">待评价</text><text class='status'hidden="{{item.order_status!==3}}">退换货</text></text>
 </view>
-<view class='shang'style="{{item.stype==2?'height:175rpx':''}}">
-<image src='{{item.pic}}'></image>
-<view class='names'style="{{item.stype==2?'border:none':''}}">
-<view class='sname'>{{item.sname}} </view>
-<text class='nums'>共{{item.snum}}件<text class='price'>￥{{item.price}}</text></text>
+<view class='shang'style="{{item.order_status==1?'height:175rpx':''}}">
+<image src='{{item.picture}}'></image>
+<view class='names'style="{{item.order_status==1?'border:none':''}}">
+<view class='sname'>{{item.name}} </view>
+<text class='nums'>共{{item.goods_number}}件<text class='price'>￥{{item.total_price}}</text></text>
 </view>
 <view class='button'>
-<view class='first'hidden="{{item.stype!==1}}">取消订单</view>
-<view class='secend'hidden="{{item.stype!==1}}">立即付款</view>
-<view class='first'hidden="{{item.stype!==3}}">申请售后</view>
-<view class='secend'hidden="{{item.stype!==3}}">评价商品</view>
-<view class='secend'hidden="{{item.stype!==4}}" style='border:none;'>退货中</view>
+<view class='first'hidden="{{item.order_status!==0}}">取消订单</view>
+<view class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
+<view class='first'hidden="{{item.order_status!==2}}">申请售后</view>
+<view class='secend'hidden="{{item.order_status!==2}}">评价商品</view>
+<view class='secend'hidden="{{item.order_status!==3}}" style='border:none;'>退货中</view>
 </view>
 </view>
 </view>
+</navigator>
   </view>
 </scroll-view>
 
