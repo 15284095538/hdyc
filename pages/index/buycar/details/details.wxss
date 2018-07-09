@@ -264,6 +264,10 @@
 .layerColor .box .ul .li:nth-child(4n-3){
   margin-left: 0;
 }
+.layerColor .box .ul .select{
+  background-color: #11a8e1;
+  color: #fff;
+}
 .layerColor .box .sure{
   height: 100rpx;
   line-height: 100rpx;

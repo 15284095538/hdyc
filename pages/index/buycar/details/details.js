@@ -20,7 +20,22 @@ Page({
     lastX: 0,     //滑动开始x轴位置
     lastY: 0,     //滑动开始y轴位置
     currentGesture: 0, //标识手势
-    isScroll: false
+    isScroll: false,
+    carcolor:'',
+    carattribute:{
+      carattributeindex:0,
+      carattributeimg:'',
+      carattributeval:'',
+      carattributeprice:'',
+      carattributepid:0,
+      carattributeinventory:'',
+    },
+    carattributeTwo:[],
+    displacement:{
+      displacementindex:0,
+      displacementpid:0,
+      displacementval:'',
+    }
   },
   onLoad(e){
     this.setData({
@@ -67,6 +82,91 @@ Page({
         url: '/pages/index/buycar/pic/pic?id=' + this.data.detailsid
       })
     }
+  },
+  colorclick(e){//颜色点击
+    var that = this;
+    var price = e.currentTarget.dataset.price;
+    var img = e.currentTarget.dataset.img;
+    var pid = e.currentTarget.dataset.pid;
+    var index = e.currentTarget.dataset.index;
+    var val = e.currentTarget.dataset.val;
+    var inventory = e.currentTarget.dataset.inventory;
+    this.setData({
+      ['carattribute.carattributeimg']: img,
+      ['carattribute.carattributeval']: val,
+      ['carattribute.carattributeprice']: price,
+      ['carattribute.carattributeindex']: index,
+      ['carattribute.carattributepid']: pid,
+      ['carattribute.carattributeinventory']: inventory,
+    });
+    this.getcarinventory();
+  },
+  displacementclick(e){//二级点击
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var pid = e.currentTarget.dataset.pid;
+    this.setData({
+      ['displacement.displacementindex']: index,
+      ['displacement.displacementpid']: pid,
+    });
+  },
+  addshoppingcar(e){//加入购物车
+    wx.showToast({
+      title: '请稍后',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取二级属性
+      url: url + 'shopping/setCar',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+        goods_id: this.data.detailsid,
+        number: 1,
+        goods_type:2,
+        value_id: this.data.displacement.displacementpid
+      },
+      method: 'POST',
+      success: res => {
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '加入购物车成功',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+        }
+      }
+    })
+  },
+  getcarinventory(e){//获取二级属性
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取二级属性
+      url: url + 'car/get_car_value',
+      data: {
+        id: this.data.detailsid,
+        pid: this.data.carattribute.carattributepid,
+      },
+      method: 'POST',
+      success: res => {
+        if (res.data.code == 200) {
+          that.setData({
+            carattributeTwo: res.data.data,
+            ['displacement.displacementval']: res.data.data.data[0].val,
+            ['carattribute.carattributeinventory']: res.data.data.data[0].inventory,
+            ['carattribute.carattributeprice']: res.data.data.data[0].price,
+            ['displacement.displacementpid']: res.data.data.data[0].id,
+          })
+        }
+        wx.hideToast();
+      }
+    })
   },
   layerColorclick(e){
     this.setData({ layerColorDisplay:'block' })
@@ -118,12 +218,18 @@ Page({
       },
       method: 'POST',
       success: res => {
-        console.log(res)
         if (res.data.code == 200) {
           that.setData({
             ["swiper.imgUrl"]: res.data.data.imgs,
-            detailslist: res.data.data
+            detailslist: res.data.data,
+            carcolor: res.data.data.sx,
+            ['carattribute.carattributeimg']: res.data.data.sx.data[0].img,
+            ['carattribute.carattributeval']: res.data.data.sx.data[0].val,
+            ['carattribute.carattributeprice']: res.data.data.sx.data[0].price,
+            ['carattribute.carattributepid']: res.data.data.sx.data[0].id,
+            ['carattribute.carattributeinventory']: res.data.data.sx.data[0].inventory,
           })
+          this.getcarinventory();
           wx.hideToast();
         }
       }
