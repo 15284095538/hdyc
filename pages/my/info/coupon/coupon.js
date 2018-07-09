@@ -41,6 +41,12 @@ Page({
     that.getdata()
   },
   getdata() {
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     var that = this;
     wx.request({ //获取内容
       url: url + 'user/myCoupon',
@@ -50,7 +56,6 @@ Page({
         status: that.data.selectid
       },
       success: res => {
-        console.log(res)
         if (res.data.code == 200) {
           var menu = that.data.menu;
           for (var i = 0; i < menu.length; i++) {
@@ -67,6 +72,7 @@ Page({
             menu: menu
           });
         }
+        wx.hideToast();
       }
     })
   },
