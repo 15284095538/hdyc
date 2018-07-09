@@ -21,35 +21,35 @@ Page({
    
     fulb:[
       {
-        "fulbp": "/images/menu_03.png",
+        "fulbp": "/images/fuwtp.png",
         "fwlbc":"洗车"
       },
      {
-        "fulbp": "/images/menu_03.png",
+       "fulbp": "/images/fuwtp.png",
         "fwlbc": "洗车"
       },
       {
-       "fulbp": "/images/menu_03.png",
+        "fulbp": "/images/fuwtp.png",
        "fwlbc": "洗车"
      },
      {
-        "fulbp": "/images/menu_03.png",
+       "fulbp": "/images/fuwtp.png",
         "fwlbc": "洗车"
       },
       {
-       "fulbp": "/images/menu_03.png",
+        "fulbp": "/images/fuwtp.png",
        "fwlbc": "洗车"
      },
      {
-        "fulbp": "/images/menu_03.png",
+       "fulbp": "/images/fuwtp.png",
         "fwlbc": "洗车"
       },
       {
-       "fulbp": "/images/menu_03.png",
+        "fulbp": "/images/fuwtp.png",
        "fwlbc": "洗车"
      },
      {
-        "fulbp": "/images/menu_03.png",
+       "fulbp": "/images/fuwtp.png",
         "fwlbc": "洗车"
       }
     ],
