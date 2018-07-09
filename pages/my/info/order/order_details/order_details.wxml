@@ -56,14 +56,18 @@
 </view>
 <view class="footter {{carts.order_status!==0?'dis':''}}" >
 <view class='first'>取消订单</view>
-<view class='secend'>立即付款</view>
+<view class='secend'>立即付款</view> 
 </view>
 
 
 <view class="footter {{carts.order_status!==2?'dis':''}}" >
 <view class='first1'>删除订单</view>
+<navigator url="/pages/my/info/order/aftersale/aftersale">
 <view class='first1'>申请售后</view>
+</navigator>
+<navigator url="/pages/my/info/order/evaluate/evaluate">
 <view class='first1'>评价商品</view>
+</navigator>
 </view>
 
 </view>

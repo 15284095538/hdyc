@@ -21,8 +21,12 @@
 <view class='button'>
 <view class='first'hidden="{{item.order_status!==0}}">取消订单</view>
 <view class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
+<navigator url="/pages/my/info/order/aftersale/aftersale">
 <view class='first'hidden="{{item.order_status!==2}}">申请售后</view>
+</navigator>
+<navigator url="/pages/my/info/order/evaluate/evaluate">
 <view class='secend'hidden="{{item.order_status!==2}}">评价商品</view>
+</navigator>
 <view class='secend'hidden="{{item.order_status!==3}}" style='border:none;'>退货中</view>
 </view>
 </view>
