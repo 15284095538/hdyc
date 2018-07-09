@@ -1,3 +1,5 @@
+var url = getApp().globalData.publicUrl;
+
 Page({
   data: {
     display: 'none',
@@ -10,23 +12,11 @@ Page({
         "key": 0
       }
     ],
-    menulist: [//城市列表
-      {
-        "text": "成都市"
-      },
-      {
-        "text": "德阳"
-      },
-      {
-        "text": "青羊"
-      }
-    ],
+    menulist: [],//城市列表
   },
-  onReady: function () {
-    
-  },
-  onLoad() {
-
+  onLoad(e) {
+    console.log( e )
+    //this.getdata();
   },
   listTopclick(e){
     var menuid = e.currentTarget.dataset.id;
@@ -34,5 +24,24 @@ Page({
   },
   listToplayerLiclick(e){
     this.setData({ display: 'none', menuid: 2 })
-  }
+  },
+  getdata(e) {
+    var that = this;
+    wx.request({//获取内容
+      url: url + 'car/store',
+      data:{
+        id:'',
+        to: '' + ',' + '',
+        address:'',
+        areaId:'',
+      },
+      method: 'POST',
+      success: res => {
+        //console.log( res )
+        if (res.data.code == 200) {
+          
+        }
+      }
+    })
+  },
 })

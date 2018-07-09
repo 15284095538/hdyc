@@ -76,7 +76,7 @@
 
 
 <view class='listCon'>
-  <view class='li' data-id='{{item.id}}' wx:for="{{listCon}}"  wx:key="this" wx:for-index="index" wx:for-item="item" >
+  <view class='li' catchtap='detlisclick' data-id='{{item.id}}' wx:for="{{listCon}}"  wx:key="this" wx:for-index="index" wx:for-item="item" >
     <view class='img'> <image src='{{item.car_img}}'></image> </view>
     <view class='text'>
       <view class='name'>{{item.car_name}}</view>

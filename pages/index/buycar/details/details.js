@@ -21,6 +21,7 @@ Page({
     lastY: 0,     //滑动开始y轴位置
     currentGesture: 0, //标识手势
     isScroll: false,
+    bot: false,
     carcolor:'',
     carattribute:{
       carattributeindex:0,
@@ -33,15 +34,27 @@ Page({
     carattributeTwo:[],
     displacement:{
       displacementindex:0,
-      displacementpid:0,
+      displacementpid:'',
       displacementval:'',
-    }
+    },
+    tel:'',
   },
   onLoad(e){
     this.setData({
       detailsid:e.id,
     })
     this.getdata();
+  },
+  onPageScroll(e){
+    this.setData({ isScroll: false })
+  },
+  onReachBottom(e) {
+    this.setData({ isScroll: true })
+  },
+  telphone(e){//拨打电话
+    wx.makePhoneCall({
+      phoneNumber: this.data.tel,
+    })
   },
   //滑动移动事件
   handletouchmove: function (event) {
@@ -61,7 +74,7 @@ Page({
     //上下方向滑动
     else {
       if (ty < 0)
-        text = "向上滑动",this.data.isScroll = true
+        text = "向上滑动", this.data.isScroll = true
       else if (ty > 0)
         text = "向下滑动"
     }
@@ -81,6 +94,7 @@ Page({
       wx.navigateTo({
         url: '/pages/index/buycar/pic/pic?id=' + this.data.detailsid
       })
+      this.setData({ isScroll: false })
     }
   },
   colorclick(e){//颜色点击
@@ -98,8 +112,11 @@ Page({
       ['carattribute.carattributeindex']: index,
       ['carattribute.carattributepid']: pid,
       ['carattribute.carattributeinventory']: inventory,
+      ['displacement.displacementpid']: pid,
     });
-    this.getcarinventory();
+    if (this.data.carattributeTwo.length !== 0) {
+      this.getcarinventory();
+    }
   },
   displacementclick(e){//二级点击
     var that = this;
@@ -156,20 +173,23 @@ Page({
       method: 'POST',
       success: res => {
         if (res.data.code == 200) {
-          that.setData({
-            carattributeTwo: res.data.data,
-            ['displacement.displacementval']: res.data.data.data[0].val,
-            ['carattribute.carattributeinventory']: res.data.data.data[0].inventory,
-            ['carattribute.carattributeprice']: res.data.data.data[0].price,
-            ['displacement.displacementpid']: res.data.data.data[0].id,
-          })
+          console.log( res )
+          if (res.data.data.name !== '' ){
+            that.setData({
+              carattributeTwo: res.data.data,
+              ['displacement.displacementval']: res.data.data.data[0].val,
+              ['carattribute.carattributeinventory']: res.data.data.data[0].inventory,
+              ['carattribute.carattributeprice']: res.data.data.data[0].price,
+              ['displacement.displacementpid']: res.data.data.data[0].id,
+            })
+          }
         }
         wx.hideToast();
       }
     })
   },
   layerColorclick(e){
-    this.setData({ layerColorDisplay:'block' })
+    this.setData({ layerColorDisplay: 'block' })
   },
   bglayerColorclick(e){
     this.setData({ layerColorDisplay: 'none' })
@@ -219,17 +239,24 @@ Page({
       method: 'POST',
       success: res => {
         if (res.data.code == 200) {
+          wx.hideToast();
           that.setData({
             ["swiper.imgUrl"]: res.data.data.imgs,
             detailslist: res.data.data,
             carcolor: res.data.data.sx,
-            ['carattribute.carattributeimg']: res.data.data.sx.data[0].img,
-            ['carattribute.carattributeval']: res.data.data.sx.data[0].val,
-            ['carattribute.carattributeprice']: res.data.data.sx.data[0].price,
-            ['carattribute.carattributepid']: res.data.data.sx.data[0].id,
-            ['carattribute.carattributeinventory']: res.data.data.sx.data[0].inventory,
+            tel: res.data.data.tel,
           })
-          this.getcarinventory();
+          if ( res.data.data.sx !== '' ){
+            that.setData({
+              ['carattribute.carattributeimg']: res.data.data.sx.data[0].img,
+              ['carattribute.carattributeval']: res.data.data.sx.data[0].val,
+              ['carattribute.carattributeprice']: res.data.data.sx.data[0].price,
+              ['carattribute.carattributepid']: res.data.data.sx.data[0].id,
+              ['carattribute.carattributeinventory']: res.data.data.sx.data[0].inventory,
+              ['displacement.displacementpid']: res.data.data.sx.data[0].id,
+            })
+            this.getcarinventory();
+          }
           wx.hideToast();
         }
       }

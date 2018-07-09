@@ -219,6 +219,12 @@ Page({
     this.page.pages = 1;
     this.layerNone();
   },
+  detlisclick(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/index/buycar/details/details?id=' + id,
+    })
+  },
   getdata(e){
     var that = this;
     wx.request({//获取内容

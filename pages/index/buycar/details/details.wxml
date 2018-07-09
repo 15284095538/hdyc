@@ -31,7 +31,7 @@
     <view class='r'> <image src='/images/more.png'></image> </view>
     <view class='c'>暂无优惠券可用</view>
   </view>
-  <view class='li' catchtap='layerColorclick'>
+  <view class='li' wx:if="{{ carcolor }}" catchtap='layerColorclick'>
     <view class='l'>已选</view>
     <view class='r'> <image src='/images/more.png'></image> </view>
     <view class='c'>{{carattribute.carattributeval}} {{displacement.displacementval}}</view>
@@ -49,7 +49,7 @@
 </view>
 
 <view class='detalifot'>
-  <view class='li'>
+  <view class='li' catchtap='telphone' >
     <view><image src='/images/tel.png'></image></view>
     <view>在线咨询</view>
   </view>
@@ -80,8 +80,8 @@
     </view>
 
 
-    <view class='bt'>{{carattributeTwo.name}}:</view>
-    <view class='ul'>
+    <view class='bt' wx:if="{{carattributeTwo.name}}" >{{carattributeTwo.name}}:</view>
+    <view class='ul' wx:if="{{carattributeTwo.name}}" >
       <view wx:for="{{carattributeTwo.data}}" data-index='{{index}}' wx:key="this" data-price='{{item.price}}' data-pid='{{item.id}}' data-inventory='{{item.inventory}}' data-val='{{item.val}}' wx:for-item="item" wx:for-index="index" catchtap='displacementclick'
       class='li {{ displacement.displacementindex == index ? "select":""}}'>{{item.val}}</view>
     </view>

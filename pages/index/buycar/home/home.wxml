@@ -16,7 +16,7 @@
 
 <view class='carHote'>
   <view class='con'>
-    <view class='li' catchtap='cardetils' data-id='{{item.id}}' wx:for="{{hotecar}}" wx:if="{{index<3}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <view class='li' catchtap='cardetils' data-id='{{item.car_id}}' wx:for="{{hotecar}}" wx:if="{{index<3}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
       <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
       <view class='price'>首付<text>￥{{filters.toFix(item.first_pay,10000,2)}}</text>万</view>
       <view class='name'>{{item.car_name}}</view>
@@ -31,7 +31,7 @@
 
 <view class='carHote'>
   <view class='con'>
-    <view class='li' catchtap='cardetils' data-id='{{item.id}}' wx:for="{{bkcar}}" wx:if="{{index<3}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <view class='li' catchtap='cardetils' data-id='{{item.car_id}}' wx:for="{{bkcar}}" wx:if="{{index<3}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
       <view class='top'><image src='/images/car_net_bac.png'></image> <text>{{item.adv_label}}</text> </view>
       <view class='price'>首付<text>￥{{filters.toFix(item.first_pay,10000,2)}}</text>万</view>
       <view class='name'>{{item.car_name}}</view>
