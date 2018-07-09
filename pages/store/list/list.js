@@ -1,4 +1,5 @@
 // pages/store/list/list.js
+var url = getApp().globalData.publicUrl;
 Page({
   data: {
     display: 'none',
@@ -144,7 +145,7 @@ Page({
     })
   },
   onLoad() {
-
+    this.getmenu();
   },
   listTopclick(e) { //头部点击切换样式
     var that = this;
@@ -236,6 +237,23 @@ Page({
       sort: that.data.menulist,
     })
     this.listToplayerclick();
+  },
+  getmenu() { //获取筛选条件
+    var that = this;
+    wx.request({ //获取内容
+      url: url + 'store/Store_class',
+      method: 'POST',
+      data: {
+        address: ''
+      },
+      success: res => {
+        if (res.data.code == 200) {
+          // that.setData({
+          //   menu: res.data.data.lx
+          // });
+        }
+      }
+    })
   },
   ToDetails() { //跳转详情
     wx.navigateTo({

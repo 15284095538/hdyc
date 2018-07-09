@@ -6,16 +6,16 @@ Page({
     Userinfo: true,
     menu: [ //导航
       {
-        "path": "/images/store_menu_01.png",
-        "text": "美容保养"
+        "menu_logo": "/images/store_menu_01.png",
+        "type_name": "美容保养"
       },
       {
-        "path": "/images/store_menu_02.png",
-        "text": "维修厂"
+        "menu_logo": "/images/store_menu_02.png",
+        "type_name": "维修厂"
       },
       {
-        "path": "/images/store_menu_03.png",
-        "text": "洗车"
+        "menu_logo": "/images/store_menu_03.png",
+        "type_name": "洗车"
       }
     ],
     list: []
@@ -23,10 +23,12 @@ Page({
   onLoad(e) {
     this.onGoUserinfoSetting();
     this.getdata();
+    this.getmenu();
   },
-  ToPage() { //页面跳转
+  ToPage(e) { //页面跳转
+    var link = e.currentTarget.dataset.link;
     wx.navigateTo({
-      url: '../list/list'
+      url: link
     })
   },
   ToDetails() { //跳转详情
@@ -74,6 +76,23 @@ Page({
       }
     })
   },
+  getmenu() { //获取分类数据
+    var that = this;
+    wx.request({ //获取内容
+      url: url + 'store/Store_class',
+      method: 'POST',
+      data: {
+        address: ''
+      },
+      success: res => {
+        if (res.data.code == 200) {
+          that.setData({
+            menu: res.data.data.lx
+          });
+        }
+      }
+    })
+  },
   getdata() { //获取数据
     var to = '';
     to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
@@ -85,7 +104,9 @@ Page({
         id: '',
         to:to,
         address: '',
-        areaId: ''
+        areaId: '',
+        type: 1,
+        sort: ''
       },
       success: res => {
         if (res.data.code == 200) {
