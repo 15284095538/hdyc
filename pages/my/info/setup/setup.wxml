@@ -1,9 +1,5 @@
 <!-- 设置 -->
 <view class='setup'>
-<view bindtap='changepw'class='input'>
-<view  class='word'>修改密码</view> 
-<image src='/images/more.png'></image>
-</view>
 <view class='input'>
 <view class='word'>收货地址</view>
 <image src='/images/more.png'></image>

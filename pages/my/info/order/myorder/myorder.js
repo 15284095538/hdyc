@@ -16,7 +16,7 @@ Page({
     if (e.currentTarget.dataset.index == 0) {
       var that = this;
       var value = wx.getStorageSync('userinfo');
-      wx.request({//获取爱车信息
+      wx.request({//获取全部
         url: url + 'user/myOrderList',
         data: {
           // 'openid': value.openid,
@@ -35,7 +35,7 @@ Page({
     if (e.currentTarget.dataset.index == 1) {
       var that = this;
       var value = wx.getStorageSync('userinfo');
-      wx.request({//获取爱车信息
+      wx.request({//获取待付款
         url: url + 'user/myOrderList',
         data: {
           // 'openid': value.openid,
@@ -54,7 +54,7 @@ Page({
     if (e.currentTarget.dataset.index == 2) {
       var that = this;
       var value = wx.getStorageSync('userinfo');
-      wx.request({//获取爱车信息
+      wx.request({//获取待安装
         url: url + 'user/myOrderList',
         data: {
           // 'openid': value.openid,
@@ -73,7 +73,7 @@ Page({
     if (e.currentTarget.dataset.index == 3) {
       var that = this;
       var value = wx.getStorageSync('userinfo');
-      wx.request({//获取爱车信息
+      wx.request({//获取待评价
         url: url + 'user/myOrderList',
         data: {
           // 'openid': value.openid,
@@ -92,7 +92,7 @@ Page({
     if (e.currentTarget.dataset.index == 4) {
       var that = this;
       var value = wx.getStorageSync('userinfo');
-      wx.request({//获取爱车信息
+      wx.request({//获取退换货
         url: url + 'user/myOrderList',
         data: {
           // 'openid': value.openid,
@@ -108,6 +108,12 @@ Page({
         }
       })
     }
+  },
+  qxdd:function(e){
+   console.log('fafaf');
+  },
+  sqsh: function (e) {
+    console.log('sqsh');
   },
   /**
    * 生命周期函数--监听页面加载

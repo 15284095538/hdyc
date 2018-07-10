@@ -23,14 +23,14 @@
  border-bottom: 5px soild #4d4d4d;
 }
 .myInfo .input input{
-  float: right;
+  position: relative;
   text-align: right;
-  margin-top: 30rpx;
+  height: 112rpx;
 }
 .myInfo .input .zname{
-  float: right;
-  text-align: right;
-  margin-top: 40rpx;
+ position: relative;
+  text-align: right; 
+  line-height:112rpx;
 }
 .myInfo .input .sex{
   float: right;
@@ -38,4 +38,15 @@
 }
 .myInfo .input .sex radio{
   margin-left: 15rpx;
+}
+.myInfo .button{
+  position: absolute;
+  top: 965rpx;
+  left: 30rpx;
+  width: 642rpx;
+  text-align: center;
+  background: #11a8e1;
+  color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
 }

@@ -44,7 +44,7 @@
 }
 
 .body .adressName {
-  font-size: 28rpx;
+  font-size: 26rpx;
   padding-top: 10rpx;
   padding-left: 20rpx;
   color: #d7d7d7;
@@ -121,7 +121,9 @@
   height: 85rpx;
   padding-bottom: 20rpx;
 }
-
+.body .type .text{
+  font-size: 26rpx;
+}
 .body .secend {
   background-color: #fff;
 }
@@ -130,9 +132,9 @@
   height: 50rpx;
   text-align: center;
   width: 80%;
+  line-height: 50rpx;
   margin: 40rpx auto;
   border: 2px solid #11a8e1;
-  padding-top: 10rpx;
   border-radius: 8rpx;
   font-size: 28rpx;
   color: #11a8e1;
@@ -188,7 +190,7 @@
 }
 .body .uname{
   margin-top: 15rpx;
-  font-size: 28rpx;
+  font-size: 34rpx;
 }
 .body .stars image {
     width: 26rpx;
@@ -200,6 +202,7 @@
   float: right;
   font-size: 28rpx;
   color: #d7d7d7;
+  margin-top: -28rpx;
 }
 .body .ptext{
   width: 577rpx;

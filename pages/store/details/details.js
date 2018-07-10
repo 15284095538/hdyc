@@ -14,46 +14,9 @@ Page({
     duration: 1000,
     navbar: ["服务类别", "客户评价"],
     currentIndex: 0,//tabbar索引 
-    address:{
-      'da':'成都市邛崃市老陈大路462号天和车王养护（汇蜀路口）',
-      'sn':'邛崃市天河车王养护',
-      "grade": 1
+    store:{
+      s_level:'1',
     },
-   
-    fulb:[
-      {
-        "fulbp": "/images/fuwtp.png",
-        "fwlbc":"洗车"
-      },
-     {
-       "fulbp": "/images/fuwtp.png",
-        "fwlbc": "洗车"
-      },
-      {
-        "fulbp": "/images/fuwtp.png",
-       "fwlbc": "洗车"
-     },
-     {
-       "fulbp": "/images/fuwtp.png",
-        "fwlbc": "洗车"
-      },
-      {
-        "fulbp": "/images/fuwtp.png",
-       "fwlbc": "洗车"
-     },
-     {
-       "fulbp": "/images/fuwtp.png",
-        "fwlbc": "洗车"
-      },
-      {
-        "fulbp": "/images/fuwtp.png",
-       "fwlbc": "洗车"
-     },
-     {
-       "fulbp": "/images/fuwtp.png",
-        "fwlbc": "洗车"
-      }
-    ],
     pinglun:[
       {
         npic:'/images/car_03.png',
@@ -103,17 +66,34 @@ Page({
     wx.request({//获取门店信息
       url: url + 'car/store_details',
       data: {
-        store_id:'',
+        store_id:'1',
         class_id:'',
         to:to
       },
       method: 'POST',
       success: function (res) {
-        // that.setData({ 
-        //   ['user']: res.data.data
-        // })
+        that.setData({ 
+          ['store']: res.data.data
+        })
         wx.hideToast();
         console.log(res);
+      }
+    })
+    wx.request({//获取门店评论信息
+      url: url + 'Store/store_eval',
+      data: {
+        store_id: '1',
+        type: '-1',
+        goods_id:'',
+        status:'',
+      },
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          ['pinglun']: res.data.data
+        })
+        wx.hideToast();
+        console.log(res.data.data.list);
       }
     })
 

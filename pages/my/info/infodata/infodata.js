@@ -12,9 +12,29 @@ Page({
           'tel':'13618045260',
           'sex':'女',
           'usname':'阴雨小城',
-        }
+        },
+        items:[
+        {name: '1', value: '男' ,checked: 'true' },
+        { name: '2', value: '女' }
+        ],
+        name:'',
+        tel:'',
+        sex:'',
   },
-
+  searchBox: function (e) {
+    console.log(this.data.name);
+    console.log(this.data.tel);
+    console.log(this.data.sex);
+  },
+  voteTitle: function (e) {
+    this.data.name = e.detail.value;
+  },
+  voteTitle1: function (e) {
+    this.data.tel = e.detail.value;
+  },
+  radioChange: function (e) {
+    this.data.sex = e.detail.value;
+  },
   /**
    * 生命周期函数--监听页面加载
    */
