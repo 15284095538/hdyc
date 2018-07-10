@@ -2,6 +2,7 @@
 
 .body {
   background-color: #f6f6f6;
+  color: #333;
 }
 
 .body .conter {
@@ -33,7 +34,7 @@
 
 .body .adress_left image {
   position: absolute;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   margin-left: 10rpx;
 }
 
@@ -112,6 +113,8 @@
   height: 200rpx;
   text-align: center;
   float: left;
+  font-size: 28rpx;
+  color: #333;
 }
 
 .body .type image {

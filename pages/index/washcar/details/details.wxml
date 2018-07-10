@@ -2,23 +2,25 @@
 <view class='body'>
   <view class='conter'>
     <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}" wx:key="this" wx:for-item="item">
+      <block wx:for="{{detdata.banner}}" wx:key="this" wx:for-item="item">
         <swiper-item style="height:400rpx">
-          <image src="{{item}}" class="slide-image" />
+          <image src="{{item.store_img}}" class="slide-image" />
         </swiper-item>
       </block>
     </swiper>
   </view>
   <view class='address'>
     <view class='adress_left'>
-      <view class='name'>{{address.sn}}</view>
-      <image src='/images/grade_0{{address.grade}}.png' class='pic' />
+      <view class='name'>{{detdata.s_name}}</view>
+      <image wx:if="{{ detdata.s_level == 3 }}" class='pic' src='/images/grade_01.png'></image>
+      <image wx:if="{{ detdata.s_level == 2 }}" class='pic' src='/images/grade_02.png'></image>
+      <image wx:if="{{ detdata.s_level == 1 }}" class='pic' src='/images/grade_03.png'></image>
       <view class='clear'></view>
-      <view class='adressName'>{{address.da}}</view>
+      <view class='adressName'>{{detdata.s_address}}</view>
     </view>
     <view class='address_right'>
       <image src='/images/dh.png'></image>
-      <view>1.3km</view>
+      <view>{{detdata.km}}</view>
       <view>导航</view>
     </view>
   </view>
@@ -31,10 +33,10 @@
     <view class="first" hidden="{{currentIndex!==0}}">
 
       <view class='ul'>
-        <block wx:for="{{fulb}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+        <block wx:for="{{detdata.class}}" wx:key="this" wx:for-item="item" wx:for-index="index">
           <view class='type'>
-            <image src='{{item.fulbp}}'></image>
-            <view class='text'>{{item.fwlbc}}</view>
+            <image src='{{item.menu_logo}}'></image>
+            <view class='text'>{{item.type_name}}</view>
           </view>
         </block>
       </view>
@@ -46,43 +48,43 @@
 
     <view class='secend' hidden="{{currentIndex!==1}}">
       <view class='tou'>
-        <view class='q'>全部评价（105）</view>
+        <view class='q'>全部评价（{{pinglun.counts.count}}）</view>
         <view class='h'>好评度
-          <text class='nu'>96%</text>
+          <text class='nu'>{{pinglun.pl}}</text>
           <image src='/images/more.png'></image>
         </view>
         <view class='clear'></view>
       </view>
       <view class='ping'>
         <!-- 评论开始 -->
-        <block wx:for="{{pinglun}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+        <block wx:for="{{pinglun.list}}" wx:key="this" wx:for-item="item" wx:for-index="index">
           <view class='dpl'>
             <view>
-              <image class='npic' src='{{item.npic}}'></image>
+              <image class='npic' src='{{item.header}}'></image>
             </view>
             <view class='name1'>
-              <view class='uname'>{{item.name}}</view>
+              <view class='uname'>{{item.user_name}}</view>
               <view style='margin-top:10rpx;'>
                 <view class="stars">
-                  <block wx:for="{{item.flag}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
+                  <block wx:for="{{item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
                     <image src='/images/rstart.png'></image>
                   </block> 
-                  <block wx:for="{{5 - item.flag}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+                  <block wx:for="{{5 - item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index">
                     <image src='/images/start.png'></image>
                   </block>
                 </view>
 
-                <view class='times'>{{item.time}}</view>
+                <view class='times'>{{item.create_time}}</view>
               </view>
             </view>
             <view class='clear'></view>
 
             <view class='ptext'>
-              <view>{{item.message}}</view>
-              <block wx:for="{{item.pic}}" wx:key="this" wx:for-item="items" wx:for-index="index">
-                <image src='{{items}}'></image>
+              <view>{{item.content}}</view>
+              <block wx:for="{{item.images}}" wx:key="this" wx:for-item="items" wx:for-index="index">
+                <image src='{{items.path}}'></image>
               </block>
-              <view class='fwtype'>{{item.stype}}</view>
+              <view class='fwtype'>{{item.info}}</view>
             </view>
 
 
@@ -91,7 +93,7 @@
         </block>
         <!-- 评论结束 -->
 
-        <view class='fotter' bindtap='ToPage'>查看全部评论</view>
+        <view data-store_id='{{store_id}}' class='fotter' bindtap='ToPage'>查看全部评论</view>
 
       </view>
       <view class='clear'></view>

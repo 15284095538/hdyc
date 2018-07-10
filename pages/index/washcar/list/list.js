@@ -48,8 +48,9 @@ Page({
   washdetClick(e){//列表点击
     var store_id = e.currentTarget.dataset.store_id;
     var class_id = e.currentTarget.dataset.class_id;
+    console.log( e )
     wx.navigateTo({
-      url: '/pages/index/washcar2/details/details?store_id=' + store_id + '&class_id=' + class_id,
+      url: '/pages/index/washcar/details/details?store_id=' + store_id + '&class_id=' + class_id,
     })
   },
   getdata(e) {
