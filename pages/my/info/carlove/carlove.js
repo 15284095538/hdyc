@@ -45,6 +45,12 @@ Page({
   getdata(e) {//获取数据
     var that = this;
     var value = wx.getStorageSync('userinfo');
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     wx.request({//获取爱车信息
       url: url + 'user/myCar',
       data: {
@@ -55,6 +61,7 @@ Page({
         that.setData({
           ['cars']: res.data.data
         })
+        wx.hideToast();
         console.log(res);
       } 
     })

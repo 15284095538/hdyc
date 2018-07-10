@@ -13,21 +13,23 @@
  
       <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
       <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
-      <image class="item-image" src="{{item.pic}}"></image>
-
+      <image hidden="{{currentIndex!==1&&currentIndex!==2}}" class="item-image" src="{{item.car_img}}"></image>
+      <image hidden="{{currentIndex!==0}}" class="item-image" src="{{item.g_picture}}"></image>
       <view class="column">
-        <text class="title">{{item.name}}</text>
-        <text class='xq' hidden="{{currentIndex!==0}}">已售{{item.yishou}}件<text style='margin-left:100rpx;'>{{item.pinglun}}人评论</text></text>
-        <text class='xq' hidden="{{currentIndex!==1&&currentIndex!==2}}">厂商指导价{{item.zd}}万</text>
+        <text  hidden="{{currentIndex!==1&&currentIndex!==2}}"  class="title">{{item.car_name}}</text>
+        <text  hidden="{{currentIndex!==0}}"  class="title">{{item.g_name}}</text>
+        <text class='xq' hidden="{{currentIndex!==0}}">已售{{item.ys}}件<text style='margin-left:100rpx;'>{{item.pl}}人评论</text></text>
+        <text class='xq' hidden="{{currentIndex!==1&&currentIndex!==2}}">厂商指导价{{item.price}}万</text>
         <view class="row row1">
         <text class="sku-price" hidden="{{currentIndex!==1&&currentIndex!==2}}">首付</text>
           <text class="sku-price">￥</text>
-          <text class="sku-price">{{item.price}}</text>
-          <text class='yg'hidden="{{currentIndex!==1&&currentIndex!==2}}">月供{{item.yg}}元</text>
+          <text  hidden="{{currentIndex!==1&&currentIndex!==2}}" class="sku-price">{{item.first_pay}}</text>
+          <text  hidden="{{currentIndex!==0}}" class="sku-price">{{item.price}}</text>
+          <text class='yg'hidden="{{currentIndex!==1&&currentIndex!==2}}">月供{{item.month_pay}}元</text>
         </view>
 
       </view>
-       <view data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
+       <view id='{{item.shopping_id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
     </view>
     
 

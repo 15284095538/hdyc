@@ -5,7 +5,7 @@
 }
 
 .buycar .scroll {
-  margin-bottom: 120rpx;
+  padding-bottom: 120rpx;
 }
 
 .buycar .column {
@@ -18,7 +18,7 @@
 .buycar .row {
   display: flex;
   flex-direction: row;
-  font-size: 30rpx;
+  font-size: 26rpx;
   align-items: center;
 }
 
@@ -101,7 +101,7 @@
   color: white;
   text-align: center;
   display: inline-block;
-  font-size: 30rpx;
+  font-size: 26rpx;
   border-radius: 0rpx;
   width: 271rpx;
   height: 120rpx;
@@ -152,8 +152,8 @@
   width: 200rpx;
   position: relative;
   top: 20rpx;
-  font-size: 30rpx;
-  left: 88rpx;
+  font-size: 26rpx;
+  left: 20rpx;
 }
 
 .buycar .row1 {

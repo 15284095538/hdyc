@@ -1,4 +1,5 @@
 // pages/store/details/details.js
+var url = getApp().globalData.publicUrl;
 Page({
   data: {
     aheight:"",
@@ -90,8 +91,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(options);
     var that = this;
+    var to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取门店信息
+      url: url + 'car/store_details',
+      data: {
+        store_id:'',
+        class_id:'',
+        to:to
+      },
+      method: 'POST',
+      success: function (res) {
+        // that.setData({ 
+        //   ['user']: res.data.data
+        // })
+        wx.hideToast();
+        console.log(res);
+      }
+    })
 
 
     wx.getSystemInfo({
@@ -103,8 +127,10 @@ Page({
       }
 
     });
-  },
 
+
+
+  },
   navbarTab: function (e) {
     this.setData({
       currentIndex: e.currentTarget.dataset.index

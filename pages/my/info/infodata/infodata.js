@@ -23,6 +23,12 @@ Page({
   },
   getdata(e) {//获取数据
     var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     wx.request({//获取个人信息
       url: url + 'user/myData',
       data: {
@@ -33,6 +39,7 @@ Page({
         that.setData({
           ['user']: res.data.data
         }) 
+        wx.hideToast();
         console.log(res);
       }
     })

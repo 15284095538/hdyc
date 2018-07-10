@@ -1,3 +1,4 @@
+var url = getApp().globalData.publicUrl;
 Page({
   data: {
     navbar: ["车用品", "网约车","新车"],
@@ -7,221 +8,93 @@ Page({
     delBtnWidth: 150,
     // 商品详情介绍
     carts: [
-      {
-        pic: "/images/car_03.png",
-        name: "新款吉弘行车记录仪高清夜视",
-        price: 200.08,
-        yishou: 333,
-        pinglun: 146,
-        isSelect: false,
-      },
-      {
-        pic: '/images/car_03.png',
-        name: "新款吉弘行车记录仪高清夜视",
-        price: 340.09,
-        yishou: 365,
-        pinglun: 146,
-        isSelect: false,
-      },
-      {
-        pic: '/images/car_03.png',
-        name: "新款吉弘行车记录仪高清夜视",
-        price: 390.09,
-        yishou: 365,
-        pinglun: 146,
-        isSelect: false,
-      },
-      {
-        pic: '/images/car_03.png',
-        name: "新款吉弘行车记录仪高清夜视",
-        price: 490.07,
-        yishou: 365,
-        pinglun: 146,
-        isSelect: false,
-      },
-      {
-        pic: '/images/car_03.png',
-        name: "新款吉弘行车记录仪高清夜视",
-        price: 289.06,
-        yishou: 365,
-        pinglun: 146,
-        isSelect: false,
-      },
-      {
-        pic: "/images/car_03.png",
-        name: "新款吉弘行车记录仪高清夜视",
-        price: 230.05,
-        yishou: 365,
-        pinglun: 146,
-        isSelect: false,
-      },
-    ],
+
+    ]
   },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index==1){
-      this.setData({
-        carts: [
-          {
-            pic: "/images/car_03.png",
-            name: "晶锐Health Plus定制版",
-            price: 200.05,
-            zd:10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "晶锐Health Plus定制版",
-            price: 340.09,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 390.05,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "晶锐Health Plus定制版",
-            price: 490.05,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "晶锐Health Plus定制版",
-            price: 289.05,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: "/images/car_03.png",
-            name: "晶锐Health Plus定制版",
-            price: 230.05,
-            zd: 10.8,
-            yg:1921,
-            isSelect: false,
-          },
-        ],
-        currentIndex: e.currentTarget.dataset.index,
-      });
+      var that = this;
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 55000,
+        mask: true
+      })
+      wx.request({//获取个人信息
+        url: url + 'shopping/getCar',
+        data: {
+          openid: wx.getStorageSync('userinfo').openid,
+          goods_type: '2',
+          level: '',
+        },
+        method: 'POST',
+        success: function (res) {
+          that.setData({
+            ['carts']: res.data.data.data,
+            currentIndex: e.currentTarget.dataset.index,
+          })
+          
+          wx.hideToast();
+          console.log(res);
+        }
+      })
+
     }
     if (e.currentTarget.dataset.index == 2) {
-      this.setData({
-        carts: [
-          {
-            pic: "/images/car_03.png",
-            name: "晶锐Health Plus定制版",
-            price: 200.04,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "晶锐Health Plus定制版",
-            price: 340.09,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 390.02,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "晶锐Health Plus定制版",
-            price: 490.02,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "晶锐Health Plus定制版",
-            price: 289.01,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-          {
-            pic: "/images/car_03.png",
-            name: "晶锐Health Plus定制版",
-            price: 230.07,
-            zd: 10.8,
-            yg: 1921,
-            isSelect: false,
-          },
-        ],
-        currentIndex: e.currentTarget.dataset.index,
-      });
+      var that = this;
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 55000,
+        mask: true
+      })
+      wx.request({//获取个人信息
+        url: url + 'shopping/getCar',
+        data: {
+          openid: wx.getStorageSync('userinfo').openid,
+          goods_type: '2',
+          level: '',
+        },
+        method: 'POST',
+        success: function (res) {
+          that.setData({
+            ['carts']: res.data.data.data,
+            currentIndex: e.currentTarget.dataset.index,
+          })
+         
+          wx.hideToast();
+          console.log(res);
+        }
+      })
+
     }
     if (e.currentTarget.dataset.index == 0) {
-      this.setData({
-        carts: [
-          {
-            pic: "/images/car_03.png",
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 200.04,
-            yishou: 365,
-            pinglun: 146,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 340.09,
-            yishou: 365,
-            pinglun: 146,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 390.02,
-            yishou: 365,
-            pinglun: 146,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 490.20,
-            yishou: 365,
-            pinglun: 146,
-            isSelect: false,
-          },
-          {
-            pic: '/images/car_03.png',
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 289.40,
-            yishou: 365,
-            pinglun: 146,
-            isSelect: false,
-          },
-          {
-            pic: "/images/car_03.png",
-            name: "新款吉弘行车记录仪高清夜视",
-            price: 230.50,
-            yishou: 365,
-            pinglun: 146,
-            isSelect: false,
-          },
-        ],
-        currentIndex: e.currentTarget.dataset.index,
-      });
+      //获取数据
+      var that = this;
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 55000,
+        mask: true
+      })
+      wx.request({//获取个人信息
+        url: url + 'shopping/getCar',
+        data: {
+          openid: wx.getStorageSync('userinfo').openid,
+          goods_type: '0',
+          level: '',
+        },
+        method: 'POST',
+        success: function (res) {
+          that.setData({
+            ['carts']: res.data.data.data,
+            currentIndex: e.currentTarget.dataset.index,
+          })
+
+          wx.hideToast();
+          console.log(res);
+        }
+      })
     }
   },
   //勾选事件处理函数  
@@ -300,7 +173,6 @@ Page({
   //左滑操作
 //手指刚放到屏幕触发  
  touchS: function (e) {
-    console.log(e);
     //判断是否只有一个触摸点  
     // console.log(e.touches[0].clientX)  
     if (e.touches.length == 1) {
@@ -346,9 +218,7 @@ Page({
   touchE: function (e) {
     var that = this
     that.clearDelete()
-    console.log("下标" + e.currentTarget.dataset.index);
     var index = e.currentTarget.dataset.index;
-    console.log(this.data);
 
     if (e.changedTouches.length == 1) {
       //手指移动结束后触摸点位置的X坐标  
@@ -357,17 +227,16 @@ Page({
       var disX = that.data.startX - endX;
       var delBtnWidth = that.data.delBtnWidth;
       //如果距离小于删除按钮的1/2，不显示删除按钮  
-      var sty = disX > delBtnWidth / 2 ? "margin-left:-" + 150 + "rpx" : "left:0px";
+      var sty = disX > delBtnWidth / 2 ? "margin-left:-" + 150 + "rpx" : "left:0px"; 
       var txt = disX > delBtnWidth / 2 ? "display:flex " : "display:none";
       that.data.carts[index].Style = sty;
-      console.log(sty);
       that.data.carts[index].txtStyle = txt;
       //获取手指触摸的是哪一项  
       that.setData({
         carts: that.data.carts,
         index: index,
       })
-      console.log(that.data.carts);
+      // console.log(that.data.carts);
     }
   },
   clearDelete: function () { //移动其他商品时，当前商品删除none  
@@ -378,6 +247,73 @@ Page({
     this.setData({
       carts: this.data.carts,
     })
-  }  
+  },  
 
+onLoad: function (options) {
+   //获取数据
+  var that = this;
+  wx.showToast({
+    title: '加载中',
+    icon: 'loading',
+    duration: 55000,
+    mask: true
+  })
+  wx.request({//获取个人信息
+    url: url + 'shopping/getCar',
+    data: {
+      openid: wx.getStorageSync('userinfo').openid,
+      goods_type:'0',
+      level:'', 
+    },
+    method: 'POST',
+    success: function (res) {
+      that.setData({
+        ['carts']: res.data.data.data
+      })
+     
+      wx.hideToast();
+      console.log(res);
+    }
+  })
+  },
+
+
+
+
+  deleteProd(e) {//加入购物车
+  var that = this;
+    var id = e.currentTarget.id;
+  wx.showToast({
+    title: '请稍后',
+    icon: 'loading',
+    duration: 55000,
+    mask: true
+  })
+  wx.request({//获取二级属性
+    url: url + 'shopping/delCar',
+    data: {
+      shopping_id: e.currentTarget.id,
+    },
+    method: 'POST',
+    success: res => {
+      if (res.data.code == 200) {
+        const index = e.currentTarget.dataset.index;
+        let carts = this.data.carts;
+        carts.splice(index, 1); // 删除购物车列表里这个商品
+        this.setData({
+          carts: carts
+        });
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
+        
+      }
+    }
+  })
+},
 });
+
+ 
