@@ -57,6 +57,12 @@ Page({
     var that = this;
     wx.login({
       success: res => {
+        wx.showToast({
+          title: '加载中',
+          icon: 'loading',
+          duration: 55000,
+          mask: true
+        })
         var code = res.code;
         wx.getUserInfo({
           success: function (res) {
@@ -76,6 +82,7 @@ Page({
                 that.setData({
                   userinfo: data.data.data
                 })
+                wx.hideToast();
               }
             })
           }

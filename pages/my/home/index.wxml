@@ -24,7 +24,7 @@
     <view id='archives'>
       <view class='archives-box'>
         <view class='archives-title'>
-          <view class='archives-title-text'>
+          <view class='archives-title-text' data-link='/pages/my/info/carlove/carlove' bindtap="ToPage">
             爱车档案
           </view>
           <view class='archives-title-line'>
@@ -32,7 +32,7 @@
             <view class='archives-line'></view>
           </view>
         </view>
-        <view class='archives-info'>
+        <view class='archives-info' data-link='/pages/my/info/carlove/carlove' bindtap="ToPage">
           <view class='archives-info-img left'>
             <image src="{{userinfo.car.car_logo}}"></image>
           </view>

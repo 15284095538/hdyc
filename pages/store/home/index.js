@@ -94,6 +94,12 @@ Page({
     })
   },
   getdata() { //获取数据
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     var to = '';
     to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
     var that = this;
@@ -114,6 +120,7 @@ Page({
             list: res.data.data.store
           });
         }
+        wx.hideToast();
       }
     })
   }
