@@ -1,20 +1,20 @@
 <view id='top'>
-  <view class='row'>
+  <scroll-view scroll-x style='width:{{ scrollWidth + "rpx" }}' class='row'>
     <view class='col'>
-      <view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='col-4 top-menu {{ index == selectid ? "select":"" }}' data-id='{{index}}' bindtap='ChangeSelect'>
-        {{item.text}}
+      <view style='width:187.5rpx;' wx:for="{{menu}}" data-category_id='{{item.id}}' wx:key="index" wx:for-item="item" class='col-4 top-menu {{ index == selectid ? "select":"" }}' data-id='{{index}}' bindtap='ChangeSelect'>
+        {{item.type_name}}
       </view>
     </view>
-  </view>
+  </scroll-view>
 </view>
 
 
 <view class='list'>
-  <view class='li' wx:for="{{list}}" wx:key="this" wx:for-item="item" >
-    <view class='img'> <image src='{{item.path}}'></image> </view>
+  <view data-goods_id='{{item.goods_id}}' class='li' wx:for="{{list}}" wx:key="this" wx:for-item="item" >
+    <view class='img'> <image src='{{item.g_picture}}'></image> </view>
     <view class='text'>
-      <view class='name'>{{item.name}}</view>
-      <view class='p'> <text>已售{{item.j}}件</text> | <text>{{item.num}}人评论</text> </view>
+      <view class='name'>{{item.g_name}}</view>
+      <view class='p'> <text>已售{{item.ys}}件</text> | <text>{{item.pl}}人评论</text> </view>
       <view class='price'>{{item.price}}</view>
     </view>
   </view>

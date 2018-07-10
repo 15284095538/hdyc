@@ -356,6 +356,9 @@
   border-radius: 10rpx;
   overflow: hidden;
 }
+.fq .text .tb{
+  overflow: hidden;
+}
 .fq .text .tb text{
   width: 33%;
   float: left;
@@ -364,7 +367,7 @@
   font-size: 28rpx;
   padding: 30rpx 0 15rpx;
 }
-.fq .text .wb text{
+.fq .text .wb .li{
   width: 33%;
   float: left;
   display: block;
