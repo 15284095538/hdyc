@@ -1,35 +1,71 @@
+var url = getApp().globalData.publicUrl;
+
 Page({
   data: {
     selectid:0,
-    menu: [ //导航
-      {
-        "text": "智能导航",
-      },
-      {
-        "text": "行车记录仪",
-      },
-      {
-        "text": "内饰贴",
-      },
-      {
-        "text": "智能后视镜",
-      }
-    ],
-    list:[
-      {
-        'path':'/images/car_03.png',
-        'name':'新款吉弘行车记录仪高清夜视双镜头',
-        'j':'365',
-        'num':'555',
-        "price":'$500'
-      }
-    ]
+    menu: [],//导航
+    list:[],
+    category_id:'',
+    scrollWidth:'',
+  },
+  page: {
+    pages: 1,
   },
   onLoad() {
-    
+    this.getdata();
+  },
+  onReachBottom: function () {//下拉加载更多
+    this.page.pages++;
+    this.getdata();
+  },
+  onPullDownRefresh: function () {//上拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
+    this.getdata();
   },
   ChangeSelect(e){
     var selectid = e.currentTarget.dataset.id;
-    this.setData({ selectid: selectid })
+    var category_id = e.currentTarget.dataset.category_id;
+    this.setData({ selectid: selectid, category_id: category_id })
+    this.getdata();
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'goods/goods_list',
+      method: 'POST',
+      data:{
+        category_id: this.data.category_id ,
+        level: wx.getStorageSync('userinfo').level,
+        pages: this.page.pages,
+      },
+      success: function (res) {
+        if (res.data.data.list.length == 0 ){
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+        }else{
+          wx.hideToast();
+        }
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
+        that.setData({
+          menu: res.data.data.category,
+          list: res.data.data.list,
+          scrollWidth: res.data.data.category.length * 187.5
+        })
+      }
+    })
   }
 })

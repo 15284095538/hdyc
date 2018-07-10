@@ -1,4 +1,5 @@
 {
   "disableScroll": false,
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "洗车"
 }
