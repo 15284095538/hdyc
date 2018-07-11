@@ -10,7 +10,7 @@ Page({
           'pic':'/images/car_03.png',
           'zname':'',
           'tel':'13618045260',
-          'sex':'女',
+          'sex':'2',
           'usname':'阴雨小城',
         },
         items:[
@@ -19,12 +19,37 @@ Page({
         ],
         name:'',
         tel:'',
-        sex:'',
   },
   searchBox: function (e) {
     console.log(this.data.name);
     console.log(this.data.tel);
-    console.log(this.data.sex);
+    var that = this;
+    wx.showToast({
+      title: '提交中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取个人信息
+      url: url + 'User/editMyData',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+        phone: this.data.tel,
+        name: this.data.name,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
+       
+        console.log(res);
+      }
+    })
   },
   voteTitle: function (e) {
     this.data.name = e.detail.value;
@@ -57,7 +82,9 @@ Page({
       method: 'POST',
       success: function (res) {
         that.setData({
-          ['user']: res.data.data
+          ['user']: res.data.data,
+          ['name']: res.data.data.name,
+          ['tel']: res.data.data.cellphone
         }) 
         wx.hideToast();
         console.log(res);

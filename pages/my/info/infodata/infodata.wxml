@@ -12,17 +12,14 @@
 <view style='clear:both;'></view>
 <view class='input'>
 <view class='word'>手机号</view>
-<input class='zname' bindinput="voteTitle1">{{user.cellphone}}</input>
+<input class='zname' value='{{user.cellphone}}' bindinput="voteTitle1">{{user.cellphone}}</input>
 </view>
 <view style='clear:both;'></view>
 <view class='input'>
 <view class='word'>性别</view>
 <view class='sex'>
-<radio-group class="radio-group" bindchange="radioChange">
- <label class="radio" wx:for-items="{{items}}" wx:key = "this">
- <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
- </label>
-</radio-group>
+<radio value="男" checked='{{user.sex==1}}' disabled='true'/>男
+<radio value="女" checked='{{user.sex==2}}' disabled='true'/>女
 </view>
 </view>
 <view style='clear:both;'></view>
