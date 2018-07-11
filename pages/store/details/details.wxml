@@ -24,7 +24,7 @@
   </view>
   <view class='fl'>
     <view class="navbar">
-      <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
+      <text wx:for="{{navbar}}" wx:key="this" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
     </view>
 
 
