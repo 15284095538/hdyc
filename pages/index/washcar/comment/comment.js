@@ -7,8 +7,20 @@ Page({
     allpinglun: [],
     xhpinlun:[],
   }, 
+  page: {
+    pages: 1,
+  },
   onLoad: function (e) {
     this.setData({ store_id: e.store_id, })
+    this.getstoreeval();
+  },
+  onReachBottom: function () {//下拉加载更多
+    this.page.pages++;
+    this.getstoreeval();
+  },
+  onPullDownRefresh: function () {//上拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
     this.getstoreeval();
   },
   click: function (e) {
@@ -59,7 +71,7 @@ Page({
       url: url + 'Store/store_eval',
       data: {
         store_id: this.data.store_id,
-        type: -1,
+        type: this.page.pages * 10,
         goods_id: '',
         status: '',
       },
@@ -70,9 +82,21 @@ Page({
           that.setData({
             allpinglun: res.data.data,
             xhpinlun: res.data.data.list
+          });
+          wx.hideToast();
+        }else{
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 500,
+            mask: true
           })
         }
-        wx.hideToast();
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
+        
       }
     })
   },
