@@ -128,7 +128,6 @@
   font-size: 30rpx;
   text-align: center;
   background: #fff;
-  font-weight: bold;
 }
 
 .buycar .navbar .item.active {

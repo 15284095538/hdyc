@@ -21,8 +21,6 @@ Page({
         tel:'',
   },
   searchBox: function (e) {
-    console.log(this.data.name);
-    console.log(this.data.tel);
     var that = this;
     wx.showToast({
       title: '提交中',
@@ -30,7 +28,7 @@ Page({
       duration: 55000,
       mask: true
     })
-    wx.request({//获取个人信息
+    wx.request({//修改个人信息
       url: url + 'User/editMyData',
       data: {
         openid: wx.getStorageSync('userinfo').openid,
