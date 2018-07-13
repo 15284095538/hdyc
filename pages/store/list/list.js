@@ -86,6 +86,7 @@ Page({
       }
     ],
     list: [],
+    typeid: ''
   },
   onReady: function() {
     this.animation = wx.createAnimation({
@@ -98,8 +99,11 @@ Page({
       }
     })
   },
-  onLoad() {
+  onLoad(options) {
     this.getmenu();
+    this.setData({
+      typeid: options.id
+    });
   },
   listTopclick(e) { //头部点击切换样式
     var that = this;
@@ -265,7 +269,7 @@ Page({
       url: url + 'store/storeList',
       method: 'POST',
       data: {
-        type: 1,
+        type: that.data.typeid,
         to: to,
         areaId: areaId,
         sort: sort,
