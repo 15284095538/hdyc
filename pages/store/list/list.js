@@ -5,6 +5,7 @@ Page({
     display: 'none',
     menuid: 0,
     menuIndex: 0,
+    winHeight: '',
     menu: [ //导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -27,62 +28,17 @@ Page({
         "key": 0,
       }
     ],
-    menulist: [
-      //导航列表
-    ],
-    city: [ //城市列表
-      {
-        "areaName": "成都市"
-      },
-      {
-        "areaName": "德阳"
-      },
-      {
-        "areaName": "青羊"
-      }
-    ],
-    listtype: [ //类型
-      {
-        "text": '全车打蜡'
-      },
-      {
-        "text": '内饰清洗'
-      },
-      {
-        "text": '全车贴膜'
-      },
-      {
-        "text": '全车镀晶'
-      }
-    ],
+    menulist: [], //导航列表
+    city: [], //城市列表
+    listtype: [], //类型
     sort: [ //筛选
       {
         "text": '门店类型',
-        "sub": [{
-            "type_name": "美容保养",
-            "type": false
-          },
-          {
-            "type_name": "美容保养",
-            "type": false
-          },
-          {
-            "type_name": "安装",
-            "type": false
-          }
-        ]
+        "sub": []
       },
       {
         "text": '到店服务',
-        "sub": [{
-            "type_name": "安装",
-            "type": false
-          },
-          {
-            "type_name": "美容保养",
-            "type": false
-          }
-        ],
+        "sub": [],
       }
     ],
     list: [],
@@ -104,6 +60,14 @@ Page({
     this.setData({
       typeid: options.id
     });
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          winHeight: res.windowHeight
+        })
+      }
+    })
   },
   listTopclick(e) { //头部点击切换样式
     var that = this;

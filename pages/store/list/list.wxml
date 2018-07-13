@@ -58,9 +58,11 @@
 <!-- 筛选弹层 -->
 <view class='listToplayer {{display}}' catchtap='Close'>
   <view class='listToplayeranment' catchtap='CloseStop'>
+  <scroll-view scroll-y wx:if="{{menuid != 2 }}" style="height: {{winHeight+'px'}};">
     <block wx:if="{{menuid != 2}}" wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
       <view bindtap="listToplayerLiclick" data-id="{{index}}" data-text="{{item.areaName}}" data-areaid='{{item.areaId}}' class='li {{ index == layerid ? "select":"" }}'>{{item.areaName}}</view>
     </block>
+    </scroll-view>
     <view class='screen' wx:if="{{menuid == 2}}">
       <view class='screen-box' wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item">
         <view class='screen-title'>

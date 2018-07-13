@@ -1,66 +1,50 @@
 // pages/my/info/receivingaddress/home/index.js
+var url = getApp().globalData.publicUrl;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    list: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onLoad: function(options) {
+    wx.setNavigationBarTitle({
+      title: '收货地址'
+    });
+    this.getdata();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  getdata() { //获取地址
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    });
+    var that = this;
+    var address = '';
+    if (wx.getStorageSync('address_component')) {
+      address = wx.getStorageSync('address_component').city
+    }
+    wx.request({ //获取内容
+      url: url + 'User/myAddress',
+      method: 'POST',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid
+      },
+      success: res => {
+        if (res.data.code == 200) {
+          that.setData({
+            list: res.data.data
+          });
+        }
+        wx.hideToast();
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  Default(e) { //设为默认
+    var id = e.currentTarget.dataset.id
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  Change(e) { //修改地址
+    var id = e.currentTarget.dataset.id
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  Delete(e) { //删除地址
+    var id = e.currentTarget.dataset.id
   }
 })

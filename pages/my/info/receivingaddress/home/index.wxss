@@ -1,1 +1,126 @@
 /* pages/my/info/receivingaddress/home/index.wxss */
+
+page {
+  background-color: #f6f6f6;
+  font-family: -apple-system-font, "Helvetica Neue", sans-serif;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+.indent {
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* main */
+
+#main {
+  margin-bottom: 150rpx;
+}
+
+.list {
+  height: 253rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.info {
+  height: 102rpx;
+  padding: 30rpx;
+}
+
+.user {
+  height: 51rpx;
+  font-size: 30rpx;
+  letter-spacing: 0rpx;
+  color: #333;
+  line-height: 51rpx;
+}
+
+.name {
+  padding-right: 38rpx;
+}
+
+.address {
+  height: 51rpx;
+  font-size: 26rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+  color: #333;
+  line-height: 51rpx;
+}
+
+.menu {
+  /* 菜单 */
+  height: 90rpx;
+  border-top: 1rpx solid #e7e7e7;
+  position: relative;
+}
+
+.radio {
+  height: 90rpx;
+}
+
+radio {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 45rpx;
+  padding-left: 30rpx;
+}
+
+.default {
+  font-size: 30rpx;
+  letter-spacing: 0rpx;
+  color: #333;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding-left: 100rpx;
+}
+
+.btn {
+  font-size: 26rpx;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0rpx;
+  color: #333;
+  padding: 12rpx 20rpx;
+  border: 3rpx solid #333;
+  border-radius: 3rpx;
+  margin-top: 15rpx;
+}
+
+.delete {
+  color: #11a8e1;
+  border: 3rpx solid #11a8e1;
+  margin-left: 20rpx;
+  margin-right: 30rpx;
+}
+
+/* add */
+
+#add {
+  height: 90rpx;
+  width: 90%;
+  background-color: #11a8e1;
+  border-radius: 12rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 50rpx;
+  left: 5%;
+}
