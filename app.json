@@ -54,6 +54,14 @@
     "pages/my/info/receivingaddress/details/details",
     "pages/my/info/receivingaddress/home/index"
   ],
+  "subPackages": [
+    {
+      "root": "pages/activity",
+      "pages": [
+        "pages/collage/collage"
+      ]
+    }
+  ],
   "tabBar": {
     "color": "#7f7f7f",
     "selectedColor": "#11a8e1",
