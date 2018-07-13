@@ -31,9 +31,11 @@ Page({
       url: link
     })
   },
-  ToDetails() { //跳转详情
+  ToDetails(e) { //跳转详情
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
     wx.navigateTo({
-      url: '../details/details'
+      url: '/pages/store/details/details?id=' + id + ''
     })
   },
   onGotUserInfo(e) { //用户授权
