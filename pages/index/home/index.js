@@ -29,10 +29,11 @@ Page({
     this.getLocation();
   },
   menulink(e){//导航跳转
+    var name = e.currentTarget.dataset.name;
     var link = e.currentTarget.dataset.link;
     var id = e.currentTarget.dataset.menuid;
     wx.navigateTo({
-      url: link + id,
+      url: link + id + '&name=' + name,
     })
   },
   carlink(e){//

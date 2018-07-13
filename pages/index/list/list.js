@@ -1,7 +1,11 @@
+var url = getApp().globalData.publicUrl;
+
 Page({
   data: {
     display:'none',
     menuIndex:0,
+    classify:'',
+    sorttext:1,
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -12,7 +16,7 @@ Page({
       {
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
-        "text": "全车打蜡",
+        "text": "养护推荐",
         "key": 0
       },
       {
@@ -73,8 +77,8 @@ Page({
       }
     ],
   },
-  onLoad() {
-
+  onLoad(e) {
+    this.getdata();
   },
   listTopclick(e){//头部点击切换样式
     var that = this;
@@ -112,6 +116,32 @@ Page({
   detLink(e){ //详情
     wx.navigateTo({
       url: '/pages/index/details/details'
+    })
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+
+    wx.request({//获取分类
+      url: url + 'lists/refit',
+      data:{
+        to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+        address: wx.getStorageSync('address_component').city,
+        classify: that.data.classify,
+        grade:1,
+        sort: that.data.sorttext,
+        level: wx.getStorageSync('userinfo').level,
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log( res )
+        wx.hideToast();
+      }
     })
   }
 })
