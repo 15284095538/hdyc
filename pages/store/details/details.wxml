@@ -85,7 +85,7 @@
         </block>
         <!-- 评论结束 -->
 
-        <view class='fotter' bindtap='ToPage'>查看全部评论</view>
+        <view class='fotter' data-id='{{store.store_id}}' bindtap='ToPage'>查看全部评论</view>
 
       </view>
       <view class='clear'></view>

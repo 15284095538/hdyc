@@ -1,134 +1,104 @@
-// pages/store/details/details.js
+var url = getApp().globalData.publicUrl;
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    _num: 1,
-    pinglun: [
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: 4,
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: 5,
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-
-    ]
-  }, 
+    Topnum: 1,
+    store_id: '',
+    allpinglun: [],
+    xhpinlun: [],
+  },
+  page: {
+    pages: 1,
+  },
+  onLoad: function (e) {
+    console.log(e);
+    this.setData({ store_id:e.id, })
+    this.getstoreeval();
+  },
+  onReachBottom: function () {//下拉加载更多
+    this.page.pages++;
+    this.getstoreeval();
+  },
+  onPullDownRefresh: function () {//上拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
+    this.getstoreeval();
+  },
   click: function (e) {
-    console.log(e.target.dataset.num)
+    var num = e.target.dataset.num;
+    var list = this.data.allpinglun.list;
+    var data = [];
+    if (num == 1) {
+      data = this.data.allpinglun.list
+    } else if (num == 2) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].images.length !== 0) {
+          data.push(list[i])
+        }
+      }
+    } else if (num == 3) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].level == 3) {
+          data.push(list[i])
+        }
+      }
+    } else if (num == 4) {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].level == 2) {
+          data.push(list[i])
+        }
+      }
+    } else {
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].level == 1) {
+          data.push(list[i])
+        }
+      }
+    }
     this.setData({
-      _num: e.target.dataset.num
+      Topnum: num,
+      xhpinlun: data,
+    });
+  },
+  getstoreeval(e) {
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取内容
+      url: url + 'Store/store_eval',
+      data: {
+        store_id: this.data.store_id,
+        type: this.page.pages * 10,
+        goods_id: '',
+        status: '',
+      },
+      method: 'POST',
+      success: res => {
+        console.log(res)
+        if (res.data.code == 200) {
+          that.setData({
+            allpinglun: res.data.data,
+            xhpinlun: res.data.data.list
+          });
+          wx.hideToast();
+        } else {
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+        }
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
+
+      }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-    var that = this;
-
-
-    
-  },
-
-  navbarTab: function (e) {
-    this.setData({
-      currentIndex: e.currentTarget.dataset.index
-    });
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-  //滑动切换
-  swiperTab: function (e) {
-    var that = this;
-    that.setData({
-      currentTba: e.detail.current
-    });
-  },
-  //点击切换
-  clickTab: function (e) {
-
-    var that = this;
-
-    if (this.data.currentTab === e.target.dataset.current) {
-      return false;
-    } else {
-      that.setData({
-        currentTab: e.target.dataset.current
-      })
-    }
-  },
-
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

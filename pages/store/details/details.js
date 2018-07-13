@@ -66,7 +66,7 @@ Page({
     wx.request({//获取门店信息
       url: url + 'car/store_details',
       data: {
-        store_id:'1',
+        store_id: options.id,
         class_id:'',
         to:to
       },
@@ -82,7 +82,7 @@ Page({
     wx.request({//获取门店评论信息
       url: url + 'Store/store_eval',
       data: {
-        store_id: '1',
+        store_id: options.id,
         type: '-1',
         goods_id:'',
         status:'',
@@ -116,9 +116,11 @@ Page({
       currentIndex: e.currentTarget.dataset.index
     });
   },
-  ToPage() {
+  ToPage(e) {
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
     wx.navigateTo({
-      url: '/pages/store/comment/comment'
+      url: '/pages/store/comment/comment?id=' + id + ''
     })
   },
   /**

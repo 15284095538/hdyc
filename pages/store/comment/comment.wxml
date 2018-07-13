@@ -1,42 +1,42 @@
 
 <view class='content'>
 <view class='header service_selection'>
-<text data-num="1" class="{{_num==1 ? 'active':''}}" bindtap="click">全部(105)</text>
-<text data-num="2" class="{{_num==2 ? 'active':''}}" bindtap="click">有图(105)</text>
-<text data-num="3" class="{{_num==3 ? 'active':''}}" bindtap="click">好评(105)</text>
-<text data-num="4" class="{{_num==4 ? 'active':''}}" bindtap="click">中评(105)</text>
-<text data-num="5" class="{{_num==5 ? 'active':''}}" bindtap="click">差评(105)</text>
+<text data-num="1" class="{{Topnum==1 ? 'active':''}}" bindtap="click">全部({{allpinglun.counts.count}})</text>
+<text data-num="2" class="{{Topnum==2 ? 'active':''}}" bindtap="click">有图({{allpinglun.counts.is_img}})</text>
+<text data-num="3" class="{{Topnum==3 ? 'active':''}}" bindtap="click">好评({{allpinglun.counts.a}})</text>
+<text data-num="4" class="{{Topnum==4 ? 'active':''}}" bindtap="click">中评({{allpinglun.counts.b}})</text>
+<text data-num="5" class="{{Topnum==5 ? 'active':''}}" bindtap="click">差评({{allpinglun.counts.c}})</text>
 <view class='clear'></view>
 </view>
 <view class='ping'>
-<block wx:for="{{pinglun}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+<block wx:for="{{xhpinlun}}" wx:key="this" wx:for-item="item" wx:for-index="index">
             <view class='dpl'>
               <view>
-                <image class='npic' src='{{item.npic}}'></image>
+                <image class='npic' src='{{item.header}}'></image>
               </view>
               <view class='name1'>
-                <view class='uname'>{{item.name}}</view>
+                <view class='uname'>{{item.user_name}}</view>
                 <view style='margin-top:10rpx;'>
                   <view class="stars">
-                  <block wx:for="{{item.flag}}" wx:key="this">
+                  <block wx:for="{{item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
                     <image src='/images/rstart.png'></image>
                   </block> 
-                  <block wx:for="{{5 - item.flag}}"  wx:key="this">
+                  <block wx:for="{{5 - item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
                     <image src='/images/start.png'></image>
                   </block>
                 </view>
                   
-                  <view class='times'>{{item.time}}</view>
+                  <view class='times'>{{item.create_time}}</view>
                 </view>
               </view>
               <view class='clear'></view>
            
             <view class='ptext'>
-            <view>{{item.message}}</view>     
-             <block wx:for="{{item.pic}}" wx:key="this" wx:for-item="items" wx:for-index="index">
-            <image src='{{items}}'></image>
+            <view>{{item.content}}</view>     
+             <block wx:if="{{item.images}}" wx:for="{{item.images}}" wx:key="this" wx:for-item="items" wx:for-index="index">
+            <image src='{{items.path}}'></image>
             </block> 
-             <view class='fwtype'>{{item.stype}}</view>
+             <view style='margin-top:10rpx;' class='fwtype'>{{item.info}}</view>
             </view>
            
             
