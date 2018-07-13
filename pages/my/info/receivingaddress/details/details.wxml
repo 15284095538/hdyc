@@ -1,2 +1,43 @@
-<!--pages/my/info/receivingaddress/details/details.wxml-->
-<text>pages/my/info/receivingaddress/details/details.wxml</text>
+<!--编辑收货地址-->
+<view class='myaddress'>
+<view class='flex'>
+<label>收货人姓名</label>
+<input bindinput="voteTitle" placeholder='请输入收货人姓名'></input>
+</view>
+<view class='flex'>
+<label>联系电话</label>
+<input bindinput="voteTitle1" placeholder='请输入联系电话'></input>
+</view>
+<view class='flex'>
+<label>省、市</label>
+<view class='ss'bindtap="selectDistrict">{{areaInfo}}</view>
+</view>
+<view class='flex'>
+<label>详细地址</label>
+<input bindinput="voteTitle2" placeholder='请输入详细信息'></input>
+</view>
+<view class='button' bindtap='searchBox'>保存</view>
+
+
+</view>
+<view class="dialog-mask " style="z-index:11;visibility:{{addressMenuIsShow ? 'visible': 'hidden'}}" bindtap="hideCitySelected" />
+<!--城市三级联动-->
+<!--使用动画时不能wx:if="{{city.length>0&&isVisible}}" ，不能hidden=''属性否则无动画效果-->
+<view class="picker-view" animation="{{animationAddressMenu}}" style="visibility:{{addressMenuIsShow ? 'visible':'hidden'}}">
+  <view style="height:10% ;width:95%;margin-top:10rpx">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <!--"可以显示默认的城市，使用后级联选择城市反应很慢就不使用了-->
+  <picker-view style="width: 100%; height: 300px;" bindchange="cityChange" value="{{value}}" wx:key="">
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="this" class="picker-item">
+        {{item.name}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" class="picker-item" wx:key="">
+        {{item.name}}</view>
+    </picker-view-column>
+  
+  </picker-view>
+</view>

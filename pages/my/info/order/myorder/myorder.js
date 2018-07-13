@@ -120,6 +120,7 @@ Page({
    */
   onLoad: function (options) {
     this.getdata();
+    
   },
   getdata(e) {//获取数据
     var that = this;

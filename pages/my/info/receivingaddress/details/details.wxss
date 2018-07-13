@@ -1,1 +1,57 @@
 /* pages/my/info/receivingaddress/details/details.wxss */
+page{
+  background-color: #f6f6f6;
+}
+.myaddress{
+  background-color: #fff;
+  font-size: 30rpx;
+}
+.myaddress .flex{
+  display: flex;
+  justify-content:space-between;
+  padding: 20rpx 30rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+.myaddress label{
+  line-height: 60rpx;
+}
+.myaddress input{
+  height: 30rpx;
+  text-align: right;
+}
+.myaddress .ss{
+  width: 300rpx;
+  line-height: 60rpx;
+  text-align: right;
+}
+.myaddress .button{
+  position: absolute;
+  top: 965rpx;
+  left: 30rpx;
+  width: 642rpx;
+  text-align: center;
+  background: #11a8e1;
+  color: #fff;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+.picker-view {
+  width: 100%;
+  display: flex;
+  z-index:12;
+  background-color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  height: 40vh;
+}
+
+.picker-item {
+  line-height: 70rpx;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+  text-align: center;
+}
