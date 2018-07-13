@@ -4,23 +4,13 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     Userinfo: true,
-    menu: [ //导航
-      {
-        "menu_logo": "/images/store_menu_01.png",
-        "type_name": "美容保养"
-      },
-      {
-        "menu_logo": "/images/store_menu_02.png",
-        "type_name": "维修厂"
-      },
-      {
-        "menu_logo": "/images/store_menu_03.png",
-        "type_name": "洗车"
-      }
-    ],
+    menu: [],
     list: []
   },
   onLoad(e) {
+    wx.setNavigationBarTitle({
+      title: '门店'
+    });
     this.onGoUserinfoSetting();
     this.getdata();
     this.getmenu();

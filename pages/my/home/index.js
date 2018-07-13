@@ -44,6 +44,9 @@ Page({
     }
   },
   onLoad(e) {
+    wx.setNavigationBarTitle({
+      title: '个人中心'
+    });
     this.onGoUserinfoSetting();
     this.onGotUserInfo();
   },
