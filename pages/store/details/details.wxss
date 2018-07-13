@@ -33,7 +33,7 @@
 
 .body .adress_left image {
   position: absolute;
-  padding-top: 30rpx;
+  padding-top: 40rpx;
   margin-left: 10rpx;
 }
 

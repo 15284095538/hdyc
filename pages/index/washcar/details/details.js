@@ -34,9 +34,10 @@ Page({
       currentIndex: e.currentTarget.dataset.index
     });
   },
-  ToPage() {
+  ToPage(e) {
+    var store_id = e.currentTarget.dataset.store_id
     wx.navigateTo({
-      url: '/pages/store/comment/comment'
+      url: '/pages/index/washcar/comment/comment?store_id=' + store_id,
     })
   },
   getdata(e){

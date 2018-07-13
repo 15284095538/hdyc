@@ -1,3 +1,5 @@
+var url = getApp().globalData.publicUrl;
+
 Page({
   data: {
     topimg: [
