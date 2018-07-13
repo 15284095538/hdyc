@@ -18,10 +18,10 @@
                 <view class='uname'>{{item.name}}</view>
                 <view style='margin-top:10rpx;'>
                   <view class="stars">
-                  <block wx:for="{{item.flag}}">
+                  <block wx:for="{{item.flag}}" wx:key="this">
                     <image src='/images/rstart.png'></image>
                   </block> 
-                  <block wx:for="{{5 - item.flag}}">
+                  <block wx:for="{{5 - item.flag}}"  wx:key="this">
                     <image src='/images/start.png'></image>
                   </block>
                 </view>

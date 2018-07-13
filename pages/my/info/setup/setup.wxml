@@ -8,5 +8,5 @@
 <view class='word'>关于海豆</view>
 <image src='/images/more.png'></image>
 </view>
-<view class='button'>退出登录</view>
+
 </view>

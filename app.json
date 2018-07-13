@@ -50,7 +50,9 @@
     "pages/index/spraypaint/servicelist/servicelist",
     "pages/search/home/home",
     "pages/my/info/order/logistics/logistics",
-    "pages/index/buycar/pic/pic"
+    "pages/index/buycar/pic/pic",
+    "pages/my/info/receivingaddress/details/details",
+    "pages/my/info/receivingaddress/home/index"
   ],
   "tabBar": {
     "color": "#7f7f7f",

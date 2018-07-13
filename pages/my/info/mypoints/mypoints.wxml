@@ -25,7 +25,7 @@
       <view style='clear:both;'></view>
     </view>
     <view class='tuitu'>
-      <block wx:for="{{4}}">
+      <block wx:for="{{4}}" wx:key="this">
         <view class='xiao'>
           <image src='/images/car_03.png'></image>
           <view>只能后视镜</view>
@@ -42,7 +42,7 @@
       <view style='clear:both;'></view>
     </view>
     <view class='tuitu'>
-      <block wx:for="{{4}}">
+      <block wx:for="{{4}}" wx:key="this">
         <view class='xiao'>
           <image src='/images/car_03.png'></image>
           <view>只能后视镜</view>
