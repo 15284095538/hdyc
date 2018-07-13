@@ -1,11 +1,11 @@
 <!--pages/store/home/index.wxml-->
 <view class="row" id='menu'>
   <view class="col">
-    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="itemName" data-link='/pages/store/list/list?id={{itemName.id}}' data-id='{{item.store_id}}' bindtap="ToPage">
+    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="item" data-link='/pages/store/list/list?id={{item.id}}' bindtap="ToPage">
       <view class='menu-img'>
-        <image src="{{itemName.menu_logo}}" />
+        <image src="{{item.menu_logo}}" />
       </view>
-      <view class='menu-text'>{{itemName.type_name}}</view>
+      <view class='menu-text'>{{item.type_name}}</view>
     </view>
   </view>
 </view>
@@ -15,7 +15,7 @@
   <view class='line line-right'></view>
 </view>
 <view id='list'>
-  <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item" catchtap='ToDetails'>
+  <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item" data-id='{{item.store_id}}' catchtap='ToDetails'>
     <view class='list-box'>
       <view class='list-img'>
         <image src='{{item.s_img}}'></image>
