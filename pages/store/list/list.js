@@ -9,20 +9,22 @@ Page({
       {
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
-        "text": "成都市",
-        "key": 0
+        "text": "全部区域",
+        "key": 0,
+        "areaId": 0
       },
       {
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
-        "text": "全车打蜡",
-        "key": 0
+        "text": "默认排序",
+        "key": 0,
+        "areaId": 0
       },
       {
         "path": "/images/xiala_normal@2x.png",
         "selectpath": "/images/xiala_hl@2x.png",
         "text": "筛选",
-        "key": 0
+        "key": 0,
       }
     ],
     menulist: [
@@ -30,13 +32,13 @@ Page({
     ],
     city: [ //城市列表
       {
-        "text": "成都市"
+        "areaName": "成都市"
       },
       {
-        "text": "德阳"
+        "areaName": "德阳"
       },
       {
-        "text": "青羊"
+        "areaName": "青羊"
       }
     ],
     listtype: [ //类型
@@ -57,81 +59,33 @@ Page({
       {
         "text": '门店类型',
         "sub": [{
-            "text": "美容保养",
-            "key": false
+            "type_name": "美容保养",
+            "type": false
           },
           {
-            "text": "美容保养",
-            "key": false
+            "type_name": "美容保养",
+            "type": false
           },
           {
-            "text": "安装",
-            "key": false
+            "type_name": "安装",
+            "type": false
           }
         ]
       },
       {
         "text": '到店服务',
         "sub": [{
-            "text": "安装",
-            "key": false
+            "type_name": "安装",
+            "type": false
           },
           {
-            "text": "美容保养",
-            "key": false
+            "type_name": "美容保养",
+            "type": false
           }
         ],
       }
     ],
-    list: [{
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 1,
-      "order": {
-        "status": "hass",
-        "score": 3.5,
-        "order_num": 12,
-      },
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    }, {
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 2,
-      "order": {
-        "status": "none",
-        "score": 3.5,
-        "order_num": 12,
-      },
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    }, {
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 1,
-      "order": {
-        "status": "none",
-        "score": 3.5,
-        "order_num": 102,
-      },
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    }, {
-      "path": "/images/store_menu_01.png",
-      "name": "邛崃市天和车王养护",
-      "grade": 3,
-      "order": {
-        "status": "none",
-        "score": 3.5,
-        "order_num": 1221,
-      },
-      "address": "成都市崇州市老陈大路462号（汇蜀路口）",
-      "tag": ["美容", "安装"],
-      "distance": "3.1KM"
-    }]
+    list: [],
   },
   onReady: function() {
     this.animation = wx.createAnimation({
@@ -180,13 +134,16 @@ Page({
     var that = this;
     var text = e.currentTarget.dataset.text;
     var key = e.currentTarget.dataset.id;
+    var areaId = e.currentTarget.dataset.areaid;
     var menu = that.data.menu; //获取数组
     menu[that.data.menuIndex].text = text; //改变值
     menu[that.data.menuIndex].key = key; //改变值
+    menu[that.data.menuIndex].areaId = areaId; //改变值
     that.setData({
       menu
     });
     this.listToplayerclick();
+    that.getdata();
   },
   Close(e) { //点击关闭遮罩
     this.listToplayerclick();
@@ -209,7 +166,7 @@ Page({
     var arry = sort[menulist].sub;
     for (var i = 0; i < arry.length; i++) {
       if (id == i) {
-        arry[i].key = !arry[i].key;
+        arry[i].type = !arry[i].type;
       }
     }
     that.setData({
@@ -221,7 +178,7 @@ Page({
     var Array = that.data.sort;
     for (var i = 0; i < Array.length; ++i) {
       for (var s = 0; s < Array[i].sub.length; ++s) {
-        Array[i].sub[s].key = false;
+        Array[i].sub[s].type = false;
       }
     }
     that.setData({
@@ -237,27 +194,98 @@ Page({
       sort: that.data.menulist,
     })
     this.listToplayerclick();
+    that.getdata();
   },
   getmenu() { //获取筛选条件
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    });
     var that = this;
+    var address = '';
+    if (wx.getStorageSync('address_component')) {
+      address = wx.getStorageSync('address_component').city
+    }
     wx.request({ //获取内容
       url: url + 'store/Store_class',
       method: 'POST',
       data: {
-        address: ''
+        address: address
       },
       success: res => {
         if (res.data.code == 200) {
-          // that.setData({
-          //   menu: res.data.data.lx
-          // });
+          var menu = that.data.menu; //获取数组
+          menu[0].areaId = res.data.data.address[0].areaId; //改变值
+          var sort = that.data.sort; //获取数组
+          sort[0].sub = res.data.data.lx; //改变值
+          sort[1].sub = res.data.data.fw; //改变值
+          that.setData({
+            menu: menu,
+            city: res.data.data.address,
+            listtype: res.data.data.sort,
+            sort: sort,
+          });
+          that.getdata()
         }
+        wx.hideToast();
       }
     })
   },
-  ToDetails() { //跳转详情
+  getdata() { //获取数据
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    });
+    var that = this;
+    var to = '';
+    if (wx.getStorageSync('latitude') || wx.getStorageSync('longitude')) {
+      to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
+    }
+    var areaId = that.data.menu[0].areaId;
+    var sort = that.data.menu[1].areaId;
+    var serviceList = that.data.sort;
+    var service = '';
+    for (var i = 0; i < serviceList.length; i++) {
+      for (var x = 0; x < serviceList[i].sub.length; x++) {
+        var item = serviceList[i].sub[x];
+        if (item.type === true) {
+          if (service == '') {
+            service = item.id
+          } else {
+            service = service + ',' + item.id
+          }
+        }
+      }
+    }
+    wx.request({ //获取内容
+      url: url + 'store/storeList',
+      method: 'POST',
+      data: {
+        type: 1,
+        to: to,
+        areaId: areaId,
+        sort: sort,
+        service: service
+      },
+      success: res => {
+        if (res.data.code == 200) {
+          that.setData({
+            list: res.data.data
+          });
+        };
+        wx.hideToast();
+      }
+    })
+  },
+  ToDetails(e) { //跳转详情
+    var id = e.currentTarget.dataset.id;
+    console.log(id);
     wx.navigateTo({
-      url: '../details/details'
+      url: '/pages/store/details/details?id='+ id +''
     })
   }
 })
