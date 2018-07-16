@@ -30,7 +30,7 @@ Page({
     area: '',
     name: '',
     tel: '',
-    myaddress:'',
+    myaddress: '',
   },
 
   /** 
@@ -41,11 +41,11 @@ Page({
   },
   voteTitle1: function (e) {
     this.data.tel = e.detail.value;
-  }, 
+  },
   voteTitle2: function (e) {
     this.data.myaddress = e.detail.value;
   },
-  searchBox:function(e){
+  searchBox: function (e) {
     console.log(this.data.name);
     console.log(this.data.tel);
     console.log(this.data.areaInfo);
@@ -61,11 +61,11 @@ Page({
       url: url + 'User/addMyAddress',
       data: {
         openid: wx.getStorageSync('userinfo').openid,
-        realname:this.data.name,
+        realname: this.data.name,
         phone: this.data.tel,
         area_id: this.data.areaInfo,
         street: this.data.myaddress,
-        id:'',
+        id: '',
       },
       method: 'POST',
       success: function (res) {
@@ -74,7 +74,7 @@ Page({
           title: res.data.msg,
           icon: 'success',
           duration: 500,
-          mask: true 
+          mask: true
         })
 
         console.log(res);

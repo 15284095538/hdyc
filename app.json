@@ -52,7 +52,8 @@
     "pages/my/info/order/logistics/logistics",
     "pages/index/buycar/pic/pic",
     "pages/my/info/receivingaddress/details/details",
-    "pages/my/info/receivingaddress/home/index"
+    "pages/my/info/receivingaddress/home/index",
+    "pages/my/info/receivingaddress/edit/edit"
   ],
   "subPackages": [
     {

@@ -1,4 +1,4 @@
-<!--添加收货地址-->
+<!--编辑收货地址-->
 <view class='myaddress'>
 <view class='flex'>
 <label>收货人姓名</label>
