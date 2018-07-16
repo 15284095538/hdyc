@@ -31,11 +31,10 @@ Page({
     name: '',
     tel: '',
     myaddress: '',
+    addressid:'',
   },
 
-  /** 
-   * 生命周期函数--监听页面加载
-   */
+  
   voteTitle: function (e) {
     this.data.name = e.detail.value;
   },
@@ -65,7 +64,7 @@ Page({
         phone: this.data.tel,
         area_id: this.data.areaInfo,
         street: this.data.myaddress,
-        id: '',
+        id: this.data.addressid,
       },
       method: 'POST',
       success: function (res) {
@@ -81,6 +80,9 @@ Page({
       }
     })
   },
+  /** 
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
     // 初始化动画变量
     var animation = wx.createAnimation({
@@ -94,9 +96,36 @@ Page({
     this.setData({
       provinces: address.provinces,
       citys: address.citys[id],
-
+      addressid: options.id,
     })
-    console.log(this.data)
+    console.log(this.data);
+    this.getMy();
+  },
+  getMy:function(e){
+    var that = this;
+    wx.showToast({
+      title: '保存中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//添加收货地址
+      url: url + 'User/editMyAddress',
+      data: {
+        id: this.data.addressid,
+      },
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          ['name']: res.data.data.realname,
+          ['tel']: res.data.data.phone,
+          ['myaddress']: res.data.data.street,
+          ['areaInfo']: res.data.data.provinces + ',' + res.data.data.citys
+        })
+        wx.hideToast();
+        console.log(res);
+      }
+    })
   },
   // 显示
   showMenuTap: function (e) {

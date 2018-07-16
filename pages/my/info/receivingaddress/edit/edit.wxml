@@ -2,11 +2,11 @@
 <view class='myaddress'>
 <view class='flex'>
 <label>收货人姓名</label>
-<input bindinput="voteTitle" placeholder='请输入收货人姓名'></input>
+<input bindinput="voteTitle" placeholder='请输入收货人姓名' value='{{name}}'></input>
 </view>
 <view class='flex'>
 <label>联系电话</label>
-<input bindinput="voteTitle1" placeholder='请输入联系电话'></input>
+<input bindinput="voteTitle1" placeholder='请输入联系电话' value='{{tel}}'></input>
 </view>
 <view class='flex'>
 <label>省、市</label>
@@ -14,7 +14,7 @@
 </view>
 <view class='flex'>
 <label>详细地址</label>
-<input bindinput="voteTitle2" placeholder='请输入详细信息'></input>
+<input bindinput="voteTitle2" placeholder='请输入详细信息' value='{{myaddress}}'></input>
 </view>
 <view class='button' bindtap='searchBox'>保存</view>
 

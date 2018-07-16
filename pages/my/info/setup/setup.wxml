@@ -1,9 +1,11 @@
 <!-- 设置 -->
 <view class='setup'>
+<navigator url='/pages/my/info/receivingaddress/home/index'>
 <view class='input'>
 <view class='word'>收货地址</view>
 <image src='/images/more.png'></image>
 </view>
+</navigator>
 <view class='input'>
 <view class='word'>关于海豆</view>
 <image src='/images/more.png'></image>
