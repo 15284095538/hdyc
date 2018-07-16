@@ -21,6 +21,6 @@
     </view>
   </view>
 </view>
-<view id='add'>
+<view id='add' bindtap="Add">
   添加收货地址
 </view>

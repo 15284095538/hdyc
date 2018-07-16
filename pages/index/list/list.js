@@ -6,6 +6,9 @@ Page({
     menuIndex:0,
     classify:'',
     sorttext:1,
+    cityHeight:'',
+    typeHeight:'',
+    menulist:[],
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -26,58 +29,15 @@ Page({
         "key": 0
       }
     ],
-    menulist:[
-      //导航列表
-    ],
-    city:[//城市列表
-      {
-        "text":"成都市"
-      },
-      {
-        "text": "德阳"
-      },
-      {
-        "text": "青羊"
-      }
-    ],
-    listtype:[//类型
-      {
-        "text":'全车打蜡'
-      },
-      {
-        "text": '内饰清洗'
-      },
-      {
-        "text": '全车贴膜'
-      },
-      {
-        "text": '全车镀晶'
-      }
-    ],
-    sort:[//排序
-      {
-        "text":"默认排序"
-      },
-      {
-        "text": "附近优先"
-      },
-      {
-        "text": "评分最高"
-      }
-    ],
-    list:[
-      {
-        "path":"/images/banner.jpg",
-        "name":'全车打蜡',
-        "num":'3.55',
-        "order":"43",
-        "address":"成都市崇州市老陈大路462号（汇蜀路口）",
-        "price":"￥80.00",
-        "jl":"1.3km",
-      }
-    ],
+    city: [],//城市列表
+    listtype:[],//分类
+    sort: [],//排序
+    list:[],
   },
   onLoad(e) {
+    var menu = this.data.menu;
+    menu[1].text = e.name;
+    this.setData({ classify: e.id, menu: menu })
     this.getdata();
   },
   listTopclick(e){//头部点击切换样式
@@ -97,7 +57,7 @@ Page({
       display: 'block',
       menuIndex: menuid,
       layerid: selectkey,
-      menulist: menulist
+      menulist: menulist,
     });
   },
   listToplayerclick(e){//点击背景隐藏
@@ -111,8 +71,17 @@ Page({
     var menu = that.data.menu;//获取数组
     menu[that.data.menuIndex].text = text;//改变值
     menu[that.data.menuIndex].key = key;//改变值
-    that.setData({ menu });
+    if ( that.data.menuIndex == 0 ){
+      var cityid = e.currentTarget.dataset.areaid;
+    } else if ( that.data.menuIndex == 1 ){
+      var typeid = e.currentTarget.dataset.typeid;
+    }else{
+      var sorttext = e.currentTarget.dataset.areaid;
+    }
+    that.setData({ menu: menu, sorttext: sorttext, });
+    this.getdata();
   },
+  
   detLink(e){ //详情
     wx.navigateTo({
       url: '/pages/index/details/details'
@@ -120,13 +89,13 @@ Page({
   },
   getdata(e) {//获取数据
     var that = this;
+    var cityHeight, typeHeight;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
       duration: 55000,
       mask: true
     })
-
     wx.request({//获取分类
       url: url + 'lists/refit',
       data:{
@@ -139,8 +108,37 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log( res )
-        wx.hideToast();
+        if( res.data.code == 200 ){
+          if (res.data.data.address.length * 100 >= wx.getSystemInfoSync().windowHeight) {//计算高度
+            cityHeight = wx.getSystemInfoSync().windowHeight
+          } else {
+            cityHeight = res.data.data.address.length * 100
+          }
+
+          if (res.data.data.classify.length * 100 >= wx.getSystemInfoSync().windowHeight) {//计算高度
+            typeHeight = wx.getSystemInfoSync().windowHeight
+          } else {
+            typeHeight = res.data.data.classify.length * 100
+          }
+
+          that.setData({
+            city: res.data.data.address,
+            listtype: res.data.data.classify,
+            sort: res.data.data.sort,
+            cityHeight: cityHeight,
+            typeHeight: typeHeight,
+            list: res.data.data.details
+          })
+          wx.hideToast();
+        }else{
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 5000,
+            mask: true
+          })
+        }
+       
       }
     })
   }

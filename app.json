@@ -59,7 +59,7 @@
   ],
   "subPackages": [
     {
-      "root": "pages/activity",
+      "root": "activity",
       "pages": [
         "pages/collage/collage"
       ]
