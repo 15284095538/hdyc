@@ -17,22 +17,22 @@ Page({
       {
         "path": "/images/daifukuan.png",
         "text": "待付款",
-        "id": 1
+        "id": 0
       },
       {
         "path": "/images/daianzhuang.png",
         "text": "待安装",
-        "id": 2
+        "id": 1
       },
       {
         "path": "/images/daipingjia.png",
         "text": "待评价",
-        "id": 3
+        "id": 2
       },
       {
         "path": "/images/tuihuanhuo.png",
         "text": "退换货",
-        "id": 4
+        "id": 3
       }],
     archivesIndent: 81923.05,
     archivesOrder: [{
