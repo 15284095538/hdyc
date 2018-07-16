@@ -71,6 +71,7 @@ Page({
         areaId: this.data.areaId ,
         type:1,
         sort:'',
+        page: this.page.pages*10
       },
       method: 'POST',
       success: res => {
@@ -83,24 +84,26 @@ Page({
             }
             address = res.data.data.address
           }
+          wx.hideToast();
+          that.setData({
+            menulist: address,
+            windowHeight: height,
+            washlist: res.data.data.store
+          });
         }else{
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
-            duration: 500,
+            duration: 1000,
             mask: true
           })
         }
-        that.setData({
-          menulist: address,
-          windowHeight: height,
-          washlist: res.data.data.store
-        });
+        
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  
         wx.stopPullDownRefresh();
-        wx.hideToast();
+        
       }
     })
   },

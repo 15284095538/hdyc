@@ -23,4 +23,17 @@
   </view>
 </view>
 
-<view class='clooageNum'></view>
+<view class='clooageNum'>
+  <view class='p'>活动规则</view>
+  <view class='text'>
+    <text>
+          1、拼团抢券为一次抢券，有时间及人数限制 
+          2、用户参与拼团抢券时，按页面提示可分享给好友 
+          3、好友通过小程序参与拼团抢券 
+          4、当参团人数在成团有效期内达到门槛值，即拼团成功 
+          5、抢到的现金券不能提现，可在购买商品时进行抵扣 
+    </text>
+  </view>
+</view>
+
+<view class='next'>下一场时间：明日00:00:0开始</view>
