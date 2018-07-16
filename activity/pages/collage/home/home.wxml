@@ -1,5 +1,5 @@
 <view class="collageTop">
-  <image src='/images/pt.jpg'></image>
+  <image src='https://hd.mmqo.com/uploads/banners/20180716/62fcf9f87e6f29053b3dc8f77a18d3aa.jpg'></image>
   <view class='countdown'>
     <text>距结束</text> <text class='t'>{{time.hour}}</text> <text>:</text> <text class='t'>{{time.minute}}</text> <text>:</text> <text class='t'>{{time.second}}</text>
   </view>

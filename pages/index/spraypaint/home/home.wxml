@@ -1,5 +1,5 @@
 <view class="topimg">
-  <image src='/images/SprayPaint/no@2x.png'></image>
+  <image src='https://hd.mmqo.com/SprayPaint/no@2x.png'></image>
 
     <image wx:for="{{topimg}}" data-index='{{index}}' class='{{ item.display ? "block":"none"}}' wx:key="this" wx:for-index="index" wx:for-item="item" src='{{item.path}}'></image>  
 

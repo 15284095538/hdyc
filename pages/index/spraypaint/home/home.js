@@ -5,133 +5,133 @@ Page({
     topimg: [
       {
         'text': '前保险杠',
-        'path': '/images/SprayPaint/5.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/5.png',
         'display': false,
         'key':false,
       },
       {
         'text': '后保险杠',
-        'path': '/images/SprayPaint/2.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/2.png',
         'display': false,
         'key':false
       },
       {
         'text': '左前翼子板',
-        'path': '/images/SprayPaint/22.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/22.png',
         'display': false,
         'key':false
       },
       {
         'text': '右前翼子板',
-        'path': '/images/SprayPaint/13.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/13.png',
         'display': false,
         'key':false
       },
       {
         'text': '左后翼子板',
-        'path': '/images/SprayPaint/20.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/20.png',
         'display': false,
         'key':false
       },
       {
         'text': '右后翼子板',
-        'path': '/images/SprayPaint/11.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/11.png',
         'display': false,
         'key':false
       },
       {
         'text': '左前车门',
-        'path': '/images/SprayPaint/21.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/21.png',
         'display': false,
         'key':false
       },
       {
         'text': '右前车门',
-        'path': '/images/SprayPaint/12.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/12.png',
         'display': false,
         'key':false
       },
       {
         'text': '左后车门',
-        'path': '/images/SprayPaint/18.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/18.png',
         'display': false,
         'key':false
       },
       {
         'text': '右后车门',
-        'path': '/images/SprayPaint/9.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/9.png',
         'display': false,
         'key':false
       },
       {
         'text': '前车盖',
-        'path': '/images/SprayPaint/6.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/6.png',
         'display': false,
         'key':false
       },
       {
         'text': '后车盖',
-        'path': '/images/SprayPaint/3.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/3.png',
         'display': false,
         'key':false
       },
       {
         'text': '车顶',
-        'path': '/images/SprayPaint/1.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/1.png',
         'display': false,
         'key':false
       },
       {
         'text': '左边裙',
-        'path': '/images/SprayPaint/23.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/23.png',
         'display': false,
         'key':false
       },
       {
         'text': '右边裙',
-        'path': '/images/SprayPaint/14.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/14.png',
         'display': false,
         'key':false
       },
       {
         'text': '左后视镜',
-        'path': '/images/SprayPaint/19.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/19.png',
         'display': false,
         'key':false
       },
       {
         'text': '右后视镜',
-        'path': '/images/SprayPaint/10.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/10.png',
         'display': false,
         'key':false
       },
       {
         'text': '左A柱',
-        'path': '/images/SprayPaint/16.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/16.png',
         'display': false,
         'key':false
       },
       {
         'text': '右A柱',
-        'path': '/images/SprayPaint/7.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/7.png',
         'display': false,
         'key':false
       },
       {
         'text': '左C柱',
-        'path': '/images/SprayPaint/17.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/17.png',
         'display': false,
         'key':false
       },
       {
         'text': '右C柱',
-        'path': '/images/SprayPaint/8.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/8.png',
         'display': false,
         'key':false
       },
       {
         'text': '整车喷漆',
-        'path': '/images/SprayPaint/15.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/15.png',
         'display': false,
         'key':false
       },
@@ -139,49 +139,49 @@ Page({
     hbimg: [
       {
         'text': '左右前翼子板',
-        'path': '/images/SprayPaint/30.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/30.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右后翼子板',
-        'path': '/images/SprayPaint/28.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/28.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右前车门',
-        'path': '/images/SprayPaint/29.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/29.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右后车门',
-        'path': '/images/SprayPaint/26.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/26.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右裙边',
-        'path': '/images/SprayPaint/31.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/31.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右后视镜',
-        'path': '/images/SprayPaint/27.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/27.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右A柱',
-        'path': '/images/SprayPaint/24.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/24.png',
         'display': false,
         'key':false
       },
       {
         'text': '左右C柱',
-        'path': '/images/SprayPaint/25.png',
+        'path': 'https://hd.mmqo.com/SprayPaint/25.png',
         'display': false,
         'key':false
       },
