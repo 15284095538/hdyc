@@ -54,15 +54,15 @@
     "pages/my/info/receivingaddress/home/index",
     "pages/my/info/receivingaddress/edit/edit",
     "pages/my/info/mycar/home/index",
-    "pages/my/info/mycar/addcar/addcar",
-    "activity/pages/search/list/list"
+    "pages/my/info/mycar/addcar/addcar"
   ],
   "subPackages": [
     {
       "root": "activity",
       "pages": [
         "pages/collage/home/home",
-        "pages/search/home/home"
+        "pages/search/home/home",
+        "pages/search/list/list"
       ]
     }
   ],
