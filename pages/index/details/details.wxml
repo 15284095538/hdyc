@@ -1,3 +1,5 @@
+<view bindtap = "handletap" id='the-id' bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+
  <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
@@ -98,4 +100,6 @@
     <view>预约/咨询</view>
   </view>
   <view class='pay'>去结算</view>
+</view>
+
 </view>
