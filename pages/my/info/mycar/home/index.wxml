@@ -1,0 +1,18 @@
+<!-- 我的车库 -->
+<view class='mycars'>
+  <view wx:for="{{carts}}"  wx:key="this">
+    <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
+      <view style='width:30rpx;' ></view>
+      
+      <image class="item-image" src="{{item.g_picture}}"></image>
+      <view class="column">
+        <text class="title">{{item.car_name}}</text>
+        <text   class="title">{{item.g_name}}</text>
+      </view>
+       <view id='{{item.shopping_id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
+    </view>
+  </view>
+<navigator url='/pages/my/info/mycar/addcar/addcar'>
+  <view class='button'>添加爱车</view>
+  </navigator>
+</view>

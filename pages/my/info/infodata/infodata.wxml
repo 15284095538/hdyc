@@ -18,8 +18,8 @@
 <view class='input'>
 <view class='word'>性别</view>
 <view class='sex'>
-<radio value="男" checked='{{user.sex==1}}' disabled='true'/>男
-<radio value="女" checked='{{user.sex==2}}' disabled='true'/>女
+<radio value="男" color='#11a8e1' checked='{{user.sex==1}}' disabled='true'/>男
+<radio value="女" color='#11a8e1' checked='{{user.sex==2}}' disabled='true'/>女
 </view>
 </view>
 <view style='clear:both;'></view>

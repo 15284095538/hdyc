@@ -15,6 +15,9 @@ Page({
     this.getdata();
     this.getmenu();
   },
+  onReachBottom: function () { //上拉加载
+    console.log('111')
+  },
   ToPage(e) { //页面跳转
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({

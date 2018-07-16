@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: { 
-    navbar: ["全部", "代付款", "待安装","待评价","退换货"],
+    navbar: ["全部", "待付款", "待安装","待评价","退换货"],
     currentIndex: 0,//tabbar索引
     carts:[
       
@@ -119,10 +119,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getdata();
-    
+    this.getdata(options.id);
+    console.log(options);
+    this.setData({
+      ['currentIndex']: options.id,
+    })
   },
   getdata(e) {//获取数据
+  console.log(e);
     var that = this;
     var value = wx.getStorageSync('userinfo');
     wx.request({//获取爱车信息
@@ -130,7 +134,7 @@ Page({
       data: {
         // 'openid': value.openid,
         'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-        'status':'10', 
+        'status': e, 
       },
       method: 'POST',
       success: function (res) {

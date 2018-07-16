@@ -17,7 +17,7 @@
 </view>
 </view>
 <view class='daohang'>
-<view class='text'><image class='dh' src='/images/dh.png'></image>导航至门店({{carts.store.km}}km)
+<view class='text'><image class='dh' src='/images/dh.png'></image>导航至门店({{carts.store.km}})
 <image class='more' src='/images/more.png'></image>
 </view>
 </view>
