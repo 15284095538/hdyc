@@ -54,7 +54,8 @@
     "pages/my/info/receivingaddress/home/index",
     "pages/my/info/receivingaddress/edit/edit",
     "pages/my/info/mycar/home/index",
-    "pages/my/info/mycar/addcar/addcar"
+    "pages/my/info/mycar/addcar/addcar",
+    "activity/pages/search/list/list"
   ],
   "subPackages": [
     {
