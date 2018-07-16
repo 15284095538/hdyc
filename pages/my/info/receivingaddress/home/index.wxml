@@ -13,7 +13,7 @@
     </view>
     <view class='menu'>
       <view class='radio left' data-id='{{item.id}}' bindtap="Default">
-        <radio value="r1" checked="{{item.is_default}}" />
+        <radio value="r1" color="#11a8e1" checked="{{item.is_default}}" />
         <view class='default left'>设为默认</view>
       </view>
       <view class='btn right delete' data-id='{{item.id}}' bindtap="Delete">删除地址</view>
