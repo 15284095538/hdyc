@@ -59,7 +59,7 @@
     {
       "root": "activity",
       "pages": [
-        "pages/collage/collage"
+        "pages/collage/home/home"
       ]
     }
   ],

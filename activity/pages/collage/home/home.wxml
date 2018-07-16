@@ -1,0 +1,26 @@
+<view class="collageTop">
+  <image src='/images/pt.jpg'></image>
+  <view class='countdown'>
+    <text>距结束</text> <text class='t'>{{time.hour}}</text> <text>:</text> <text class='t'>{{time.minute}}</text> <text>:</text> <text class='t'>{{time.second}}</text>
+  </view>
+</view>
+
+<view class='collageNum'>
+  <view class='li'>
+    <view class='t'>666元现金</view>
+    <view class='n'>3人瓜分</view>
+    <view class='b'>抢券</view>
+  </view>
+  <view class='li'>
+    <view class='t'>666元现金</view>
+    <view class='n'>3人瓜分</view>
+    <view class='b'>抢券</view>
+  </view>
+  <view class='li'>
+    <view class='t'>666元现金</view>
+    <view class='n'>3人瓜分</view>
+    <view class='b'>抢券</view>
+  </view>
+</view>
+
+<view class='clooageNum'></view>
