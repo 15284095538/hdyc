@@ -20,19 +20,22 @@ Page({
   },
   page: {
     pages: 1,
+    pagebuler: true
   },
   onLoad(e) {
-    console.log( e )
     this.setData({ waschcarid: e.id })
     this.getdata();
   },
   onReachBottom: function () {//下拉加载更多
-    this.page.pages++;
-    this.getdata();
+    if (this.page.pagebuler ){
+      this.page.pages++;
+      this.getdata();
+    }
   },
   onPullDownRefresh: function () {//上拉刷新
     wx.showNavigationBarLoading();
     this.page.pages = 1;
+    this.page.pagebuler = true
     this.getdata();
   },
   listTopclick(e){
@@ -91,6 +94,7 @@ Page({
             washlist: res.data.data.store
           });
         }else{
+          this.page.pagebuler = false
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
