@@ -40,6 +40,7 @@ Page({
   },
   Default(e) { //设为默认
     var id = e.currentTarget.dataset.id
+    console.log(id);
   },
   Change(e) { //修改地址
     var id = e.currentTarget.dataset.id

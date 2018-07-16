@@ -16,19 +16,23 @@ Page({
     usermenu: [//订单导航
       {
         "path": "/images/daifukuan.png",
-        "text": "待付款"
+        "text": "待付款",
+        "id": 1
       },
       {
         "path": "/images/daianzhuang.png",
-        "text": "待安装"
+        "text": "待安装",
+        "id": 2
       },
       {
         "path": "/images/daipingjia.png",
-        "text": "待评价"
+        "text": "待评价",
+        "id": 3
       },
       {
         "path": "/images/tuihuanhuo.png",
-        "text": "退换货"
+        "text": "退换货",
+        "id": 4
       }],
     archivesIndent: 81923.05,
     archivesOrder: [{

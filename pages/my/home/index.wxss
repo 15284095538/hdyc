@@ -58,7 +58,7 @@ page {
 }
 
 #header {
-  height: 320rpx;
+  height: 300rpx;
   width: 100%;
   background-color: #11a8e1;
   margin-bottom: 90rpx;
@@ -67,7 +67,7 @@ page {
 .info-box {
   height: 130rpx;
   padding: 30rpx;
-  padding-top: 95rpx;
+  padding-top: 75rpx;
 }
 
 .info-img {
