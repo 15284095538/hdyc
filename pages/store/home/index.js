@@ -5,7 +5,13 @@ Page({
   data: {
     Userinfo: true,
     menu: [],
-    list: []
+    list: [],
+    num: 5,
+    page: 1
+  },
+  page: {
+    pages: 1,
+    pagebuler: true
   },
   onLoad(e) {
     wx.setNavigationBarTitle({
@@ -15,8 +21,17 @@ Page({
     this.getdata();
     this.getmenu();
   },
-  onReachBottom: function () { //上拉加载
-    console.log('111')
+  onReachBottom: function () {//上拉加载更多
+    if (this.page.pagebuler) {
+      this.page.pages++;
+      this.getdata();
+    }
+  },
+  onPullDownRefresh: function () {//下拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
+    this.page.pagebuler = true
+    this.getdata();
   },
   ToPage(e) { //页面跳转
     var link = e.currentTarget.dataset.link;
@@ -89,6 +104,7 @@ Page({
     })
   },
   getdata() { //获取数据
+    var that = this;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -97,25 +113,39 @@ Page({
     })
     var to = '';
     to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
-    var that = this;
     wx.request({ //获取内容
-      url: url + 'car/store',
+      url: url + 'store/storeList',
       method: 'POST',
       data: {
         id: '',
         to:to,
         address: '',
         areaId: '',
-        type: 1,
-        sort: ''
+        type: '',
+        sort: '',
+        service: '',
+        page: that.page.pages * 10
       },
       success: res => {
         if (res.data.code == 200) {
           that.setData({
-            list: res.data.data.store
+            list: res.data.data
           });
+          wx.hideToast();
         }
-        wx.hideToast();
+        else{
+          that.page.pagebuler = false
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+        }
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
       }
     })
   }
