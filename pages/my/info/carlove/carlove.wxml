@@ -16,6 +16,7 @@
       </block>
     </swiper>
     </view>
-
+<navigator url='/pages/my/info/mycar/home/index'>
 <view class='button'>我的车库</view>
+</navigator>
 </view>

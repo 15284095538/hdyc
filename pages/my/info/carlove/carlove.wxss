@@ -10,7 +10,7 @@ page{
   text-align: center;
   background: #11a8e1;
   color: #fff;
-  padding: 30rpx;
+  padding: 25rpx;
   border-radius: 10rpx;
 }
 .carlove .bg{

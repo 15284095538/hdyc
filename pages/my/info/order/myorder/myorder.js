@@ -120,9 +120,14 @@ Page({
    */
   onLoad: function (options) {
     this.getdata(options.id);
-    console.log(options);
+    if(Number(options.id)==10){
+      this.setData({
+        ['currentIndex']: 0 ,
+      })
+      return false;
+    }
     this.setData({
-      ['currentIndex']: options.id,
+      ['currentIndex']: Number(options.id) + 1,
     })
   },
   getdata(e) {//获取数据
