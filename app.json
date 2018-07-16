@@ -48,7 +48,6 @@
     "pages/index/spraypaint/payselect/payselect",
     "pages/index/spraypaint/pay/pay",
     "pages/index/spraypaint/servicelist/servicelist",
-    "pages/search/home/home",
     "pages/my/info/order/logistics/logistics",
     "pages/index/buycar/pic/pic",
     "pages/my/info/receivingaddress/details/details",
@@ -59,7 +58,8 @@
     {
       "root": "activity",
       "pages": [
-        "pages/collage/home/home"
+        "pages/collage/home/home",
+        "pages/search/home/home"
       ]
     }
   ],
