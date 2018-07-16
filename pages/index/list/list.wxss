@@ -33,18 +33,7 @@
 .listTop .li image{
   width: 22rpx;
   height: 12rpx;
-  position: absolute;
-  left: 190rpx;
-  top: 13rpx;
-}
-.listTop .li .img2{
-  display: none;
-}
-.listTop .select .img2{
-  display: block;
-}
-.listTop .select .img1{
-  display: none;
+  margin: 0 0 5rpx 2rpx;
 }
 .listToplayer{
   width: 100%;
