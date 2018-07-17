@@ -13,12 +13,16 @@
   line-height: 100rpx;
   border-bottom: 1px solid #e7e7e7;
   padding: 0 30rpx;
+  position: relative;
 }
 .info .int .text{
   float: left;
 }
 .info .int .name{
   float: right;
+  position: absolute;
+  right: 30rpx;
+  top: 0;
 }
 .info .int .picker{
   color: #11a8e1;

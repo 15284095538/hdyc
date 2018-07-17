@@ -3,8 +3,9 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     aheight:"",
-    store_id:'',
-    class_id:'',
+    store_id:'',//门店id
+    class_id:'',//分类id
+    orderclass_id:'',//洗车服务id
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -40,8 +41,16 @@ Page({
       url: '/pages/index/washcar/comment/comment?store_id=' + store_id,
     })
   },
+  orderClick(e){
+    var store_id = e.currentTarget.dataset.store_id;
+    var class_id = e.currentTarget.dataset.class_id;
+    wx.navigateTo({
+      url: '/pages/index/washcar/payselect/payselect?store_id=' + store_id + '&class_id=' + class_id,
+    })
+  },
   getdata(e){
     var that = this;
+    var orderclass_id = '';
     wx.showToast({
       title: '加载中',
       icon: 'loading',
