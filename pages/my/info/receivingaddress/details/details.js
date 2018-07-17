@@ -75,7 +75,8 @@ Page({
           icon: 'success',
           duration: 500,
           mask: true 
-        })
+        }),
+        wx.navigateBack();
 
         console.log(res);
       }

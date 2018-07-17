@@ -5,7 +5,7 @@
       <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
     </view>
     </view>
-<scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
+<scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true"style="height: {{scrollHeight}}px" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
   <view wx:for="{{carts}}"  wx:key="this">
   
 <view class='dingdan'>

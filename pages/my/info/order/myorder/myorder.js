@@ -5,107 +5,83 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: { 
+  data: {
+     
     navbar: ["全部", "待付款", "待安装","待评价","退换货"],
     currentIndex: 0,//tabbar索引
     carts:[
       
-    ]
+    ],
+    num: 5,
+    page: 1,
+    scrollHeight:0
   },
+  page: {
+    pages: 1,
+    pagebuler: true
+  },
+  // loadMore: function () {//上拉加载更多
+  //    if (this.page.pagebuler) {
+  //     wx.showToast({
+  //     title: '上拉成功',
+  //     icon: 'success',
+  //     duration: 1000,
+  //     mask: true
+  //   })
+  //     this.page.pages++;
+  //     if (this.data.currentIndex==0){
+  //       this.getdata(10);
+  //     }else{
+  //       this.getdata(this.data.currentIndex-1);
+  //     }
+  //   }
+  // },
+  // refresh: function () {
+  //   wx.showNavigationBarLoading() //在标题栏中显示加载
+  //   this.page.pages = 1;
+  //   this.page.pagebuler = true
+  //   if (this.data.currentIndex == 0) {
+  //     this.getdata(10);
+  //   } else {
+  //     this.getdata(this.data.currentIndex - 1);
+  //   }
+    
+  //   wx.showToast({
+  //     title: '下拉成功',
+  //     icon: 'success',
+  //     duration: 1000,
+  //     mask: true
+  //   })
+  // },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index == 0) {
-      var that = this;
-      var value = wx.getStorageSync('userinfo');
-      wx.request({//获取全部
-        url: url + 'user/myOrderList',
-        data: {
-          // 'openid': value.openid,
-          'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-          'status': '10',
-        },
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            ['carts']: res.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
-        }
+      this.getdata(10);
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index,
       })
     }
     if (e.currentTarget.dataset.index == 1) {
-      var that = this;
-      var value = wx.getStorageSync('userinfo');
-      wx.request({//获取待付款
-        url: url + 'user/myOrderList',
-        data: {
-          // 'openid': value.openid,
-          'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-          'status': '0',
-        },
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            ['carts']: res.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
-        }
+      this.getdata(0);
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index,
       })
     }
     if (e.currentTarget.dataset.index == 2) {
-      var that = this;
-      var value = wx.getStorageSync('userinfo');
-      wx.request({//获取待安装
-        url: url + 'user/myOrderList',
-        data: {
-          // 'openid': value.openid,
-          'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-          'status': '1',
-        },
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            ['carts']: res.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
-        }
+      this.getdata(1);
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index,
       })
     }
     if (e.currentTarget.dataset.index == 3) {
-      var that = this;
-      var value = wx.getStorageSync('userinfo');
-      wx.request({//获取待评价
-        url: url + 'user/myOrderList',
-        data: {
-          // 'openid': value.openid,
-          'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-          'status': '2',
-        },
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            ['carts']: res.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
-        }
+      this.getdata(2);
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index,
       })
     }
     if (e.currentTarget.dataset.index == 4) {
-      var that = this;
-      var value = wx.getStorageSync('userinfo');
-      wx.request({//获取退换货
-        url: url + 'user/myOrderList',
-        data: {
-          // 'openid': value.openid,
-          'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-          'status': '3',
-        },
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            ['carts']: res.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
-        }
+      this.getdata(3);
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index,
       })
     }
   },
@@ -129,23 +105,44 @@ Page({
     this.setData({
       ['currentIndex']: Number(options.id) + 1,
     })
+    var that = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        that.setData({
+          scrollHeight: res.windowHeight
+        });
+      }
+    });
   },
   getdata(e) {//获取数据
-  console.log(e);
     var that = this;
     var value = wx.getStorageSync('userinfo');
-    wx.request({//获取爱车信息
+    wx.request({//获取订单信息
       url: url + 'user/myOrderList',
       data: {
-        // 'openid': value.openid,
+        //'openid': value.openid,
         'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
         'status': e, 
       },
       method: 'POST',
       success: function (res) {
-        that.setData({
-          ['carts']: res.data.data
-        })
+        if(res.data.code == 200){
+          that.setData({
+            ['carts']: res.data.data
+          })
+        }
+        if (res.data.code == 400){
+          that.setData({
+            ['page.pagebuler'] : false
+          })
+          
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+         }
         console.log(res);
       }
     })

@@ -46,7 +46,8 @@ page{
 }
 
 .myorder .dingdan .status {
-  margin-left: 270rpx;
+  float: right;
+  margin-right: 30rpx;
   color: #11a8e1;
 }
 

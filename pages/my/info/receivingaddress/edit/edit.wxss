@@ -20,7 +20,7 @@ page{
   text-align: right;
 }
 .myaddress .ss{
-  width: 300rpx;
+  width: 400rpx;
   line-height: 60rpx;
   text-align: right;
 }

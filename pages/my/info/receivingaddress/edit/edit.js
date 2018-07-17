@@ -68,6 +68,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+        
         wx.hideToast();
         wx.showToast({
           title: res.data.msg,
@@ -75,11 +76,13 @@ Page({
           duration: 500,
           mask: true
         })
+        wx.navigateBack();
 
         console.log(res);
       }
     })
   },
+  
   /** 
    * 生命周期函数--监听页面加载
    */
