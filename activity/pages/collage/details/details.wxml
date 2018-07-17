@@ -1,0 +1,43 @@
+<view class="detTop">
+  <view class='det'>
+    <view class='t'> <text>1000</text> 元现金</view>
+    <view class='b'>8人瓜分</view>
+  </view>
+  <view class='ts'>开团成功，邀请其他好友</view>
+  <view class='countdown'>
+    <text>距结束  </text> <text class='t'>{{time.hour}}</text> <text>:</text> <text class='t'>{{time.minute}}</text> <text>:</text> <text class='t'>{{time.second}}</text>
+  </view>
+</view>
+
+<view class='detYq'>
+  <view class='tit'> <text>3</text> 人已参团，还差 <text>5</text> 人</view>
+  <view class='head'>
+    <view class='li'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+      <view class='t'>团长</view>
+    </view>
+    <view class='li'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+    </view>
+    <view class='li'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+    </view>
+    <view class='li'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+    </view>
+    <view class='li'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+    </view>
+    <view class='li'>
+      <image src='/images/aicherenzheng@2x.png'></image>
+    </view>
+    <view class='li'>
+      点击加入
+    </view>
+    <view class='li'>
+      
+    </view>
+  </view>
+
+  <view class='sure'>邀请好友</view>
+</view>

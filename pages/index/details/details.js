@@ -32,6 +32,17 @@ Page({
       url: '/pages/index/comment/comment?goods_id=' + this.data.goods_id
     })
   },
+  Navigation(e){
+    var longitude = Number(e.currentTarget.dataset.longitude);
+    var latitude = Number(e.currentTarget.dataset.latitude);
+    wx.openLocation({
+      latitude: Number(longitude),
+      longitude: Number(latitude),
+      name: this.data.details.s_address,
+      scale: 30
+    })
+
+  },
   //滑动移动事件
   handletouchmove: function (event) {
     var currentX = event.touches[0].pageX
@@ -86,6 +97,8 @@ Page({
       data: {
         gid: this.data.goods_id,
         type: '-1',
+        to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+        level: wx.getStorageSync('userinfo').level,
       },
       method: 'POST',
       success: function (res) {

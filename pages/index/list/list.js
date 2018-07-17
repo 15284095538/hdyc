@@ -131,30 +131,21 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if( res.data.code == 200 ){
           if (res.data.data.address.length * 100 >= wx.getSystemInfoSync().windowHeight) {//计算高度
             cityHeight = wx.getSystemInfoSync().windowHeight
           } else {
             cityHeight = res.data.data.address.length * 100
           }
-
           if (res.data.data.classify.length * 100 >= wx.getSystemInfoSync().windowHeight) {//计算高度
             typeHeight = wx.getSystemInfoSync().windowHeight
           } else {
             typeHeight = res.data.data.classify.length * 100
           }
-
-          that.setData({
-            city: res.data.data.address,
-            listtype: res.data.data.classify,
-            sort: res.data.data.sort,
-            cityHeight: cityHeight,
-            typeHeight: typeHeight,
-            list: res.data.data.details
-          })
+        if (res.data.data.details){
+          var list = res.data.data.details;
           wx.hideToast();
         }else{
-          this.page.pagebuler = false
+          that.page.pagebuler = false;
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -162,6 +153,15 @@ Page({
             mask: true
           })
         }
+        that.setData({
+          city: res.data.data.address,
+          listtype: res.data.data.classify,
+          sort: res.data.data.sort,
+          cityHeight: cityHeight,
+          typeHeight: typeHeight,
+          list: list
+        })
+
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  
