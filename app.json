@@ -24,7 +24,6 @@
     "pages/index/washcar/list/list",
     "pages/index/washcar/details/details",
     "pages/index/washcar/comment/comment",
-    "pages/index/washcar/payinformation/payinformation",
     "pages/my/business/balance/balance_home/balance_home",
     "pages/my/business/balance/withdraw/withdraw",
     "pages/my/business/member/member",
@@ -54,13 +53,15 @@
     "pages/my/info/receivingaddress/home/index",
     "pages/my/info/receivingaddress/edit/edit",
     "pages/my/info/mycar/home/index",
-    "pages/my/info/mycar/addcar/addcar"
+    "pages/my/info/mycar/addcar/addcar",
+    "pages/index/yhpic/yhpic"
   ],
   "subPackages": [
     {
       "root": "activity",
       "pages": [
         "pages/collage/home/home",
+        "pages/collage/details/details",
         "pages/search/home/home",
         "pages/search/list/list"
       ]

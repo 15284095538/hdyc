@@ -44,6 +44,10 @@ Page({
     list: [],
     typeid: ''
   },
+  page: {
+    pages: 1,
+    pagebuler: true
+  },
   onReady: function() {
     this.animation = wx.createAnimation({
       duration: 1000,
@@ -53,7 +57,10 @@ Page({
       success: function(res) {
         console.log(res)
       }
-    })
+    });
+    wx.setNavigationBarTitle({
+      title: '门店列表'
+    });
   },
   onLoad(options) {
     this.getmenu();
@@ -62,12 +69,24 @@ Page({
     });
     var that = this;
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         that.setData({
           winHeight: res.windowHeight
         })
       }
     })
+  },
+  onReachBottom: function() { //上拉加载更多
+    if (this.page.pagebuler) {
+      this.page.pages++;
+      this.getdata();
+    }
+  },
+  onPullDownRefresh: function() { //下拉刷新
+    wx.showNavigationBarLoading();
+    this.page.pages = 1;
+    this.page.pagebuler = true
+    this.getdata();
   },
   listTopclick(e) { //头部点击切换样式
     var that = this;
@@ -237,15 +256,28 @@ Page({
         to: to,
         areaId: areaId,
         sort: sort,
-        service: service
+        service: service,
+        page: that.page.pages * 10
       },
       success: res => {
         if (res.data.code == 200) {
           that.setData({
             list: res.data.data
           });
-        };
-        wx.hideToast();
+          wx.hideToast();
+        } else {
+          that.page.pagebuler = false
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+        }
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
       }
     })
   },
@@ -253,7 +285,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     console.log(id);
     wx.navigateTo({
-      url: '/pages/store/details/details?id='+ id +''
+      url: '/pages/store/details/details?id=' + id + ''
     })
   }
 })

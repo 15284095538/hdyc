@@ -1,16 +1,18 @@
+<view bindtap = "handletap" id='the-id' bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+
  <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
   indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
   interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
-  <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+  <block wx:for="{{details.img_path}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
     <swiper-item>
-      <image src="{{item}}" class="slide-image"/>
+      <image src="{{item.img_path}}" class="slide-image"/>
     </swiper-item>
   </block>
 </swiper>
 
 <view class='detalsCon'>
-  <view class='price'>￥649.00 <text>已售6单</text> </view>
-  <view class='name'>全车打蜡-五座轿车-3M品牌蜡</view>
+  <view class='price'>{{details.market_price}}<text>已售{{details.count}}单</text> </view>
+  <view class='name'>{{details.g_name}}</view>
   <view class='label'>
     <view class='t'><image src='/images/wxf@2x.png'></image>未消费，随时退</view>
     <view class='t'><image src='/images/wxf@2x.png'></image>过期退</view>
@@ -18,11 +20,11 @@
 </view>
 
 <view class='detalsAdr'>
-  <view class='name'>成都市邛崃陈老大店</view>
-  <view class='adr'>成都市邛崃市老陈大路462号天和车王养护（汇蜀路口）</view>
-  <view class='Navigation'>
+  <view class='name'>{{details.s_name}}</view>
+  <view class='adr'>{{details.s_address}}</view>
+  <view class='Navigation' catchtap='Navigation' data-longitude='{{details.longitude}}' data-latitude='{{details.latitude}}' >
     <view class='img'> <image src='/images/dh.png'></image> </view>
-    <view class='jl'>1.3km \n\t 导航 </view>
+    <view class='jl'>{{details.km}} \n\t 导航 </view>
   </view>
 </view>
 
@@ -53,17 +55,17 @@
 
 <view class='detalsPl'>
   <view class='tou'>
-    <view class='q'>全部评价（105）</view>
+    <view class='q'>全部评价（{{pingluntj.counts.count}}）</view>
     <view class='h'>好评度
-      <text class='nu'>96%</text>
+      <text class='nu'>{{pingluntj.pl}}</text>
       <image src='/images/more.png'></image>
     </view>
   </view>
   <view class='con'>
     <view class='li' wx:for="{{pinglun}}" wx:for-index="index" wx:for-item="item" wx:key="key" >
-      <view class='portrait'> <image src='{{item.npic}}'></image> </view>
+      <view class='portrait'> <image src='{{item.header}}'></image> </view>
       <view class='righttext'>
-        <view class='name'>{{item.name}}</view>
+        <view class='name'>{{item.user_name}}</view>
         <view class='Stars'>
           <view class='img'>
             <image src='/images/rstart.png'></image>
@@ -72,14 +74,11 @@
             <image src='/images/rstart.png'></image>
             <image src='/images/start.png'></image>
           </view>
-          <view class='time'>{{item.time}}</view>
+          <view class='time'>{{item.create_time}}</view>
         </view>
-        <view class='text'>{{item.message}}</view>
+        <view class='text'>{{item.content}}</view>
         <view class='plimg'>
-          <image src='/images/banner.jpg'></image>
-          <image src='/images/banner.jpg'></image>
-          <image src='/images/banner.jpg'></image>
-          <image src='/images/banner.jpg'></image>
+          <image wx:if="{{item.images}}" wx:for="{{item.images}}" wx:key="this" wx:for-item="iitem" src='{{iitem.path}}'></image>
         </view>
         <view class='type'>{{item.stype}}</view>
       </view>
@@ -92,10 +91,12 @@
 </view>
 
 <view class='detalsPay'>
-  <view class='price'>实付：<text>¥297.00</text></view>
+  <view class='price'>实付：<text>¥{{details.market_price}}</text></view>
   <view class='img'>
     <image src='/images/tel.png'></image>
     <view>预约/咨询</view>
   </view>
   <view class='pay'>去结算</view>
+</view>
+
 </view>

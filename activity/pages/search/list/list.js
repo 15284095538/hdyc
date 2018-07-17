@@ -1,66 +1,33 @@
 // activity/pages/search/list/list.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    inputValue: ''
   },
+  onLoad: function(options) {
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  bindKeyInput: function(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  is_define(value) {
+    if (value == null || value == "" || value == "undefined" || value == undefined || value == "null" || value == "(null)" || value == 'NULL' || typeof(value) == 'undefined') {
+      return false;
+    } else {
+      value = value + "";
+      value = value.replace(/\s/g, "");
+      if (value == "") {
+        return false;
+      }
+      return true;
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  searchStorage() { // 储存搜索历史
+    if (this.is_define(this.data.inputValue)) {
+      var searchs = wx.getStorageSync('searchs') || []
+      searchs.unshift(this.data.inputValue)
+      wx.setStorageSync('searchs', searchs)
+    }
   }
 })

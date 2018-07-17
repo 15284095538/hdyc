@@ -110,7 +110,12 @@ Page({
     })
   },
   onGoopenSetting(e){
-    var that = this
+    var that = this;
+    if (!e.detail.authSetting['scope.userInfo']) {
+      that.setData({
+        Userinfo: true
+      })
+    }
     if (e.detail.authSetting['scope.userLocation'] ){
       wx.getLocation({
         type: 'gcj02',
