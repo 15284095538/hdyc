@@ -32,7 +32,7 @@ Page({
       success: res => {
         console.log(res)
         if (res.data.code == 200) {
-          WxParse.wxParse('article', 'html', res.data.data.car_detail, that, 5);
+          WxParse.wxParse('article', 'html', res.data.data.details[0].g_images, that, 5);
           that.setData({
             pic: res.data.data
           })

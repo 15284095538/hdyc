@@ -9,44 +9,16 @@ Page({
       duration: 500,
       indicatorcolor: '#d5d5d5',
       indicatoractivecolor: "#0084ff",
-      goods_id:'',
-      imgUrl: [],
     },
+    goods_id: '',
     lastX: 0,     //滑动开始x轴位置
     lastY: 0,     //滑动开始y轴位置
     currentGesture: 0, //标识手势
     isScroll: false,
     bot: false,
-    pinglun: [
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: '4',
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: '4',
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-    ]
+    details:[],
+    pinglun: [],
+    pingluntj:[],
   },
   onLoad(e){
     this.setData({ goods_id:e.goods_id })
@@ -57,7 +29,7 @@ Page({
   },
   ToPage(){
     wx.navigateTo({
-      url: '/pages/index/comment/comment'
+      url: '/pages/index/comment/comment?goods_id=' + this.data.goods_id
     })
   },
   //滑动移动事件
@@ -96,7 +68,7 @@ Page({
     this.data.currentGesture = 0;
     if (this.data.isScroll && this.data.bot ) {
       wx.navigateTo({
-        url: '/pages/index/pic/pic?goods_id=' + this.data.goods_id
+        url: '/pages/index/yhpic/yhpic?goods_id=' + this.data.goods_id
       })
       this.setData({ isScroll: false, bot:false })
     }
@@ -119,6 +91,26 @@ Page({
       success: function (res) {
         if (res.data.code == 200) {
           that.setData({
+            details: res.data.data.details[0],
+            pinglun: res.data.data.eval
+          })
+          wx.hideToast();
+        }
+      }
+    })
+    wx.request({//评论统计
+      url: url + 'Store/store_eval',
+      data: {
+        goods_id: this.data.goods_id,
+        type: 2,
+        status:'',
+        store_id:''
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.code == 200) {
+          that.setData({
+            pingluntj: res.data.data
           })
           wx.hideToast();
         }
