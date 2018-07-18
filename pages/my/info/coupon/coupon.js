@@ -25,6 +25,10 @@ Page({
     selectid: 0,
     ShowList: []
   },
+  page: {
+    pages: 1,
+    pagebuler: true
+  },
   onLoad() {
     wx.setNavigationBarTitle({
       title: '优惠券'
@@ -32,7 +36,7 @@ Page({
     var that = this;
     that.getdata()
   },
-  ChangeSelect(e) {
+  ChangeSelect(e) { //TAB切换
     var that = this;
     var id = e.currentTarget.dataset.id;
     that.setData({
@@ -41,7 +45,23 @@ Page({
     that.setData({
       ShowList: ''
     });
+    that.page.pages = 1;
+    that.page.pagebuler = true
     that.getdata()
+  },
+  onReachBottom: function() { //上拉加载更多
+    var that = this;
+    if (that.page.pagebuler) {
+      that.page.pages++;
+      that.getdata();
+    }
+  },
+  onPullDownRefresh: function() { //下拉刷新
+    var that = this;
+    wx.showNavigationBarLoading();
+    that.page.pages = 1;
+    that.page.pagebuler = true
+    that.getdata();
   },
   getdata() {
     wx.showToast({
@@ -56,17 +76,18 @@ Page({
       method: 'POST',
       data: {
         openid: wx.getStorageSync('userinfo').openid,
-        status: that.data.selectid
+        status: that.data.selectid,
+        page: that.page.pages * 10
       },
       success: res => {
         if (res.data.code == 200) {
           var menu = that.data.menu;
           for (var i = 0; i < menu.length; i++) {
-            if(i == 0){
+            if (i == 0) {
               menu[i].num = res.data.data.notUse
-            } else if (i == 1){
+            } else if (i == 1) {
               menu[i].num = res.data.data.used
-            }else{
+            } else {
               menu[i].num = res.data.data.validity
             }
           };
@@ -74,8 +95,20 @@ Page({
             ShowList: res.data.data.list,
             menu: menu
           });
+          wx.hideToast();
+        } else {
+          that.page.pagebuler = false
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
         }
-        wx.hideToast();
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
       }
     })
   },
