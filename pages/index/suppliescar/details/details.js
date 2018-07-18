@@ -1,3 +1,5 @@
+var url = getApp().globalData.publicUrl;
+
 Page({
   data: {
     swiper: {//banner图
@@ -7,74 +9,24 @@ Page({
       duration: 500,
       indicatorcolor: '#d5d5d5',
       indicatoractivecolor: "#0084ff",
-      imgUrl: [
-        '/images/banner.jpg',
-        '/images/banner.jpg',
-        '/images/banner.jpg'
-      ],
+      imgUrl: [],
     },
+    goods_id:'',
+    isScroll: false,
+    bot: false,
     layerColorDisplay:'none',
     layerLiftcarDisplay: 'none',
     upMoreDisplay:'none',
-    cans: [
-      {
-        "bt": "套餐分类",
-        "sub": [
-          {
-            'text': "套餐一"
-          },
-          {
-            'text': "套餐二"
-          }
-        ]
-      },
-      {
-        "bt": "颜色",
-        "sub": [
-          {
-            'text': "红"
-          },
-          {
-            'text': "黑"
-          }
-        ]
-      }
-    ],
-    pinglun: [
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: '4',
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: '4',
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-
-    ],
+    dettels:[],
     lastX: 0,     //滑动开始x轴位置
     lastY: 0,     //滑动开始y轴位置
     currentGesture: 0, //标识手势
-    isScroll:false
+    selectSx:[],
+    shuxIndex:0
+  },
+  onLoad(e){
+    this.setData({ goods_id: e.goods_id })
+    this.getdata();
   },
   layerColorclick(e){
     this.setData({ layerColorDisplay:'block' })
@@ -125,13 +77,62 @@ Page({
   //滑动结束事件
   handletouchend: function (event) {
     this.data.currentGesture = 0;
-    if (this.data.isScroll) {
+    if (this.data.isScroll && this.data.bot) {
       wx.navigateTo({
-        url: '/pages/index/suppliescar/pic/pic'
+        url: '/pages/index/suppliescar/pic/pic?goods_id=' + this.data.goods_id
       })
+      this.setData({ isScroll: false, bot: false })
     }
+
   },
-  onReachBottom(e){
-    this.setData({ isScroll: true })
+  onReachBottom: function () {
+    this.setData({ bot: true })
+  },
+  shuxClick(e){
+    var index = e.currentTarget.dataset.index;
+    var img = e.currentTarget.dataset.img;
+    var price = e.currentTarget.dataset.price;
+    var inventory = e.currentTarget.dataset.inventory;
+    var value_id = e.currentTarget.dataset.value_id;
+    this.setData({
+      ['selectSx.img']: img,
+      ['selectSx.price']: price,
+      ['selectSx.inventory']: inventory,
+      ['selectSx.value_id']: value_id,
+      shuxIndex: index,
+    })
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'goods/goods_details',
+      method: 'POST',
+      data: {
+        goods_id: this.data.goods_id,
+        level: wx.getStorageSync('userinfo').level,
+      },
+      success: function (res) {
+        if( res.data.code == 200 ){
+          wx.hideToast();
+          that.setData({
+            dettels: res.data.data,
+            selectSx: res.data.data.sx.data[0]
+          })
+        }else{
+          wx.showToast({
+            title: '请求失败',
+            icon: 'loading',
+            duration: 55000,
+            mask: true
+          })
+        }
+      }
+    })
   }
 })

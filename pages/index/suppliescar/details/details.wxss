@@ -217,6 +217,10 @@
   padding: 0 30rpx;
   overflow: hidden;
 }
+.layerColor .box .ul .select{
+  background-color: #11a8e1;
+  color: #fff;
+}
 .layerColor .box .ul .li{
   float: left;
   width: 150rpx;

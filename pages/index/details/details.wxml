@@ -68,11 +68,12 @@
         <view class='name'>{{item.user_name}}</view>
         <view class='Stars'>
           <view class='img'>
-            <image src='/images/rstart.png'></image>
-            <image src='/images/rstart.png'></image>
-            <image src='/images/rstart.png'></image>
-            <image src='/images/rstart.png'></image>
-            <image src='/images/start.png'></image>
+            <block wx:for="{{item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
+              <image src='/images/rstart.png'></image>
+            </block> 
+            <block wx:for="{{5 - item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+              <image src='/images/start.png'></image>
+            </block>
           </view>
           <view class='time'>{{item.create_time}}</view>
         </view>
