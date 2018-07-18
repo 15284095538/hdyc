@@ -77,16 +77,18 @@ Page({
     })
   },
   onReachBottom: function() { //上拉加载更多
-    if (this.page.pagebuler) {
-      this.page.pages++;
-      this.getdata();
+    var that = this;
+    if (that.page.pagebuler) {
+      that.page.pages++;
+      that.getdata();
     }
   },
   onPullDownRefresh: function() { //下拉刷新
+    var that = this;
     wx.showNavigationBarLoading();
-    this.page.pages = 1;
-    this.page.pagebuler = true
-    this.getdata();
+    that.page.pages = 1;
+    that.page.pagebuler = true
+    that.getdata();
   },
   listTopclick(e) { //头部点击切换样式
     var that = this;

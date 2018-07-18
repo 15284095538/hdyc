@@ -42,7 +42,7 @@
       </view>
       
 
-      <view class='sure'>选择此门店</view>
+      <view data-class_id='{{class_id}}' data-store_id='{{store_id}}' catchtap='orderClick' class='sure'>选择此门店</view>
     </view>
 
 

@@ -2,26 +2,26 @@
   <view class='tit'>基本信息</view>
   <view class='int'>
     <view class='text'>服务门店</view>
-    <view class='name'>成都剑南大道店</view>
+    <view class='name'>{{pay.mend}}</view>
   </view>
 
   <view class='int'>
     <view class='text'>联系电话</view>
-    <view class='name'>13618045260</view>
+    <input placeholder='联系电话' type='number' confirm-type="next" bindinput="phoneinput" class='name'></input>
   </view>
   <view class='int'>
     <view class='text'>联系人</view>
-    <input placeholder='联系人' class='name'></input>
+    <input placeholder='联系人' bindinput='nameinput' confirm-type="done" class='name'></input>
   </view>
 
   <view class='tit'>服务项目</view>
   <view class='int'>
     <view class='text'>普通洗车</view>
-    <view class='name price'>￥30.00</view>
+    <view class='name price'>￥{{pay.price}}</view>
   </view>
 
   <view class='fot'>
-    <view class='l'>在线支付：<text>¥30.00</text></view>
-    <view class='r'>去支付</view>
+    <view class='l'>在线支付：<text>¥{{pay.price}}</text></view>
+    <view catchtap='pay' class='r'>去支付</view>
   </view>
 </view>

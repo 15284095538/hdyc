@@ -163,12 +163,9 @@
   font-size: 30rpx;
 }
 .fot .li{
-  width: 50%;
+  width: 100%;
   float: left;
   height: 100rpx;
-}
-.fot .li:first-child{
-  background-color: #70c745;
 }
 .fot .li:last-child{
   background-color: #11a8e1;
