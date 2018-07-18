@@ -11,7 +11,7 @@
 </swiper>
 
 <view class='detalsCon'>
-  <view class='price'>{{details.market_price}}<text>已售{{details.count}}单</text> </view>
+  <view class='price'>￥{{details.price}}<text>已售{{details.count}}单</text> </view>
   <view class='name'>{{details.g_name}}</view>
   <view class='label'>
     <view class='t'><image src='/images/wxf@2x.png'></image>未消费，随时退</view>
@@ -92,7 +92,7 @@
 </view>
 
 <view class='detalsPay'>
-  <view class='price'>实付：<text>¥{{details.market_price}}</text></view>
+  <view class='price'>实付：<text>¥{{details.price}}</text></view>
   <view class='img'>
     <image src='/images/tel.png'></image>
     <view>预约/咨询</view>
