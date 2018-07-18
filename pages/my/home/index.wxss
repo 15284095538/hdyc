@@ -221,10 +221,14 @@ page {
 }
 
 .archives-title-name {
+  width: 350rpx;
   font-size: 24rpx;
   line-height: 79rpx;
   letter-spacing: 1rpx;
   color: #484848;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
 }
 
 .archives-info-subtitle {

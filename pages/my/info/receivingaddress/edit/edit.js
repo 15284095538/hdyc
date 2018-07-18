@@ -45,10 +45,6 @@ Page({
     this.data.myaddress = e.detail.value;
   },
   searchBox: function (e) {
-    console.log(this.data.name);
-    console.log(this.data.tel);
-    console.log(this.data.areaInfo);
-    console.log(this.data.myaddress);
     var that = this;
     wx.showToast({
       title: '保存中',
@@ -112,7 +108,7 @@ Page({
       duration: 55000,
       mask: true
     })
-    wx.request({//添加收货地址
+    wx.request({//获取收货地址
       url: url + 'User/editMyAddress',
       data: {
         id: this.data.addressid,

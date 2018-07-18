@@ -7,7 +7,8 @@ Page({
     // 商品详情介绍
     carts: [
 
-    ]
+    ],
+    mycar:0,
   }, 
 
   //左滑操作
@@ -90,8 +91,96 @@ Page({
   },
 
   onLoad: function (options) {
-    //获取数据
-    console.log(wx.getStorageSync('userinfo').openid);
+    this.getdata();
+  },
+  onShow: function () {
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    });
+    var value = wx.getStorageSync('userinfo');
+    wx.request({//获取爱车信息
+      url: url + 'user/myCar',
+      data: {
+        'openid': value.openid,
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.code == 400) {
+          that.setData({
+            ['mycar']: 1
+          })
+        }
+        that.setData({
+          ['carts']: res.data.data
+        })
+        wx.hideToast();
+        console.log(res);
+      }
+    })
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    var value = wx.getStorageSync('userinfo');
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取爱车信息
+      url: url + 'user/myCar',
+      data: {
+        'openid': value.openid,
+      },
+      method: 'POST',
+      success: function (res) {
+        if(res.data.code==400){
+          that.setData({
+            ['mycar']: 1
+          })
+        }
+        that.setData({
+          ['carts']: res.data.data
+        })
+        wx.hideToast();
+        console.log(res);
+      }
+    })
+
+  },
+  getmr:function(e){
+    var that = this;
+    var value = wx.getStorageSync('userinfo');
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//设置默认爱车
+      url: url + 'user/set_default',
+      data: {
+        'openid': value.openid,
+        'id': e.currentTarget.id,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        wx.showToast({
+          title: '设置成功',
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
+        console.log(res);
+      }
+    })
+  },
+  deleteProd: function (e) {
     var that = this;
     wx.showToast({
       title: '加载中',
@@ -99,24 +188,29 @@ Page({
       duration: 55000,
       mask: true
     })
-    wx.request({//获取个人信息
-      url: url + 'shopping/getCar',
+    wx.request({//删除爱车
+      url: url + 'user/del_mycar',
       data: {
-        openid: wx.getStorageSync('userinfo').openid,
-        goods_type: '0',
-        level: '',
+        'id': e.currentTarget.id,
       },
       method: 'POST',
       success: function (res) {
+        const index = e.currentTarget.dataset.index;
+        let carts = that.data.carts;
+        carts.splice(index, 1); // 删除购物车列表里这个商品
         that.setData({
-          ['carts']: res.data.data.data
+          carts: carts
         })
-
         wx.hideToast();
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
         console.log(res);
       }
     })
-  },
-
+  }
 });
 

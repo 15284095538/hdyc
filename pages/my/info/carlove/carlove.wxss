@@ -35,12 +35,12 @@ page{
   width: 110rpx;
   height: 40rpx;
   position: relative;
-  top: 104rpx;
+  top: 60rpx;
   left: 60rpx;
 }
 .carname image{
   width: 110rpx;
-  height: 40rpx;
+  height: 110rpx;
 }
 .carlove .ping{
   font-size: 28rpx;

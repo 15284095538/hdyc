@@ -1,8 +1,11 @@
 // pages/my/info/mycar/addcar/addcar.js
+var url = getApp().globalData.publicUrl;
 Page({
   data: {
     winHeight:'',
     display:'none',
+    fid:'',
+    mycar:'',
     // 当前选择的导航字母
     selected: 0,
     // 选择字母视图滚动的位置id
@@ -10,294 +13,79 @@ Page({
     // 导航字母
     letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
       'U', 'V', 'W', 'X', 'Y', 'Z'],
-    groups: [{
-      groupName: 'A',
-      users: [
-        {
-          name: '阿码',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'B',
-      users: [
-        {
-          name: '白娘子',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '包天齐',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'C',
-      users: [
-        {
-          name: '陈大年',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '丛云山',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '崔鸣贵',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'D',
-      users: [
-        {
-          name: '邓牛牛',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '刁仁衣',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '杜长城',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'F',
-      users: [
-        {
-          name: '范长龙',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '冯肖晓',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'G',
-      users: [
-        {
-          name: '甘地',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '高墙',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '宫都举',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'H',
-      users: [
-        {
-          name: '何芸',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '胡坨坨',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '黄坨坨',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'T',
-      users: [
-        {
-          name: '谭老头儿',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '汤云西',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '图图',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'X',
-      users: [
-        {
-          name: '夏一天',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '鲜轰轰',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '谢大佩',
-          avatar: '/images/xj.png'
-        }
-      ]
-    }
+    groups: [
+
     ],
-    menulist: [{
-      groupName: '一汽大众',
-      users: [
-        {
-          name: '阿码',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'B',
-      users: [
-        {
-          name: '白娘子',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '包天齐',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'C',
-      users: [
-        {
-          name: '陈大年',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '丛云山',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '崔鸣贵',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'D',
-      users: [
-        {
-          name: '邓牛牛',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '刁仁衣',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '杜长城',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'F',
-      users: [
-        {
-          name: '范长龙',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '冯肖晓',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'G',
-      users: [
-        {
-          name: '甘地',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '高墙',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '宫都举',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'H',
-      users: [
-        {
-          name: '何芸',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '胡坨坨',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '黄坨坨',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'T',
-      users: [
-        {
-          name: '谭老头儿',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '汤云西',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '图图',
-          avatar: '/images/xj.png'
-        }
-      ]
-    },
-    {
-      groupName: 'X',
-      users: [
-        {
-          name: '夏一天',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '鲜轰轰',
-          avatar: '/images/xj.png'
-        },
-        {
-          name: '谢大佩',
-          avatar: '/images/xj.png'
-        }
-      ]
-    }
+    menulist: [
+
     ],
   },
+  //添加爱车
+   addcar:function(e){
+     
+     var carid = this.data.fid + ',' + e.currentTarget.dataset.index + ',' + e.currentTarget.id;
+     var value = wx.getStorageSync('userinfo');
+     wx.showToast({
+       title: '加载中',
+       icon: 'loading',
+       duration: 55000,
+       mask: true
+     })
+     wx.request({//添加车辆
+       url: url + 'user/set_lovecar',
+       data: {
+         'car_type': carid,
+         'openid': value.openid,
+        'is_default':this.data.mycar,
+       },
+       method: 'POST',
+       success: function (res) {
+         wx.hideToast();
+         wx.showToast({
+           title: '添加成功',
+           icon: 'success',
+           duration: 500,
+           mask: true
+         })
+         wx.navigateBack();
+         console.log(res);
+       }
+     })
+   } ,
+
   listTopclick(e) { //头部点击切换样式
     var that = this;
     var menuid = e.currentTarget.dataset.id;
     var selectkey = e.currentTarget.dataset.key;
-    that.setData({
-      display: 'block',
-    });
-    console.log(e.currentTarget.id);
+    
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取车辆信息
+      url: url + 'user/set_carclass',
+      data: {
+        'id': e.currentTarget.id,
+      },
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          ['menulist']: res.data.data,
+          ['fid']: e.currentTarget.id,
+          display: 'block',
+        })
+        wx.hideToast();
+        console.log(res);
+      }
+    })
   },
   onLoad: function (options) {
     var that = this;
+    that.setData({
+      mycar: options.mycar,
+    })
     wx.getSystemInfo({
       success: function (res) {
         that.setData({
@@ -305,6 +93,9 @@ Page({
         })
       }
     })
+    //获取车辆信息
+    that.getdata();
+
     const res = wx.getSystemInfoSync(),
       letters = this.data.letters;
     // 设备信息
@@ -334,9 +125,32 @@ Page({
       lettersPosition: temp
     })
   },
+  getdata:function(e){
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取车辆信息
+      url: url + 'user/set_carclass',
+      data: {
+        'id': 0,
+      },
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          ['groups']: res.data.data
+        })
+        wx.hideToast();
+        console.log(res);
+      }
+    })
+  }
+  ,
   tabLetter(e) {
     const index = e.currentTarget.dataset.index;
-    console.log(index);
     this.setData({
       selected: index,
       scrollIntoView: index
@@ -378,4 +192,5 @@ Page({
   touchend(e) {
     this.cleanAcitvedStatus();
   }
+  
 })

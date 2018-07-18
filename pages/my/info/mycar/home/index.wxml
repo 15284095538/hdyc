@@ -4,15 +4,16 @@
     <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
       <view style='width:30rpx;' ></view>
       
-      <image class="item-image" src="{{item.g_picture}}"></image>
+      <image class="item-image" src="{{item.car_logo}}"></image>
       <view class="column">
-        <text class="title">{{item.car_name}}</text>
-        <text   class="title">{{item.g_name}}</text>
+        <text class="title">{{item.car_brand}}</text>
       </view>
-       <view id='{{item.shopping_id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
+      <view id='{{item.id}}' data-index="{{index}}"  class="inner mrcar del" style='{{carts[index].txtStyle}}' bindtap="getmr">默认</view>
+       <view id='{{item.id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
+       
     </view>
   </view>
-<navigator url='/pages/my/info/mycar/addcar/addcar'>
+<navigator url='/pages/my/info/mycar/addcar/addcar?mycar={{mycar}}'>
   <view class='button'>添加爱车</view>
   </navigator>
 </view>

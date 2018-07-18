@@ -41,8 +41,13 @@
 }
 
 .mycars .title {
+  width: 300rpx;
   font-size: 28rpx;
-  margin-top: 40rpx;
+   margin-top: 20rpx; 
+  line-height: 160rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mycars .xq {
@@ -151,13 +156,15 @@
 
 .mycars .del {
   background-color: #e64340;
-  width: 180rpx;
+  width: 160rpx;
   z-index: 4;
   right: 0;
   color: #fff;
   display: none;
-  padding-top: 80rpx;
-  padding-left: 70rpx;
+  padding: 70rpx;
+}
+.mycars .mrcar{
+  background-color: #11a8e1;
 }
 .button{
   position: fixed;
