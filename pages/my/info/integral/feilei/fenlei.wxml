@@ -1,0 +1,16 @@
+<!-- 积分分类 -->
+<view class='mypoints'>
+  
+  <!-- 推荐 -->
+  <view class='tuijian'>
+    <view class='tuitu'>
+      <block wx:for="{{12}}" wx:key="this">
+        <view class='xiao'>
+          <image src='/images/xj.png'></image>
+          <view>只能后视镜</view>
+        </view>
+      </block>
+    </view>
+  </view>
+  
+</view>

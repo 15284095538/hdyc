@@ -54,7 +54,10 @@
     "pages/my/info/receivingaddress/edit/edit",
     "pages/my/info/mycar/home/index",
     "pages/my/info/mycar/addcar/addcar",
-    "pages/index/yhpic/yhpic"
+    "pages/index/yhpic/yhpic",
+    "pages/my/info/integral/feilei/fenlei",
+    "pages/my/info/integral/details/details",
+    "pages/my/info/integral/list/list"
   ],
   "subPackages": [
     {

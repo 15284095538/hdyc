@@ -45,6 +45,42 @@ Page({
     this.data.myaddress = e.detail.value;
   },
   searchBox: function (e) {
+    if (this.data.name == "") {
+      wx.showToast({
+        title: '姓名不能为空',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      });
+      return false;
+    }
+    if (this.data.tel == "") {
+      wx.showToast({
+        title: '电话不能为空',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      });
+      return false;
+    }
+    if (this.data.areaInfo == undefined) {
+      wx.showToast({
+        title: '省、市不能为空',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      });
+      return false;
+    }
+    if (this.data.myaddress == "") {
+      wx.showToast({
+        title: '地址不能为空',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      });
+      return false;
+    }
     var that = this;
     wx.showToast({
       title: '保存中',
@@ -64,8 +100,17 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        
-        wx.hideToast();
+        if(res.data.code==400){
+          wx.hideToast();
+          wx.showToast({
+            title: "手机号错误",
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          });
+          return false;
+        }else{
+           wx.hideToast();
         wx.showToast({
           title: res.data.msg,
           icon: 'success',
@@ -75,6 +120,8 @@ Page({
         wx.navigateBack();
 
         console.log(res);
+        }
+       
       }
     })
   },
