@@ -133,12 +133,12 @@
         </view>
       </view>
     </view>
-    <view class='more-list' data-link='/pages/my/info/coupon/coupon' bindtap="ToPage">
+    <view class='more-list' data-link='/activity/pages/collage/home/home' bindtap="ToPage">
       <view class='more-list-img left'>
         <image class='max' src='/images/kehufuwu.png'></image>
       </view>
       <view class='more-list-text left'>
-        客户服务
+        活动
       </view>
       <view class='more-list-icon right'>
         <view class='more-title-more right'>

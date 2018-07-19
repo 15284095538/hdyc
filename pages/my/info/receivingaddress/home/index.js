@@ -5,9 +5,6 @@ Page({
     list: []
   },
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '收货地址'
-    });
     this.getdata();
   },
   onShow: function () {

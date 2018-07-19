@@ -30,9 +30,6 @@ Page({
     pagebuler: true
   },
   onLoad() {
-    wx.setNavigationBarTitle({
-      title: '优惠券'
-    });
     var that = this;
     that.getdata()
   },

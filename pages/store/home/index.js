@@ -14,9 +14,6 @@ Page({
     pagebuler: true
   },
   onLoad(e) {
-    wx.setNavigationBarTitle({
-      title: '门店'
-    });
     this.onGoUserinfoSetting();
     this.getdata();
     this.getmenu();

@@ -57,10 +57,7 @@ Page({
       success: function(res) {
         console.log(res)
       }
-    });
-    wx.setNavigationBarTitle({
-      title: '门店列表'
-    });
+    })
   },
   onLoad(options) {
     this.getmenu();
