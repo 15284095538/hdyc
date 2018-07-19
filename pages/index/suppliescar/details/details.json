@@ -1,5 +1,5 @@
 {
   "disableScroll": false,
   "enablePullDownRefresh": true,
-  "onReachBottomDistance":50
+  "navigationBarTitleText": "车用品"
 }

@@ -3,9 +3,9 @@
     <view wx:if="{{loadCityFail}}" >{{loadCity.text}} <image src='/images/xiala@2x.png'></image>  </view> 
     <button  wx:else="{{loadCityFail}}" bindopensetting="onGoopenSetting" open-type="openSetting">打开授权设置页</button>
   </view>
-  <view class='search'>
+  <view class='search' bindtap='searchLink'>
     <view class='button'> <image src='/images/sousuo@3x.png'></image> </view>
-    <input class='text' confirm-type="search" placeholder-style="color:#fff" placeholder='请输入您想要的商品或服务'></input>
+    <view class='text'>请输入您想要的商品或服务</view>
   </view>
 </view>
 

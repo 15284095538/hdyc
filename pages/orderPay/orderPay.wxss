@@ -270,6 +270,7 @@ page{
   border-bottom: 1rpx solid #e7e7e7;
   height: 110rpx;
   padding: 20rpx 0;
+  position: relative;
 }
 .spImg .li .img{
   width: 110rpx;
@@ -298,6 +299,12 @@ page{
   float: right;
   color: #ff7979;
   margin-top: 20rpx;
+}
+.spImg .num{
+  position: absolute;
+  right: 0;
+  bottom:20rpx;
+  color: #ff7979;
 }
 
 .couponlist{

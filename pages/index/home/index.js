@@ -42,6 +42,11 @@ Page({
       url: link 
     })
   },
+  searchLink(e){
+    wx.navigateTo({
+      url: '/activity/pages/search/home/home'
+    })
+  },
   buycarlink(e){
     var id = e.currentTarget.dataset.id;
     console.log( id )

@@ -47,6 +47,11 @@ Page({
   couponDisplyNClick(e){
     this.setData({ couponDisplyClick: 'none' })
   },
+  shdiz(e){
+    wx.navigateTo({
+      url: '/pages/my/info/receivingaddress/home/index'
+    })
+  },
   couponliClick(e){//优惠券列表点击
     var id = e.currentTarget.dataset.id;
     var cost = e.currentTarget.dataset.cost;
