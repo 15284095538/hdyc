@@ -1,0 +1,134 @@
+ <wxs module="filters" src="../modul/filters.wxs"></wxs>
+
+<view class="orderpay">
+  <view class='li'>
+    <text>联系人</text>
+    <input placeholder='请输入联系人姓名' ></input>
+  </view>
+</view>
+<view class="orderpay">
+  <view class='li'>
+    <text>联系电话</text>
+    <input placeholder='请输入联系电话' ></input>
+  </view>
+</view>
+<!-- 门店 -->
+<view wx:if="{{ goods_type == 1 }}" class="orderpay" style='border-bottom:1rpx dashed #11a8e1;' >
+  <view class='li' style='border:0' >
+    <text>配送地址</text>
+    <view class='adr'>配送到 {{orderdata.store.s_name}} </view>
+    <view class='km'>{{orderdata.store.km}}</view>
+    <image class='more' src='/images/more.png'></image>
+  </view>
+</view>
+<!-- 地址 -->
+<view wx:if="{{ goods_type == 0 }}" class="orderpay" style='border-bottom:1rpx dashed #11a8e1;' > 
+  <view class='li' style='border:0' >
+    <text>配送地址</text>
+    <view class='adrdz'>配送到途虎养车工厂</view>
+    <image class='more' src='/images/more.png'></image>
+  </view>
+</view>  
+
+<view class='orderpaySp' catchtap='spDisplayClick'>
+  <view class='li'>
+      <scroll-view wx:for="{{orderdata.goods}}" wx:key="this" wx:for-item="item" class="img" scroll-x="true">
+        <view><image src='{{item.img}}'></image></view>
+      </scroll-view>
+      <view class='sp'>共{{orderdata.goods.length}}件商品</view>
+      <image class='more' src='/images/more.png'></image>
+  </view>
+</view>
+
+<view class="orderpay" style='margin-top:20rpx;' catchtap='couponDisplyClick' > 
+  <view class='li' style='border:0' >
+    <text>优惠券</text>
+    <view class='adrdz'> {{orderdata.coupon.length}} 张可用</view>
+    <image class='more' src='/images/more.png'></image>
+  </view>
+</view>
+
+<view class="orderpay" style='margin-top:20rpx;' > 
+  <view class='li'>
+    <text>商品总价</text>
+    <view class='pri'>￥{{orderdata.count_price}}</view>
+  </view>
+</view>
+
+<view wx:if="{{ goods_type == 1 }}" class="orderpay" > 
+  <view class='li' >
+    <text>安装费</text>
+    <view class='pri'>￥{{orderdata.store.service_price}}</view>
+  </view>
+</view>
+
+<view wx:if="{{ goods_type == 0 }}" class="orderpay" > 
+  <view class='li' >
+    <text>运费</text>
+    <view class='pri'>￥248.00</view>
+  </view>
+</view>
+
+<view wx:if="{{ paycoupon }}" class="orderpay" > 
+  <view class='li' style='border:0' >
+    <text>优惠券</text>
+    <view class='pri'>抵扣{{paycoupon.cost}}元</view>
+  </view>
+</view>
+
+<view class='fot'>
+  <view class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
+  <view class='right'>提交订单</view>
+</view>
+
+
+<!-- 商品图片 -->
+<view class='layer {{spDisplay}}' catchtap='spDisplayNclick'>
+  <scroll-view scroll-y style='height:{{ winHeight+ "px" }}'>
+    <view class='spImg'>
+      <view wx:for="{{orderdata.goods}}" wx:key="this" wx:for-item="item" class='li'>
+        <view class='img'><image src='{{item.img}}'></image></view>
+        <view class='t'>{{item.g_name}}  {{item.value}}</view>
+        <view class='p'>￥{{item.price}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 门店 -->
+<view class='layer none'>
+    <scroll-view scroll-y style='height:{{ winHeight+ "px" }}'>
+      <view class='washlist'  >
+        <view catchtap='washdetClick' wx:for="{{washlist}}" data-store_id='{{item.store_id}}' wx:key="this" wx:for-index="index" wx:for-item="item" class='li' data-class_id='{{item.class_id}}' >
+          <view class='img'> <image src='{{item.s_img}}'></image> <view class='t'>{{item.s_tag}}</view> </view>
+          <view class='text'>
+            <view class='name'>
+              {{item.s_name}}
+              <image wx:if="{{ item.s_level == 3 }}" src='/images/grade_01.png'></image>
+              <image wx:if="{{ item.s_level == 2 }}" src='/images/grade_02.png'></image>
+              <image wx:if="{{ item.s_level == 1 }}" src='/images/grade_03.png'></image>
+            </view>
+            <view class='num'>总评价：<text>{{item.grade}}</text>分  |  总订单：<text>{{item.count}}</text>笔</view>
+            <view class='address'>{{item.s_address}}</view>
+            <view class='bot'>
+              <view class='l'>
+                <text wx:for="{{item.s_service_tag}}" wx:for-index="tagindex" wx:if="{{ tagindex < 5 }}" wx:key="this" wx:for-item="tag" >{{tag}}</text>
+              </view>
+              <view class='r'>{{item.km}}</view>
+            </view>
+          </view>
+        </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 优惠券 -->
+<view style='background:#f6f6f6;' class='layer {{couponDisplyClick}}' catchtap='couponDisplyNClick'>
+  <scroll-view scroll-y style='height:{{ winHeight+ "px" }};'>
+    <view catchtap='couponliClick' data-id='{{item.id}}' data-index='{{index}}' data-cost='{{item.cost}}' wx:for="{{orderdata.coupon}}" wx:key="this" wx:for-index="index" wx:for-item="item" class='couponlist {{ couponindex == index ? "couponlistselect":"" }}'>
+      <view class='left'>{{item.cost}}元</view>
+      <view class='right'>满{{item.condition}}元可用</view>
+      <image src='/images/washsure.png' class='sImg' ></image>
+    </view>
+  </scroll-view>
+</view>

@@ -8,9 +8,13 @@ var filters = {
       var text = text.substring(0, size) + '...';
     }
     return text
+  },
+  NumberJs:function(val){
+    return Number(val)
   }
 }
 module.exports = {
   toFix: filters.toFix,
-  toWords: filters.toWords
+  toWords: filters.toWords,
+  NumberJs: filters.NumberJs,
 }

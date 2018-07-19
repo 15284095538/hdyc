@@ -439,3 +439,70 @@
   vertical-align: middle;
   margin: 0 20rpx 7rpx 0;
 }
+
+/*主容器*/
+.stepper {
+	width: 100px;
+	height: 26px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+ 
+/*加号和减号*/
+.stepper text {
+	width: 29px;
+	line-height: 26px;
+	text-align: center;
+	float: left;
+}
+ 
+/*数值*/
+.stepper input {
+	width: 40px;
+	height: 26px;
+	float: left;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 12px;
+	/*给中间的input设置左右边框即可*/
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+ 
+/*普通样式*/
+.stepper .normal{
+	color: black;
+}
+ 
+/*禁用样式*/
+.stepper .disabled{
+	color: #ccc;
+}
+
+.cpcsul{
+  width: 690rpx;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.cpcsul .li{
+  border-bottom: 1rpx solid #e7e7e7;
+  height: 81rpx;
+}
+.cpcsul .left{
+  width: 200rpx;
+  text-align: left;
+  font-size: 28rpx;
+  float: left;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.cpcsul .right{
+  width: 450rpx;
+  text-align: left;
+  font-size: 28rpx;
+  float: right;
+  height: 80rpx;
+  line-height: 80rpx;
+}

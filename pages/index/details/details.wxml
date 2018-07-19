@@ -97,7 +97,7 @@
     <image src='/images/tel.png'></image>
     <view>预约/咨询</view>
   </view>
-  <view class='pay'>去结算</view>
+  <view catchtap='payclick' class='pay'>去结算</view>
 </view>
 
 </view>

@@ -30,7 +30,7 @@ Page({
     if (this.data.phone.length < 11 && this.data.phone.length ){
       wx.showToast({
         title: '请输入正确手机号',
-        icon: 'success',
+        icon: 'none',
         duration: 500,
         mask: true
       })
@@ -39,7 +39,7 @@ Page({
     if (!myreg.test(this.data.phone) ){
       wx.showToast({
         title: '请输入正确手机号',
-        icon: 'success',
+        icon: 'none',
         duration: 500,
         mask: true
       })
@@ -48,14 +48,14 @@ Page({
     if (!this.data.name ){
       wx.showToast({
         title: '请输入联系人',
-        icon: 'success',
+        icon: 'none',
         duration: 500,
         mask: true
       })
       return false
     }
     wx.showToast({
-      title: '请输入联系人',
+      title: '加载中',
       icon: 'loading',
       duration: 55500,
       mask: true
