@@ -124,6 +124,12 @@ Page({
       duration: 55000,
       mask: true
     })
+    var value_id;
+    if (this.data.selectSx ){
+      value_id = this.data.selectSx.value_id
+    }else{
+      value_id = ''
+    }
     var that = this;
     wx.request({//获取分类
       url: url + 'shopping/setCar',
@@ -133,7 +139,7 @@ Page({
         goods_id: this.data.goods_id,
         number: this.data.num,
         goods_type:0,
-        value_id: this.data.selectSx.value_id,
+        value_id: value_id,
       },
       success: function (res) {
         if( res.data.code == 200 ){
@@ -145,7 +151,7 @@ Page({
           })
         }else{
           wx.showToast({
-            title: '重新添加',
+            title: '重新加入购物车',
             icon: 'success',
             duration: 500,
             mask: true
@@ -192,8 +198,14 @@ Page({
     })
   },
   payclick(e) {
+    var value_id;
+    if (this.data.selectSx) {
+      value_id = this.data.selectSx.value_id
+    } else {
+      value_id = ''
+    }
     wx.navigateTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + '&goods_type=0'
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + value_id + '&goods_type=0' + '&num=' + this.data.num
     })
   },
   getAttr(e){
@@ -244,7 +256,11 @@ Page({
             dettels: res.data.data,
             selectSx: res.data.data.sx.data[0]
           })
-          that.getAttr();
+          if (res.data.data.sx.data.length > 0 ){
+            that.getAttr();
+          }else{
+            wx.hideToast();
+          }
         }else{
           wx.showToast({
             title: '请求失败',

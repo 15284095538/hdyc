@@ -29,7 +29,7 @@ Page({
   },
   payclick(e){
     wx.navigateTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + '&goods_type=1' + '&num='
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + '&goods_type=1' + '&num=1'
     })
   },
   ToPage(){

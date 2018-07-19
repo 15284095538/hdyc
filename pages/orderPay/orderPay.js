@@ -75,7 +75,7 @@ Page({
         goods_type: this.data.goods_type,
         store_id: this.data.store_id,
         value_id: this.data.value_id,
-        num: this.data.num,
+        number: this.data.num,
         openid: wx.getStorageSync('userinfo').openid,
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
         level: wx.getStorageSync('userinfo').level,
