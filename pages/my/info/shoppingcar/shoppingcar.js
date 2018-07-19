@@ -109,33 +109,38 @@ Page({
     this.data.carts[index].isSelect = !this.data.carts[index].isSelect;
     //价钱统计
     if (this.data.carts[index].isSelect) {
-      this.data.totalMoney = Number(this.data.totalMoney + this.data.carts[index].price);
+      this.data.totalMoney = Number(this.data.totalMoney + Number(this.data.carts[index].price));
     }
     else {
-      this.data.totalMoney = Number(this.data.totalMoney - this.data.carts[index].price);
+      this.data.totalMoney = Number(this.data.totalMoney - Number(this.data.carts[index].price));
     }
     //是否全选判断
     for (i = 0; i < this.data.carts.length; i++) {
       Allprice = Allprice + this.data.carts[i].price;
-      console.log(this.data.carts[i]);
-      if(this.data.gid==""){
+      if (this.data.carts[i].isSelect==true){
+        if(this.data.gid==""){
         this.data.gid = this.data.carts[i].goods_id;
       }else{
         this.data.gid = this.data.gid + "," + this.data.carts[i].goods_id;
       }
-      console.log(this.data.gid);
+      }
+      
     }
+
+    console.log(this.data.gid);
     if (Allprice == this.data.totalMoney) {
       this.data.isAllSelect = true;
     }
     else {
       this.data.isAllSelect = false;
+      this.data.gid='';
     }
     this.setData({
       carts: this.data.carts,
       totalMoney: this.data.totalMoney,
       isAllSelect: this.data.isAllSelect,
     })
+    
   },
   //全选
   allSelect: function (e) {
@@ -144,14 +149,13 @@ Page({
     if (!this.data.isAllSelect) {
       for (i = 0; i < this.data.carts.length; i++) {
         this.data.carts[i].isSelect = true;
-        this.data.totalMoney = Math.floor((this.data.totalMoney + this.data.carts[i].price) * 100) / 100 ;
-        console.log(this.data.carts[i]);
+        this.data.totalMoney = Math.floor((this.data.totalMoney + Number(this.data.carts[i].price)) * 100) / 100 ;
         if (this.data.gid == "") {
           this.data.gid = this.data.carts[i].goods_id;
         } else {
           this.data.gid = this.data.gid + "," + this.data.carts[i].goods_id;
         }
-        console.log(this.data.gid);
+        
       }
     }
     else {
@@ -159,12 +163,14 @@ Page({
         this.data.carts[i].isSelect = false;
       }
       this.data.totalMoney = 0;
+      this.data.gid='';
     }
     this.setData({
       carts: this.data.carts,
       isAllSelect: !this.data.isAllSelect,
       totalMoney: this.data.totalMoney,
     })
+    console.log(this.data.gid);
   },
   // 去结算
   toBuy() {

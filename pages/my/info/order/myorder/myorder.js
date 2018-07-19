@@ -120,8 +120,8 @@ Page({
     wx.request({//获取订单信息
       url: url + 'user/myOrderList',
       data: {
-        //'openid': value.openid,
-        'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'openid': value.openid,
+        //'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
         'status': e, 
       },
       method: 'POST',
