@@ -5,10 +5,12 @@
   <view class='tuijian'>
     <view class='tuitu'>
       <block wx:for="{{12}}" wx:key="this">
+      <navigator url='/pages/my/info/integral/list/list'>
         <view class='xiao'>
           <image src='/images/xj.png'></image>
           <view>只能后视镜</view>
         </view>
+        </navigator>
       </block>
     </view>
   </view>

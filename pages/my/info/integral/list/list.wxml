@@ -1,2 +1,13 @@
 <!--pages/my/info/integral/list/list.wxml-->
-<text>pages/my/info/integral/list/list.wxml</text>
+<view class='list'>
+  <view data-goods_id='{{item.goods_id}}' class='li' wx:for="{{list}}" wx:key="this" wx:for-item="item" >
+  <navigator url='/pages/my/info/integral/details/details'>
+    <view class='img'> <image src='{{item.g_picture}}'></image> </view>
+    <view class='text'>
+      <view class='name'>{{item.g_name}}</view>
+      <view class='p'> <text>已售{{item.ys}}件</text> | <text>{{item.pl}}人评论</text> </view>
+      <view class='dorl'><text class='price'>{{item.price}}</text><text class='flex'>10海豆币</text></view>
+    </view>
+    </navigator>
+  </view>
+</view>
