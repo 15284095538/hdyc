@@ -9,7 +9,8 @@ Page({
     // 商品详情介绍
     carts: [
 
-    ]
+    ],
+    gid:"",
   },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index==1){
@@ -99,10 +100,11 @@ Page({
   },
   //勾选事件处理函数  
   switchSelect: function (e) {
+    
     // 获取item项的id，和数组的下标值  
     var Allprice = 0, i = 0;
     let id = e.target.dataset.id,
-
+   
       index = parseInt(e.target.dataset.index);
     this.data.carts[index].isSelect = !this.data.carts[index].isSelect;
     //价钱统计
@@ -115,6 +117,13 @@ Page({
     //是否全选判断
     for (i = 0; i < this.data.carts.length; i++) {
       Allprice = Allprice + this.data.carts[i].price;
+      console.log(this.data.carts[i]);
+      if(this.data.gid==""){
+        this.data.gid = this.data.carts[i].goods_id;
+      }else{
+        this.data.gid = this.data.gid + "," + this.data.carts[i].goods_id;
+      }
+      console.log(this.data.gid);
     }
     if (Allprice == this.data.totalMoney) {
       this.data.isAllSelect = true;
@@ -136,6 +145,13 @@ Page({
       for (i = 0; i < this.data.carts.length; i++) {
         this.data.carts[i].isSelect = true;
         this.data.totalMoney = Math.floor((this.data.totalMoney + this.data.carts[i].price) * 100) / 100 ;
+        console.log(this.data.carts[i]);
+        if (this.data.gid == "") {
+          this.data.gid = this.data.carts[i].goods_id;
+        } else {
+          this.data.gid = this.data.gid + "," + this.data.carts[i].goods_id;
+        }
+        console.log(this.data.gid);
       }
     }
     else {

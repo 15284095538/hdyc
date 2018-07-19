@@ -1,6 +1,7 @@
 .mycars .cart_container {
   display: flex;
   flex-direction: row;
+  height: 120rpx;
   border-bottom: 1px solid #aeaeae;
 }
 .mycars{
@@ -41,10 +42,9 @@
 }
 
 .mycars .title {
-  width: 300rpx;
+  width: 400rpx;
   font-size: 28rpx;
-   margin-top: 20rpx; 
-  line-height: 160rpx;
+  line-height: 120rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -76,8 +76,8 @@
 }
 
 .mycars .item-image {
-  width: 160rpx;
-  height: 160rpx;
+  width: 80rpx;
+  height: 80rpx;
   margin: 20rpx 20rpx 20rpx 40rpx;
 }
 
@@ -156,12 +156,13 @@
 
 .mycars .del {
   background-color: #e64340;
-  width: 160rpx;
+  width: 65rpx;
   z-index: 4;
   right: 0;
   color: #fff;
   display: none;
-  padding: 70rpx;
+  padding: 45rpx 30rpx;
+  font-size: 30rpx;
 }
 .mycars .mrcar{
   background-color: #11a8e1;

@@ -21,6 +21,24 @@ Page({
         tel:'',
   },
   searchBox: function (e) {
+    if (this.data.tel==""){
+      wx.showToast({
+        title: '手机号不能为空',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      });
+      return false;
+    }
+    if (this.data.name==""){
+      wx.showToast({
+        title: '姓名不能为空',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      });
+      return false;
+    }
     var that = this;
     wx.showToast({
       title: '提交中',

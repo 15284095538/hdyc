@@ -20,8 +20,10 @@
   <view class='tuijian'>
     <view class='tou'>
       <view class='wntj'>为你推荐</view>
+      <navigator url='/pages/my/info/integral/feilei/fenlei'>
       <image src='/images/more.png'></image>
       <view class='gd'>更多</view>
+      </navigator>
       <view style='clear:both;'></view>
     </view>
     <view class='tuitu'>
@@ -37,8 +39,10 @@
   <view class='tuijian'>
     <view class='tou'>
       <view class='wntj'>超值推荐</view>
+      <navigator url='/pages/my/info/integral/feilei/fenlei'>
       <image src='/images/more.png'></image>
       <view class='gd'>更多</view>
+      </navigator>
       <view style='clear:both;'></view>
     </view>
     <view class='tuitu'>

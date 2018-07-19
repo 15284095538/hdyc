@@ -1,0 +1,88 @@
+.mypoints{
+  background-color: #f6f6f6;
+  height: 1205rpx;
+}
+.mypoints .header{
+  height: 159rpx;
+  background-color: #11a8e1;
+}
+.mypoints .header .nei{
+  width: 690rpx;
+  margin-left: 30rpx;
+}
+.mypoints .header .nei .pic{
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 65rpx;
+  float: left;
+  border: 1rpx solid #fff;
+}
+.mypoints .header .text{
+  float: left;
+  margin-left: 30rpx;
+}
+.text .name{
+  color: #fff;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  
+}
+.text .number{
+  color: #fff;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+}
+.text .number text{
+  font-size: 26rpx;
+}
+.mypoints .header  .more{
+  float: right;
+  width: 18rpx;
+  height: 33rpx;
+  padding-top: 50rpx;
+}
+.mypoints .tuijian .tou{
+  margin-top: 40rpx;
+}
+.mypoints .tuijian{
+  font-size: 28rpx;
+}
+.tuijian .wntj{
+  float: left;
+  margin-left: 30rpx;
+  margin-top: 2rpx;
+}
+.tuijian .gd{
+  float: right;
+  margin-top: 2rpx;
+  margin-right: 10rpx;
+}
+.tou image{
+  float: right;
+  width: 18rpx;
+  height: 33rpx;
+  margin-right: 30rpx;
+}
+.tuijian .tuitu{
+  background: #fff;
+  height: 624rpx;
+  padding-left: 30rpx;
+  padding-top: 30rpx;
+}
+.tuitu .xiao{
+  width: 172rpx;
+  height: 208rpx;
+  float: left;
+  background-color: #fff;
+  border-bottom: 1px solid #f6f6f6
+}
+.xiao image{
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 60rpx;
+  margin-left: 16rpx;
+}
+.xiao view{
+  margin-top: 25rpx;
+  text-align: center;
+}

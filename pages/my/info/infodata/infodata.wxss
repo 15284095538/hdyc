@@ -18,7 +18,6 @@
  width: 80rpx;
  height: 80rpx;
  padding-top: 20rpx;
- border-radius: 40rpx;
  float: right;
  border-bottom: 5px soild #4d4d4d;
 }

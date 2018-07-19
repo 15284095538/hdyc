@@ -11,7 +11,7 @@
   <view wx:for="{{carts}}"  wx:key="this">
     <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
  
-      <image class="item-select" bindtap="switchSelect" data-index="{{index}}" data-id="{{index}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
+      <image class="item-select" bindtap="switchSelect" data-index="{{index}}" id="{{item.goods_id}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
       <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
       <image hidden="{{currentIndex!==1&&currentIndex!==2}}" class="item-image" src="{{item.car_img}}"></image>
       <image hidden="{{currentIndex!==0}}" class="item-image" src="{{item.g_picture}}"></image>

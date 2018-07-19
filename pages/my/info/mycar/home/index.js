@@ -68,7 +68,7 @@ Page({
       var disX = that.data.startX - endX;
       var delBtnWidth = that.data.delBtnWidth;
       //如果距离小于删除按钮的1/2，不显示删除按钮  
-      var sty = disX > delBtnWidth / 2 ? "margin-left:-" + 150 + "rpx" : "left:0px";
+      var sty = disX > delBtnWidth / 2 ? "margin-left:-" + 110 + "rpx" : "left:0px";
       var txt = disX > delBtnWidth / 2 ? "display:flex " : "display:none";
       that.data.carts[index].Style = sty;
       that.data.carts[index].txtStyle = txt;
