@@ -23,6 +23,12 @@ Page({
     this.page.pages = 1;
     this.getdata();
   },
+  detClick(e){
+    var goods_id = e.currentTarget.dataset.goods_id;
+    wx.navigateTo({
+      url: '/pages/index/suppliescar/details/details?goods_id=' + goods_id
+    })
+  },
   ChangeSelect(e){
     var selectid = e.currentTarget.dataset.id;
     var category_id = e.currentTarget.dataset.category_id;

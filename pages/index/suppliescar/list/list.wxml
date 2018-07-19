@@ -10,7 +10,7 @@
 
 
 <view class='list'>
-  <view data-goods_id='{{item.goods_id}}' class='li' wx:for="{{list}}" wx:key="this" wx:for-item="item" >
+  <view catchtap='detClick' data-goods_id='{{item.goods_id}}' class='li' wx:for="{{list}}" wx:key="this" wx:for-item="item" >
     <view class='img'> <image src='{{item.g_picture}}'></image> </view>
     <view class='text'>
       <view class='name'>{{item.g_name}}</view>

@@ -27,6 +27,11 @@ Page({
   onReachBottom: function () {
     this.setData({ bot:true })
   },
+  payclick(e){
+    wx.navigateTo({
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + '&goods_type=1'
+    })
+  },
   ToPage(){
     wx.navigateTo({
       url: '/pages/index/comment/comment?goods_id=' + this.data.goods_id
@@ -105,7 +110,8 @@ Page({
         if (res.data.code == 200) {
           that.setData({
             details: res.data.data.details[0],
-            pinglun: res.data.data.eval
+            pinglun: res.data.data.eval,
+            store_id: res.data.data.details[0].store_id
           })
           wx.hideToast();
         }
