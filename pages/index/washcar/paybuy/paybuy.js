@@ -34,6 +34,7 @@ Page({
         duration: 500,
         mask: true
       })
+      return false
     }
     if (!myreg.test(this.data.phone) ){
       wx.showToast({
@@ -42,6 +43,7 @@ Page({
         duration: 500,
         mask: true
       })
+      return false
     }
     if (!this.data.name ){
       wx.showToast({
@@ -50,7 +52,14 @@ Page({
         duration: 500,
         mask: true
       })
+      return false
     }
+    wx.showToast({
+      title: '请输入联系人',
+      icon: 'loading',
+      duration: 55500,
+      mask: true
+    })
     var that = this;
     wx.request({//获取内容
       url: url + 'order/addOrder',
@@ -64,6 +73,7 @@ Page({
       },
       method: 'POST',
       success: res => {
+        wx.hideToast();
         wx.requestPayment({
           'timeStamp': res.data.timeStamp,
           'nonceStr': res.data.nonceStr,
@@ -71,6 +81,12 @@ Page({
           'signType': 'MD5',
           'paySign': res.data.paySign,
           'success': function (res) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
             wx.switchTab({
               url: '/pages/my/home/index'
             })
