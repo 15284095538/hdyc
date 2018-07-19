@@ -22,7 +22,10 @@ Page({
     lastY: 0,     //滑动开始y轴位置
     currentGesture: 0, //标识手势
     selectSx:[],
-    shuxIndex:0
+    shuxIndex:0,
+    ershuxIndex:0,
+    num: 1,
+    minusStatus: 'disabled'
   },
   onLoad(e){
     this.setData({ goods_id: e.goods_id })
@@ -43,8 +46,37 @@ Page({
   layerLiftcarclick(e){
     this.setData({ layerLiftcarDisplay: 'block' })
   },
-  //滑动移动事件
-  handletouchmove: function (event) {
+  bindMinus: function () {
+    var num = this.data.num;
+    // 如果大于1时，才可以减
+    if (num > 1) {
+      num--;
+    }
+    // 只有大于一件的时候，才能normal状态，否则disable状态
+    var minusStatus = num <= 1 ? 'disabled' : 'normal';
+    // 将数值与状态写回
+    this.setData({
+      num: num,
+      minusStatus: minusStatus
+    });
+  },
+  /* 点击加号 */
+  bindPlus: function () {
+    var num = this.data.num;
+    num++;
+    var minusStatus = num < 1 ? 'disabled' : 'normal';
+    this.setData({
+      num: num,
+      minusStatus: minusStatus
+    });
+  },
+  bindManual: function (e) {
+    var num = e.detail.value;
+    this.setData({
+      num: num
+    });
+  },
+  handletouchmove: function (event) {//滑动移动事件
     var currentX = event.touches[0].pageX
     var currentY = event.touches[0].pageY
     var tx = currentX - this.data.lastX
@@ -85,6 +117,44 @@ Page({
     }
 
   },
+  goshoppingcar(e){
+    wx.showToast({
+      title: '请稍后',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    var that = this;
+    wx.request({//获取分类
+      url: url + 'shopping/setCar',
+      method: 'POST',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+        goods_id: this.data.goods_id,
+        number: this.data.num,
+        goods_type:0,
+        value_id: this.data.selectSx.value_id,
+      },
+      success: function (res) {
+        if( res.data.code == 200 ){
+          wx.showToast({
+            title: '加入购物车成功',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+        }else{
+          wx.showToast({
+            title: '重新添加',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+        }
+        
+      }
+    })
+  },
   onReachBottom: function () {
     this.setData({ bot: true })
   },
@@ -94,12 +164,63 @@ Page({
     var price = e.currentTarget.dataset.price;
     var inventory = e.currentTarget.dataset.inventory;
     var value_id = e.currentTarget.dataset.value_id;
+    var name = e.currentTarget.dataset.name;
     this.setData({
       ['selectSx.img']: img,
+      ['selectSx.name']: name,
       ['selectSx.price']: price,
       ['selectSx.inventory']: inventory,
       ['selectSx.value_id']: value_id,
       shuxIndex: index,
+    })
+    this.getAttr();
+  },
+  ershuxClick(e){
+    var index = e.currentTarget.dataset.index;
+    var img = e.currentTarget.dataset.img;
+    var price = e.currentTarget.dataset.price;
+    var inventory = e.currentTarget.dataset.inventory;
+    var value_id = e.currentTarget.dataset.value_id;
+    var name = e.currentTarget.dataset.name;
+    this.setData({
+      ['selectSx.img']: img,
+      ['selectSx.name']: name,
+      ['selectSx.price']: price,
+      ['selectSx.inventory']: inventory,
+      ['selectSx.value_id']: value_id,
+      ershuxIndex: index,
+    })
+  },
+  payclick(e) {
+    wx.navigateTo({
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + '&goods_type=0'
+    })
+  },
+  getAttr(e){
+    var that = this;
+    wx.request({//获取分类
+      url: url + 'goods/goods_value',
+      method: 'POST',
+      data: {
+        id: this.data.goods_id,
+        level: wx.getStorageSync('userinfo').level,
+        value_id: this.data.selectSx.value_id
+      },
+      success: function (res) {
+        wx.hideToast();
+        that.setData({
+          attributes: res.data.data,
+        })
+        if( res.data.data.data.length > 0 ){
+          that.setData({
+            ['selectSx.img']: res.data.data.data[0].img,
+            ['selectSx.price']: res.data.data.data[0].price,
+            ['selectSx.name']: res.data.data.data[0].name,
+            ['selectSx.inventory']: res.data.data.data[0].inventory,
+            ['selectSx.value_id']: res.data.data.data[0].id,
+          })
+        }
+      }
     })
   },
   getdata(e) {//获取数据
@@ -119,11 +240,11 @@ Page({
       },
       success: function (res) {
         if( res.data.code == 200 ){
-          wx.hideToast();
           that.setData({
             dettels: res.data.data,
             selectSx: res.data.data.sx.data[0]
           })
+          that.getAttr();
         }else{
           wx.showToast({
             title: '请求失败',

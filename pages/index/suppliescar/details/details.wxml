@@ -38,8 +38,8 @@
 </view>
 
 <view class='detalifot'>
-  <view class='li'>加入购物车</view>
-  <view class='li'>立即购买</view>
+  <view catchtap='goshoppingcar' class='li'>加入购物车</view>
+  <view catchtap='payclick' class='li'>立即购买</view>
 </view>
 
 
@@ -101,7 +101,21 @@
 
       <view class='bt'>{{dettels.sx.name}}</view>
       <view class='ul'>
-         <view catchtap='shuxClick' wx:for="{{dettels.sx.data}}" data-index='{{index}}' data-img='{{item.img}}' data-price='{{item.price}}' data-inventory='{{item.inventory}}' data-value_id='{{item.value_id}}' wx:key="this" wx:for-index="index" wx:for-item="item" class='li {{ shuxIndex == index ? "select":"" }}'>{{item.val}}</view>
+         <view catchtap='shuxClick' wx:for="{{dettels.sx.data}}" data-index='{{index}}' data-name='{{item.name}}' data-img='{{item.img}}' data-price='{{item.price}}' data-inventory='{{item.inventory}}' data-value_id='{{item.value_id}}' wx:key="this" wx:for-index="index" wx:for-item="item" class='li {{ shuxIndex == index ? "select":"" }}'>{{item.val}}</view>
+      </view>
+      <view wx:if="{{attributes.name}}" class='bt'>{{attributes.name}}</view>
+      <view class='ul'>
+        <view wx:if="{{attributes.name}}" catchtap='ershuxClick' wx:for="{{attributes.data}}" data-index='{{index}}' data-img='{{item.img}}' data-price='{{item.price}}' data-name='{{item.name}}' data-inventory='{{item.inventory}}' data-value_id='{{item.id}}' wx:key="this" wx:for-index="index" wx:for-item="item" class='li {{ ershuxIndex == index ? "select":"" }}'>{{item.val}}</view>
+      </view>
+      <view class='bt'>数量</view>
+
+      <view class="stepper">
+        <!-- 减号 -->
+        <text class="{{minusStatus}}" catchtap="bindMinus">-</text>
+        <!-- 数值 -->
+        <input type="number" bindchange="bindManual" value="{{num}}" />
+        <!-- 加号 -->
+        <text class="normal" catchtap="bindPlus">+</text>
       </view>
 
     <view class='sure'>确定</view>
@@ -112,37 +126,13 @@
 <view class='layerLiftcar {{layerLiftcarDisplay}}' catchtap='bglayerLiftcarclick'>
   <view class='box'>
     <view class='top'>
-      <view class='tit'>提车流程</view>
+      <view class='tit'>产品参数</view>
       <view class='img'><image src='/images/cha@3x.png'></image></view>
     </view>
-    <view class='ul'>
-      <view class='li'>
-        <view class='img'><image src='/images/netcar_flow1.png'></image></view>
-        <view class='text'>
-          <view class='t'>在线预约</view>
-          <view class='b'>选中意向车型，在线提交手机号、身份证号客服将在24小时内向您核对身份信息</view>
-        </view>
-      </view>
-      <view class='li'>
-        <view class='img'><image src='/images/netcar_flow2.png'></image></view>
-        <view class='text'>
-          <view class='t'>支付定金</view>
-          <view class='b'>身份信息审核通过后在线支付定金</view>
-        </view>
-      </view>
-      <view class='li'>
-        <view class='img'><image src='/images/netcar_flow3.png'></image></view>
-        <view class='text'>
-          <view class='t'>支付费用</view>
-          <view class='b'>再次确定首付和月供方案可线上或线下支付相关费用</view>
-        </view>
-      </view>
-      <view class='li'>
-        <view class='img'><image src='/images/netcar_flow4.png'></image></view>
-        <view class='text'>
-          <view class='t'>坐等提车</view>
-          <view class='b'>车辆完成保险、上牌等相关手续后客服将在第一时间联系您提车，请保持手机通畅</view>
-        </view>
+    <view class='cpcsul'>
+      <view class="li" wx:for="{{dettels.g_parameters}}" wx:key="this" wx:-item="item">
+        <view class='left'>{{item.par_name}}</view>
+        <view class='right'>{{item.par_info}}</view>
       </view>
     </view>
   </view>

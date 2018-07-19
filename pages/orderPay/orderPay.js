@@ -11,6 +11,7 @@ Page({
     spDisplay:'none',
     couponDisplyClick:"none",
     couponindex:0,
+    num:'',
     paycoupon:{
       id:'',
       cost:''
@@ -22,7 +23,8 @@ Page({
       goods_id: e.goods_id,
       goods_type: e.goods_type,
       store_id: e.store_id,
-      value_id: e.value_id
+      value_id: e.value_id,
+      num: e.num,
     })
     wx.getSystemInfo({
       success: function (res) {
@@ -73,6 +75,7 @@ Page({
         goods_type: this.data.goods_type,
         store_id: this.data.store_id,
         value_id: this.data.value_id,
+        num: this.data.num,
         openid: wx.getStorageSync('userinfo').openid,
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
         level: wx.getStorageSync('userinfo').level,
@@ -90,11 +93,6 @@ Page({
             ['paycoupon.cost']: paycouponcost
           })
           wx.hideToast();
-
-
-           console.log(that.data.orderdata.count_price )
-           console.log(that.data.orderdata.store.service_price )
-           console.log(that.data.paycoupon.cost )
         }
       }
     })
