@@ -11,6 +11,7 @@ Page({
 
     ],
     gid:"",
+    vule_id:'',
   },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index==1){
@@ -101,6 +102,9 @@ Page({
     }
 
     console.log(this.data.gid);
+
+    var gid = this.data.gid
+
     if (Allprice == this.data.totalMoney) {
       this.data.isAllSelect = true;
     }
@@ -112,6 +116,7 @@ Page({
       carts: this.data.carts,
       totalMoney: this.data.totalMoney,
       isAllSelect: this.data.isAllSelect,
+      vule_id: gid,
     })
     
   },
@@ -138,23 +143,30 @@ Page({
       this.data.totalMoney = 0;
       this.data.gid='';
     }
+    var gid = this.data.gid
     this.setData({
       carts: this.data.carts,
       isAllSelect: !this.data.isAllSelect,
       totalMoney: this.data.totalMoney,
+      vule_id: gid
     })
     console.log(this.data.gid);
   },
   // 去结算
   toBuy() {
-    wx.showToast({
-      title: '去结算',
-      icon: 'success',
-      duration: 3000
-    });
-    this.setData({
-      showDialog: !this.data.showDialog
-    });
+    if (this.data.vule_id ){
+      wx.navigateTo({
+        url: '/pages/orderPay/orderPay?goods_id=' + this.data.vule_id + '&store_id=' + '&value_id=' + '&goods_type=0' + '&num='
+      })
+    }else{
+      wx.showToast({
+        title: '请选择商品',
+        icon: 'success',
+        duration: 500,
+        mask: true
+      })
+    }
+    
   },
   //数量变化处理
   handleQuantityChange(e) {

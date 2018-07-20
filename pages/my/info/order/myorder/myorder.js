@@ -1,52 +1,24 @@
 // pages/my/info/order/myorder/myorder.js
 var url = getApp().globalData.publicUrl;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-     
     navbar: ["全部", "待付款", "待安装","待评价","退换货"],
     currentIndex: 0,//tabbar索引
-    carts:[
-      
-    ],
+    carts:[],
     num: 5,
-    scrollHeight:0
+    scrollHeight:0,
+    status:10,
   },
   page: {
     pages: 1,
     pagebuler: true
   },
-  // loadMore: function () {//上拉加载更多
-  //    if (this.page.pagebuler) {
-      
-  //     this.page.pages++;
-  //     if (this.data.currentIndex==0){
-  //       this.getdata(10);
-  //     }else{
-  //       this.getdata(this.data.currentIndex-1);
-  //     }
-  //   }
-  // },
-  // refresh: function () {
-  //   wx.showNavigationBarLoading() //在标题栏中显示加载
-  //   this.page.pages = 1;
-  //   this.page.pagebuler = true
-  //   if (this.data.currentIndex == 0) {
-  //     this.getdata(10);
-  //   } else {
-  //     this.getdata(this.data.currentIndex - 1);
-  //   }
-  // },
   onReachBottom: function () { //上拉加载更多
     var that = this;
     if (that.page.pagebuler) {
       that.page.pages++;
       that.getdata();
     }
-    console.log('fff');
   },
   onPullDownRefresh: function () { //下拉刷新
     var that = this;
@@ -54,39 +26,40 @@ Page({
     that.page.pages = 1;
     that.page.pagebuler = true
     that.getdata();
-    console.log('sss');
   },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index == 0) {
-      this.getdata(10);
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
+        status:10,
       })
     }
     if (e.currentTarget.dataset.index == 1) {
-      this.getdata(0);
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
+        status:0
       })
     }
     if (e.currentTarget.dataset.index == 2) {
-      this.getdata(1);
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
+        status:1
       })
     }
     if (e.currentTarget.dataset.index == 3) {
-      this.getdata(2);
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
+        status:2
       })
     }
     if (e.currentTarget.dataset.index == 4) {
-      this.getdata(3);
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
+        status:3
       })
     }
+    this.page.pages = 1;
+    this.getdata();
   },
   qxdd:function(e){
    console.log('fafaf');
@@ -98,90 +71,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getdata(options.id);
-    if(Number(options.id)==10){
-      this.setData({
-        ['currentIndex']: 0 ,
-      })
-      return false;
+    var index = 0;
+    if (options.id == 10){
+      index = 0;
+    }else{
+      index = Number(options.id) + 1
     }
     this.setData({
-      ['currentIndex']: Number(options.id) + 1,
+      ['currentIndex']: index,
+      status: options.id
     })
-    var that = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          scrollHeight: res.windowHeight
-        });
-      }
-    });
+    this.getdata(options.id);
   },
   getdata(e) {//获取数据
     var that = this;
-    var value = wx.getStorageSync('userinfo');
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     wx.request({//获取订单信息
       url: url + 'user/myOrderList',
       data: {
         //'openid': value.openid,
         'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-        'status': e, 
+        'status': this.data.status, 
         'page':that.page.pages*10,
       },
       method: 'POST',
       success: function (res) {
-        if(res.data.code == 200){
+        if(res.data.data){
           that.setData({
-            ['carts']: res.data.data
+            ['carts']: res.data.data,
           })
-        }
-        if (res.data.code == 400){
-          that.setData({
-            ['page.pagebuler'] : false
-          })
-          
+          wx.hideToast();
+        }else{
+          that.page.pagebuler = false
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
-            duration: 1000,
+            duration: 500,
             mask: true
           })
-         }
+        }
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  
         wx.stopPullDownRefresh();
-        console.log(res);
       }
     })
 
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
- 
 })

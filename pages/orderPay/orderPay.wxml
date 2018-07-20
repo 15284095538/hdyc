@@ -28,12 +28,12 @@
     <view class='adrdz'>配送到途虎养车工厂</view>
     <image class='more' src='/images/more.png'></image>
   </view>
-</view>  
+</view>
 
 <view class='orderpaySp' catchtap='spDisplayClick'>
   <view class='li'>
-      <scroll-view wx:for="{{orderdata.goods}}" wx:key="this" wx:for-item="item" class="img" scroll-x="true">
-        <view><image src='{{item.img}}'></image></view>
+      <scroll-view class="img" scroll-x="true">
+        <view  wx:for="{{orderdata.goods}}" wx:key="this" wx:for-item="item" ><image src='{{item.img}}'></image></view>
       </scroll-view>
       <view class='sp'>共{{orderdata.goods.length}}件商品</view>
       <image class='more' src='/images/more.png'></image>
