@@ -12,9 +12,9 @@
   </view>
 </view>
 
-<view class='paystore'>
+<view class='paystore' catchtap='storeClick'>
   <view id='list'>
-    <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item" catchtap='ToDetails'>
+    <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item">
       <view class='list-box'>
         <view class='list-img'>
           <image src='{{item.path}}'></image>

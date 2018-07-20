@@ -25,4 +25,9 @@ Page({
       url: '/pages/index/spraypaint/servicelist/servicelist'
     })
   },
+  storeClick(e){
+    wx.navigateTo({
+      url: '/pages/orderStore/orderStore'
+    })
+  }
 })
