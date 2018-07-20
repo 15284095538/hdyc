@@ -27,5 +27,5 @@
 
 <view class='fot'>
   <view class='l'>共计：<text>¥837.20</text></view>
-  <view class='r'>下一步</view>
+  <view catchtap='payClick' class='r'>下一步</view>
 </view>

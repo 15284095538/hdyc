@@ -1,0 +1,142 @@
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
+.listTop{
+  width: 100%;
+  height: 89rpx;
+  border-bottom: 1px solid #e7e7e7;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.listTop .li{
+  width: 349rpx;
+  height: 35rpx;
+  border-right: 1rpx solid #e7e7e7;
+  float: left;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 35rpx;
+  margin-top: 27.5rpx;
+  position: relative;
+}
+.listTop .select{
+  color: #11a8e1;
+}
+.listTop .li:last-child{
+  border: 0;
+}
+.listTop .li image{
+  width: 22rpx;
+  height: 12rpx;
+  margin: 0 0 5rpx 2rpx;
+}
+.listToplayer{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 90rpx;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+.listToplayer .li{
+  padding: 0 20rpx;
+  border-bottom: 1px solid #e7e7e7;
+  height: 99rpx;
+  line-height: 99rpx;
+  background-color: #fff;
+  font-size: 30rpx;
+  color: #333333;
+}
+.listToplayer .select{
+  color: #11a8e1;
+}
+.listToplayeranment{
+  animation:0.3s linear 0s rotate;
+  animation-fill-mode:forwards;
+  -webkit-transition: 0.3s linear 0s rotate;
+  -moz-transition: 0.3s linear 0s rotate;
+  -o-transition: 0.3s linear 0s rotate;
+}
+.list{
+  padding: 90rpx 20rpx 0 20rpx;
+}
+.list .li{
+  height: 190rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.list .li .img{
+  width: 210rpx;
+  height: 190rpx;
+  border-radius: 5rpx;
+  overflow: hidden;
+  float: left;
+}
+.list .li .img image{
+  width: 100%;
+}
+.list .li .con{
+  width: 450rpx;
+  height: 190rpx;
+  float: right;
+}
+.list .li .con .name{
+  height: 50rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #333333;
+}
+.list .li .con .num{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.list .li .con .num text{
+  color: #ff7979;
+  font-weight: bold;
+  margin: 0 5rpx;
+}
+.list .li .con .address{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.list .li .con .price{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color: #aeaeae;
+}
+.list .li .con .price .l{
+  float: left;
+  font-size: 30rpx;
+  color: #ff7979;
+}
+.list .li .con .price .r{
+  float: right;
+}
+
+@keyframes rotate{
+  from{
+    transform: translateY(-100%);
+    opacity:0
+  }
+  to{
+    transform: translateY(0);
+    opacity:1
+  }
+}

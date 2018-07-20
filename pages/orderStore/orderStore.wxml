@@ -1,0 +1,34 @@
+<view class='listTop'>
+  <block wx:for="{{menu}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
+    <view bindtap='listTopclick'  data-key="{{item.key}}" data-id="{{index}}" class='li {{ index == menuid ? "select":"" }}'>
+      {{item.text}} <image class='img1' wx:if="{{ index !== menuid }}" src='{{item.path}}'></image> <image wx:if="{{ index == menuid }}" class='img2' src='{{item.selectpath}}'></image>
+    </view>
+  </block>
+</view>
+
+<!-- 筛选弹层 -->
+<view bindtap="listToplayerclick" class='listToplayer {{display}}' >
+  <view class='listToplayeranment'>
+    <scroll-view scroll-y wx:if="{{ menuid == 0 }}" style='height:{{ cityHeight + "px" }}'  class='listToplayeranment'>
+      <block wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+          <view bindtap="listToplayerLiclick" data-id="{{index}}" data-areaId='{{item.areaId}}' data-text="{{item.areaName}}" class='li {{ index == layerid ? "select":"" }}'>{{item.areaName}}</view>
+      </block>
+    </scroll-view>
+    <block wx:for="{{menulist}}" wx:if="{{ menuid == 1 }}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+      <view data-areaId='{{item.areaId}}' bindtap="listToplayerLiclick" data-id="{{index}}" data-text="{{item.areaName}}" class='li {{ index == layerid ? "select":"" }}'>{{item.areaName}}</view>
+    </block>
+    
+  </view>
+</view>
+
+<view class='list'>
+  <view class='li' data-goods_id='{{item.goods_id}}' catchtap='detLink' wx:for="{{list}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
+    <view class='img'><image src='{{item.s_img}}'></image></view>
+    <view class='con'>
+      <view class='name'>{{item.g_name}}</view>
+      <view class='num'>总评价：<text>{{item.grade}}</text>分  |  总订单：<text>{{item.count}}</text>笔</view>
+      <view class='address'>{{item.s_address}}</view>
+      <view class='price'><text class='l'>{{item.price}}</text><text class='r'>{{item.km}}</text></view>
+    </view>
+  </view>
+</view>

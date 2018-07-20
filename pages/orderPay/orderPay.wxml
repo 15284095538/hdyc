@@ -65,7 +65,7 @@
 <view wx:if="{{ goods_type == 0 }}" class="orderpay" > 
   <view class='li' >
     <text>运费</text>
-    <view class='pri'>￥248.00</view>
+    <view class='pri'>￥{{orderdata.count_exp}}</view>
   </view>
 </view>
 
@@ -78,7 +78,7 @@
 
 <view class='fot'>
   <view wx:if="{{ goods_type == 1 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
-  <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
+  <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.count_exp) - filters.NumberJs(paycoupon.cost) }}</text> </view>
   <view class='right'>提交订单</view>
 </view>
 

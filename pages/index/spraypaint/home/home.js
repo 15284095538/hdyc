@@ -289,7 +289,11 @@ Page({
       }
     }
 
+  },
+  payselect(e){
+    wx.navigateTo({
+      url: '/pages/index/spraypaint/payselect/payselect'
+    })
   }
-  
 })
 
