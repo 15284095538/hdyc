@@ -27,6 +27,11 @@ page{
 .payli .r{
   margin-right: 40rpx;
 }
+.payli .intr{
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 .payli .red{
   color: #ff7979;
 }

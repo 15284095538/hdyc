@@ -19,9 +19,10 @@ Page({
     details:[],
     pinglun: [],
     pingluntj:[],
+    classify:'',
   },
   onLoad(e){
-    this.setData({ goods_id:e.goods_id })
+    this.setData({ goods_id: e.goods_id, classify: e.classify })
     this.getdata();
   },
   onReachBottom: function () {
@@ -29,7 +30,7 @@ Page({
   },
   payclick(e){
     wx.navigateTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + '&goods_type=1' + '&num=1'
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + '&goods_type=1' + '&num=1' + '&classify=' + this.data.classify
     })
   },
   ToPage(){

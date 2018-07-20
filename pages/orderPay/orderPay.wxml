@@ -14,7 +14,7 @@
 </view>
 <!-- 门店 -->
 <view wx:if="{{ goods_type == 1 }}" class="orderpay" style='border-bottom:1rpx dashed #11a8e1;' >
-  <view class='li' style='border:0' >
+  <view class='li' catchtap='storeId' style='border:0' >
     <text>配送地址</text>
     <view class='adr'>配送到 {{orderdata.store.s_name}} </view>
     <view class='km'>{{orderdata.store.km}}</view>

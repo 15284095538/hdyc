@@ -1,14 +1,14 @@
 <view class="payli">
   <view class='li'>
     <text class='l'>联系人</text>
-    <input class='r' placeholder='请输入联系人姓名'></input>
+    <input class='r intr' placeholder='请输入联系人姓名'></input>
   </view>
 </view>
 
 <view class="payli">
   <view class='li' style='border:0;'>
     <text class='l'>联系电话</text>
-    <input class='r' placeholder='请输入联系人电话'></input>
+    <input class='r intr' placeholder='请输入联系人电话'></input>
   </view>
 </view>
 

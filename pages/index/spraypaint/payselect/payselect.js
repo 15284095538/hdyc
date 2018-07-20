@@ -24,5 +24,10 @@ Page({
     wx.navigateTo({
       url: '/pages/index/spraypaint/pay/pay'
     })
+  },
+  carselect(e){
+    wx.navigateTo({
+      url: '/pages/my/info/mycar/home/index?type=1'
+    })
   }
 })

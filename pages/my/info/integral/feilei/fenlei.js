@@ -11,7 +11,7 @@ Page({
   listClick(e){
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/my/info/integral/list/list?id' + id
+      url: '/pages/my/info/integral/list/list?id=' + id
     })
   },
   getdata(e) {//获取数据

@@ -8,6 +8,7 @@ Page({
     store_id:'',
     value_id:'',
     orderdata:[],
+    classify:'',
     spDisplay:'none',
     couponDisplyClick:"none",
     couponindex:0,
@@ -25,6 +26,7 @@ Page({
       store_id: e.store_id,
       value_id: e.value_id,
       num: e.num,
+      classify: e.classify,
     })
     wx.getSystemInfo({
       success: function (res) {
@@ -62,6 +64,11 @@ Page({
       couponindex:index
     })
     this.couponDisplyNClick();
+  },
+  storeId(e){
+    wx.navigateTo({
+      url: '/pages/orderStore/orderStore?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num
+    })
   },
   getdata(e) {//获取数据
     var that = this;

@@ -105,7 +105,7 @@ Page({
   detLink(e){ //详情
     var goods_id = e.currentTarget.dataset.goods_id;
     wx.navigateTo({
-      url: '/pages/index/details/details?goods_id=' + goods_id,
+      url: '/pages/index/details/details?goods_id=' + goods_id + '&classify=' + this.data.classify,
     })
   },
   getdata(e) {//获取数据
