@@ -13,7 +13,6 @@ Page({
       
     ],
     num: 5,
-    page: 1,
     scrollHeight:0
   },
   page: {
@@ -22,12 +21,7 @@ Page({
   },
   // loadMore: function () {//上拉加载更多
   //    if (this.page.pagebuler) {
-  //     wx.showToast({
-  //     title: '上拉成功',
-  //     icon: 'success',
-  //     duration: 1000,
-  //     mask: true
-  //   })
+      
   //     this.page.pages++;
   //     if (this.data.currentIndex==0){
   //       this.getdata(10);
@@ -45,14 +39,23 @@ Page({
   //   } else {
   //     this.getdata(this.data.currentIndex - 1);
   //   }
-    
-  //   wx.showToast({
-  //     title: '下拉成功',
-  //     icon: 'success',
-  //     duration: 1000,
-  //     mask: true
-  //   })
   // },
+  onReachBottom: function () { //上拉加载更多
+    var that = this;
+    if (that.page.pagebuler) {
+      that.page.pages++;
+      that.getdata();
+    }
+    console.log('fff');
+  },
+  onPullDownRefresh: function () { //下拉刷新
+    var that = this;
+    wx.showNavigationBarLoading();
+    that.page.pages = 1;
+    that.page.pagebuler = true
+    that.getdata();
+    console.log('sss');
+  },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index == 0) {
       this.getdata(10);
@@ -120,9 +123,10 @@ Page({
     wx.request({//获取订单信息
       url: url + 'user/myOrderList',
       data: {
-        'openid': value.openid,
-        //'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        //'openid': value.openid,
+        'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
         'status': e, 
+        'page':that.page.pages*10,
       },
       method: 'POST',
       success: function (res) {
@@ -143,6 +147,10 @@ Page({
             mask: true
           })
          }
+        // 隐藏导航栏加载框  
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作  
+        wx.stopPullDownRefresh();
         console.log(res);
       }
     })

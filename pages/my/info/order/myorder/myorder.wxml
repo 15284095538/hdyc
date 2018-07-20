@@ -5,8 +5,8 @@
       <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
     </view>
     </view>
-<scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true"style="height: {{scrollHeight}}px" bindscrolltoupper="refresh" bindscrolltolower="loadMore">
-  <view wx:for="{{carts}}"  wx:key="this">
+<view>
+   <view wx:for="{{carts}}"  wx:key="this">
   
 <view class='dingdan'>
 <view class='dingnum'>
@@ -23,7 +23,7 @@
 </view>
 
 
-<view class='button'>
+  <view class='button'>
 <view class='first'hidden="{{item.order_status!==0}}" bindtap="qxdd">取消订单</view>
 <view class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
 <navigator url="/pages/my/info/order/aftersale/aftersale?id={{item.id}}">
@@ -33,12 +33,12 @@
 <view class='secend'hidden="{{item.order_status!==2}}">评价商品</view>
 </navigator>
 <view class='secend'hidden="{{item.order_status!==3}}" style='border:none;'>退货中</view>
-</view>
-</view>
+</view> 
+</view> 
 </view>
 
-  </view>
-</scroll-view>
+  </view> 
+</view>
 
 
 </view>
