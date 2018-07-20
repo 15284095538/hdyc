@@ -55,7 +55,7 @@
 }
 .tuijian .gd{
   float: right;
-  margin-top: 2rpx;
+  margin-top: -2rpx;
   margin-right: 10rpx;
 }
 .tou image{

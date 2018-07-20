@@ -37,11 +37,13 @@
 }
 .list .li .price{
   color: #ff7979;
-  margin-top: 10rpx;
+  margin-top: 20rpx;
   
 }
 .list .li .flex{
-  margin-top: 10rpx;
   float: right;
   color: #aeaeae;
+}
+.dorl{
+  margin-top: 10rpx;
 }

@@ -4,15 +4,15 @@
   <view class='header'>
     <view class='nei'>
       <view class='pic'>
-        <image class='pic' src='/images/car_03.png'></image>
+        <image class='pic' src='{{userinfo.header}}'></image>
       </view>
       <view class='text'>
-        <view class='name'>阴雨小城</view>
-        <view class='number'>5429
+        <view class='name'>{{userinfo.user_name}}</view>
+        <view class='number'>{{userinfo.hd_coin}}
           <text>海豆币</text>
         </view>
       </view>
-      <image class='more' src='/images/more_bai.png'></image>
+      <!-- <image class='more' src='/images/more_bai.png'></image> -->
     </view>
   </view>
   <!-- 头部结束 -->
@@ -20,17 +20,17 @@
   <view class='tuijian'>
     <view class='tou'>
       <view class='wntj'>为你推荐</view>
-      <navigator url='/pages/my/info/integral/feilei/fenlei'>
+      <navigator url='/pages/my/info/integral/feilei/fenlei?type=1'>
       <image src='/images/more.png'></image>
       <view class='gd'>更多</view>
       </navigator>
       <view style='clear:both;'></view>
     </view>
     <view class='tuitu'>
-      <block wx:for="{{4}}" wx:key="this">
-        <view class='xiao'>
-          <image src='/images/car_03.png'></image>
-          <view>只能后视镜</view>
+      <block wx:for="{{points.tj}}" wx:for-item="item" wx:key="this">
+        <view catchtap='listClick' data-id='{{item.id}}' class='xiao'>
+          <image src='{{item.menu_logo}}'></image>
+          <view>{{item.type_name}}</view>
         </view>
       </block>
     </view>
@@ -39,17 +39,17 @@
   <view class='tuijian'>
     <view class='tou'>
       <view class='wntj'>超值推荐</view>
-      <navigator url='/pages/my/info/integral/feilei/fenlei'>
+      <navigator url='/pages/my/info/integral/feilei/fenlei?type=2'>
       <image src='/images/more.png'></image>
       <view class='gd'>更多</view>
       </navigator>
       <view style='clear:both;'></view>
     </view>
     <view class='tuitu'>
-      <block wx:for="{{4}}" wx:key="this">
-        <view class='xiao'>
-          <image src='/images/car_03.png'></image>
-          <view>只能后视镜</view>
+      <block wx:for="{{points.cz}}" wx:for-item="item" wx:key="this">
+        <view catchtap='listClick' data-id='{{item.id}}' class='xiao'>
+          <image src='{{item.menu_logo}}'></image>
+          <view>{{item.type_name}}</view>
         </view> 
       </block>
     </view>

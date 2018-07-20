@@ -56,7 +56,6 @@
     "pages/index/yhpic/yhpic",
     "pages/orderPay/orderPay",
     "pages/my/info/integral/feilei/fenlei",
-    "pages/my/info/integral/details/details",
     "pages/my/info/integral/list/list",
     "pages/orderStore/orderStore"
   ],

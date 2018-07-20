@@ -1,7 +1,7 @@
-.mypoints{
+page{
   background-color: #f6f6f6;
-  height: 1205rpx;
 }
+
 .mypoints .header{
   height: 159rpx;
   background-color: #11a8e1;
@@ -65,9 +65,8 @@
 }
 .tuijian .tuitu{
   background: #fff;
-  height: 624rpx;
-  padding-left: 30rpx;
-  padding-top: 30rpx;
+  padding: 30rpx;
+  overflow: hidden;
 }
 .tuitu .xiao{
   width: 172rpx;
