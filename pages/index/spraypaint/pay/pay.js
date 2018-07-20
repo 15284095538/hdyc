@@ -17,10 +17,12 @@ Page({
       }
     ]
   },
-  onReady: function () {
-    
-  },
   onLoad() {
 
+  },
+  listClick(e){
+    wx.navigateTo({
+      url: '/pages/index/spraypaint/servicelist/servicelist'
+    })
   },
 })

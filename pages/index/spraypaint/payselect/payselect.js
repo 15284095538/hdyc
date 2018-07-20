@@ -19,5 +19,10 @@ Page({
   selectclick(e) {
     var selectid = e.currentTarget.dataset.selectid;
     this.setData({ selectid: selectid, })
+  },
+  payClick(e){
+    wx.navigateTo({
+      url: '/pages/index/spraypaint/pay/pay'
+    })
   }
 })
