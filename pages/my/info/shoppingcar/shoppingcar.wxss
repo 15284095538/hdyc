@@ -33,6 +33,10 @@
   margin-top: 40rpx;
 }
 
+.buycar .sku-price1{
+  width: 200rpx;
+}
+
 .buycar .price {
   color: red;
   position: relative;
@@ -149,6 +153,14 @@
 .buycar .yg {
   color: red;
   width: 200rpx;
+  position: relative;
+  top: 20rpx;
+  font-size: 26rpx;
+  left: 20rpx;
+}
+
+.buycar .number {
+  width: 50rpx;
   position: relative;
   top: 20rpx;
   font-size: 26rpx;

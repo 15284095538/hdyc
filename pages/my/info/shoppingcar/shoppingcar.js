@@ -1,7 +1,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
-    navbar: ["车用品", "网约车","新车"],
+    navbar: ["车用品","新车"],
     currentIndex: 0,//tabbar索引
     isAllSelect: false,
     totalMoney: 0,
@@ -41,34 +41,7 @@ Page({
       })
 
     }
-    if (e.currentTarget.dataset.index == 2) {
-      var that = this;
-      wx.showToast({
-        title: '加载中',
-        icon: 'loading',
-        duration: 55000,
-        mask: true
-      })
-      wx.request({//获取个人信息
-        url: url + 'shopping/getCar',
-        data: {
-          openid: wx.getStorageSync('userinfo').openid,
-          goods_type: '2',
-          level: '',
-        },
-        method: 'POST',
-        success: function (res) {
-          that.setData({
-            ['carts']: res.data.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
-         
-          wx.hideToast();
-          console.log(res);
-        }
-      })
-
-    }
+   
     if (e.currentTarget.dataset.index == 0) {
       //获取数据
       var that = this;
