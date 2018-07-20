@@ -1,37 +1,41 @@
 <!--评价-->
 <view class='evaluate'>
-<view class='header'>
-<image class='spic' src='/images/car_03.png'></image>
-<view class='text'>
-<text>新款吉弘行车记录仪高清夜视新款吉弘行车记录仪高清夜视</text>
-<view class='starts'>
-评分  
-<block wx:for="{{one_2}}" wx:key="index">  
-<image catchtap='in_xin' id='{{index+1}}' data-in='use_sc2' src='/images/rstart.png'></image>  
-</block>  
-<block wx:for="{{two_2}}" wx:key="index">  
-<image catchtap='in_xin' id='{{index+1}}' data-in='use_sc' src='/images/start.png'></image>  
-</block>
-</view>
-</view>
-</view>
+  <view class='header'>
+    <image class='spic' src='{{info.picture}}'></image>
+    <view class='text'>
+      <text>{{info.name}}</text>
+      <view class='starts'>
+        评分
+        <block wx:for="{{one_2}}" wx:key="index">
+          <image catchtap='in_xin' id='{{index+1}}' data-in='use_sc2' src='/images/rstart.png'></image>
+        </block>
+        <block wx:for="{{two_2}}" wx:key="index">
+          <image catchtap='in_xin' id='{{index+1}}' data-in='use_sc' src='/images/start.png'></image>
+        </block>
+      </view>
+    </view>
+  </view>
 
-<view class='ping'>
-<textarea placeholder='请输入评价'>
+  <view class='ping'>
+    <textarea placeholder='请输入评价' bindinput="pingjia">
 
-</textarea>
-</view>
+    </textarea>
+  </view>
 
-<view class='pics'>
-<view class="img-v">
- <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
-  <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg"><image src='/images/dels.png'></image></view>
-  <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
- 
- </view>
- <view class="upload-img-btn" bindtap="chooseImg"><image src='/images/xj.png'></image></view>
-</view>
-</view>
+  <view class='pics'>
+    <view class="img-v">
+      <view class="img" wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+        <view class="delete-btn" data-index="{{index}}" catchtap="deleteImg">
+          <image src='/images/dels.png'></image>
+        </view>
+        <image src="{{item}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImg"></image>
 
-<view class='button'>提交</view>
+      </view>
+      <view class="upload-img-btn" bindtap="chooseImg">
+        <image src='/images/xj.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='button' bindtap="upData">提交</view>
 </view>
