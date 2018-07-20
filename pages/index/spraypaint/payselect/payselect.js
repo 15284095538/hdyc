@@ -27,7 +27,7 @@ Page({
   },
   carselect(e){
     wx.navigateTo({
-      url: '/pages/my/info/mycar/home/index?type=1'
+      url: '/pages/my/info/mycar/home/index?type=2'
     })
   }
 })
