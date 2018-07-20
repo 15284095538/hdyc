@@ -61,8 +61,8 @@ page{
 
 .shang image {
   width: 125rpx;
-  height: 80rpx;
-  margin-top: 45rpx;
+  height: 125rpx;
+  padding-top: 20rpx;
 }
 
 .myorder .names {
@@ -71,7 +71,7 @@ page{
   font-size: 28rpx;
   border-bottom: 1px solid #aeaeae;
   position: relative;
-  top: -100rpx;
+  top: -130rpx;
   left: 140rpx;
 }
 

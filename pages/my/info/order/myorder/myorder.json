@@ -1,3 +1,5 @@
 {
+  "disableScroll": false,
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "我的订单"
 }
