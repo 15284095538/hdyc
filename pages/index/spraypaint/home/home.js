@@ -291,8 +291,15 @@ Page({
 
   },
   payselect(e){
+    var data = this.data.topimg;
+    var text = '';
+    for (let i = 0; i < data.length; i ++ ){
+      if (data[i].display){
+        text += data[i].text + ','
+      }
+    }
     wx.navigateTo({
-      url: '/pages/index/spraypaint/payselect/payselect'
+      url: '/pages/index/spraypaint/payselect/payselect?text=' + text
     })
   }
 })

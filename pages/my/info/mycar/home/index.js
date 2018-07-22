@@ -10,6 +10,7 @@ Page({
     ],
     mycar:0,
     type:'',
+    text:'',
   }, 
 
   //左滑操作
@@ -93,7 +94,7 @@ Page({
 
   onLoad: function (options) {
     this.getdata();
-    this.setData({ type: options.type })
+    this.setData({ type: options.type, text: options.text })
   },
   onShow: function () {
     var that = this;
@@ -180,7 +181,7 @@ Page({
         })
         if (that.data.type == 2 ){
           wx.navigateTo({
-            url: '/pages/index/spraypaint/payselect/payselect'
+            url: '/pages/index/spraypaint/payselect/payselect?text=' + that.data.text
           })
         }
         console.log(res);

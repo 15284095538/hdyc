@@ -1,18 +1,18 @@
 
 <view class='paselectTit'>您当前购买喷漆服务的车型</view>
 
-<view catchtap='carselect' class='paselectType'>奥迪-200  <image src='/images/car_eit.png'></image> </view>
+<view catchtap='carselect' class='paselectType'>{{data.my_car}}<image src='/images/car_eit.png'></image> </view>
 
 <view class='paselectTs'> <text>* </text> 请您确认车型，如果到店车型与所选车型不符，门店有权拒绝服
 务或要求您补车型差价~</view>
 
 <view class='paselectTit'>数量</view>
 
-<view class='paselectType'>4个标准面</view>
+<view class='paselectType'>{{data.count_board}}个标准面</view>
 
 <view class='washselect'>
   <view class='tit'>选择油漆产品</view>
-  <view catchtap='selectclick' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="this" >
+  <view catchtap='selectclick' data-priceT='{{item.priceT}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="this" >
     <image class='washsure' src='/images/washsure.png'></image>
     <view style='overflow: hidden' >
       <view class='img'> <image src='{{item.path}}'></image> </view>
@@ -26,6 +26,6 @@
 </view>
 
 <view class='fot'>
-  <view class='l'>共计：<text>¥837.20</text></view>
+  <view class='l'>共计：<text>¥{{data.count_price}}</text></view>
   <view catchtap='payClick' class='r'>下一步</view>
 </view>
