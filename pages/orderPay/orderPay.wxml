@@ -25,7 +25,7 @@
 <view wx:if="{{ goods_type == 0 }}" class="orderpay" style='border-bottom:1rpx dashed #11a8e1;' > 
   <view class='li' catchtap='shdiz' style='border:0' >
     <text>配送地址</text>
-    <view class='adrdz'>配送到途虎养车工厂</view>
+    <view class='adrdz'>{{ orderdata.address_info.area }}</view>
     <image class='more' src='/images/more.png'></image>
   </view>
 </view>
