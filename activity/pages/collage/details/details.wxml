@@ -1,7 +1,7 @@
 <view class="detTop">
   <view class='det'>
-    <view class='t'> <text>1000</text> 元现金</view>
-    <view class='b'>8人瓜分</view>
+    <view class='t'> <text>{{date.total_money}}</text> 元现金</view>
+    <view class='b'>{{date.peoples}}人瓜分</view>
   </view>
   <view class='ts'>开团成功，邀请其他好友</view>
   <view class='countdown'>
@@ -10,34 +10,19 @@
 </view>
 
 <view class='detYq'>
-  <view class='tit'> <text>3</text> 人已参团，还差 <text>5</text> 人</view>
+  <view class='tit'> <text>{{date.yp}}</text> 人已参团，还差 <text>{{date.hc}}</text> 人</view>
   <view class='head'>
-    <view class='li'>
-      <image src='/images/aicherenzheng@2x.png'></image>
-      <view class='t'>团长</view>
+    
+    <view wx:for="{{ date.join }}" wx:key="this" wx:for-item="item" class='li'>
+      <image src='{{item.header}}'></image>
+      <view class='u' >{{ item.user_name }}</view>
+      <view wx:if="{{ item.is_first == 1 }}" class='t'>团长</view>
     </view>
-    <view class='li'>
-      <image src='/images/aicherenzheng@2x.png'></image>
-    </view>
-    <view class='li'>
-      <image src='/images/aicherenzheng@2x.png'></image>
-    </view>
-    <view class='li'>
-      <image src='/images/aicherenzheng@2x.png'></image>
-    </view>
-    <view class='li'>
-      <image src='/images/aicherenzheng@2x.png'></image>
-    </view>
-    <view class='li'>
-      <image src='/images/aicherenzheng@2x.png'></image>
-    </view>
-    <view class='li'>
-      点击加入
-    </view>
-    <view class='li'>
-      
-    </view>
+
+    <button class='btn' wx:if="{{ pid == 0 || date.join.length < date.peoples }}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">加入</button>
+
+
   </view>
 
-  <view class='sure'>邀请好友</view>
+  <button wx:if="{{date.join || date.join.length < date.peoples }}" class='sure' open-type="share">邀请好友</button>
 </view>

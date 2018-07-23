@@ -187,6 +187,9 @@ Page({
             icon: 'success',
             duration: 2000
           })
+          var pages = getCurrentPages();
+          var prevPage = pages[pages.length - 2];  //上一个页面
+          prevPage.onLoad(prevPage.options)
           setTimeout(function(){
             wx.navigateBack()
           },1000)

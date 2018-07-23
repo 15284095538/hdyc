@@ -2,6 +2,7 @@ var url = getApp().globalData.publicUrl;
 
 Page({
   data: {
+    class_id:'',
     topimg: [
       {
         'text': '前保险杠',
@@ -187,6 +188,9 @@ Page({
       },
     ],
   },
+  onLoad(e) {
+    this.setData({ class_id: e.id })
+  },
   liclick(e) {//点击添加样式
     var topimg = this.data.topimg;
     var hbimg = this.data.hbimg;
@@ -294,12 +298,22 @@ Page({
     var data = this.data.topimg;
     var text = '';
     for (let i = 0; i < data.length; i ++ ){
-      if (data[i].display){
+      if (data[i].key){
         text += data[i].text + ','
       }
     }
+    console.log(text )
+    if( text == '' ){
+      wx.showToast({
+        title: '请选择版面',
+        icon: 'success',
+        duration: 1000,
+        mask: true
+      })
+      return false
+    }
     wx.navigateTo({
-      url: '/pages/index/spraypaint/payselect/payselect?text=' + text
+      url: '/pages/index/spraypaint/payselect/payselect?text=' + text + '&class_id=' + this.data.class_id
     })
   }
 })

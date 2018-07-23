@@ -1,3 +1,5 @@
+ <wxs module="filters" src="../../../modul/filters.wxs"></wxs>
+
 <view class="payli">
   <view class='li'>
     <text class='l'>联系人</text>
@@ -12,33 +14,30 @@
   </view>
 </view>
 
-<view class='paystore' catchtap='storeClick'>
+<view class='paystore' wx:if="{{ data.store }}" catchtap='storeClick'>
   <view id='list'>
-    <view class='list-item' wx:for="{{list}}" wx:key="list" wx:for-item="item">
+    <view class='list-item' >
       <view class='list-box'>
         <view class='list-img'>
-          <image src='{{item.path}}'></image>
+          <image src='{{data.store.s_img}}'></image>
         </view>
         <view class='list-info'>
           <view class='list-title'>
-            <view class='list-name left'>{{item.name}}</view>
-            <view class='list-name-img left'>
-              <image src='/images/grade_0{{item.grade}}.png'></image>
-            </view>
+            <view class='list-name left'>{{data.store.s_name}}</view>
             <view class='clear'></view>
           </view>
           <view class='list-evaluate'>
-            <view wx:if="{{item.order.status != 'none'}}">
+            <view wx:if="{{data.store.order.status != 'none'}}">
               <view class='list-evaluate-left left'>
                 总评价：
-                <text>{{item.order.score}}分</text>
+                <text>{{data.store.order.score}}分</text>
               </view>
               <view class='list-evaluate-line left'>
                 |
               </view>
               <view class='list-evaluate-right left'>
                 总订单：
-                <text>{{item.order.order_num}}笔</text>
+                <text>{{data.store.order.order_num}}笔</text>
               </view>
               <view class='clear'></view>
             </view>
@@ -47,11 +46,11 @@
             </view>
           </view>
           <view class='list-address'>
-            <text>{{item.address}}</text>
+            <text>{{data.store.s_address}}</text>
           </view>
           <view class='list-more'>
-            <view class='list-tag left' wx:for="{{item.tag}}" wx:key="tag" wx:for-item="itemTag">{{itemTag}}</view>
-            <view class='list-distance right'>{{item.distance}}</view>
+            <view class='list-tag left' wx:for="{{data.store.s_service_tag}}" wx:key="tag" wx:for-item="itemTag">{{itemTag}}</view>
+            <view class='list-distance right'>{{data.store.km}}</view>
             <view class='clear'></view>
           </view>
         </view>
@@ -61,10 +60,18 @@
   </view>
 </view>
 
+<view class="payli" wx:if="{{ !data.store }}" style='margin-top:20rpx;' catchtap='storeClick' >
+  <view class='li'>
+    <text class='l'>门店</text>
+    <text class='r'>请选择门店</text>
+    <image class='more' src='/images/more.png'></image>
+  </view>
+</view>
+
 <view class="payli" catchtap='listClick' style='margin-top:20rpx;'>
   <view class='li'>
     <text class='l'>标准漆</text>
-    <text class='r'>共3个标准面</text>
+    <text class='r'>共{{ data.board.length }}个标准面</text>
     <image class='more' src='/images/more.png'></image>
   </view>
 </view>
@@ -76,10 +83,10 @@
   </view>
 </view>
 
-<view class="payli" style='margin-top:20rpx;'>
+<view class="payli" catchtap='couponDisplyClick' wx:if="{{ data.coupon }}" style='margin-top:20rpx;'>
   <view class='li'>
     <text class='l'>优惠券</text>
-    <text class='r'>有3张可用</text>
+    <text class='r'>有{{ data.coupon_count }}张可用</text>
     <image class='more' src='/images/more.png'></image>
   </view>
 </view>
@@ -87,18 +94,29 @@
 <view class="payli" style='margin-top:20rpx;'>
   <view class='li'>
     <text class='l'>商品总价</text>
-    <text class='r red' style='margin:0;' >￥248.00</text>
+    <text class='r red' style='margin:0;' >￥{{ data.count_price }}</text>
   </view>
 </view>
 
-<view class="payli" style='margin-bottom:100rpx;'>
+<view class="payli" wx:if="{{ data.coupon }}" style='margin-bottom:100rpx;'>
   <view class='li' style='border:0;'>
     <text class='l'>优惠券</text>
-    <text class='r red' style='margin:0;' >抵扣20元</text>
+    <text class='r red' style='margin:0;' >抵扣{{ paycoupon.cost }}元</text>
   </view>
 </view>
 
 <view class='fot'>
-  <view class='l'>共计：<text>¥837.20</text></view>
+  <view class='l'>共计：<text>¥{{ filters.NumberJs(data.count_price) - filters.NumberJs(paycoupon.cost) }}</text></view>
   <view class='r'>提交订单</view>
+</view>
+
+<!-- 优惠券 -->
+<view style='background:#f6f6f6;' class='layer {{couponDisplyClick}}' catchtap='couponDisplyNClick'>
+  <scroll-view scroll-y style='height:{{ winHeight+ "px" }};'>
+    <view catchtap='couponliClick' data-id='{{item.id}}' data-index='{{index}}' data-cost='{{item.cost}}' wx:for="{{data.coupon}}" wx:key="this" wx:for-index="index" wx:for-item="item" class='couponlist {{ couponindex == index ? "couponlistselect":"" }}'>
+      <view class='left'>{{item.cost}}元</view>
+      <view class='right'>满{{item.condition}}元可用</view>
+      <image src='/images/washsure.png' class='sImg' ></image>
+    </view>
+  </scroll-view>
 </view>

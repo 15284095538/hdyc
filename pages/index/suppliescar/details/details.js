@@ -25,10 +25,11 @@ Page({
     shuxIndex:0,
     ershuxIndex:0,
     num: 1,
-    minusStatus: 'disabled'
+    minusStatus: 'disabled',
+    category_id:'',
   },
   onLoad(e){
-    this.setData({ goods_id: e.goods_id })
+    this.setData({ goods_id: e.goods_id, category_id: e.category_id, })
     this.getdata();
   },
   layerColorclick(e){
@@ -205,7 +206,7 @@ Page({
       value_id = ''
     }
     wx.navigateTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + value_id + '&goods_type=0' + '&num=' + this.data.num
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + value_id + '&goods_type=0' + '&num=' + this.data.num + '&classify=' + this.data.category_id
     })
   },
   getAttr(e){

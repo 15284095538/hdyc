@@ -116,8 +116,7 @@ Page({
     wx.request({//获取订单信息
       url: url + 'user/myOrderList',
       data: {
-        //'openid': value.openid,
-        'openid':'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'openid': wx.getStorageSync('userinfo').openid,
         'status': this.data.status, 
         'page':that.page.pages*10,
       },

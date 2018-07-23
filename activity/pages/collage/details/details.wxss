@@ -91,16 +91,12 @@ page{
   padding-bottom: 40rpx;
 }
 .detYq .head .li{
-  width: 100rpx;
-  height: 100rpx;
+  width: 102rpx;
+  height: 150rpx;
   float: left;
   position: relative;
   margin-left: 28rpx;
-  border: 1rpx solid #d4d4d4;
-  background-color: #f8f8f8;
-  border-radius: 50%;
   margin-top: 40rpx;
-  line-height: 100rpx;
   text-align: center;
   font-size: 20rpx;
 }
@@ -108,18 +104,39 @@ page{
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
+  border: 1rpx solid #d4d4d4;
 }
 .detYq .head .li .t{
   width: 60rpx;
   height: 30rpx;
   position: absolute;
   left: 20rpx;
-  bottom: 10rpx;
+  bottom: 40rpx;
   background-color: #fb6e14;
   color: #fff;
   font-size: 20rpx;
   text-align: center;
   border-radius: 20rpx;
+  line-height: 30rpx;
+}
+.detYq .head .li .u{
+  height: 50rpx;
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;  
+}
+.detYq .head .btn{
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+  position: relative;
+  margin-left: 28rpx;
+  margin-top: 40rpx;
+  text-align: center;
+  font-size: 20rpx;
+  line-height: 100rpx;
+  border-radius: 50%;
 }
 .detYq .sure{
   width: 620rpx;
