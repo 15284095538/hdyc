@@ -27,32 +27,32 @@ Page({
     that.page.pagebuler = true
     that.getdata();
   },
-  navbarTab: function (e) {
-    if (e.currentTarget.dataset.index == 0) {
+  navbarTab: function (e) {//切换选项卡
+    if (e.currentTarget.dataset.index == 0) {//全部
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
         status:10,
       })
     }
-    if (e.currentTarget.dataset.index == 1) {
+    if (e.currentTarget.dataset.index == 1) {//待付款
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
         status:0
       })
     }
-    if (e.currentTarget.dataset.index == 2) {
+    if (e.currentTarget.dataset.index == 2) {//待安装
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
         status:1
       })
     }
-    if (e.currentTarget.dataset.index == 3) {
+    if (e.currentTarget.dataset.index == 3) {//待评价
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
         status:2
       })
     }
-    if (e.currentTarget.dataset.index == 4) {
+    if (e.currentTarget.dataset.index == 4) {//退换货
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
         status:3
@@ -61,11 +61,33 @@ Page({
     this.page.pages = 1;
     this.getdata();
   },
-  qxdd:function(e){
-   console.log('fafaf');
-  },
-  sqsh: function (e) {
-    console.log('sqsh');
+  qxdd:function(e){//取消订单
+    var order_id = e.currentTarget.id;
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取订单信息
+      url: url + 'order/cancelOrder',
+      data: {
+        //'openid': value.openid,
+        'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'order_id': order_id,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.showToast({
+          title: '取消成功',
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
+        that.getdata();
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
