@@ -18,7 +18,7 @@
   </view>
   <view class='name'>{{dettels.g_name}}</view>
   <view class='det'>
-    <text class='l'>快递:￥{{dettels.expressage}}万</text>
+    <text class='l'>快递:￥{{dettels.expressage}}</text>
     <text class='c'>月销:{{dettels.num}}笔</text>
     <!-- <text class='r'>四川成都</text> -->
   </view>

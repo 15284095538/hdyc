@@ -11,7 +11,8 @@ Page({
   page: {
     pages: 1,
   },
-  onLoad() {
+  onLoad(e) {
+    console.log(e)
     this.getdata();
   },
   onReachBottom: function () {//下拉加载更多
@@ -26,7 +27,7 @@ Page({
   detClick(e){
     var goods_id = e.currentTarget.dataset.goods_id;
     wx.navigateTo({
-      url: '/pages/index/suppliescar/details/details?goods_id=' + goods_id
+      url: '/pages/index/suppliescar/details/details?goods_id=' + goods_id + '&category_id=' + this.data.category_id
     })
   },
   ChangeSelect(e){
@@ -69,7 +70,8 @@ Page({
         that.setData({
           menu: res.data.data.category,
           list: res.data.data.list,
-          scrollWidth: res.data.data.category.length * 187.5
+          scrollWidth: res.data.data.category.length * 187.5,
+          category_id: res.data.data.category[0].id
         })
       }
     })

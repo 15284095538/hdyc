@@ -1,66 +1,54 @@
-// pages/index/spraypaint/servicelist/servicelist.js
+var url = getApp().globalData.publicUrl;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    class_id: '',
+    count_board: '',
+    count_price: '',
+    price: '',
+    store_id: '',
+    text: '',
+    data: [],
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onLoad: function (e) {
+    this.setData({
+      class_id: e.class_id,
+      count_board: e.count_board,
+      count_price: e.count_price,
+      price: e.price,
+      store_id: e.store_id,
+      text: e.text,
+    })
+    this.getdata();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'paint/paintOrder',
+      data: {
+        store_id: this.data.store_id,
+        board: this.data.text,
+        count_price: this.data.count_price,
+        price: this.data.price,
+        count_board: this.data.count_board,
+        openid: wx.getStorageSync('userinfo').openid,
+        to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.code == 200) {
+          that.setData({
+            data: res.data.data
+          })
+          wx.hideToast();
+        }
+      }
+    })
   }
 })

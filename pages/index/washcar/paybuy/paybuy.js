@@ -65,7 +65,7 @@ Page({
       url: url + 'order/addOrder',
       data: {
         openid: wx.getStorageSync('userinfo').openid,
-        goods_type:1,
+        goods_type:2,
         store_id: this.data.pay.store_id,
         goods_id: this.data.pay.goods_id,
         phone: this.data.phone,

@@ -1,15 +1,15 @@
  <wxs module="filters" src="../modul/filters.wxs"></wxs>
 
-<view class="orderpay">
+<view wx:if="{{ goods_type == 1 }}" class="orderpay">
   <view class='li'>
     <text>联系人</text>
-    <input placeholder='请输入联系人姓名' ></input>
+    <input bindinput="nameinput" value='{{name}}'  placeholder='请输入联系人姓名' ></input>
   </view>
 </view>
-<view class="orderpay">
+<view wx:if="{{ goods_type == 1 }}" class="orderpay">
   <view class='li'>
     <text>联系电话</text>
-    <input placeholder='请输入联系电话' ></input>
+    <input bindinput="phoneinput" value='{{phone}}' placeholder='请输入联系电话' ></input>
   </view>
 </view>
 <!-- 门店 -->
@@ -69,7 +69,7 @@
   </view>
 </view>
 
-<view wx:if="{{ paycoupon }}" class="orderpay" > 
+<view wx:if="{{ orderdata.coupon !== 0 }}" class="orderpay" > 
   <view class='li' style='border:0' >
     <text>优惠券</text>
     <view class='pri'>抵扣{{paycoupon.cost}}元</view>
@@ -79,7 +79,7 @@
 <view class='fot'>
   <view wx:if="{{ goods_type == 1 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
   <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.count_exp) - filters.NumberJs(paycoupon.cost) }}</text> </view>
-  <view class='right'>提交订单</view>
+  <view catchtap='pay' class='right'>提交订单</view>
 </view>
 
 

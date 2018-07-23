@@ -31,6 +31,15 @@ Page({
     store_id: '',
     value_id: '',
     num:'',
+
+    store_id:'',
+    count_board:'',
+    count_price:'',
+    class_id:'',
+    price:'',
+    text:'',
+    phone: '',
+    name: '',
   },
   page: {
     pages: 1,
@@ -49,7 +58,6 @@ Page({
     this.getdata();
   },
   onLoad(e) {
-    console.log(e)
     if (e.goods_type == 1 ){
       this.setData({
         goods_id: e.goods_id,
@@ -58,6 +66,20 @@ Page({
         value_id: e.value_id,
         classify: e.classify,
         num: e.num,
+        phone: e.phone,
+        name: e.name,
+      })
+      this.getdata();
+    }else{
+      this.setData({ 
+        classify: e.class_id,
+        store_id: e.store_id,
+        count_board: e.count_board,
+        count_price: e.count_price,
+        price: e.price,
+        text: e.text,
+        phone: e.phone,
+        name: e.name,
       })
       this.getdata();
     }
@@ -67,7 +89,11 @@ Page({
     var store_id = e.currentTarget.dataset.store_id;
     if (this.data.goods_type == 1 ){
       wx.navigateTo({
-        url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num
+        url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/index/spraypaint/pay/pay?store_id=' + store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.classify + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone
       })
     }
   },
@@ -88,11 +114,20 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+       
+        if( res.data.code == 200 ){
+          that.setData({
+            list: res.data.data
+          })
+        }else{
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+        }
         wx.hideToast();
-        that.setData({
-          list: res.data.data
-        })
-
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

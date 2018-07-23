@@ -6,6 +6,7 @@ Page({
     text:'',
     price:299,
     data:[],
+    class_id:'',
     list: [
       {
         'path': '/images/xiche1.png',
@@ -24,7 +25,7 @@ Page({
     ]
   },
   onLoad(e) {
-    this.setData({ text: e.text })
+    this.setData({ text: e.text, class_id: e.class_id })
     this.getdata();
   },
   selectclick(e) {
@@ -36,7 +37,7 @@ Page({
   payClick(e){
     if (this.data.data.my_car ){
       wx.navigateTo({
-        url: '/pages/index/spraypaint/pay/pay'
+        url: '/pages/index/spraypaint/pay/pay?store_id=' + '&&count_board=' + this.data.data.count_board + '&&count_price=' + this.data.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text
       })
     }else{
       wx.showToast({

@@ -1,33 +1,15 @@
 <view class='list'>
   <view class='top'>
-    <text class='l'>共3项服务</text>
-    <text class='r'>¥1046.50</text>
+    <text class='l'>共{{ data.board.length }}项服务</text>
+    <text class='r'>¥{{ data.count_price }}</text>
   </view>
 
-  <view class='li'>
+  <view class='li' wx:for="{{data.board}}" wx:key="this" wx:for-iten="item" >
     <view class='img l'> <image src='/images/fuwtp.png'></image> </view>
     <view class='text r'>
-        <view class='a l'>后车盖</view>
-        <view class='t r'>¥299.50</view>
-        <view class='b r'>x1</view>
-    </view>
-  </view>
-
-  <view class='li'>
-    <view class='img l'> <image src='/images/fuwtp.png'></image> </view>
-    <view class='text r'>
-        <view class='a l'>后车盖</view>
-        <view class='t r'>¥299.50</view>
-        <view class='b r'>x1</view>
-    </view>
-  </view>
-
-  <view class='li'>
-    <view class='img l'> <image src='/images/fuwtp.png'></image> </view>
-    <view class='text r'>
-        <view class='a l'>后车盖</view>
-        <view class='t r'>¥299.50</view>
-        <view class='b r'>x1</view>
+        <view class='a l'>{{ item.name }}</view>
+        <view class='t r'>¥{{ item.price }}</view>
+        <view class='b r'>x{{ item.number }}</view>
     </view>
   </view>
 </view>

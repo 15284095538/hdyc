@@ -1,18 +1,19 @@
+var url = getApp().globalData.publicUrl;
+var WxParse = require('../../../wxParse/wxParse.js');
 
 Page({
 
   data: {
     time: {
-      overtimestamp: 1532240225,
       day: '',
       hour: '',
       minute: '',
       second: '',
-    }
+    },
+    data:[]
   },
   onLoad: function (options) {
-    var starttimestamp = Math.round(new Date() / 1000);
-    this.countDown(this.data.time.overtimestamp - starttimestamp);
+    this.getdata();
   },
   countDown(times) {//倒计时
     var that = this;
@@ -39,10 +40,41 @@ Page({
         ['time.second']: second,
       });
       times--;
-
     }, 1000);
     if (times <= 0) {
       clearInterval(timer);
     }
+  },
+  detClick(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/activity/pages/collage/details/details?id=' + id + '&pid=',
+    })
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'Activity/get_list',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+      },
+      method: 'POST',
+      success: function (res) {
+        WxParse.wxParse('article', 'html', res.data.data.rule, that, 5);
+        if (res.data.code == 200) {
+          that.setData({
+            data: res.data.data
+          })
+          wx.hideToast();
+          that.countDown( res.data.data.end_time - res.data.data.start_time );
+        }
+      }
+    })
   }
 })
