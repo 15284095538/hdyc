@@ -1,0 +1,62 @@
+<div class="header">
+    <div class="header_l"></div>
+    <div class="nav">
+        <div class="logo"><a href="/index.php"><img src="__IMG__/logo.png"></a></div>
+        <div class="dh">
+            <div class="dh_l">
+                <ul>
+                    <li class="xuanz"><a href="/index.php">首页</a></li>
+                    <!--<li><a href="{:url('Reservation/index')}">酒店预订</a></li>-->
+                    <li><a href="http://web.beyondh.com/web/cghost" target="_blank">酒店预订</a></li>
+                    <!--<li><a href="{:url('Preferential/index')}">优惠活动</a></li>-->
+                    <li><a target="_blank" href="http://shangchengmall.com/">酒店商城</a></li>
+                    <li><a href="{:url('Member/index')}">会员中心</a>
+                        <!-- <ul style="width: auto;">
+                            <li><a href="#">我的云孚里</a></li>
+                            <li><a href="{:url('Member/manual')}">会员手册</a></li>
+                        </ul> -->
+                    </li>
+                    <li><a href="{:url('Cooperation/index')}">加盟合作</a>
+                        <ul style="width: auto;">
+                            <li><a href="{:url('Cooperation/jm')}">我要加盟</a></li>
+                            <li><a href="{:url('Cooperation/trusteeship')}">我要托管</a></li>
+                            <li><a href="{:url('Cooperation/index')}">成为股东</a></li>
+                            <li><a href="{:url('Cooperation/recruit')}">诚聘英才</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="{:url('About/index')}">关于我们</a>
+                        <ul style="width:auto">
+                            <li><a href="#gy3">品牌故事</a></li>
+                            <li><a href="#gy6">云孚里缘起</a></li>
+                            <li><a href="#gy10">云孚里介绍</a></li>
+                            <li><a href="#gy7">云孚里文化</a></li>
+                            <li><a href="#gy8">云孚里特色</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{:url('Facilities/index')}">配套设施</a>
+                        <ul style="width:auto">
+                            <li><a href="#gs1">温馨客房</a></li>
+                            <li><a href="#gs2">南西轻餐厅</a></li>
+                            <li><a href="#gs3">零邻便利店</a></li>
+                            <li><a href="#gs4">书吧</a></li>
+                            <li><a href="#gs5">会议室</a></li>
+                            <li><a href="#gs6">健身室</a></li>
+                            <li><a href="#gs7">洗衣房</a></li>
+
+                        </ul>
+                    </li>
+                    <a href="#"><img src="__IMG__/logo4.png" class="logo1"></a>
+                    <a href="#"><img src="__IMG__/logo1.png" class="logo2"></a>
+                    <a href="#"><img src="__IMG__/logo2.png" class="logo3"></a>
+                    <a href="#"><img src="__IMG__/logo3.png" class="logo4"></a>
+                    <a href="#"><img src="__IMG__/logo5.png" class="logo5"></a>
+                </ul>
+            </div>
+            <div class="dh_r">
+                <div class="dh_t"><a href="http://web.beyondh.com/web/cghost/login">登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://web.beyondh.com/web/cghost/reg">注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">购物车</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="header_r"></div>
+</div>

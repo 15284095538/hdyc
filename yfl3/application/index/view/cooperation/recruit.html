@@ -1,0 +1,27 @@
+{extend name="base/index" /}
+{block name="title"}{/block}
+{block name="content"}
+<div class="content">
+    <div class="yfl-gs" style="background: url(/index/images/zhaopin123.png) no-repeat center center; height:6000px;"></div>
+    <div class="yfl-gs" style="background: url(/index/images/zhangping343.png) no-repeat center center; height:4278px;"></div>
+</div>
+<div class="scroll" id="scroll" style="display:none;"></div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    $(function(){
+        showScroll();
+        function showScroll(){
+            $(window).scroll( function() {
+                var scrollValue=$(window).scrollTop();
+                scrollValue > 100 ? $('div[class=scroll]').fadeIn():$('div[class=scroll]').fadeOut();
+            } );
+            $('#scroll').click(function(){
+                $("html,body").animate({scrollTop:0},200);
+            });
+        }
+    });
+</script>
+{/block}
+
+

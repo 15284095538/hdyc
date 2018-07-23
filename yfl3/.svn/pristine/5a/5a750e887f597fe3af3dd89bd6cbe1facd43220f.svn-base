@@ -1,0 +1,81 @@
+<?php
+
+return array (
+  'module' => 'admin',
+  'menu' => 
+  array (
+    0 => 'add',
+    1 => 'forbid',
+    2 => 'resume',
+    3 => 'delete',
+    4 => 'recyclebin',
+    5 => 'saveorder',
+  ),
+  'create_config' => true,
+  'controller' => 'Views',
+  'title' => '用户管理',
+  'form' => 
+  array (
+    5 =>
+    array (
+      'title' => '标题',
+      'name' => 'title',
+      'type' => 'text',
+      'option' => '',
+      'default' => '',
+      'search_type' => 'text',
+      'validate' =>
+      array (
+        'datatype' => '',
+        'nullmsg' => '',
+        'errormsg' => '',
+      ),
+    ),
+    6 => 
+    array (
+      'title' => '视频',
+      'name' => 'path',
+      'type' => 'text',
+      'option' => '',
+      'default' => '',
+      'search_type' => 'text',
+      'validate' => 
+      array (
+        'datatype' => '',
+        'nullmsg' => '',
+        'errormsg' => '',
+      ),
+    ),
+    7 => 
+    array (
+      'title' => '封面',
+      'name' => 'img',
+      'type' => 'text',
+      'option' => '',
+      'default' => '',
+      'search_type' => 'text',
+      'validate' => 
+      array (
+        'datatype' => '',
+        'nullmsg' => '',
+        'errormsg' => '',
+      ),
+    ),
+  ),
+  'table_engine' => 'InnoDB',
+  'table_name' => '',
+  'field' => 
+  array (
+    0 => 
+    array (
+      'name' => '',
+      'type' => 'varchar(255)',
+      'default' => 'NULL',
+      'comment' => '',
+      'extra' => '',
+    ),
+  ),
+  'model' => '1',
+  'auto_timestamp' => '1',
+  'validate' => '1',
+);

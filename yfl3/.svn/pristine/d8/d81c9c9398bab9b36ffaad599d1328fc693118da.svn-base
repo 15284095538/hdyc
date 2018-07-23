@@ -1,0 +1,42 @@
+{extend name="base/index" /}
+{block name="title"}{/block}
+{block name="content"}
+<div class="content">
+    <div class="quanyi">
+        <div class="vip_us">
+            {include file='Public:member_menu'/}
+            <div class="hysc f_l">
+                <h1 style=" margin-bottom: 5px;">会员卡挂失
+                </h1>
+                <div class="post_cont">
+                    <p>
+                        如果您的会员卡遗失，请尽快挂失，您可以通过以下几种途径为您的会员卡挂失：
+                    </p>
+                    <p>
+                        <strong>1. 云孚里酒店前台</strong>
+                    </p>
+                    <p>
+                        您可以在任意一家云孚里酒店前台，请服务人员为您的会员卡挂失
+                    </p>
+                    <p>
+                        <strong>2. CRS客服</strong>
+                    </p>
+                    <p>
+                        您可拨打4000-606-606为您的会员卡挂失
+                    </p>
+                </div>
+                <h1 style=" margin-bottom: 5px;">会员卡补办
+                </h1>
+                <div class="post_cont">
+                    <p>
+                        请您在挂失之后，持会员注册时使用的有效证件，至云孚里酒店补办会员卡，新卡领卡人必须是本人。
+                    </p>
+                    <p>
+                        对于补办，我们将收取人民币10元成本费用。如您找回原来挂失的会员卡，且未领取新卡，会员卡本人可持有效证件和会员卡至任意门店恢复。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}

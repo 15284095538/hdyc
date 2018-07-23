@@ -1,0 +1,32 @@
+{extend name="base/index" /}
+{block name="title"}{/block}
+{block name="content"}
+<div class="yfl-gs" id="gy3" style="background: url(/index/images/ylfgs_03.jpg) no-repeat center center"></div>
+<div class="yfl-gs" id="gy6" style="background: url(/index/images/ylfgs_06.jpg) no-repeat center center"></div>
+<div class="yfl-gs" id="gy10" style="background: url(/index/images/ylfgs_09.jpg) no-repeat center center"></div>
+<div class="yfl-gs" id="gy7" style="background: url(/index/images/ylfgs_07.jpg) no-repeat center center"></div>
+<div class="yfl-gs" id="gy8" style="background: url(/index/images/ylfgs_08.jpg) no-repeat center center"></div>
+<div class="scroll" id="scroll" style="display:none;"></div>
+{/block}
+{block name="js"}
+<script type="text/javascript">
+    showScroll();
+    function showScroll(){
+        $(window).scroll( function() {
+            var scrollValue=$(window).scrollTop();
+            scrollValue > 100 ? $('div[class=scroll]').fadeIn():$('div[class=scroll]').fadeOut();
+        } );
+        $('#scroll').click(function(){
+            $("html,body").animate({scrollTop:0},200);
+        });
+    }
+    $(function(){
+        $('.dh_l ul li').click(function(){
+            var dianj = $(this).find('a');
+            var c = dianj.attr("href");
+            var k = $('body').find(c);
+            $("html,body").animate({scrollTop: k.offset().top}, 200);
+        });
+    });
+</script>
+{/block}
