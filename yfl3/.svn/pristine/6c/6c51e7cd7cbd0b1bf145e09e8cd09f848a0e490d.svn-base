@@ -1,7 +1,0 @@
-{extend name="base/index" /}
-{block name="title"}{/block}
-{block name="content"}
-<div class="content">
-{$list.content}
-</div>
-{/block}
