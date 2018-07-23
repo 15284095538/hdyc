@@ -66,6 +66,7 @@ page{
   border-radius: 12rpx;
 }
 .aftersale .footter{
+  position: relative;
   display: flex;
   margin-top: 560rpx;
   height: 109rpx;

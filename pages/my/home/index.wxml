@@ -135,7 +135,7 @@
     </view>
     <view class='more-list' data-link='/activity/pages/collage/home/home' bindtap="ToPage">
       <view class='more-list-img left'>
-        <image class='max' src='/images/kehufuwu.png'></image>
+        <image class='max' src='/images/huodong.png'></image>
       </view>
       <view class='more-list-text left'>
         活动
