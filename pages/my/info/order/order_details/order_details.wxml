@@ -49,8 +49,8 @@
 </view>
 
 <view class="footter {{carts.order_status!==1&&carts.order_status!==3?'dis':''}}">
-<image src='/images/kf.png'></image> 
-<text class='item'>在线咨询</text>
+<!-- <image src='/images/kf.png'></image> 
+<text class='item'>在线咨询</text> -->
 <image src='/images/phone.png'></image>
 <text class='item' style='border-left:1px solid #f6f6f6;'>电话咨询</text>
 </view>
