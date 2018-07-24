@@ -16,10 +16,13 @@ Page({
     paycoupon: {
       id: '',
       cost: ''
-    }
+    },
+    phone: '',
+    name: '',
   },
   onLoad(e) {
     var that = this;
+    if (!e.name) { e.name = ''; e.phone = '' }
     this.setData({ 
       class_id: e.class_id,
       count_board: e.count_board,
@@ -27,6 +30,8 @@ Page({
       price: e.price,
       store_id: e.store_id,
       text: e.text,
+      phone: e.phone,
+      name: e.name,
      })
     this.getdata();
     wx.getSystemInfo({
@@ -51,6 +56,99 @@ Page({
       this.setData({ couponDisplyClick: 'block' })
     }
   },
+  phoneinput(e) {
+    this.setData({ phone: e.detail.value })
+  },
+  nameinput(e) {
+    this.setData({ name: e.detail.value })
+  },
+  pay(e){
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (this.data.phone.length < 11 && this.data.phone.length) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    if (!myreg.test(this.data.phone)) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    if (!this.data.name) {
+      wx.showToast({
+        title: '请输入联系人',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    if (this.data.store_id == '') {
+      wx.showToast({
+        title: '请选择门店',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55500,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'order/paintOrder',
+      data: {
+        store_id: this.data.store_id,
+        board: this.data.text,
+        linkman: this.data.name,
+        phone: this.data.phone,
+        openid: wx.getStorageSync('userinfo').openid,
+        coupon_id: this.data.paycoupon.id,
+        price: this.data.price
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        wx.requestPayment({
+          'timeStamp': res.data.timeStamp,
+          'nonceStr': res.data.nonceStr,
+          'package': res.data.package,
+          'signType': 'MD5',
+          'paySign': res.data.paySign,
+          'success': function (res) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+            wx.switchTab({
+              url: '/pages/my/home/index'
+            })
+          },
+          'fail': function (res) {
+            wx.showToast({
+              title: '支付失败',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+          }
+        })
+      }
+    })
+  },
   couponDisplyNClick(e) {
     this.setData({ couponDisplyClick: 'none' })
   },
@@ -61,7 +159,7 @@ Page({
   },
   storeClick(e){// 选择门店
     wx.navigateTo({
-      url: '/pages/orderStore/orderStore?store_id=' + this.data.store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text
+      url: '/pages/orderStore/orderStore?store_id=' + this.data.store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone
     })
   },
   getdata(e) {//获取数据
