@@ -5,7 +5,7 @@
 <view style='font-size:30rpx;' hidden="{{carts.order_status!==0&&carts.order_status!==2&&carts.order_status!==4}}">{{carts.user.address}}</view>
 </view>
 
-<view class='store'  hidden="{{carts.order_status!==1&&carts.goods_type!==2&&carts.goods_type!==3}}">
+<view class='store'  hidden="{{carts.order_status!==1&&carts.goods_type!==1&&carts.goods_type!==2&&carts.goods_type!==3}}">
 <view class='peisong'>
 <text>配送至门店</text>
 </view>
@@ -44,7 +44,7 @@
 下单时间：<text class='text'>{{carts.create_time}}</text>
 </view>
 <view class='ddzt'> 
-订单状态： <text class='text'hidden="{{carts.order_status!==0}}">待付款</text><text class='text'hidden="{{carts.order_status!==1}}">待安装</text><text class='text'hidden="{{carts.order_status!==2}}">待评价</text><text class='text'hidden="{{carts.order_status!==3}}">退换货</text>
+订单状态： <text class='text'hidden="{{carts.order_status!==0}}">待付款</text><text class='text'hidden="{{carts.order_status!==1}}">待安装</text><text class='text'hidden="{{carts.order_status!==2}}">待评价</text><text class='text'hidden="{{carts.order_status!==3}}">退换货</text><text class='text'hidden="{{carts.order_status!==4}}">已取消</text>
 </view>
 </view>
 
@@ -69,4 +69,7 @@
 </navigator>
 </view>
 
+<view class="footter {{carts.order_status!==4?'dis':''}}" >
+<view class='first2' id='{{carts.id}}' bindtap="scdd">删除订单</view>
+</view>
 </view>

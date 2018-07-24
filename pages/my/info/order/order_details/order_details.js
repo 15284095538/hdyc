@@ -171,7 +171,7 @@ Page({
       that.setData({
         ['carts']: res.data.data,
       })
-      console.log(res)
+      console.log(res);
     }
   })
   },

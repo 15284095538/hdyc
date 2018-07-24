@@ -117,38 +117,50 @@ Page({
     })
   },
   qxdd:function(e){//取消订单
-    var order_id = e.currentTarget.id;
-    var value = wx.getStorageSync('userinfo');
-    var that = this;
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 55000,
-      mask: true
-    })
-    wx.request({//获取订单信息
-      url: url + 'order/cancelOrder',
-      data: {
-        'openid': value.openid,
-        //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
-        'order_id': order_id,
-      },
-      method: 'POST',
+  var that = this;
+    wx.showModal({
+      title: '是否删除订单',
       success: function (res) {
-        wx.showToast({
-          title: '取消成功',
-          icon: 'success',
-          duration: 500,
-          mask: true
-        })
-        that.getdata();
+        if (res.confirm) {
+          var order_id = e.currentTarget.id;
+          var value = wx.getStorageSync('userinfo');
+          wx.showToast({
+            title: '加载中',
+            icon: 'loading',
+            duration: 55000,
+            mask: true
+          })
+          wx.request({//获取订单信息
+            url: url + 'order/cancelOrder',
+            data: {
+              'openid': value.openid,
+              //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+              'order_id': order_id,
+            },
+            method: 'POST',
+            success: function (res) {
+              wx.showToast({
+                title: '取消成功',
+                icon: 'success',
+                duration: 500,
+                mask: true
+              }) 
+              that.getdata();
+            }
+          })
+        } else {
+          
+        }
+
       }
     })
+    
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     var index = 0;
     if (options.id == 10){
       index = 0;
@@ -158,6 +170,12 @@ Page({
     this.setData({
       ['currentIndex']: index,
       status: options.id
+    })
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
     })
     this.getdata(options.id);
   },
@@ -210,5 +228,8 @@ Page({
       }
     })
 
+  },
+  onShow: function () {
+    this.getdata(this.data.status)
   },
 })
