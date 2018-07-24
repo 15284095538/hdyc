@@ -58,11 +58,67 @@ Page({
         status:3
       })
     }
+    // if (e.currentTarget.dataset.index == 5) {//已完成
+    //   this.setData({
+    //     currentIndex: e.currentTarget.dataset.index,
+    //     status: 4
+    //   })
+    // }
     this.page.pages = 1;
     this.getdata();
   },
+  ljfk:function(e){//立即支付
+    var order_sn = e.currentTarget.id;
+    var value = wx.getStorageSync('userinfo');
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//立即支付
+      url: url + 'order/nowPay',
+      data: {
+        'openid': value.openid,
+        //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'order_id': order_sn,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        wx.requestPayment({
+          'timeStamp': res.data.timeStamp,
+          'nonceStr': res.data.nonceStr,
+          'package': res.data.package,
+          'signType': 'MD5',
+          'paySign': res.data.paySign,
+          'success': function (res) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+            wx.switchTab({
+              url: '/pages/my/home/index'
+            })
+          },
+          'fail': function (res) {
+            wx.showToast({
+              title: '支付失败',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+          }
+        })
+      }
+    })
+  },
   qxdd:function(e){//取消订单
     var order_id = e.currentTarget.id;
+    var value = wx.getStorageSync('userinfo');
     var that = this;
     wx.showToast({
       title: '加载中',
@@ -73,8 +129,8 @@ Page({
     wx.request({//获取订单信息
       url: url + 'order/cancelOrder',
       data: {
-        //'openid': value.openid,
-        'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'openid': value.openid,
+        //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
         'order_id': order_id,
       },
       method: 'POST',
@@ -122,7 +178,18 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if(res.data.data){
+        if(res.data.msg=='暂无数据'){
+          wx.showToast({
+            title: '没有更多数据',
+            icon: 'success',
+            duration: 500,
+            mask: true
+          })
+          that.setData({
+            ['carts']: res.data.data,
+          })
+          wx.hideToast();
+        } else if (res.data.code == 200){
           that.setData({
             ['carts']: res.data.data,
           })

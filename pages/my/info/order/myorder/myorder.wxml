@@ -25,11 +25,11 @@
 
   <view class='button'>
 <view class='first' id="{{item.id}}" hidden="{{item.order_status!==0}}" bindtap="qxdd">取消订单</view>
-<view class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
+<view bindtap='ljfk' id="{{item.id}}" class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
 <navigator url="/pages/my/info/order/aftersale/aftersale?id={{item.id}}">
 <view class='first'hidden="{{item.order_status!==2}}">申请售后</view>
 </navigator>
-<navigator url="/pages/my/info/order/evaluate/evaluate?id={{item.id}}">
+<navigator url="/pages/my/info/order/evaluate/evaluate?id={{item.id}}&orderid={{item.order_sn}}">
 <view class='secend'hidden="{{item.order_status!==2}}">评价商品</view>
 </navigator>
 <view class='secend'hidden="{{item.order_status!==3}}" style='border:none;'>退货中</view>

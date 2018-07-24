@@ -45,7 +45,7 @@ page{
 .carlove .ping{
   font-size: 28rpx;
   position: relative;
-  top: 70rpx;
+  top: 62rpx;
   left: 187rpx;
   width: 300rpx;
   white-space: nowrap;

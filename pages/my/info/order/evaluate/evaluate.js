@@ -98,6 +98,10 @@ Page({
   onLoad: function(options) {
     var that = this;
     that.getdata(options.id)
+    console.log(options);
+    this.setData({
+      order_id: options.orderid,
+    });
   },
   getdata(id) { //获取数据
     wx.showToast({
@@ -178,14 +182,16 @@ Page({
         level: that.data.one_2,
         is_img: is_img,
         images: that.data.postimg,
-        store_id: that.data.info.goods_info,
+        store_id: that.data.info.store_id,
+        order_id: that.data.order_id,
       },
       success: res => {
         if (res.data.code == 200) {
           wx.showToast({
             title: '评价成功',
             icon: 'success',
-            duration: 2000
+            duration: 500,
+            mask: true
           })
           var pages = getCurrentPages();
           var prevPage = pages[pages.length - 2];  //上一个页面

@@ -16,7 +16,7 @@
       <view class='clear'></view>
       <view class='adressName'>{{store.s_address}}</view>
     </view>
-    <view class='address_right'>
+    <view class='address_right'catchtap='Navigation'data-longitude='{{store.longitude}}' data-latitude='{{store.latitude}}'>
       <image src='/images/dh.png'></image>
       <view>{{store.km}}</view>
       <view>导航</view>

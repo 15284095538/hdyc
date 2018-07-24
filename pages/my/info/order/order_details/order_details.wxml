@@ -1,11 +1,11 @@
 <!--订单详情-->
 <view class='order_details'>
-<view class='uname'>
+<view class='uname' hidden="{{carts.goods_type!==0}}">
 <text class='name'>{{carts.user.realname}}<text class='tel'>{{carts.user.phone}}</text></text>
-<view style='font-size:30rpx;' hidden="{{carts.order_status!==0&&carts.order_status!==4}}">{{carts.user.address}}</view>
+<view style='font-size:30rpx;' hidden="{{carts.order_status!==0&&carts.order_status!==2&&carts.order_status!==4}}">{{carts.user.address}}</view>
 </view>
 
-<view class='store'  hidden="{{carts.order_status!==1&&carts.order_status!==2}}">
+<view class='store'  hidden="{{carts.order_status!==1&&carts.goods_type!==2&&carts.goods_type!==3}}">
 <view class='peisong'>
 <text>配送至门店</text>
 </view>
@@ -16,7 +16,7 @@
 <view class='secend'>{{carts.store.address}}</view>
 </view>
 </view>
-<view class='daohang'>
+<view class='daohang'catchtap='Navigation'data-longitude='{{carts.store.longitude}}' data-latitude='{{carts.store.latitude}}'>
 <view class='text'><image class='dh' src='/images/dh.png'></image>导航至门店({{carts.store.km}})
 <image class='more' src='/images/more.png'></image>
 </view>
@@ -60,11 +60,11 @@
 </view>
 
 <view class="footter {{carts.order_status!==2?'dis':''}}" >
-<view class='first1'>删除订单</view>
-<navigator url="/pages/my/info/order/aftersale/aftersale">
+<view class='first1' bindtap="scdd">删除订单</view>
+<navigator url="/pages/my/info/order/aftersale/aftersale?orderid={{carts.order_id}}">
 <view class='first1'>申请售后</view>
 </navigator>
-<navigator url="/pages/my/info/order/evaluate/evaluate">
+<navigator url="/pages/my/info/order/evaluate/evaluate?orderid={{carts.order_id}}">
 <view class='first1'>评价商品</view>
 </navigator>
 </view>

@@ -35,7 +35,21 @@ Page({
       },
     ],
   },
+  Navigation(e) {
+    var longitude = Number(e.currentTarget.dataset.longitude);
+    var latitude = Number(e.currentTarget.dataset.latitude);
+    console.log(longitude, latitude);
+    wx.openLocation({
+      latitude: Number(longitude),
+      longitude: Number(latitude),
+      name: this.data.carts.store.address,
+      scale: 30
+    })
 
+  },
+  scdd:function(){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */

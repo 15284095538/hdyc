@@ -41,6 +41,7 @@ Page({
   Navigation(e){
     var longitude = Number(e.currentTarget.dataset.longitude);
     var latitude = Number(e.currentTarget.dataset.latitude);
+    console.log(longitude, latitude);
     wx.openLocation({
       latitude: Number(longitude),
       longitude: Number(latitude),
@@ -114,6 +115,7 @@ Page({
             pinglun: res.data.data.eval,
             store_id: res.data.data.details[0].store_id
           })
+          console.log(res);
           wx.hideToast();
         }
       }

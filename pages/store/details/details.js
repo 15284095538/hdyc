@@ -49,7 +49,17 @@ Page({
       
     ]
   },
+  Navigation(e) {
+    var longitude = Number(e.currentTarget.dataset.longitude);
+    var latitude = Number(e.currentTarget.dataset.latitude);
+    wx.openLocation({
+      latitude: Number(longitude),
+      longitude: Number(latitude),
+      name: this.data.store.s_address,
+      scale: 30
+    })
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
