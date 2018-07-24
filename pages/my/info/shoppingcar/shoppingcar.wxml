@@ -26,7 +26,7 @@
           
           <text  hidden="{{currentIndex!==1&&currentIndex!==2}}" class="sku-price">{{item.first_pay}}</text>
           <text  hidden="{{currentIndex!==0}}" class="sku-price sku-price1">{{item.price}}</text>
-          <text  hidden="{{currentIndex!==0}}" class='number'>x10</text>
+          <text  hidden="{{currentIndex!==0}}" class='number'>x{{item.number}}</text>
           <text class='yg'hidden="{{currentIndex!==1&&currentIndex!==2}}">月供{{item.month_pay}}元</text>
         </view>
 
