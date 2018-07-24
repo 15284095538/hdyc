@@ -8,7 +8,7 @@
     <input class='text' confirm-type="search" value='{{inputValue}}' placeholder-style="color:#fff" placeholder='请输入您想要的商品或服务' bindinput="bindKeyInput"></input>
   </view>
 </view>
-<view class='list' data-goods_id='{{item.goods_id}}' data-category_id='{{item.category_id}}'  wx:for="{{list}}" wx:key="this" wx:for-item="item" >
+<view class='list' data-goods_id='{{item.goods_id}}' catchtap='cypClick' data-category_id='{{item.category_id}}'  wx:for="{{list}}" wx:key="this" wx:for-item="item" >
   <view class='img'>
     <image src='{{item.g_picture}}'></image>
   </view>

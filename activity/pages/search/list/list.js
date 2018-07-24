@@ -21,6 +21,13 @@ Page({
     this.page.pagebuler = true
     this.getdata();
   },
+  cypClick(e) {
+    var goods_id = e.currentTarget.dataset.goods_id;
+    var category_id = e.currentTarget.dataset.category_id;
+    wx.navigateTo({
+      url: '/pages/index/suppliescar/details/details?goods_id=' + goods_id + '&category_id=' + category_id
+    })
+  },
   onLoad: function(options) {
     var that = this;
     that.setData({
