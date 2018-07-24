@@ -42,6 +42,20 @@ Page({
       url: link 
     })
   },
+  cypClick(e){
+    var goods_id = e.currentTarget.dataset.goods_id;
+    var category_id = e.currentTarget.dataset.category_id;
+    wx.navigateTo({
+      url: '/pages/index/suppliescar/details/details?goods_id=' + goods_id + '&category_id=' + category_id
+    })
+  },
+  yhtjClick(e){
+    var goods_id = e.currentTarget.dataset.goods_id;
+    var classify = e.currentTarget.dataset.classify;
+    wx.navigateTo({
+      url: '/pages/index/details/details?goods_id=' + goods_id + '&classify=' + classify,
+    })
+  },
   searchLink(e){
     wx.navigateTo({
       url: '/activity/pages/search/home/home'

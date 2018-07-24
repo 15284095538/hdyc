@@ -8,17 +8,17 @@
     <input class='text' confirm-type="search" value='{{inputValue}}' placeholder-style="color:#fff" placeholder='请输入您想要的商品或服务' bindinput="bindKeyInput"></input>
   </view>
 </view>
-<view class='list'>
+<view class='list' data-goods_id='{{item.goods_id}}' catchtap='cypClick' data-category_id='{{item.category_id}}'  wx:for="{{list}}" wx:key="this" wx:for-item="item" >
   <view class='img'>
-    <image src='/images/store_menu_02.png'></image>
+    <image src='{{item.g_picture}}'></image>
   </view>
   <view class='info'>
-    <view class='title'>后视镜</view>
+    <view class='title'>{{item.g_name}}</view>
     <view class='sub-title'>
-      已售365件 | 123人评论
+      已售{{item.ys}}件 | {{item.pl}}人评论
     </view>
     <view class='price'>
-      ￥68.00
+      ￥{{item.price}}
     </view>
   </view>
 </view>

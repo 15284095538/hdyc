@@ -11,13 +11,13 @@
 <view class='tit'>热门搜索</view>
 
 <view class='hote'>
-  <text>dsad</text> <text>dsa</text> <text>dsa</text>
+  <text  catchtap='ssClick' data-text='{{dsad}}' >dsad</text> 
 </view>
 
 <view class='tit' wx:if="{{serachList != ''}}">历史搜索</view>
 
 <view class='his' wx:if="{{serachList != ''}}">
-  <view class='li' wx:for="{{serachList}}" wx:for-index="idx" wx:key="idx" wx:for-item="item">{{item}}</view>
+  <view class='li' wx:for="{{serachList}}" catchtap='ssClick' wx:for-index="idx" wx:key="idx" data-text='{{item}}' wx:for-item="item">{{item}}</view>
 
   <view class='sure' bindtap="clear">
     <image src='/images/del.png'></image>清空搜索记录
