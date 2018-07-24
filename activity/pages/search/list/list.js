@@ -77,7 +77,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if (res.data.code == 200) {
+        if (res.data.data.list.length != 0) {
           wx.hideToast();
           that.setData({
             list: res.data.data.list

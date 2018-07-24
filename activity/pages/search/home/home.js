@@ -1,11 +1,14 @@
-// pages/search/home/home.js
+var url = getApp().globalData.publicUrl;
+
+
 Page({
   data: {
     inputValue: '',
     serachList: ''
   },
   onLoad: function(options) {
-    this.getSearch()
+    this.getSearch();
+    this.getdata();
   },
   getSearch() { //展示搜索结果
     var that = this;
@@ -59,6 +62,25 @@ Page({
     wx.setStorageSync('searchs', '')
     that.setData({
       serachList: ''
+    })
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'home/hotSearch',
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        that.setData({
+          list: res.data.data
+        })
+      }
     })
   }
 })
