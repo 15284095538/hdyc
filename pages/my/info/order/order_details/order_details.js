@@ -47,8 +47,112 @@ Page({
     })
 
   },
-  scdd:function(){
-
+  ljfk: function (e) {//立即支付
+    var order_sn = e.currentTarget.id;
+    var value = wx.getStorageSync('userinfo');
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//立即支付
+      url: url + 'order/nowPay',
+      data: {
+        'openid': value.openid,
+        //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'order_id': order_sn,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        wx.requestPayment({
+          'timeStamp': res.data.timeStamp,
+          'nonceStr': res.data.nonceStr,
+          'package': res.data.package,
+          'signType': 'MD5',
+          'paySign': res.data.paySign,
+          'success': function (res) {
+            wx.showToast({
+              title: '支付成功',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+            wx.switchTab({
+              url: '/pages/my/home/index'
+            })
+          },
+          'fail': function (res) {
+            wx.showToast({
+              title: '支付失败',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+          }
+        })
+      }
+    })
+  },
+  qxdd: function (e) {//取消订单
+    var order_id = e.currentTarget.id;
+    var value = wx.getStorageSync('userinfo');
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取订单信息
+      url: url + 'order/cancelOrder',
+      data: {
+        'openid': value.openid,
+        //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'order_id': order_id,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.showToast({
+          title: '取消成功',
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
+        wx.navigateBack();
+      }
+    })
+  },
+  scdd:function(e){
+    var order_id = e.currentTarget.id;
+    var value = wx.getStorageSync('userinfo');
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//删除订单信息
+      url: url + 'order/delOrder',
+      data: {
+        'openid': value.openid,
+        //'openid': 'oY8zl5VzLFNYkfTTLBqDceqhvgtk',
+        'order_id': order_id,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success',
+          duration: 500,
+          mask: true
+        })
+        wx.navigateBack();
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载

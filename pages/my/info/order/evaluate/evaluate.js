@@ -100,7 +100,7 @@ Page({
     that.getdata(options.id)
     console.log(options);
     this.setData({
-      order_id: options.orderid,
+      order_id: options.id,
     });
   },
   getdata(id) { //获取数据
@@ -126,6 +126,7 @@ Page({
           });
         }
         wx.hideToast();
+        console.log(res);
       }
     })
   },

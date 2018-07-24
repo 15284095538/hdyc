@@ -55,16 +55,16 @@
 <text class='item' style='border-left:1px solid #f6f6f6;'>电话咨询</text>
 </view>
 <view class="footter {{carts.order_status!==0?'dis':''}}" >
-<view class='first'>取消订单</view>
-<view class='secend'>立即付款</view> 
+<view class='first'bindtap="qxdd" id="{{carts.id}}">取消订单</view>
+<view class='secend'bindtap='ljfk'id="{{carts.id}}">立即付款</view> 
 </view>
 
 <view class="footter {{carts.order_status!==2?'dis':''}}" >
-<view class='first1' bindtap="scdd">删除订单</view>
-<navigator url="/pages/my/info/order/aftersale/aftersale?orderid={{carts.order_id}}">
+<view class='first1' id='{{carts.id}}' bindtap="scdd">删除订单</view>
+<navigator url="/pages/my/info/order/aftersale/aftersale?orderid={{carts.id}}">
 <view class='first1'>申请售后</view>
 </navigator>
-<navigator url="/pages/my/info/order/evaluate/evaluate?orderid={{carts.order_id}}">
+<navigator url="/pages/my/info/order/evaluate/evaluate?id={{carts.id}}">
 <view class='first1'>评价商品</view>
 </navigator>
 </view>
