@@ -52,9 +52,9 @@
   <block wx:for="{{classify.cyp}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
     <view class='li' data-id='{{item.id}}' >
       <view class='text'>
-        <text class='t'>{{item.rec_title}}</text>
-        <text class='c'>{{item.rec_decribe}}</text>
-        <image src='{{item.car_img}}'></image>
+        <text class='t'>{{item.wechat_rec_title}}</text>
+        <text class='c'>{{item.wechat_rec_decribe}}</text>
+        <image src='{{item.g_picture}}'></image>
       </view>
     </view>
   </block>
