@@ -69,7 +69,7 @@
 </navigator>
 </view>
 
-<view class="footter {{carts.order_status!==4?'dis':''}}" >
+<view class="footter {{carts.order_status!==4&&carts.goods_type!==4?'dis':''}}" >
 <view class='first2' id='{{carts.id}}' bindtap="scdd">删除订单</view>
 </view>
 </view>

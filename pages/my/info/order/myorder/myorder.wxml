@@ -12,26 +12,21 @@
 <view class='dingnum'>
 <text>订单编号：{{item.order_sn}} <text class='status'hidden="{{item.order_status!==0}}">待付款</text><text class='status'hidden="{{item.order_status!==1}}">待安装</text><text class='status'hidden="{{item.order_status!==2}}">待评价</text><text class='status'hidden="{{item.order_status!==3}}">退换货</text><text class='status'hidden="{{item.order_status!==4}}">已取消</text></text>
 </view>
-<view class='shang'style="{{item.order_status==1?'height:175rpx':''}}">
-
+<view class='shang'  style="{{item.order_status==1?'height:175rpx':''}}">
+<view id='{{item.id}}' catchtap='detalis'>
 <image src='{{item.picture}}'></image>
 <view class='names'style="{{item.order_status==1?'border:none':''}}">
-<navigator url="/pages/my/info/order/order_details/order_details?id={{item.id}}">
 <view class='sname'>{{item.name}} </view>
 <text class='nums'>共{{item.goods_number}}件<text class='price'>￥{{item.total_price}}</text></text>
-</navigator>
 </view>
-
+</view>
 
   <view class='button'>
 <view class='first' id="{{item.id}}" hidden="{{item.order_status!==0}}" bindtap="qxdd">取消订单</view>
 <view bindtap='ljfk' id="{{item.id}}" class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
-<navigator url="/pages/my/info/order/aftersale/aftersale?id={{item.id}}">
-<view class='first'hidden="{{item.order_status!==2}}">申请售后</view>
-</navigator>
-<navigator url="/pages/my/info/order/evaluate/evaluate?id={{item.id}}&orderid={{item.order_sn}}">
-<view class='secend'hidden="{{item.order_status!==2}}">评价商品</view>
-</navigator>
+<view catchtap='sqsh'id="{{item.id}}" class='first'hidden="{{item.goods_type===4||item.order_status!==2}}">申请售后</view>
+<view catchtap='pjsp' id="{{item.id}}" class='secend' hidden="{{item.goods_type===4||item.order_status!==2}}">评价商品</view>
+<view catchtap='sqsh'id="{{item.id}}" class='secend'hidden="{{item.goods_type!==4||item.order_status!==2}}">申请售后</view>
 <view class='secend'hidden="{{item.order_status!==3}}" style='border:none;'>退货中</view>
 </view> 
 </view> 

@@ -13,6 +13,24 @@ Page({
     pages: 1,
     pagebuler: true
   },
+  detalis:function(e){//跳转详情页面
+    wx.navigateTo({
+      url: '/pages/my/info/order/order_details/order_details?id=' + e.currentTarget.id
+    }) 
+  }
+  ,
+  sqsh: function (e) {//跳转申请售后页面
+    wx.navigateTo({
+      url: '/pages/my/info/order/aftersale/aftersale?id=' + e.currentTarget.id
+    })
+  }
+  ,
+  pjsp: function (e) {//跳转评价商品页面
+    wx.navigateTo({
+      url: '/pages/my/info/order/evaluate/evaluate?id=' + e.currentTarget.id
+    })
+  }
+  ,
   onReachBottom: function () { //上拉加载更多
     var that = this;
     if (that.page.pagebuler) {
@@ -196,6 +214,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+        console.log(res);
         if(res.data.code==400){
           wx.showToast({
             title: '没有更多数据',
