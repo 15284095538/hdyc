@@ -38,7 +38,7 @@ Page({
   ToPage(e) {
     var store_id = e.currentTarget.dataset.store_id
     wx.navigateTo({
-      url: '/pages/index/washcar/comment/comment?store_id=' + store_id,
+      url: '/pages/index/washcar/comment/comment?store_id=' + store_id +'&goods_id=',
     })
   },
   orderClick(e){

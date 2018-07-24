@@ -6,12 +6,13 @@ Page({
     store_id:'',
     allpinglun: [],
     xhpinlun:[],
+    status:'',
   }, 
   page: {
     pages: 1,
   },
   onLoad: function (e) {
-    this.setData({ store_id: e.store_id, })
+    this.setData({ store_id: e.store_id, goods_id: e.goods_id })
     this.getstoreeval();
   },
   onReachBottom: function () {//下拉加载更多
@@ -25,39 +26,24 @@ Page({
   },
   click: function (e) {
     var num = e.target.dataset.num;
-    var list = this.data.allpinglun.list;
-    var data = [];
+    var status;
     if ( num == 1 ){
-      data = this.data.allpinglun.list
+      status = ''
     }else if( num == 2 ){
-      for (let i = 0; i < list.length; i++){
-        if ( list[i].images.length !== 0 ){
-          data.push(list[i])
-        }
-      }
+      status = 4
     }else if( num == 3 ){
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 3) {
-          data.push(list[i])
-        }
-      }
+      status = 3
     }else if( num == 4 ){
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 2) {
-          data.push(list[i])
-        }
-      }
+      status = 2
     }else{
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 1) {
-          data.push(list[i])
-        }
-      }
+      status = 1
     }
     this.setData({
       Topnum: num,
-      xhpinlun: data,
+      status: status,
+      type: 10
     });
+    this.getstoreeval();
   },
   getstoreeval(e) {
     var that = this;
@@ -72,8 +58,8 @@ Page({
       data: {
         store_id: this.data.store_id,
         type: this.page.pages * 10,
-        goods_id: '',
-        status: '',
+        goods_id: this.data.goods_id,
+        status: this.data.status,
       },
       method: 'POST',
       success: res => {

@@ -1,5 +1,5 @@
 {
   "disableScroll": false,
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "navigationBarTitleText": "车用品"
 }

@@ -47,6 +47,11 @@ Page({
   layerLiftcarclick(e){
     this.setData({ layerLiftcarDisplay: 'block' })
   },
+  ToPage(e){
+    wx.navigateTo({
+      url: '/pages/index/washcar/comment/comment?store_id=' + '&goods_id=' + this.data.goods_id,
+    })
+  },
   bindMinus: function () {
     var num = this.data.num;
     // 如果大于1时，才可以减

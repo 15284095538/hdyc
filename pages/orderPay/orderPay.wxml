@@ -40,7 +40,7 @@
   </view>
 </view>
 
-<view class="orderpay" style='margin-top:20rpx;' catchtap='couponDisplyClick' > 
+<view class="orderpay" wx:if="{{ orderdata.coupon != '' }}" style='margin-top:20rpx;' catchtap='couponDisplyClick' > 
   <view class='li' style='border:0' >
     <text>优惠券</text>
     <view class='adrdz'> {{orderdata.coupon.length}} 张可用</view>
@@ -69,7 +69,7 @@
   </view>
 </view>
 
-<view wx:if="{{ orderdata.coupon !== 0 }}" class="orderpay" > 
+<view wx:if="{{ orderdata.coupon != '' }}" class="orderpay" > 
   <view class='li' style='border:0' >
     <text>优惠券</text>
     <view class='pri'>抵扣{{paycoupon.cost}}元</view>
