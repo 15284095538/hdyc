@@ -83,7 +83,8 @@ Page({
     this.data.carts[index].isSelect = !this.data.carts[index].isSelect;
     //价钱统计
     if (this.data.carts[index].isSelect) {
-      this.data.totalMoney = Number(this.data.totalMoney + Number(this.data.carts[index].price));
+    //统计价格
+      this.data.totalMoney = Number(this.data.totalMoney + Number(this.data.carts[index].price) * Number(this.data.carts[index].number));
     }
     else {
       this.data.totalMoney = Number(this.data.totalMoney - Number(this.data.carts[index].price));
@@ -126,6 +127,7 @@ Page({
     if (!this.data.isAllSelect) {
       for (i = 0; i < this.data.carts.length; i++) {
         this.data.carts[i].isSelect = true;
+        //统计全选价格
         this.data.totalMoney = Math.floor((this.data.totalMoney + (Number(this.data.carts[i].price) * Number(this.data.carts[i].number))) * 100) / 100 ;
         if (this.data.gid == "") {
           this.data.gid = this.data.carts[i].goods_id;
