@@ -3,14 +3,14 @@
 <view class="payli">
   <view class='li'>
     <text class='l'>联系人</text>
-    <input class='r intr' placeholder='请输入联系人姓名'></input>
+    <input class='r intr' bindinput='nameinput' value='{{name}}' placeholder='请输入联系人姓名'></input>
   </view>
 </view>
 
 <view class="payli">
   <view class='li' style='border:0;'>
     <text class='l'>联系电话</text>
-    <input class='r intr' placeholder='请输入联系人电话'></input>
+    <input class='r intr' bindinput='phoneinput' type="number" value='{{phone}}' placeholder='请输入联系人电话'></input>
   </view>
 </view>
 
@@ -107,7 +107,7 @@
 
 <view class='fot'>
   <view class='l'>共计：<text>¥{{ filters.NumberJs(data.count_price) - filters.NumberJs(paycoupon.cost) }}</text></view>
-  <view class='r'>提交订单</view>
+  <view catchtap='pay' class='r'>提交订单</view>
 </view>
 
 <!-- 优惠券 -->
