@@ -43,6 +43,7 @@ Page({
       status: status,
       type: 10
     });
+    this.page.pages = 1
     this.getstoreeval();
   },
   getstoreeval(e) {
@@ -63,7 +64,7 @@ Page({
       },
       method: 'POST',
       success: res => {
-        console.log(res)
+        var list;
         if (res.data.code == 200) {
           that.setData({
             allpinglun: res.data.data,

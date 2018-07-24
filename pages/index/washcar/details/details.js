@@ -48,6 +48,16 @@ Page({
       url: '/pages/index/washcar/payselect/payselect?store_id=' + store_id + '&class_id=' + class_id,
     })
   },
+  Navigation(e) {
+    var longitude = Number(this.data.detdata.longitude);
+    var latitude = Number(this.data.detdata.latitude);
+    wx.openLocation({
+      latitude: Number(longitude),
+      longitude: Number(latitude),
+      name: this.data.detdata.s_address,
+      scale: 30
+    })
+  },
   getdata(e){
     var that = this;
     var orderclass_id = '';

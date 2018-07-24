@@ -11,7 +11,7 @@
 <view class='tit'>热门搜索</view>
 
 <view class='hote'>
-  <text  catchtap='ssClick' data-text='{{dsad}}' >dsad</text> 
+  <text wx:for="{{list}}" wx:key="this" wx:for-item="item" catchtap='ssClick' data-text='{{item.name}}' >{{item.name}}</text> 
 </view>
 
 <view class='tit' wx:if="{{serachList != ''}}">历史搜索</view>

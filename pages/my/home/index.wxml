@@ -49,9 +49,9 @@
     </view>
   </view>
   <view id='order'>
-    <view class='order-title'>
+    <view class='order-title' data-link='/pages/my/info/order/myorder/myorder?id=10' bindtap="ToPage" >
       <text class='order-title-text left'>我的订单</text>
-      <view class='order-title-more right' data-link='/pages/my/info/order/myorder/myorder?id=10' bindtap="ToPage">查看更多订单
+      <view class='order-title-more right' >查看更多订单
         <view class='order-more-img right'>
           <image src="/images/more.png"></image>
         </view>

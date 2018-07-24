@@ -41,14 +41,12 @@ Page({
   Navigation(e){
     var longitude = Number(e.currentTarget.dataset.longitude);
     var latitude = Number(e.currentTarget.dataset.latitude);
-    console.log(longitude, latitude);
     wx.openLocation({
       latitude: Number(longitude),
       longitude: Number(latitude),
       name: this.data.details.s_address,
       scale: 30
     })
-
   },
   //滑动移动事件
   handletouchmove: function (event) {
@@ -70,7 +68,7 @@ Page({
       if (ty < 0)
         text = "向上滑动", this.setData({ isScroll: true })
       else if (ty > 0)
-        text = "向下滑动"
+        text = "向下滑动", this.setData({ isScroll: false })
     }
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX

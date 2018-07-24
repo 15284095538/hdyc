@@ -70,7 +70,7 @@ Page({
       if (ty < 0)
         text = "向上滑动", this.setData({ isScroll: true })
       else if (ty > 0)
-        text = "向下滑动"
+        text = "向下滑动", this.setData({ isScroll: false })
     }
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX
