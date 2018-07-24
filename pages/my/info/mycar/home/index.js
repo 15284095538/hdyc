@@ -181,7 +181,8 @@ Page({
           mask: true
         })
         if (that.data.type == 2 ){
-          wx.navigateTo({
+          wx.navigateBack();
+          wx.redirectTo({
             url: '/pages/index/spraypaint/payselect/payselect?text=' + that.data.text + '&class_id=' + that.data.class_id
           })
         }

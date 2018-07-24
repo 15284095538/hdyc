@@ -23,6 +23,7 @@ page{
   margin-left: -137.5rpx;
   color: #fff;
   font-size: 28rpx;
+  top: 40rpx;
 }
 .collageTop .countdown text{
   float: left;
