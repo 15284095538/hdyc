@@ -38,19 +38,19 @@ Page({
       }
     } else if (num == 3) {
       for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 3) {
+        if (list[i].level >= 4) {
           data.push(list[i])
         }
       }
     } else if (num == 4) {
       for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 2) {
+        if (list[i].level == 3) {
           data.push(list[i])
         }
       }
     } else {
       for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 1) {
+        if (list[i].level <= 2) {
           data.push(list[i])
         }
       }

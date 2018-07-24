@@ -196,7 +196,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if(res.data.msg=='暂无数据'){
+        if(res.data.code==400){
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',

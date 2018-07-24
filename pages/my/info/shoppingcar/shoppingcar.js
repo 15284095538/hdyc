@@ -258,7 +258,6 @@ Page({
 
 onLoad: function (options) {
    //获取数据
-  console.log(wx.getStorageSync('userinfo').openid);
   var that = this;
   wx.showToast({
     title: '加载中',
