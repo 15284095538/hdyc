@@ -90,7 +90,8 @@ Page({
     }
     //是否全选判断
     for (i = 0; i < this.data.carts.length; i++) {
-      Allprice = Allprice + this.data.carts[i].price;
+      
+      Allprice = Number(Allprice) + (Number(this.data.carts[i].price) * Number(this.data.carts[i].number));
       if (this.data.carts[i].isSelect==true){
         if(this.data.gid==""){
         this.data.gid = this.data.carts[i].goods_id;
@@ -100,9 +101,6 @@ Page({
       }
       
     }
-
-    console.log(this.data.gid);
-
     var gid = this.data.gid
 
     if (Allprice == this.data.totalMoney) {
@@ -122,12 +120,13 @@ Page({
   },
   //全选
   allSelect: function (e) {
+    this.data.totalMoney = 0;
     //处理全选逻辑
     let i = 0;
     if (!this.data.isAllSelect) {
       for (i = 0; i < this.data.carts.length; i++) {
         this.data.carts[i].isSelect = true;
-        this.data.totalMoney = Math.floor((this.data.totalMoney + Number(this.data.carts[i].price)) * 100) / 100 ;
+        this.data.totalMoney = Math.floor((this.data.totalMoney + (Number(this.data.carts[i].price) * Number(this.data.carts[i].number))) * 100) / 100 ;
         if (this.data.gid == "") {
           this.data.gid = this.data.carts[i].goods_id;
         } else {
@@ -150,7 +149,6 @@ Page({
       totalMoney: this.data.totalMoney,
       vule_id: gid
     })
-    console.log(this.data.gid);
   },
   // 去结算
   toBuy() {
@@ -280,7 +278,6 @@ onLoad: function (options) {
       })
      
       wx.hideToast();
-      console.log(res);
     }
   })
   },

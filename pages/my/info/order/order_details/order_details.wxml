@@ -5,7 +5,7 @@
 <view style='font-size:30rpx;' hidden="{{carts.order_status!==0&&carts.order_status!==2&&carts.order_status!==4}}">{{carts.user.address}}</view>
 </view>
 
-<view class='store'  hidden="{{carts.order_status!==1&&carts.goods_type!==1&&carts.goods_type!==2&&carts.goods_type!==3}}">
+<view class='store'  hidden="{{carts.order_status!==1&&carts.goods_type!==1&&carts.goods_type!==2&&carts.goods_type!==3&&carts.goods_type!==4}}">
 <view class='peisong'>
 <text>配送至门店</text>
 </view>
