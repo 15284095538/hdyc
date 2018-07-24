@@ -37,6 +37,12 @@ Page({
       return true;
     }
   },
+  ssClick(e){
+    var inputValue = e.currentTarget.dataset.text;
+    wx.navigateTo({
+      url: '/activity/pages/search/list/list?keyword=' + inputValue
+    })
+  },
   searchStorage() { // 储存搜索历史
     if (this.is_define(this.data.inputValue)) {
       var searchs = wx.getStorageSync('searchs') || []

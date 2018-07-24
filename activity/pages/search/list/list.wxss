@@ -73,6 +73,7 @@ page {
   height: 159rpx;
   padding: 30rpx;
   background-color: #fff;
+  border-bottom: 1rpx solid #aeaeae;
 }
 
 .list .img {
