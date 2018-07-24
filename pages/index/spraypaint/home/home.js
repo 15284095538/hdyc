@@ -302,7 +302,6 @@ Page({
         text += data[i].text + ','
       }
     }
-    console.log(text )
     if( text == '' ){
       wx.showToast({
         title: '请选择版面',

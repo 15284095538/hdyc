@@ -83,7 +83,7 @@
   </view>
 </view>
 
-<view class="payli" catchtap='couponDisplyClick' wx:if="{{ data.coupon }}" style='margin-top:20rpx;'>
+<view class="payli" catchtap='couponDisplyClick' wx:if="{{ data.coupon != '' }}" style='margin-top:20rpx;'>
   <view class='li'>
     <text class='l'>优惠券</text>
     <text class='r'>有{{ data.coupon_count }}张可用</text>
@@ -98,7 +98,7 @@
   </view>
 </view>
 
-<view class="payli" wx:if="{{ data.coupon }}" style='margin-bottom:100rpx;'>
+<view class="payli" wx:if="{{ data.coupon != '' }}" style='margin-bottom:100rpx;'>
   <view class='li' style='border:0;'>
     <text class='l'>优惠券</text>
     <text class='r red' style='margin:0;' >抵扣{{ paycoupon.cost }}元</text>

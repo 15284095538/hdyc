@@ -187,7 +187,7 @@ Page({
           that.setData({
             data: res.data.data
           })
-          if (res.data.data.coupon ){
+          if (res.data.data.coupon != '' ){
             that.setData({
               ['paycoupon.id']: res.data.data.coupon[0].id,
               ['paycoupon.cost']: res.data.data.coupon[0].cost,
