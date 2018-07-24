@@ -11,6 +11,7 @@ Page({
     mycar:0,
     type:'',
     text:'',
+    class_id:'',
   }, 
 
   //左滑操作
@@ -94,7 +95,7 @@ Page({
 
   onLoad: function (options) {
     this.getdata();
-    this.setData({ type: options.type, text: options.text })
+    this.setData({ type: options.type, text: options.text, class_id: options.class_id })
   },
   onShow: function () {
     var that = this;
@@ -181,10 +182,9 @@ Page({
         })
         if (that.data.type == 2 ){
           wx.navigateTo({
-            url: '/pages/index/spraypaint/payselect/payselect?text=' + that.data.text
+            url: '/pages/index/spraypaint/payselect/payselect?text=' + that.data.text + '&class_id=' + that.data.class_id
           })
         }
-        console.log(res);
       }
     })
   },

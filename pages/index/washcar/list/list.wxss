@@ -167,7 +167,7 @@
   line-height: 40rpx;
 }
 .washlist .li .text .bot .l{
-  width: 360rpx;
+  width: 330rpx;
   float: left;
 }
 .washlist .li .text .bot .l text{

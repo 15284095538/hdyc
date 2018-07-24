@@ -202,6 +202,7 @@
   float: right;
   font-size: 28rpx;
   color: #d7d7d7;
+  margin-top: -35rpx;
 }
 .body .ptext{
   width: 577rpx;
