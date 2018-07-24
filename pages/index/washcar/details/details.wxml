@@ -19,9 +19,9 @@
       <view class='adressName'>{{detdata.s_address}}</view>
     </view>
     <view class='address_right'>
-      <image src='/images/dh.png'></image>
-      <view>{{detdata.km}}</view>
-      <view>导航</view>
+      <view><image src='/images/dh.png'></image></view>
+      <view style='margin-top:-20rpx;'>{{detdata.km}}</view>
+      <view style='margin-top:-20rpx;'>导航</view>
     </view>
   </view>
   <view class='fl'>

@@ -24,6 +24,9 @@ Page({
       }
     ]
   },
+  onShow() {
+    this.getdata();
+  },
   onLoad(e) {
     this.setData({ text: e.text, class_id: e.class_id })
     this.getdata();
@@ -50,7 +53,7 @@ Page({
   },
   carselect(e){
     wx.navigateTo({
-      url: '/pages/my/info/mycar/home/index?type=2&&text=' + this.data.text
+      url: '/pages/my/info/mycar/home/index?type=2&&text=' + this.data.text + '&class_id=' + this.data.class_id
     })
   },
   getdata(e) {//获取数据
@@ -75,6 +78,13 @@ Page({
             data: res.data.data
           })
           wx.hideToast();
+        }else{
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
         }
       }
     })
