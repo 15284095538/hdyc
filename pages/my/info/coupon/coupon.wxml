@@ -10,6 +10,9 @@
   </view>
 </view>
 <view id='list'>
+<view style='background-color:#f3f3f3;' class='{{dispaly}}'>
+<image src='/images/none.png' style='width:100%'></image>
+</view>
   <view wx:for="{{ShowList}}" wx:key="index" wx:for-item="item" class='list'>
     <view class='list-money left'>
       {{item.cost}}元

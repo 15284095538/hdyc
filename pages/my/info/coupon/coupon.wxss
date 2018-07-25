@@ -1,7 +1,12 @@
 /* pages/my/info/coupon/coupon.wxss */
 
 /* page */
-
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
 page {
   background-color: #f6f6f6;
 }
