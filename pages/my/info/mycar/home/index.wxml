@@ -1,7 +1,7 @@
 <!-- 我的车库 -->
 <view class='mycars'>
-<view style='background-color:#f3f3f3;' class='{{dispaly}}'>
-<image src='/images/none.png' style='width:100%'></image>
+<view style='background-color:#f3f3f3;text-align:center;' class='{{dispaly}}'>
+<image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
 </view>
   <view wx:for="{{carts}}"  wx:key="this">
     <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
