@@ -309,7 +309,7 @@ page {
   background-color: #fff;
   z-index: 98;
   left: 0;
-  top: 130rpx;
+  top: 110rpx;
 }
 .NoneSj image{
   width: 300rpx;

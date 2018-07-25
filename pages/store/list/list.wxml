@@ -83,6 +83,6 @@
 </view>
 
 
-<view class='NoneSj {{Imgdisplay}}'>
+<view class='NoneSj' wx:if="{{ IMgFalse }}" >
   <image src='/images/none.png'></image>
 </view>
