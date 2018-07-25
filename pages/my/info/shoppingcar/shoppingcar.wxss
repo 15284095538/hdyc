@@ -7,7 +7,12 @@
 .buycar .scroll {
   padding-bottom: 120rpx;
 }
-
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
 .buycar .column {
   display: flex;
   width: 422rpx;

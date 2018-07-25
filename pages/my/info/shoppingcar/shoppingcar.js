@@ -1,6 +1,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
+    dispaly: 'none',
     navbar: ["车用品","新车"],
     currentIndex: 0,//tabbar索引
     isAllSelect: false,
@@ -31,10 +32,20 @@ Page({
         },
         method: 'POST',
         success: function (res) {
-          that.setData({
-            ['carts']: res.data.data.data,
-            currentIndex: e.currentTarget.dataset.index,
-          })
+          console.log(res.data.data.data.length==0);
+          if (res.data.data.data.length == 0) {
+            that.setData({
+              ['carts']: res.data.data.data,
+              currentIndex: e.currentTarget.dataset.index,
+              ['dispaly']: 'block',
+            })
+          } else {
+            that.setData({
+              ['carts']: res.data.data.data,
+              currentIndex: e.currentTarget.dataset.index,
+              ['dispaly']: 'none',
+            })
+          }
           
           wx.hideToast();
           console.log(res);
@@ -61,13 +72,21 @@ Page({
         },
         method: 'POST',
         success: function (res) {
-          that.setData({
+          console.log(res.data.data.length==0);
+          if (res.data.data.data.length == 0){
+            that.setData({
+              ['carts']: res.data.data.data,
+              currentIndex: e.currentTarget.dataset.index,
+              ['dispaly']: 'block',
+            })
+          } else {
+            that.setData({
             ['carts']: res.data.data.data,
             currentIndex: e.currentTarget.dataset.index,
+            ['dispaly']:'none',
           })
-
+          }
           wx.hideToast();
-          console.log(res);
         }
       })
     }
@@ -274,9 +293,17 @@ onLoad: function (options) {
     },
     method: 'POST',
     success: function (res) { 
-      that.setData({
-        ['carts']: res.data.data.data
-      })
+      if (res.data.data.data.length == 0) {
+        that.setData({
+          ['carts']: res.data.data.data,
+          ['dispaly']: 'block',
+        })
+      } else {
+        that.setData({
+          ['carts']: res.data.data.data,
+          ['dispaly']: 'none',
+        })
+      }
      
       wx.hideToast();
     }

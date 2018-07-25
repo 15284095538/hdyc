@@ -2,6 +2,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
+    dispaly:'none',
     navbar: ["全部", "待付款", "待安装","待评价","退换货"],
     currentIndex: 0,//tabbar索引
     carts:[],
@@ -224,11 +225,13 @@ Page({
           })
           that.setData({
             ['carts']: res.data.data,
+            ['dispaly']:'bolck'
           })
           wx.hideToast();
         } else if (res.data.code == 200){
           that.setData({
             ['carts']: res.data.data,
+            ['dispaly']:'none',
           })
           wx.hideToast();
         }else{

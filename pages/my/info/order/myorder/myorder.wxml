@@ -6,6 +6,9 @@
     </view>
     </view>
 <view>
+<view style='background-color:#f3f3f3;text-align:center;' class='{{dispaly}}'>
+<image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
+</view>
    <view wx:for="{{carts}}"  wx:key="this">
   
 <view class='dingdan'>

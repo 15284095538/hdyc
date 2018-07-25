@@ -1,7 +1,11 @@
 <!-- 爱车档案 -->
 <view class="carlove">
 <view class='bg'>
+<view style='background-color:#f3f3f3;text-align:center;' class='{{dispaly}}'>
+<image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
+</view>
 <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="88rpx"next-margin="88rpx">
+
       <block wx:for="{{cars}}" wx:key="this" wx:for-item="item">
         <swiper-item style="width:493rpx">
           <view class='car'>

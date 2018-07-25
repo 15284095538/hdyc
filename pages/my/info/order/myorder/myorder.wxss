@@ -14,7 +14,12 @@ page{
   text-align: center;
   background: #fff;
 }
-
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
 .myorder .navbar .item.active {
   color: #11a8e1;
   position: relative;
