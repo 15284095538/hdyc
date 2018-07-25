@@ -2,9 +2,37 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
-    list: []
+    list: [],
+    list: [],
+    classify: '',
+    goods_id: '',
+    goods_type: '',
+    store_id: '',
+    value_id: '',
+    num: '',
+
+    store_id: '',
+    count_board: '',
+    count_price: '',
+    class_id: '',
+    price: '',
+    text: '',
+    phone: '',
+    name: '',
   },
-  onLoad: function (options) {
+  onLoad: function (e) {
+    if (!e.name) { e.name = '' }
+    if (!e.phone) { e.phone = '' }
+    this.setData({
+      goods_id: e.goods_id,
+      goods_type: e.goods_type,
+      store_id: e.store_id,
+      value_id: e.value_id,
+      classify: e.classify,
+      num: e.num,
+      phone: e.phone,
+      name: e.name,
+    })
     this.getdata();
   },
   onShow: function () {
@@ -33,6 +61,13 @@ Page({
         }
         wx.hideToast();
       }
+    })
+  },
+  info(e){
+    var address_id = e.currentTarget.dataset.addressid;
+    console.log(address_id  )
+    wx.redirectTo({
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone + '&address_id=' + address_id
     })
   },
   getdata() { //获取地址

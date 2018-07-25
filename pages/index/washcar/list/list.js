@@ -73,7 +73,7 @@ Page({
         address: wx.getStorageSync('address_component').city,
         areaId: this.data.areaId ,
         type:1,
-        sort:'',
+        sort:'2',
         page: this.page.pages*10
       },
       method: 'POST',

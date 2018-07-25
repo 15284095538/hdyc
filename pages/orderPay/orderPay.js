@@ -19,10 +19,14 @@ Page({
     },
     phone: '',
     name: '',
+    address_id:''
   },
   onLoad(e){
-    var that = this
-    if(!e.name){ e.name = ''; e.phone = '' }
+    var that = this;
+    if (!e.name){e.name = ''}
+    if (!e.phone) { e.phone = ''}
+    if (!e.address_id) {e.address_id = ''}
+    console.log(e)
     that.setData({
       goods_id: e.goods_id,
       goods_type: e.goods_type,
@@ -32,6 +36,7 @@ Page({
       classify: e.classify,
       name: e.name,
       phone: e.phone,
+      address_id: e.address_id
     })
     wx.getSystemInfo({
       success: function (res) {
@@ -39,6 +44,9 @@ Page({
       }
     })
     this.getdata();
+  },
+  onShow(e){
+    this.onLoad();
   },
   phoneinput(e) {
     this.setData({ phone: e.detail.value })
@@ -61,8 +69,8 @@ Page({
     this.setData({ couponDisplyClick: 'none' })
   },
   shdiz(e){
-    wx.navigateTo({
-      url: '/pages/my/info/receivingaddress/home/index'
+    wx.redirectTo({
+      url: '/pages/my/info/receivingaddress/home/index?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone
     })
   },
   couponliClick(e){//优惠券列表点击
@@ -77,7 +85,7 @@ Page({
     this.couponDisplyNClick();
   },
   storeId(e){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/orderStore/orderStore?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone
     })
   },
@@ -111,6 +119,14 @@ Page({
         })
         return false
       }
+    } else if (this.data.orderdata.address_info.area == '' ){
+      wx.showToast({
+        title: '请选择收货地址',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
     }
     wx.showToast({
       title: '加载中',

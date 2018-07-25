@@ -251,6 +251,12 @@ Page({
       }
     }
 
+    if ( topimg[21].key ){
+      for (let i = 0; i < topimg.length - 1; i++) {
+        topimg[i].key = false
+      }
+    }
+
     if (topimg[21].key ){//整车喷漆
       topimg[21].display = true
     }else{

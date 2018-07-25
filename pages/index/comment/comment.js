@@ -6,6 +6,7 @@ Page({
     goods_id: '',
     allpinglun: [],
     xhpinlun: [],
+    status: '',
   },
   page: {
     pages: 1,
@@ -26,39 +27,25 @@ Page({
   },
   click: function (e) {
     var num = e.target.dataset.num;
-    var list = this.data.allpinglun.list;
-    var data = [];
+    var status;
     if (num == 1) {
-      data = this.data.allpinglun.list
+      status = ''
     } else if (num == 2) {
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].images.length !== 0) {
-          data.push(list[i])
-        }
-      }
+      status = 4
     } else if (num == 3) {
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 3) {
-          data.push(list[i])
-        }
-      }
+      status = 3
     } else if (num == 4) {
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 2) {
-          data.push(list[i])
-        }
-      }
+      status = 2
     } else {
-      for (let i = 0; i < list.length; i++) {
-        if (list[i].level == 1) {
-          data.push(list[i])
-        }
-      }
+      status = 1
     }
     this.setData({
       Topnum: num,
-      xhpinlun: data,
+      status: status,
+      type: 10
     });
+    this.page.pages = 1
+    this.getstoreeval();
   },
   getstoreeval(e) {
     var that = this;
@@ -74,18 +61,16 @@ Page({
         store_id: '',
         type: this.page.pages * 10,
         goods_id: this.data.goods_id,
-        status: '',
+        status: this.data.status,
       },
       method: 'POST',
       success: res => {
-        console.log(res)
-        if (res.data.code == 200) {
-          that.setData({
-            allpinglun: res.data.data,
-            xhpinlun: res.data.data.list
-          });
+        var list;
+        if (res.data.data.list.length != 0) {
+          list = res.data.data.list
           wx.hideToast();
         } else {
+          list = '';
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -93,6 +78,10 @@ Page({
             mask: true
           })
         }
+        that.setData({
+          allpinglun: res.data.data,
+          xhpinlun: list
+        });
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  
