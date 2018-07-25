@@ -149,3 +149,58 @@ page{
   border-radius: 30rpx;
   line-height: 90rpx;
 }
+
+.layerbg{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.layerbg image{
+  width: 602rpx;
+  height: 511rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -255.5rpx 0 0 -301rpx;
+}
+.layerbg .OneText{
+  width: 350rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -175rpx;
+  top: 610rpx;
+  text-align: center;
+  font-size: 48rpx;
+  color: #fb6e14;
+}
+.layerbg .TwoText{
+  width: 350rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -175rpx;
+  top: 700rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.none{
+  display: none;
+}
+.block{
+  display: block;
+}
+.loadCityFail{
+  width: 200rpx;
+  height:100rpx;
+  float: left;
+  margin-top:40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 100rpx;
+  vertical-align: middle;
+  margin-left:28rpx;
+}

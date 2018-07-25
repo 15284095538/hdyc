@@ -10,10 +10,14 @@ Page({
       minute: '',
       second: '',
     },
-    data:[]
+    data:[],
+    timestamp:'',
   },
   onLoad: function (options) {
     this.getdata();
+    this.setData({
+      timestamp: (new Date()).valueOf()
+    })
   },
   countDown(times) {//倒计时
     var that = this;
@@ -47,16 +51,25 @@ Page({
   },
   detClick(e){
     var id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/activity/pages/collage/details/details?id=' + id + '&pid=',
-    })
+    if (this.data.data.end_time > this.data.timestamp ){
+      wx.showToast({
+        title: '加载中',
+        icon: 'loading',
+        duration: 55000,
+        mask: true
+      })
+    }else{
+      wx.navigateTo({
+        url: '/activity/pages/collage/details/details?id=' + id + '&pid=',
+      })
+    }
   },
   getdata(e) {//获取数据
     var that = this;
     wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 55000,
+      title: '活动结束',
+      icon: 'success',
+      duration: 1000,
       mask: true
     })
     wx.request({//获取分类

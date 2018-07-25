@@ -13,6 +13,10 @@ Page({
     pid:0,
     group_id:'',
     openid:'',
+    timestamp:'',
+    bgCOolo:'none',
+    loadCityFail:false,
+    getuserinfo: true,
   },
   onLoad: function (options) {
     var pid, openid;
@@ -26,8 +30,7 @@ Page({
     }else{
       openid = wx.getStorageSync('userinfo').openid
     }
-
-    this.setData({ group_id: options.id, pid: pid, openid: openid });
+    this.setData({ group_id: options.id, pid: pid, openid: openid, timestamp: (new Date()).valueOf() });
     this.getdata();
   },
   countDown(times) {//倒计时
@@ -71,6 +74,29 @@ Page({
     }
   },
   onGotUserInfo(e){
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']){
+          that.setData({ loadCityFail: false })
+          that.getuserinfo();
+        }else{
+          that.setData({ loadCityFail: true, getuserinfo:false })
+        }
+      }
+    })
+  },
+  onGoopenSetting(e){
+    var that = this;
+    if (!e.detail.authSetting['scope.userInfo']) {
+      that.setData({
+        oadCityFail: true, getuserinfo: false
+      })
+    }else{
+      that.getuserinfo();
+    }
+  },
+  getuserinfo(e){
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -78,34 +104,28 @@ Page({
       mask: true
     })
     var that = this;
-    wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userInfo']){
-          wx.login({
-            success: res => {
-              var code = res.code;
-              wx.getUserInfo({
-                success: function (res) {
-                  wx.request({
-                    url: url + 'user/myInfo',
-                    method: 'post',
-                    data: {
-                      encryptedData: res.encryptedData,
-                      iv: res.iv,
-                      code: code
-                    },
-                    success: function (data) {
-                      wx.setStorageSync('userinfo', data.data.data)
-                      that.join();
-                    }
-                  })
-                }
-              })
-            }
-          })
-        }else{
-          that.join();
-        }
+    wx.login({
+      success: res => {
+        var code = res.code;
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
+              url: url + 'user/myInfo',
+              method: 'post',
+              data: {
+                encryptedData: res.encryptedData,
+                iv: res.iv,
+                code: code
+              },
+              success: function (data) {
+                wx.setStorageSync('userinfo', data.data.data)
+                that.setData({ openid: data.data.data.openid })
+                wx.hideToast();
+                that.join();
+              }
+            })
+          }
+        })
       }
     })
   },
@@ -123,7 +143,7 @@ Page({
       success: function (res) {
         if( res.data.code == 200 ){
           wx.showToast({
-            title: '开团成功',
+            title: '成功',
             icon: 'success',
             duration: 500,
             mask: true
@@ -138,8 +158,6 @@ Page({
             mask: true
           })
         }
-        
-        
       }
     })
   },
@@ -167,6 +185,9 @@ Page({
           wx.hideToast();
           wx.hideShareMenu();//取消分享显示
           that.countDown(res.data.data.end_time - res.data.data.start_time);
+        }
+        if ( res.data.data.status == '拼团成功' ){
+          that.setData({ bgCOolo:'block' })
         }
       }
     })
