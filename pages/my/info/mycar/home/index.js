@@ -156,6 +156,14 @@ Page({
     })
 
   },
+  carClick(e){
+    var carid = e.currentTarget.dataset.carid;
+    if (this.data.type == 2) {
+      wx.redirectTo({
+        url: '/pages/index/spraypaint/payselect/payselect?text=' + this.data.text + '&class_id=' + this.data.class_id + '&carid=' + carid
+      })
+    }
+  },
   getmr:function(e){
     var that = this;
     var value = wx.getStorageSync('userinfo');
@@ -180,12 +188,6 @@ Page({
           duration: 500,
           mask: true
         })
-        if (that.data.type == 2 ){
-          wx.navigateBack();
-          wx.redirectTo({
-            url: '/pages/index/spraypaint/payselect/payselect?text=' + that.data.text + '&class_id=' + that.data.class_id
-          })
-        }
       }
     })
   },
