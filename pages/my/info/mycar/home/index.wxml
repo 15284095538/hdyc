@@ -1,6 +1,6 @@
 <!-- 我的车库 -->
 <view class='mycars'>
-<view style='background-color:#f3f3f3;text-align:center;' class='{{dispaly}}'>
+<view style='background-color:#f3f3f3;text-align:center;'wx:if="{{ carts.length == 0 }}" >
 <image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
 </view>
   <view wx:for="{{carts}}"  wx:key="this">

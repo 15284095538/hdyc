@@ -225,13 +225,11 @@ Page({
           })
           that.setData({
             ['carts']: res.data.data,
-            ['dispaly']:'bolck'
           })
           wx.hideToast();
         } else if (res.data.code == 200){
           that.setData({
             ['carts']: res.data.data,
-            ['dispaly']:'none',
           })
           wx.hideToast();
         }else{

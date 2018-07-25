@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dispaly: 'none',
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -59,17 +58,9 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if(res.data.data.length==0){
-          that.setData({
-          ['cars']: res.data.data,
-          ['dispaly']:'block',
+        that.setData({
+          ['cars']: res.data.data
         })
-        }else{
-          that.setData({
-            ['cars']: res.data.data,
-            ['dispaly']: 'none',
-          })
-        }
         wx.hideToast();
         console.log(res);
       } 
