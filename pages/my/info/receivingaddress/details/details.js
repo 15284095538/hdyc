@@ -59,14 +59,33 @@ Page({
       });
       return false;
     }
-    if (this.data.tel == "") {
+    if (this.data.name.length > 10) {
       wx.showToast({
-        title: '电话不能为空',
+        title: '请输入正确姓名',
         icon: 'none',
-        duration: 500,
+        duration: 1000,
         mask: true
       });
       return false;
+    }
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (this.data.tel.length < 11 && this.data.tel.length) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      });
+      return false;
+    }
+    if (!myreg.test(this.data.tel)) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
     }
     if (this.data.areaInfo == undefined) {
       wx.showToast({

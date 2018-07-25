@@ -1,19 +1,19 @@
 <!--编辑收货地址-->
 <view class='myaddress'>
 <view class='flex'>
-<label>收货人姓名</label>
+<view class='left'>收货人姓名</view>
 <input bindinput="voteTitle" placeholder='请输入收货人姓名' value='{{name}}'></input>
 </view>
 <view class='flex'>
-<label>联系电话</label>
-<input bindinput="voteTitle1" placeholder='请输入联系电话' value='{{tel}}'></input>
+<view class='left'>联系电话</view>
+<input bindinput="voteTitle1" type="number" placeholder='请输入联系电话' value='{{tel}}'></input>
 </view>
 <view class='flex'>
-<label>省、市</label>
+<view class='left'>省、市</view>
 <view class='ss'bindtap="selectDistrict">{{areaInfo}}</view>
 </view>
 <view class='flex'>
-<label>详细地址</label>
+<view class='left'>详细地址</view>
 <input bindinput="voteTitle2" placeholder='请输入详细信息' value='{{myaddress}}'></input>
 </view>
 <view class='button' bindtap='searchBox'>保存</view>

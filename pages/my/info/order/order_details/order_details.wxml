@@ -48,12 +48,12 @@
 </view>
 </view>
 
-<view class="footter {{carts.order_status!==1&&carts.order_status!==3?'dis':''}}">
-<!-- <image src='/images/kf.png'></image> 
-<text class='item'>在线咨询</text> -->
-<image src='/images/phone.png'></image>
-<text class='item' style='border-left:1px solid #f6f6f6;'>电话咨询</text>
-</view>
+<!--<view class="footter {{carts.order_status!==1&&carts.order_status!==3?'dis':''}}">
+
+
+ <image src='/images/phone.png'></image>
+<text class='item' catchtap='gittel' id="{{carts.attr.phone}}" style='border-left:1px solid #f6f6f6;'>电话咨询</text> 
+</view>-->
 <view class="footter {{carts.order_status!==0?'dis':''}}" >
 <view class='first'bindtap="qxdd" id="{{carts.id}}">取消订单</view>
 <view class='secend'bindtap='ljfk'id="{{carts.id}}">立即付款</view> 

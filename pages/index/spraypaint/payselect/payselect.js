@@ -72,6 +72,7 @@ Page({
         board: this.data.text,
         openid: wx.getStorageSync('userinfo').openid,
         price: this.data.price,
+        my_car_id: this.data.carid
       },
       method: 'POST',
       success: function (res) {

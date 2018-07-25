@@ -47,6 +47,9 @@ Page({
     })
 
   },
+  gittel:function(e){
+    console.log(e);
+  },
   ljfk: function (e) {//立即支付
     var order_sn = e.currentTarget.id;
     var value = wx.getStorageSync('userinfo');
