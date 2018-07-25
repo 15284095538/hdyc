@@ -42,22 +42,12 @@ Page({
       }
     ],
     list: [],
-    typeid: ''
+    typeid: '',
+    Imgdisplay: 'none'
   },
   page: {
     pages: 1,
     pagebuler: true
-  },
-  onReady: function() {
-    this.animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'linear',
-      delay: 100,
-      transformOrigin: 'left top 0',
-      success: function(res) {
-        console.log(res)
-      }
-    })
   },
   onLoad(options) {
     this.getmenu();
@@ -261,7 +251,8 @@ Page({
       success: res => {
         if (res.data.code == 200) {
           that.setData({
-            list: res.data.data
+            list: res.data.data,
+            Imgdisplay: 'none'
           });
           wx.hideToast();
         } else {
@@ -272,6 +263,9 @@ Page({
             duration: 1000,
             mask: true
           })
+          if ( that.page.pages == 1 ){
+            that.setData({ Imgdisplay: 'block' })
+          }
         }
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();

@@ -1,6 +1,6 @@
 <view class='indTop'>
   <view class='city' >
-    <view wx:if="{{loadCityFail}}" >{{loadCity.text}} <image src='/images/xiala@2x.png'></image>  </view> 
+    <view wx:if="{{loadCityFail}}" >{{loadCity.text}}</view> 
     <button  wx:else="{{loadCityFail}}" bindopensetting="onGoopenSetting" open-type="openSetting">打开授权设置页</button>
   </view>
   <view class='search' bindtap='searchLink'>
