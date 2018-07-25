@@ -28,7 +28,7 @@ page{
   position: absolute;
   left: 50%;
   top: 30%;
-  margin: 0 0 0 -104.5rpx;
+  margin: 0 0 0 -150rpx;
 }
 .myorder .navbar .item.active {
   color: #11a8e1;
