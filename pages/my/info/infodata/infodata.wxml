@@ -15,17 +15,17 @@
 <input class='zname' value='{{user.cellphone}}' bindinput="voteTitle1">{{user.cellphone}}</input>
 </view>
 <view style='clear:both;'></view>
-<view class='input'>
+<view class='input' bindtap='ques'>
 <view class='word'>性别</view>
-<view class='sex'>
-<radio value="男" color='#11a8e1' checked='{{user.sex==1}}' disabled='true'/>男
-<radio value="女" color='#11a8e1' checked='{{user.sex==2}}' disabled='true'/>女
+<view class='sex' bindtap='ques'>
+<radio value="男" bindtap='ques' color='#11a8e1' checked='{{user.sex==1}}' disabled='true'/>男
+<radio value="女" bindtap='ques' color='#11a8e1' checked='{{user.sex==2}}' disabled='true'/>女
 </view>
 </view>
 <view style='clear:both;'></view>
 <view class='input'>
 <view class='word'>昵称</view>
-<view class='zname' >{{user.user_name}}</view>
+<view class='zname'  catchtap='ques'>{{user.user_name}}</view>
 </view>
 <view class='button' bindtap='searchBox'>保存</view>
 </view>

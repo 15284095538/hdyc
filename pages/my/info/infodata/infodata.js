@@ -67,6 +67,14 @@ Page({
       }
     })
   },
+  ques:function(e){
+    wx.showToast({
+      title: '不能修改哦',
+      icon: 'none',
+      duration: 1000,
+      mask: true
+    })
+  },
   voteTitle: function (e) {
     this.data.name = e.detail.value;
   },
