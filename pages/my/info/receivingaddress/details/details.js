@@ -61,7 +61,7 @@ Page({
     }
     if (this.data.name.length > 10) {
       wx.showToast({
-        title: '请输入正确姓名',
+        title: '姓名不能超过10位',
         icon: 'none',
         duration: 1000,
         mask: true
