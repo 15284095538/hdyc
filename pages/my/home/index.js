@@ -51,9 +51,9 @@ Page({
     this.onGoUserinfoSetting();
     this.onGotUserInfo();
   },
-  // onShow: function () {
-  //   this.onGotUserInfo();
-  // },
+  onShow: function () {
+    this.onGotUserInfo();
+  },
 
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;

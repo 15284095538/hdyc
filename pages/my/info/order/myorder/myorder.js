@@ -215,7 +215,6 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res);
         if(res.data.code==400){
           wx.showToast({
             title: '没有更多数据',

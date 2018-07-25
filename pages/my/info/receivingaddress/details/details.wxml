@@ -6,7 +6,7 @@
 </view>
 <view class='flex'>
 <view class='left'>联系电话</view>
-<input bindinput="voteTitle1" placeholder='请输入联系电话'></input>
+<input bindinput="voteTitle1"  type="number" placeholder='请输入联系电话'></input>
 </view>
 <view class='flex'>
 <view class='left'>省、市</view>

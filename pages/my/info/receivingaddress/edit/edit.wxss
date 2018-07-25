@@ -6,6 +6,11 @@ page{
   background-color: #fff;
   font-size: 30rpx;
 }
+.myaddress .left{
+  width: 300rpx;
+  height: 30rpx;
+  padding: 10rpx 0;
+}
 .myaddress .flex{
   display: flex;
   justify-content:space-between;
