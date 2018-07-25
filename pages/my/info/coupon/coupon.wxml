@@ -10,9 +10,7 @@
   </view>
 </view>
 <view id='list'>
-<view style='background-color:#f3f3f3;text-align:center;' wx:if="{{ ShowList.length == 0 }}">
-<image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
-</view>
+
   <view wx:for="{{ShowList}}" wx:key="index" wx:for-item="item" class='list'>
     <view class='list-money left'>
       {{item.cost}}元
@@ -28,4 +26,7 @@
       </view>
     </view>
   </view>
+</view>
+<view class='NoneSj' wx:if="{{ ShowList.length == 0 }}" >
+  <image src='/images/none.png'></image>
 </view>

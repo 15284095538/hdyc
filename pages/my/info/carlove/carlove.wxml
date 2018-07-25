@@ -1,9 +1,7 @@
 <!-- 爱车档案 -->
 <view class="carlove">
 <view class='bg'>
-<view style='background-color:#f3f3f3;text-align:center;'wx:if="{{ cars.length == 0 }}">
-<image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
-</view>
+
 <swiper class='swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" previous-margin="88rpx"next-margin="88rpx">
 
       <block wx:for="{{cars}}" wx:key="this" wx:for-item="item">
@@ -23,4 +21,7 @@
 <navigator url='/pages/my/info/mycar/home/index'>
 <view class='button'>我的车库</view>
 </navigator>
+</view>
+<view class='NoneSj' wx:if="{{ cars.length == 0 }}" >
+  <image src='/images/none.png'></image>
 </view>

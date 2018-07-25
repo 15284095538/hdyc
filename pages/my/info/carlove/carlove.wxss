@@ -1,8 +1,19 @@
-.none{
-  display: none;
+.NoneSj{
+  width: 100%;
+  height: 70%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 98;
+  left: 0;
+  top: 130rpx;
 }
-.block{
-  display: block;
+.NoneSj image{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  margin: 0 0 0 -104.5rpx;
 }
 page{ 
   background-color:#f6f6f6;

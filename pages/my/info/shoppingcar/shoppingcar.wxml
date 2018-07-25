@@ -5,9 +5,7 @@
       <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
     </view>
     </view>
-<view style='background-color:#f3f3f3;text-align:center;'wx:if="{{ carts.length == 0 }}" >
-<image src='/images/none.png' style='width:300px;height:300px;display: inline-block;'></image>
-</view>
+
 <scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
   <view class="separate"></view>
   
@@ -51,4 +49,7 @@
     </view>
   </view>
 </view>
+</view>
+<view class='NoneSj' wx:if="{{ carts.length == 0 }}" >
+  <image src='/images/none.png'></image>
 </view>
