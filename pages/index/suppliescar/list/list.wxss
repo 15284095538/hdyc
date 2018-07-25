@@ -130,10 +130,10 @@
   top: 130rpx;
 }
 .NoneSj image{
-  width: 209rpx;
-  height: 209rpx;
+  width: 200px;
+  height: 200px;
   position: absolute;
   left: 50%;
-  top: 30%;
-  margin: 0 0 0 -104.5rpx;
+  top: 20%;
+  margin: 0 0 0 -100px;
 }

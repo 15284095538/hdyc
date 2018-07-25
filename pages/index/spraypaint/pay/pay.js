@@ -158,7 +158,7 @@ Page({
     })
   },
   storeClick(e){// 选择门店
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/orderStore/orderStore?store_id=' + this.data.store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone
     })
   },
