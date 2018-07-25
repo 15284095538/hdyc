@@ -7,6 +7,7 @@ Page({
     list:[],
     category_id:'',
     scrollWidth:'',
+    Imgdisplay: 'none'
   },
   page: {
     pages: 1,
@@ -18,6 +19,9 @@ Page({
   onReachBottom: function () {//下拉加载更多
     this.page.pages++;
     this.getdata();
+    this.setData({
+      Imgdisplay: 'none'
+    })
   },
   onPullDownRefresh: function () {//上拉刷新
     wx.showNavigationBarLoading();
@@ -38,6 +42,7 @@ Page({
   },
   getdata(e) {//获取数据
     var that = this;
+    var Imgdisplay;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -60,7 +65,9 @@ Page({
             duration: 500,
             mask: true
           })
+          Imgdisplay = 'block'
         }else{
+          Imgdisplay = 'none'
           wx.hideToast();
         }
         // 隐藏导航栏加载框  
@@ -71,7 +78,8 @@ Page({
           menu: res.data.data.category,
           list: res.data.data.list,
           scrollWidth: res.data.data.category.length * 187.5,
-          category_id: res.data.data.category[0].id
+          category_id: res.data.data.category[0].id,
+          Imgdisplay: Imgdisplay
         })
       }
     })

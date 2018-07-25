@@ -19,3 +19,7 @@
     </view>
   </view>
 </view>
+
+<view class='NoneSj {{Imgdisplay}}'>
+  <image src='/images/none.png'></image>
+</view>

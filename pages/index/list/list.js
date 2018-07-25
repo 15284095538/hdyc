@@ -34,6 +34,7 @@ Page({
     listtype:[],//分类
     sort: [],//排序
     list:[],
+    Imgdisplay:'none'
   },
   page:{
     pages:1,
@@ -43,6 +44,9 @@ Page({
     if (this.page.pagebuler) {
       this.page.pages++;
       this.getdata();
+      this.setData({
+        Imgdisplay: 'none'
+      })
     }
   },
   onPullDownRefresh: function () {//上拉刷新
@@ -110,7 +114,7 @@ Page({
   },
   getdata(e) {//获取数据
     var that = this;
-    var cityHeight, typeHeight;
+    var cityHeight, typeHeight, Imgdisplay;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -141,11 +145,13 @@ Page({
           } else {
             typeHeight = res.data.data.classify.length * 100
           }
-        if (res.data.data.details){
+        if (res.data.data.details != ''){
           var list = res.data.data.details;
           wx.hideToast();
         }else{
           that.page.pagebuler = false;
+          var list = res.data.data.details;
+          Imgdisplay = 'block';
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -159,7 +165,8 @@ Page({
           sort: res.data.data.sort,
           cityHeight: cityHeight,
           typeHeight: typeHeight,
-          list: list
+          list: list,
+          Imgdisplay: Imgdisplay
         })
 
         // 隐藏导航栏加载框  
