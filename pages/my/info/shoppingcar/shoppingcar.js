@@ -1,7 +1,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
-    dispaly: 'none',
+    IMgFalse: false,
     navbar: ["车用品","新车"],
     currentIndex: 0,//tabbar索引
     isAllSelect: false,
@@ -37,13 +37,13 @@ Page({
             that.setData({
               ['carts']: res.data.data.data,
               currentIndex: e.currentTarget.dataset.index,
-              ['dispaly']: 'block',
+              IMgFalse: true,
             })
           } else {
             that.setData({
               ['carts']: res.data.data.data,
               currentIndex: e.currentTarget.dataset.index,
-              ['dispaly']: 'none',
+              IMgFalse: false,
             })
           }
           
@@ -77,13 +77,13 @@ Page({
             that.setData({
               ['carts']: res.data.data.data,
               currentIndex: e.currentTarget.dataset.index,
-              ['dispaly']: 'block',
+              IMgFalse: true,
             })
           } else {
             that.setData({
             ['carts']: res.data.data.data,
             currentIndex: e.currentTarget.dataset.index,
-            ['dispaly']:'none',
+              IMgFalse: false,
           })
           }
           wx.hideToast();
@@ -296,12 +296,12 @@ onLoad: function (options) {
       if (res.data.data.data.length == 0) {
         that.setData({
           ['carts']: res.data.data.data,
-          ['dispaly']: 'block',
+          IMgFalse: true,
         })
       } else {
         that.setData({
           ['carts']: res.data.data.data,
-          ['dispaly']: 'none',
+          IMgFalse: false,
         })
       }
      

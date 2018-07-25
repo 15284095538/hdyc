@@ -18,6 +18,6 @@
   <view class='button'>添加爱车</view>
   </navigator>
 </view>
-<view class='NoneSj' wx:if="{{ carts.length == 0 }}" >
+<view class='NoneSj' wx:if="{{ IMgFalse}}" >
   <image src='/images/none.png'></image>
 </view>

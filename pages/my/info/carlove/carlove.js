@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    IMgFalse: false,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -58,6 +59,15 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+        if (res.data.data == "") {
+          that.setData({
+            IMgFalse: true,
+          })
+        } else {
+          that.setData({
+            IMgFalse: false,
+          })
+        }
         that.setData({
           ['cars']: res.data.data
         })

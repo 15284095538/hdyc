@@ -2,7 +2,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
-    dispaly:'none',
+    IMgFalse: false,
     navbar: ["全部", "待付款", "待安装","待评价","退换货"],
     currentIndex: 0,//tabbar索引
     carts:[],
@@ -222,6 +222,9 @@ Page({
             duration: 500,
             mask: true
           })
+          if (that.page.pages == 1) {
+            that.setData({ IMgFalse: true })
+          }
           that.setData({
             ['carts']: res.data.data,
           })
@@ -229,6 +232,7 @@ Page({
         } else if (res.data.code == 200){
           that.setData({
             ['carts']: res.data.data,
+            IMgFalse: false
           })
           wx.hideToast();
         }else{
@@ -240,6 +244,7 @@ Page({
             mask: true
           })
         }
+        
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

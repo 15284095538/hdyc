@@ -1,6 +1,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
+    IMgFalse: false,
     isAllSelect: false,
     totalMoney: 0,
     delBtnWidth: 150,
@@ -113,6 +114,15 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+        if (res.data.data == "") {
+          that.setData({
+            IMgFalse: true,
+          })
+        } else {
+          that.setData({
+            IMgFalse: false,
+          })
+        }
         if (res.data.code == 400) {
           that.setData({
             ['mycar']: 1

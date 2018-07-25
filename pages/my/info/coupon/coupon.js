@@ -2,7 +2,7 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
-    dispaly: 'none',
+    IMgFalse: false,
     menu: [ //导航
       {
         "id": 0,
@@ -79,6 +79,15 @@ Page({
       },
       success: res => {
         if (res.data.code == 200) {
+          if (res.data.data.list == ""){
+            that.setData({
+              IMgFalse: true,
+            })
+          }else{
+            that.setData({
+              IMgFalse: false,
+            })
+          }
           var menu = that.data.menu;
           for (var i = 0; i < menu.length; i++) {
             if (i == 0) {

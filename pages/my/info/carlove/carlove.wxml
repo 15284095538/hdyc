@@ -22,6 +22,6 @@
 <view class='button'>我的车库</view>
 </navigator>
 </view>
-<view class='NoneSj' wx:if="{{ cars.length == 0 }}" >
+<view class='NoneSj' wx:if="{{ IMgFalse }}" >
   <image src='/images/none.png'></image>
 </view>
