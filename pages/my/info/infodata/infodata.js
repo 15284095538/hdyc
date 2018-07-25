@@ -21,18 +21,37 @@ Page({
         tel:'',
   },
   searchBox: function (e) {
-    if (this.data.tel==""){
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (this.data.tel.length < 11 && this.data.tel.length){
       wx.showToast({
-        title: '手机号不能为空',
+        title: '请输入正确手机号',
         icon: 'none',
         duration: 1000,
         mask: true
       });
       return false;
     }
+    if (!myreg.test(this.data.tel)) {
+      wx.showToast({
+        title: '请输入正确手机号',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
     if (this.data.name==""){
       wx.showToast({
         title: '姓名不能为空',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      });
+      return false;
+    }
+    if (this.data.name.length>10) {
+      wx.showToast({
+        title: '请输入正确姓名',
         icon: 'none',
         duration: 1000,
         mask: true

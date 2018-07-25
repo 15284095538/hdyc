@@ -85,3 +85,20 @@ page{
   width: 500rpx;
   float: left;
 }
+.NoneSj{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 98;
+  left: 0;
+  top: 200rpx;
+}
+.NoneSj image{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  margin: 0 0 0 -100px;
+}

@@ -65,13 +65,11 @@ Page({
       method: 'POST',
       success: res => {
         var list;
-        if (res.data.code == 200) {
-          that.setData({
-            allpinglun: res.data.data,
-            xhpinlun: res.data.data.list
-          });
+        if (res.data.data.list.length != 0) {
+          list = res.data.data.list
           wx.hideToast();
-        }else{
+        } else {
+          list = '';
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -79,6 +77,10 @@ Page({
             mask: true
           })
         }
+        that.setData({
+          allpinglun: res.data.data,
+          xhpinlun: list
+        });
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

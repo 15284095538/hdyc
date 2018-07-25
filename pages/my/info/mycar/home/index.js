@@ -1,7 +1,6 @@
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
-    dispaly: 'none',
     isAllSelect: false,
     totalMoney: 0,
     delBtnWidth: 150,
@@ -114,22 +113,14 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if (res.data.data.length == 0) {
-          that.setData({
-            ['carts']: res.data.data,
-            ['dispaly']: 'block',
-          })
-        } else {
-          that.setData({
-            ['carts']: res.data.data,
-            ['dispaly']: 'none',
-          })
-        }
         if (res.data.code == 400) {
           that.setData({
             ['mycar']: 1
           })
         }
+        that.setData({
+          ['carts']: res.data.data
+        })
         wx.hideToast();
         console.log(res);
       }
@@ -151,22 +142,14 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if (res.data.data.length == 0) {
-          that.setData({
-            ['carts']: res.data.data,
-            ['dispaly']: 'block',
-          })
-        } else {
-          that.setData({
-            ['carts']: res.data.data,
-            ['dispaly']: 'none',
-          })
-        }
         if(res.data.code==400){
           that.setData({
             ['mycar']: 1
           })
         }
+        that.setData({
+          ['carts']: res.data.data
+        })
         wx.hideToast();
         console.log(res);
       }

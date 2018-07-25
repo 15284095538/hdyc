@@ -78,15 +78,6 @@ Page({
         page: that.page.pages * 10
       },
       success: res => {
-        if (res.data.data.list.length == 0){
-          that.setData({
-           dispaly:'block'
-          });
-        }else{
-          that.setData({
-            dispaly:'none'
-          });
-        }
         if (res.data.code == 200) {
           var menu = that.data.menu;
           for (var i = 0; i < menu.length; i++) {

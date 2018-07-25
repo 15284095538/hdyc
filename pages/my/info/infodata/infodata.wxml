@@ -12,7 +12,7 @@
 <view style='clear:both;'></view>
 <view class='input'>
 <view class='word'>手机号</view>
-<input class='zname' value='{{user.cellphone}}' bindinput="voteTitle1">{{user.cellphone}}</input>
+<input class='zname' type="number" value='{{user.cellphone}}' bindinput="voteTitle1">{{user.cellphone}}</input>
 </view>
 <view style='clear:both;'></view>
 <view class='input' bindtap='ques'>
