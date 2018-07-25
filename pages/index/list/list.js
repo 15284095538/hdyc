@@ -34,7 +34,6 @@ Page({
     listtype:[],//分类
     sort: [],//排序
     list:[],
-    Imgdisplay:'none'
   },
   page:{
     pages:1,
@@ -44,9 +43,6 @@ Page({
     if (this.page.pagebuler) {
       this.page.pages++;
       this.getdata();
-      this.setData({
-        Imgdisplay: 'none'
-      })
     }
   },
   onPullDownRefresh: function () {//上拉刷新
@@ -151,7 +147,6 @@ Page({
         }else{
           that.page.pagebuler = false;
           var list = res.data.data.details;
-          Imgdisplay = 'block';
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -166,7 +161,6 @@ Page({
           cityHeight: cityHeight,
           typeHeight: typeHeight,
           list: list,
-          Imgdisplay: Imgdisplay
         })
 
         // 隐藏导航栏加载框  

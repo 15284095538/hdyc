@@ -301,3 +301,21 @@ page {
   line-height: 26rpx;
   color: #aeaeae;
 }
+
+.NoneSj{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #fff;
+  z-index: 98;
+  left: 0;
+  top: 130rpx;
+}
+.NoneSj image{
+  width: 209rpx;
+  height: 209rpx;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  margin: 0 0 0 -104.5rpx;
+}
