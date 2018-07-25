@@ -61,6 +61,9 @@ Page({
             duration: 500,
             mask: true
           })
+          if (that.page.pages == 1) {
+            that.setData({ IMgFalse: true })
+          }
         }else{
           wx.hideToast();
         }
