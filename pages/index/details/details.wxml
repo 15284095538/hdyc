@@ -93,7 +93,7 @@
 
 <view class='detalsPay'>
   <view class='price'>实付：<text>¥{{details.price}}</text></view>
-  <view class='img'>
+  <view catchtap='phoneClick' class='img'>
     <image src='/images/tel.png'></image>
     <view>预约/咨询</view>
   </view>
