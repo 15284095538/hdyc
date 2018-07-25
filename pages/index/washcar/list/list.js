@@ -17,6 +17,7 @@ Page({
     ],
     menulist: [],//城市列表
     washlist:[],
+    Imgdisplay: 'none'
   },
   page: {
     pages: 1,
@@ -30,6 +31,9 @@ Page({
     if (this.page.pagebuler ){
       this.page.pages++;
       this.getdata();
+      this.setData({
+        Imgdisplay: 'none'
+      })
     }
   },
   onPullDownRefresh: function () {//上拉刷新
@@ -91,7 +95,8 @@ Page({
           that.setData({
             menulist: address,
             windowHeight: height,
-            washlist: res.data.data.store
+            washlist: res.data.data.store,
+            Imgdisplay: 'none'
           });
         }else{
           this.page.pagebuler = false
