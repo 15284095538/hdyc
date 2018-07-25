@@ -87,8 +87,8 @@ Page({
   },
   detLink(e) {
     var store_id = e.currentTarget.dataset.store_id;
-    wx.navigateBack();
     if (this.data.goods_type == 1 ){
+      
       wx.redirectTo({
         url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone
       })
