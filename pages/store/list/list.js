@@ -43,7 +43,7 @@ Page({
     ],
     list: [],
     typeid: '',
-    Imgdisplay: 'none'
+    IMgFalse: false,
   },
   page: {
     pages: 1,
@@ -120,6 +120,8 @@ Page({
     });
     this.listToplayerclick();
     that.getdata();
+    that.page.pages = 1;
+    that.page.pagebuler = true
   },
   Close(e) { //点击关闭遮罩
     this.listToplayerclick();
@@ -252,7 +254,7 @@ Page({
         if (res.data.code == 200) {
           that.setData({
             list: res.data.data,
-            Imgdisplay: 'none'
+            IMgFalse: false
           });
           wx.hideToast();
         } else {
@@ -263,8 +265,8 @@ Page({
             duration: 1000,
             mask: true
           })
-          if ( that.page.pages == 1 ){
-            that.setData({ Imgdisplay: 'block' })
+          if (that.page.pages == 1) {
+            that.setData({ IMgFalse: true })
           }
         }
         // 隐藏导航栏加载框  

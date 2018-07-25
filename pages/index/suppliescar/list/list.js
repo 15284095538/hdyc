@@ -7,17 +7,20 @@ Page({
     list:[],
     category_id:'',
     scrollWidth:'',
+    IMgFalse: false,
   },
   page: {
     pages: 1,
+    pagebuler: true
   },
   onLoad(e) {
-    console.log(e)
     this.getdata();
   },
   onReachBottom: function () {//下拉加载更多
-    this.page.pages++;
-    this.getdata();
+    if (this.page.pagebuler) {
+      this.page.pages++;
+      this.getdata();
+    }
   },
   onPullDownRefresh: function () {//上拉刷新
     wx.showNavigationBarLoading();
@@ -55,6 +58,7 @@ Page({
       },
       success: function (res) {
         if (res.data.data.list.length == 0 ){
+          that.page.pagebuler = false
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -66,6 +70,7 @@ Page({
           }
         }else{
           wx.hideToast();
+          that.setData({ IMgFalse: false })
         }
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();

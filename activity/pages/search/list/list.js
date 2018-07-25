@@ -4,6 +4,7 @@ Page({
   data: {
     inputValue: '',
     list:[],
+    IMgFalse: false,
   },
   page: {
     pages: 1,
@@ -53,6 +54,7 @@ Page({
     }
   },
   searchStorage() { // 储存搜索历史
+    this.getdata();
     if (this.is_define(this.data.inputValue)) {
       var searchs = wx.getStorageSync('searchs') || []
       searchs.unshift(this.data.inputValue)
@@ -80,7 +82,8 @@ Page({
         if (res.data.data.list.length != 0) {
           wx.hideToast();
           that.setData({
-            list: res.data.data.list
+            list: res.data.data.list,
+            IMgFalse:false
           })
         }else{
           that.page.pagebuler = false
@@ -90,6 +93,9 @@ Page({
             duration: 500,
             mask: true
           })
+          if (that.page.pages == 1) {
+            that.setData({ IMgFalse: true })
+          }
         }
 
         // 隐藏导航栏加载框  
