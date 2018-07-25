@@ -90,10 +90,13 @@ Page({
     var that = this;
     if (!e.detail.authSetting['scope.userInfo']) {
       that.setData({
-        oadCityFail: true, getuserinfo: false
+        loadCityFail: true, getuserinfo: false
       })
     }else{
       that.getuserinfo();
+      that.setData({
+        loadCityFail: false, getuserinfo: true
+      })
     }
   },
   getuserinfo(e){
