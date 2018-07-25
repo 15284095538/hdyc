@@ -7,6 +7,7 @@ Page({
     price:299,
     data:[],
     class_id:'',
+    carid:'',
     list: [
       {
         'path': '/images/xiche1.png',
@@ -28,7 +29,8 @@ Page({
     this.getdata();
   },
   onLoad(e) {
-    this.setData({ text: e.text, class_id: e.class_id })
+    if (!e.carid) { e.carid = '' }
+    this.setData({ text: e.text, class_id: e.class_id, carid: e.carid })
     this.getdata();
   },
   selectclick(e) {
@@ -52,7 +54,7 @@ Page({
     }
   },
   carselect(e){
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/my/info/mycar/home/index?type=2&&text=' + this.data.text + '&class_id=' + this.data.class_id
     })
   },

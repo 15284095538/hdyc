@@ -200,6 +200,7 @@ Page({
         openid: wx.getStorageSync('userinfo').openid,
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
         level: wx.getStorageSync('userinfo').level,
+        address_id: this.data.address_id
       },
       method: 'POST',
       success: function (res) {

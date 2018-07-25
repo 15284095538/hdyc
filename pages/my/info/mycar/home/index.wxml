@@ -2,7 +2,7 @@
 <view class='mycars'>
 
   <view wx:for="{{carts}}"  wx:key="this">
-    <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
+    <view class="cart_container" catchtap='carClick' data-carid='{{item.id}}' data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
       <view style='width:30rpx;' ></view>
       
       <image class="item-image" src="{{item.car_logo}}"></image>
