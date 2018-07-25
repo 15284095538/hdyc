@@ -37,6 +37,6 @@
   </view>
 </view>
 
-<view class='NoneSj' wx:if="{{ washlist.length == 0 }}" >
+<view class='NoneSj' wx:if="{{ IMgFalse }}" >
   <image src='/images/none.png'></image>
 </view>

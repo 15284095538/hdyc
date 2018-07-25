@@ -10,6 +10,7 @@ Page({
     typeHeight:'',
     areaId:'',
     menulist:[],
+    IMgFalse:false,
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -153,6 +154,9 @@ Page({
             duration: 1000,
             mask: true
           })
+          if (that.page.pages == 1) {
+            that.setData({ IMgFalse: true })
+          }
         }
         that.setData({
           city: res.data.data.address,

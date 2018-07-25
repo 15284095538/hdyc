@@ -17,6 +17,7 @@ Page({
     ],
     menulist: [],//城市列表
     washlist:[],
+    IMgFalse: false,
   },
   page: {
     pages: 1,
@@ -94,15 +95,18 @@ Page({
             washlist: res.data.data.store,
           });
         }else{
-          this.page.pagebuler = false
+          
+          that.page.pagebuler = false
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
             duration: 1000,
             mask: true
           })
+          if (that.page.pages == 1) {
+            that.setData({ IMgFalse: true })
+          }
         }
-        
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  
