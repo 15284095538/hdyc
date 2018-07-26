@@ -49,7 +49,7 @@ function wxParse(bindName = 'wxParseData', type='html', data='<div class="color:
   bindData[bindName] = transData;
   that.setData(bindData)
   that.wxParseImgLoad = wxParseImgLoad;
-  that.wxParseImgTap = wxParseImgTap;
+  // that.wxParseImgTap = wxParseImgTap; //图片间距
 }
 // 图片点击事件
 function wxParseImgTap(e) {

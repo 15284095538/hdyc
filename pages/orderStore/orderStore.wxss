@@ -73,13 +73,14 @@
 }
 .list .li .img{
   width: 210rpx;
-  height: 190rpx;
+  height: 187rpx;
   border-radius: 5rpx;
   overflow: hidden;
   float: left;
 }
 .list .li .img image{
   width: 100%;
+  height: 100%;
 }
 .list .li .con{
   width: 450rpx;

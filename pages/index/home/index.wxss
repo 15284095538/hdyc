@@ -255,6 +255,9 @@ button::after{
   position: absolute;
   left: 0;
   bottom: 40rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 }
 .indCartwo .li image{
   width: 108rpx;

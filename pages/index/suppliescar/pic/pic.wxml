@@ -1,3 +1,2 @@
- <view class='detalisCon'>
-  <view class='tit'>----- 商品图片 -----</view>
-</view>
+<import src="../../../../wxParse/wxParse.wxml"/>
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>
