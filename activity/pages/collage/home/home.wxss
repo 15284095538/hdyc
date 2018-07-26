@@ -15,12 +15,12 @@ page{
   top: 0;
 }
 .collageTop .countdown{
-  width: 275rpx;
+  width: 400rpx;
   height: 50rpx;
   line-height: 50rpx;
   position: absolute;
   left: 50%;
-  margin-left: -137.5rpx;
+  margin-left: -200rpx;
   color: #fff;
   font-size: 28rpx;
   top: 40rpx;

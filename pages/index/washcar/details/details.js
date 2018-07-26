@@ -29,7 +29,13 @@ Page({
     this.getdata();
     this.getstoreeval();
   },
-
+  onShareAppMessage(e) {//分享
+    return {
+      title: this.data.detdata.s_name,
+      imageUrl: this.data.detdata.banner[0],
+      path: '/pages/index/washcar/details/details?class_id=' + this.data.class_id + '&store_id=' + this.data.store_id
+    }
+  },
   navbarTab: function (e) {
     this.setData({
       currentIndex: e.currentTarget.dataset.index

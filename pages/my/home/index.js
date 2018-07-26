@@ -49,12 +49,7 @@ Page({
   },
   onLoad(e) {
     this.onGoUserinfoSetting();
-    this.onGotUserInfo();
   },
-  onShow: function () {
-    this.onGotUserInfo();
-  },
-
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
@@ -103,6 +98,7 @@ Page({
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userInfo']) {
+          that.onGotUserInfo();
           that.setData({
             Userinfo: false
           })

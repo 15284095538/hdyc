@@ -16,8 +16,9 @@ Page({
   onLoad: function (options) {
     this.getdata();
     this.setData({
-      timestamp: (new Date()).valueOf()
+      timestamp: Date.parse(new Date())/1000
     })
+    
   },
   countDown(times) {//倒计时
     var that = this;
@@ -51,24 +52,25 @@ Page({
   },
   detClick(e){
     var id = e.currentTarget.dataset.id;
-    if (this.data.data.end_time > this.data.timestamp ){
+    var pid = e.currentTarget.dataset.pid;
+    if (this.data.data.end_time < this.data.timestamp ){
       wx.showToast({
-        title: '加载中',
-        icon: 'loading',
-        duration: 55000,
+        title: '活动结束',
+        icon: 'success',
+        duration: 1000,
         mask: true
       })
     }else{
       wx.navigateTo({
-        url: '/activity/pages/collage/details/details?id=' + id + '&pid=',
+        url: '/activity/pages/collage/details/details?id=' + id + '&pid=' + pid,
       })
     }
   },
   getdata(e) {//获取数据
     var that = this;
     wx.showToast({
-      title: '活动结束',
-      icon: 'success',
+      title: '加载中',
+      icon: 'loading',
       duration: 1000,
       mask: true
     })
@@ -85,7 +87,16 @@ Page({
             data: res.data.data
           })
           wx.hideToast();
-          that.countDown( res.data.data.end_time - res.data.data.start_time );
+          if (that.data.data.end_time < that.data.timestamp) {
+            wx.showToast({
+              title: '活动结束',
+              icon: 'success',
+              duration: 1000,
+              mask: true
+            })
+          }else{
+            that.countDown(Number(that.data.data.end_time) - Number(that.data.timestamp) );
+          }
         }
       }
     })

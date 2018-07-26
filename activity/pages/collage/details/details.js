@@ -15,23 +15,23 @@ Page({
     openid:'',
     timestamp:'',
     bgCOolo:'none',
-    loadCityFail:false,
+    Userinfo: true,
     getuserinfo: true,
+    yqo: true,
   },
   onLoad: function (options) {
-    var pid, openid;
-    if (options.pid == ''){
-      pid = 0
-    }else{
-      pid = options.pid
-    }
+    var openid;
     if ( !wx.getStorageSync('userinfo').openid){
       openid = ''
     }else{
       openid = wx.getStorageSync('userinfo').openid
     }
-    this.setData({ group_id: options.id, pid: pid, openid: openid, timestamp: (new Date()).valueOf() });
+    this.setData({ group_id: options.id, pid: options.pid, openid: openid, timestamp: Date.parse(new Date()) / 1000 });
     this.getdata();
+    this.onGoUserinfoSetting();
+    if( options.pid == 0 ){
+      this.setData({ yqo: false })
+    }
   },
   countDown(times) {//倒计时
     var that = this;
@@ -65,47 +65,14 @@ Page({
     }
   },
   onShareAppMessage(e){
-    var path = '/activity/pages/collage/details/details?pid=' + this.data.pid + '&group_id=' + this.data.group_id
-    console.log(path)
+    console.log(this.data.pid )
     return {
       title: this.data.date.total_money + '元现金' + this.data.date.peoples + '人瓜分',
       imageUrl: this.data.date.img,
       path: '/activity/pages/collage/details/details?pid=' + this.data.pid + '&id=' + this.data.group_id
     }
   },
-  onGotUserInfo(e){
-    var that = this;
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']){
-          that.setData({ loadCityFail: false })
-          that.getuserinfo();
-        }else{
-          that.setData({ loadCityFail: true, getuserinfo:false })
-        }
-      }
-    })
-  },
-  onGoopenSetting(e){
-    var that = this;
-    if (!e.detail.authSetting['scope.userInfo']) {
-      that.setData({
-        loadCityFail: true, getuserinfo: false
-      })
-    }else{
-      that.getuserinfo();
-      that.setData({
-        loadCityFail: false, getuserinfo: true
-      })
-    }
-  },
-  getuserinfo(e){
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 55000,
-      mask: true
-    })
+  onGotUserInfo(e) {//用户授权
     var that = this;
     wx.login({
       success: res => {
@@ -122,8 +89,10 @@ Page({
               },
               success: function (data) {
                 wx.setStorageSync('userinfo', data.data.data)
-                that.setData({ openid: data.data.data.openid })
-                wx.hideToast();
+                that.setData({
+                  Userinfo: false,
+                  openid: data.data.data.openid
+                })
                 that.join();
               }
             })
@@ -132,8 +101,26 @@ Page({
       }
     })
   },
+  onGoUserinfoSetting(e) {//授权判断
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({
+            Userinfo: false
+          })
+        }
+      }
+    })
+  },
   join(e){
     var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 1000,
+      mask: true
+    })
     wx.request({//获取分类
       url: url + 'Activity/set_act',
       data: {
@@ -161,6 +148,9 @@ Page({
             mask: true
           })
         }
+        if (that.data.pid != 0) {
+          that.setData({ yqo: true })
+        }
       }
     })
   },
@@ -187,10 +177,21 @@ Page({
           })
           wx.hideToast();
           wx.hideShareMenu();//取消分享显示
-          that.countDown(res.data.data.end_time - res.data.data.start_time);
         }
         if ( res.data.data.status == '拼团成功' ){
-          that.setData({ bgCOolo:'block' })
+          that.setData({ bgCOolo: 'block', yqo: false, getuserinfo: false })
+        }
+        if (that.data.timestamp > that.data.date.end_time ){
+          wx.hideShareMenu();
+          wx.showToast({
+            title: '活动结束',
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+          that.setData({ yqo: false, getuserinfo:false })
+        }else{
+          that.countDown(res.data.data.end_time - that.data.timestamp);
         }
       }
     })

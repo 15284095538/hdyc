@@ -145,6 +145,7 @@ Page({
         if (res.data.data.details != ''){
           var list = res.data.data.details;
           wx.hideToast();
+          that.setData({ IMgFalse: false })
         }else{
           that.page.pagebuler = false;
           var list = res.data.data.details;

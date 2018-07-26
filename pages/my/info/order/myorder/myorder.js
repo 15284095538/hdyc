@@ -84,6 +84,7 @@ Page({
     //   })
     // }
     this.page.pages = 1;
+    this.page.pagebuler = true;
     this.getdata();
   },
   ljfk:function(e){//立即支付
@@ -215,7 +216,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if(res.data.code==400){
+        if(res.data.data.length==0){
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -223,20 +224,18 @@ Page({
             mask: true
           })
           if (that.page.pages == 1) {
-            that.setData({ IMgFalse: true })
+            that.setData({ IMgFalse: true, ['carts']: res.data.data, })
           }
-          that.setData({
-            ['carts']: res.data.data,
-          })
           wx.hideToast();
-        } else if (res.data.code == 200){
+        } else{
           that.setData({
             ['carts']: res.data.data,
             IMgFalse: false
           })
           wx.hideToast();
-        }else{
-          that.page.pagebuler = false
+        }
+        if (res.data.code == 300 ){
+          that.page.pagebuler = false;
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -244,7 +243,6 @@ Page({
             mask: true
           })
         }
-        
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

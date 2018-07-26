@@ -94,6 +94,13 @@ Page({
       this.setData({ isScroll: false, bot:false })
     }
   },
+  onShareAppMessage(e) {//分享
+    return {
+      title: this.data.details.g_name,
+      imageUrl: this.data.details.img_path[0],
+      path: '/pages/index/details/details?goods_id=' + this.data.goods_id + '&classify=' + this.data.classify
+    }
+  },
   getdata(e) {//获取数据
     var that = this;
     wx.showToast({

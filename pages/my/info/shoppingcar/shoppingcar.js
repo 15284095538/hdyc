@@ -32,23 +32,21 @@ Page({
         },
         method: 'POST',
         success: function (res) {
-          console.log(res.data.data.data.length==0);
+          wx.hideToast();
+          that.setData({ currentIndex: e.currentTarget.dataset.index, })
           if (res.data.data.data.length == 0) {
             that.setData({
               ['carts']: res.data.data.data,
-              currentIndex: e.currentTarget.dataset.index,
               IMgFalse: true,
             })
           } else {
             that.setData({
               ['carts']: res.data.data.data,
-              currentIndex: e.currentTarget.dataset.index,
               IMgFalse: false,
             })
           }
           
-          wx.hideToast();
-          console.log(res);
+          
         }
       })
 
@@ -72,21 +70,20 @@ Page({
         },
         method: 'POST',
         success: function (res) {
-          console.log(res.data.data.length==0);
+          wx.hideToast();
+          that.setData({ currentIndex: e.currentTarget.dataset.index, })
           if (res.data.data.data.length == 0){
             that.setData({
               ['carts']: res.data.data.data,
-              currentIndex: e.currentTarget.dataset.index,
               IMgFalse: true,
             })
           } else {
             that.setData({
             ['carts']: res.data.data.data,
-            currentIndex: e.currentTarget.dataset.index,
               IMgFalse: false,
           })
           }
-          wx.hideToast();
+          
         }
       })
     }
@@ -293,6 +290,9 @@ onLoad: function (options) {
     },
     method: 'POST',
     success: function (res) { 
+      wx.hideToast();
+
+      
       if (res.data.data.data.length == 0) {
         that.setData({
           ['carts']: res.data.data.data,
@@ -305,7 +305,7 @@ onLoad: function (options) {
         })
       }
      
-      wx.hideToast();
+      
     }
   })
   },

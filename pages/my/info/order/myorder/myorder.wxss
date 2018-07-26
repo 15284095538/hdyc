@@ -20,7 +20,8 @@ page{
   position: fixed;
   z-index: 98;
   left: 0;
-  top: 130rpx;
+  top: 100rpx;
+  background-color: #f6f6f6;
 }
 .NoneSj image{
   width: 300rpx;
