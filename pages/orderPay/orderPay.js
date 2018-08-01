@@ -146,6 +146,7 @@ Page({
         phone: this.data.phone,
         openid: wx.getStorageSync('userinfo').openid,
         coupon_id: this.data.paycoupon.id,
+        address_id: this.data.address_id,
       },
       method: 'POST',
       success: function (res) {

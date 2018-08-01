@@ -65,10 +65,11 @@ Page({
   },
   info(e){
     var address_id = e.currentTarget.dataset.addressid;
-    console.log(address_id  )
-    wx.redirectTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone + '&address_id=' + address_id
-    })
+    if (this.data.goods_type == 0 ){
+      wx.redirectTo({
+        url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&goods_type=' + this.data.goods_type + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&classify=' + this.data.classify + '&num=' + this.data.num + '&name=' + this.data.name + '&phone=' + this.data.phone + '&address_id=' + address_id
+      })
+    }
   },
   getdata() { //获取地址
     wx.showToast({

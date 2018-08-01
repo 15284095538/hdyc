@@ -1,0 +1,56 @@
+page{
+  background-color: #f6f6f6;
+  color: #333;
+  font-size: 28rpx;
+}
+.l{
+  float: left;
+}
+.r{
+  float: right;
+}
+.carInfo{
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+.carInfo input{
+  height: 100rpx;
+  width: 200rpx;
+  text-align: right;
+  position: absolute;
+  right: 30rpx;
+  top: 0rpx;
+}
+.carInfo .li{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #f6f6f6;
+  position: relative;
+}
+.carInfo .li .w{
+  color: #aeaeae;
+}
+.carInfo .li .t{
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+}
+.sc{
+  color: #aeaeae
+}
+
+.sure{
+  position: fixed;
+  left: 30rpx;
+  bottom: 30rpx;
+  width: 690rpx;
+  height: 100rpx;
+  background-color: #11a8e1;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+}

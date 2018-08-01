@@ -1,55 +1,64 @@
 <!-- 购物车 -->
 <view class='buycar'>
-<view class='fl'>
+  <view class='fl'>
     <view class="navbar">
       <text wx:for="{{navbar}}" data-index="{{index}}" class="item {{currentIndex==index?'active':''}}" bindtap="navbarTab" wx:key="unique">{{item}}</text>
     </view>
-    </view>
+  </view>
 
-<scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
-  <view class="separate"></view>
-  
-  <view wx:for="{{carts}}"  wx:key="this">
-    <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
- 
-      <image class="item-select" bindtap="switchSelect" data-index="{{index}}" id="{{item.goods_id}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
-      <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
-      <image hidden="{{currentIndex!==1&&currentIndex!==2}}" class="item-image" src="{{item.car_img}}"></image>
-      <image hidden="{{currentIndex!==0}}" class="item-image" src="{{item.g_picture}}"></image>
-      <view class="column">
-        <text  hidden="{{currentIndex!==1&&currentIndex!==2}}"  class="title">{{item.car_name}}</text>
-        <text  hidden="{{currentIndex!==0}}"  class="title">{{item.g_name}}</text>
-        <text class='xq' hidden="{{currentIndex!==0}}">已售{{item.ys}}件<text style='margin-left:100rpx;'>{{item.pl}}人评论</text></text>
-        <text class='xq' hidden="{{currentIndex!==1&&currentIndex!==2}}">厂商指导价{{item.price}}万</text>
-        <view class="row row1">
-        <text class="sku-price" hidden="{{currentIndex!==1&&currentIndex!==2}}">首付</text>
-          <text class="sku-price">￥</text>
-          
-          <text  hidden="{{currentIndex!==1&&currentIndex!==2}}" class="sku-price">{{item.first_pay}}</text>
-          <text  hidden="{{currentIndex!==0}}" class="sku-price sku-price1">{{item.price}}</text>
-          <text  hidden="{{currentIndex!==0}}" class='number'>x{{item.number}}</text>
-          <text class='yg'hidden="{{currentIndex!==1&&currentIndex!==2}}">月供{{item.month_pay}}元</text>
+  <scroll-view class="{{currentIndex==0?'scroll':''}}" scroll-y="true">
+    <view class="separate"></view>
+
+    <view wx:for="{{carts}}" wx:key="this">
+      <view class="cart_container" data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}">
+
+        <image class="item-select" bindtap="switchSelect" data-index="{{index}}" id="{{item.goods_id}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
+        <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
+        <image hidden="{{currentIndex!==1&&currentIndex!==2}}" class="item-image" src="{{item.car_img}}"></image>
+        <image hidden="{{currentIndex!==0}}" class="item-image" src="{{item.g_picture}}"></image>
+        <view class="column">
+          <text hidden="{{currentIndex!==1&&currentIndex!==2}}" class="title">{{item.car_name}}</text>
+          <text hidden="{{currentIndex!==0}}" class="title">{{item.g_name}}</text>
+          <text class='xq' hidden="{{currentIndex!==0}}">已售{{item.ys}}件<text style='margin-left:100rpx;'>{{item.pl}}人评论</text></text>
+          <text class='xq' hidden="{{currentIndex!==1&&currentIndex!==2}}">厂商指导价{{item.price}}万</text>
+          <view class="row row1">
+            <text class="sku-price" hidden="{{currentIndex!==1&&currentIndex!==2}}">首付</text>
+            <text class="sku-price">￥</text>
+
+            <text hidden="{{currentIndex!==1&&currentIndex!==2}}" class="sku-price">{{item.first_pay}}</text>
+            <text hidden="{{currentIndex!==0}}" class="sku-price sku-price1">{{item.price}}</text>
+            <view hidden="{{currentIndex!==0}}" class='number'>
+              <view class="stepper">
+                <!-- 减号 -->
+                <text data-shopping_id='{{item.shopping_id}}' data-number='{{item.number}}' class="{{minusStatus}}" catchtap="bindMinus">-</text>
+                <!-- 数值 -->
+                <input type="number" value="{{item.number}}" />
+                <!-- 加号 -->
+                <text data-shopping_id='{{item.shopping_id}}' data-number='{{item.number}}' class="normal" catchtap="bindPlus">+</text>
+              </view>
+            </view>
+            <text class='yg' hidden="{{currentIndex!==1&&currentIndex!==2}}">月供{{item.month_pay}}元</text>
+          </view>
+
         </view>
-
+        <view id='{{item.shopping_id}}' data-index="{{index}}" class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
       </view>
-       <view id='{{item.shopping_id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
-    </view>
-    
 
-  </view>
-</scroll-view>
-<view class="{{currentIndex==0?'bottom_total':''}}" hidden="{{currentIndex!==0}}">
-  <view class="bottom_line"></view>
-  <view class="row" >
-    <image class="item-allselect" bindtap="allSelect" src="{{isAllSelect?'/images/tongyi.png':'/images/dian.png'}}" />
-    <text class="small_text">全选</text>
-    <view class="button-red button" bindtap="toBuy" formType="submit">
-    <view class='hj'>合计:￥ {{totalMoney}}</view>
-    <view class='js'>去结算</view>
+
+    </view>
+  </scroll-view>
+  <view class="{{currentIndex==0?'bottom_total':''}}" hidden="{{currentIndex!==0}}">
+    <view class="bottom_line"></view>
+    <view class="row">
+      <image class="item-allselect" bindtap="allSelect" src="{{isAllSelect?'/images/tongyi.png':'/images/dian.png'}}" />
+      <text class="small_text">全选</text>
+      <view class="button-red button" bindtap="toBuy" formType="submit">
+        <view class='hj'>合计:￥ {{totalMoney}}</view>
+        <view class='js'>去结算</view>
+      </view>
     </view>
   </view>
 </view>
-</view>
-<view class='NoneSj' wx:if="{{IMgFalse}}" >
+<view class='NoneSj' wx:if="{{IMgFalse}}">
   <image src='/images/none.png'></image>
 </view>

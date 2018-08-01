@@ -68,6 +68,12 @@ Page({
       url: '/pages/index/buycar/details/details?id=' + id,
     })
   },
+  imgClick(e){
+    var link = e.currentTarget.dataset.link;
+    wx.navigateTo({
+      url: link
+    })
+  },
   onGotUserInfo(e) {//用户授权
     var that = this;
     wx.login({

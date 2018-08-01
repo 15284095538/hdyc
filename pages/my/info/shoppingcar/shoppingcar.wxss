@@ -46,7 +46,7 @@
 .buycar .sku-price {
   color: red;
   position: relative;
-  margin-top: 40rpx;
+  margin-top: 20rpx;
 }
 
 .buycar .sku-price1{
@@ -176,11 +176,10 @@
 }
 
 .buycar .number {
-  width: 50rpx;
   position: relative;
-  top: 20rpx;
+  top: 10rpx;
   font-size: 26rpx;
-  left: 20rpx;
+  right: 30rpx;
 }
 
 .buycar .row1 {
@@ -198,3 +197,41 @@
   padding-left: 70rpx;
 }
 
+/*主容器*/
+.stepper {
+	width: 100px;
+	height: 26px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+ 
+/*加号和减号*/
+.stepper text {
+	width: 29px;
+	line-height: 26px;
+	text-align: center;
+	float: left;
+}
+ 
+/*数值*/
+.stepper input {
+	width: 40px;
+	height: 26px;
+	float: left;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 12px;
+	/*给中间的input设置左右边框即可*/
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+ 
+/*普通样式*/
+.stepper .normal{
+	color: black;
+}
+ 
+/*禁用样式*/
+.stepper .disabled{
+	color: #ccc;
+}

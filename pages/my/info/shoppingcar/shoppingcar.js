@@ -14,6 +14,61 @@ Page({
     gid:"",
     vule_id:'',
   },
+  bindMinus: function (e) {
+    var number = e.currentTarget.dataset.number;
+    var cart_id = e.currentTarget.dataset.shopping_id;
+    if (number > 1) {
+      number--;
+    }else{
+      wx.showToast({
+        title: '数量最小为1',
+        icon: 'success',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    var minusStatus = number <= 1 ? 'disabled' : 'normal';
+    this.setNumber(cart_id, number);
+    this.setData({
+      isAllSelect :false,
+      totalMoney:0
+    })
+  },
+  /* 点击加号 */
+  bindPlus: function (e) {
+    var number = e.currentTarget.dataset.number;
+    var cart_id = e.currentTarget.dataset.shopping_id;
+    number++;
+    var minusStatus = number < 1 ? 'disabled' : 'normal';
+    this.setNumber(cart_id, number);
+    this.setData({
+      isAllSelect: false,
+      totalMoney:0
+    })
+  },
+  setNumber(cart_id,num){
+    //获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'shopping/editNum',
+      data: {
+        cart_id: cart_id,
+        number: num
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        that.onLoad();
+      }
+    })
+  },
   navbarTab: function (e) {
     if (e.currentTarget.dataset.index==1){
       var that = this;
@@ -100,10 +155,13 @@ Page({
     //价钱统计
     if (this.data.carts[index].isSelect) {
     //统计价格
-      this.data.totalMoney = Number(this.data.totalMoney + Number(this.data.carts[index].price) * Number(this.data.carts[index].number));
+      this.data.totalMoney = this.data.totalMoney + this.data.carts[index].price * this.data.carts[index].number
     }
     else {
-      this.data.totalMoney = Number(this.data.totalMoney - Number(this.data.carts[index].price));
+      this.data.totalMoney = Number(this.data.totalMoney - Number(this.data.carts[index].price * this.data.carts[index].number));
+      if (this.data.totalMoney < 0 ){
+        this.data.totalMoney = 0;
+      }
     }
     //是否全选判断
     for (i = 0; i < this.data.carts.length; i++) {
@@ -119,7 +177,6 @@ Page({
       
     }
     var gid = this.data.gid
-
     if (Allprice == this.data.totalMoney) {
       this.data.isAllSelect = true;
     }
@@ -127,6 +184,7 @@ Page({
       this.data.isAllSelect = false;
       this.data.gid='';
     }
+
     this.setData({
       carts: this.data.carts,
       totalMoney: this.data.totalMoney,
@@ -273,41 +331,45 @@ Page({
   },  
 
 onLoad: function (options) {
-   //获取数据
-  var that = this;
-  wx.showToast({
-    title: '加载中',
-    icon: 'loading',
-    duration: 55000,
-    mask: true
-  })
-  wx.request({//获取个人信息
-    url: url + 'shopping/getCar',
-    data: {
-      openid: wx.getStorageSync('userinfo').openid,
-      goods_type:'0',
-      level:'', 
-    },
-    method: 'POST',
-    success: function (res) { 
-      wx.hideToast();
+  this.getdata();
+  },
 
-      
-      if (res.data.data.data.length == 0) {
-        that.setData({
-          ['carts']: res.data.data.data,
-          IMgFalse: true,
-        })
-      } else {
-        that.setData({
-          ['carts']: res.data.data.data,
-          IMgFalse: false,
-        })
+  getdata(e){
+    //获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取个人信息
+      url: url + 'shopping/getCar',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+        goods_type: '0',
+        level: '',
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+
+
+        if (res.data.data.data.length == 0) {
+          that.setData({
+            ['carts']: res.data.data.data,
+            IMgFalse: true,
+          })
+        } else {
+          that.setData({
+            ['carts']: res.data.data.data,
+            IMgFalse: false,
+          })
+        }
+
+
       }
-     
-      
-    }
-  })
+    })
   },
 
 

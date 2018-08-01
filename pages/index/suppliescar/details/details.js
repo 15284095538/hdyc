@@ -32,6 +32,9 @@ Page({
     this.setData({ goods_id: e.goods_id, category_id: e.category_id, })
     this.getdata();
   },
+  onShow(e){
+    this.onLoad();
+  },
   layerColorclick(e){
     this.setData({ layerColorDisplay:'block' })
   },

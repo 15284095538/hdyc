@@ -1,0 +1,48 @@
+<view class='carInfo'>
+  <view class='li'>
+    <text class='l'>车牌号</text>
+    <input class='r' placeholder-class="sc" bindinput="carid" placeholder='请输入车牌号' value='{{}}' ></input>
+  </view>
+  <view class='li'>
+    <text class='l'>车型</text>
+    <picker bindchange="carTypeChang" class='r t' value="{{index}}" value="{{cartype}}" range="{{array}}">
+      <view class="{{ cartypeTetx == '请选择车型'?'sc':'' }} picker">
+        {{cartypeTetx}}
+      </view>
+    </picker>
+  </view>
+  <view class='li'>
+    <text class='l'>排量</text>
+    <input class='r' placeholder-class="sc" bindinput="pl" placeholder='请输入排量' type="number" value='{{}}' ></input>
+  </view>
+  <view class='li'>
+    <text class='l'>行驶里程</text>
+    <input class='r' placeholder-class="sc" bindinput="lc" placeholder='请输入行驶里程' type="number" value='{{}}' ></input>
+  </view>
+  <view class='li'>
+    <text class='l'>生产年份</text>
+    <view class="r t tui-picker-content">
+      <picker mode="date" value="{{scdate}}" bindchange="changescDate">
+        <view class=" {{ scdate == '请选择生产年份'?'sc':'' }} tui-picker-detail">
+          {{scdate}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class='li'>
+    <text class='l'>购买年份</text>
+    <view class="r t tui-picker-content">
+      <picker mode="date" value="{{gmdate}}" bindchange="changegmDate">
+        <view class=" {{ gmdate == '请选择购买年份'?'sc':'' }} tui-picker-detail">
+          {{gmdate}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view style='border:0;' class='li'>
+    <text class='l'>使用年限</text>
+    <input class='r' placeholder-class="sc" bindinput="sy" placeholder='请输入使用年限' type="number" value='{{}}' ></input>
+  </view>
+</view>
+
+<view class='sure' catchtap='baocunClick' >保存</view>

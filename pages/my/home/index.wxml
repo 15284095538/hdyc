@@ -111,7 +111,7 @@
       </view>
       <view class='more-list-icon right'>
         <view class='more-title-more right'>
-          <text class='dian'>·</text>
+          <!-- <text class='dian'>·</text> -->
           <view class='more-more-img right'>
             <image src="/images/more.png"></image>
           </view>
@@ -133,12 +133,12 @@
         </view>
       </view>
     </view>
-    <view class='more-list' data-link='/activity/pages/collage/home/home' bindtap="ToPage">
+    <view class='more-list' data-link='/pages/my/info/customerservice/customerservice' bindtap="ToPage">
       <view class='more-list-img left'>
-        <image class='max' src='/images/huodong.png'></image>
+        <image class='max' src='/images/kehufuwu.png'></image>
       </view>
       <view class='more-list-text left'>
-        活动
+        客服服务
       </view>
       <view class='more-list-icon right'>
         <view class='more-title-more right'>

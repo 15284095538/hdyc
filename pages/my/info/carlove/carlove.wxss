@@ -1,3 +1,9 @@
+.l{
+  float: left;
+}
+.r{
+  float: right;
+}
 .NoneSj{
   width: 100%;
   height: 70%;
@@ -31,14 +37,14 @@ page{
   border-radius: 10rpx;
 }
 .carlove .bg{
-  height: 370rpx;
+  height: 220rpx;
   background-color: #11a8e1;
 }
 .carlove swiper{
-  height: 298rpx;
+  height: 360rpx;
   margin: 0 auto 0 auto;
   position: relative;
-  top: 200rpx;
+  top: 50rpx;
   margin-bottom: 10rpx;
 }
 .carlove .car{
@@ -89,4 +95,27 @@ page{
   position: relative;
   top: 82rpx;
   left: 185rpx; 
+}
+.carlove .zl{
+  position: relative;
+  top: 100rpx;
+  left: 185rpx;
+  color: #ff7979;
+  font-size: 12px;
+}
+
+.carInfo{
+  background-color: #fff;
+  margin-top: 200rpx;
+  padding: 0 30rpx;
+}
+.carInfo .li{
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #333;
+  border-bottom: 1rpx solid #f6f6f6;
+}
+.carInfo .li .w{
+  color: #aeaeae;
 }

@@ -1,0 +1,17 @@
+<view class="top">
+  <view catchtap='topClick' data-index='{{index}}' wx:for="{{top}}" wx:key="this" data-item='item' wx:for-index="index" class='li {{ selectid == index ? "select":"" }}'>{{item}}</view>
+</view>
+
+<view wx:if="{{ selectid == 0 }}" class='content'>
+  <view class='img'>
+    <image src='{{data.code.image}}'></image>
+    <text>长按二维码进行关注</text>
+  </view>
+</view>
+
+<view wx:if="{{ selectid == 1 }}" class='content'>
+  <view wx:for="{{data.tel}}" data-tel='{{item}}' wx:key="this" data-item='item'  catchtap='phoneClick'  class='li'>
+    <text>{{item}}</text>
+    <text class='r'>拨打</text>
+  </view>
+</view>

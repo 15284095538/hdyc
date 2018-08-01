@@ -11,7 +11,7 @@
   
 <view class='dingdan'>
 <view class='dingnum'>
-<text>订单编号：{{item.order_sn}} <text class='status'hidden="{{item.order_status!==0}}">待付款</text><text class='status'hidden="{{item.order_status!==1}}">待安装</text><text class='status'hidden="{{item.order_status!==2}}">待评价</text><text class='status'hidden="{{item.order_status!==3}}">退换货</text><text class='status'hidden="{{item.order_status!==4}}">已取消</text></text>
+<text>订单编号：{{item.order_sn}} <text class='status'hidden="{{item.order_status!==0}}">待付款</text><text class='status'hidden="{{item.order_status!==1}}">待安装</text><text class='status'hidden="{{item.order_status!==2}}">待评价</text><text class='status'hidden="{{item.order_status!==5}}">已完成</text><text class='status'hidden="{{item.order_status!==4}}">已取消</text></text>
 </view>
 <view class='shang'  style="{{item.order_status==1?'height:175rpx':''}}">
 <view id='{{item.id}}' catchtap='detalis'>

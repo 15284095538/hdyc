@@ -31,7 +31,7 @@ Page({
       },
       {
         "path": "/images/tuihuanhuo.png",
-        "text": "退换货",
+        "text": "已完成",
         "id": 3
       }],
     archivesIndent: 81923.05,

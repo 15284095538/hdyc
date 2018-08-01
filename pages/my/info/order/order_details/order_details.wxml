@@ -61,9 +61,9 @@
 
 <view class="footter {{carts.order_status!==2?'dis':''}}" >
 <view class='first1' id='{{carts.id}}' bindtap="scdd">删除订单</view>
-<navigator url="/pages/my/info/order/aftersale/aftersale?orderid={{carts.id}}">
+<!-- <navigator url="/pages/my/info/order/aftersale/aftersale?orderid={{carts.id}}">
 <view class='first1'>申请售后</view>
-</navigator>
+</navigator> -->
 <navigator url="/pages/my/info/order/evaluate/evaluate?id={{carts.id}}">
 <view class='first1'>评价商品</view>
 </navigator>

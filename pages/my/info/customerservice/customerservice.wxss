@@ -1,0 +1,46 @@
+page{
+  background-color: #f6f6f6;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.top{
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+}
+.top .li{
+  width: 50%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  float: left;
+  border-bottom: 5rpx solid #fff;
+}
+.top .select{
+  border-bottom: 5rpx solid #11a8e1;
+}
+
+.content .img{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 300rpx auto;
+  text-align: center;
+}
+.content .img image{
+  width: 300rpx;
+  height: 300rpx;
+}
+.content .img text{
+  line-height: 100rpx;
+}
+.content .li{
+  padding: 0 30rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.content .li .r{
+  float: right;
+}

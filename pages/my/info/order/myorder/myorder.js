@@ -3,7 +3,7 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     IMgFalse: false,
-    navbar: ["全部", "待付款", "待安装","待评价","退换货"],
+    navbar: ["全部", "待付款", "待安装","待评价","已完成"],
     currentIndex: 0,//tabbar索引
     carts:[],
     num: 5,
@@ -74,7 +74,7 @@ Page({
     if (e.currentTarget.dataset.index == 4) {//退换货
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
-        status:3
+        status:5
       })
     }
     // if (e.currentTarget.dataset.index == 5) {//已完成
@@ -186,6 +186,9 @@ Page({
       index = 0;
     }else{
       index = Number(options.id) + 1
+    }
+    if (options.id ==3 ){
+      options.id = 5
     }
     this.setData({
       ['currentIndex']: index,

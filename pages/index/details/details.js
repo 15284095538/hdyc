@@ -25,6 +25,9 @@ Page({
     this.setData({ goods_id: e.goods_id, classify: e.classify })
     this.getdata();
   },
+  onShow(e) {
+    this.onLoad();
+  },
   onReachBottom: function () {
     this.setData({ bot:true })
   },
