@@ -96,7 +96,22 @@ Page({
 
   onLoad: function (options) {
     this.getdata();
-    this.setData({ type: options.type, text: options.text, class_id: options.class_id })
+    this.setData({ type: options.type, text: options.text, class_id: options.class_id, store_id: options.store_id })
+  },
+  radioChange(e){
+    var that = this;
+    var index = e.detail.value;
+    var car = this.data.carts;
+    car[index].checked = !car[index].checked;
+    for(let i=0;i<car.length;i++){
+      if (i != index ){
+        car[i].checked = false
+      }
+    }
+    if (car[index].checked ){
+      that.getmr(car[index].id)
+    }
+    this.setData({ carts:car })
   },
   onShow: function () {
     var that = this;
@@ -173,8 +188,13 @@ Page({
         url: '/pages/index/spraypaint/payselect/payselect?text=' + this.data.text + '&class_id=' + this.data.class_id + '&carid=' + carid
       })
     }
+    if (this.data.type == 3) {
+      wx.redirectTo({
+        url: '/pages/index/washcar/payselect/payselect?store_id=' + this.data.store_id + '&class_id=' + this.data.class_id + '&carid=' + carid
+      })
+    }
   },
-  getmr:function(e){
+  getmr:function(id){
     var that = this;
     var value = wx.getStorageSync('userinfo');
     wx.showToast({
@@ -187,7 +207,7 @@ Page({
       url: url + 'user/set_default',
       data: {
         'openid': value.openid,
-        'id': e.currentTarget.id,
+        'id': id,
       },
       method: 'POST',
       success: function (res) {

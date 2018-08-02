@@ -10,7 +10,7 @@
     </swiper>
   </view>
   <view class='address'>
-    <view class='adress_left'>
+    <view catchtap='Navigation'data-longitude='{{store.longitude}}' data-latitude='{{store.latitude}}' class='adress_left'>
       <view class='name'>{{store.s_name}}</view>
       <image src='/images/grade_0{{store.s_level}}.png' class='pic' />
       <view class='clear'></view>

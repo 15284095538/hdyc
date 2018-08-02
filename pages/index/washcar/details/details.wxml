@@ -16,7 +16,7 @@
       <image wx:if="{{ detdata.s_level == 2 }}" class='pic' src='/images/grade_02.png'></image>
       <image wx:if="{{ detdata.s_level == 1 }}" class='pic' src='/images/grade_03.png'></image>
       <view class='clear'></view>
-      <view class='adressName'>{{detdata.s_address}}</view>
+      <view catchtap='Navigation' class='adressName'>{{detdata.s_address}}</view>
     </view>
     <view catchtap='Navigation' class='address_right'>
       <view><image src='/images/dh.png'></image></view>

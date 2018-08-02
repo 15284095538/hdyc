@@ -11,6 +11,7 @@ Page({
     areaId:'',
     menulist:[],
     IMgFalse:false,
+    layerid:99999,
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -35,6 +36,7 @@ Page({
     listtype:[],//分类
     sort: [],//排序
     list:[],
+    name:'',
   },
   page:{
     pages:1,
@@ -53,20 +55,32 @@ Page({
     this.getdata();
   },
   onLoad(e) {
+    var that = this;
     var menu = this.data.menu;
     menu[1].text = e.name;
-    this.setData({ classify: e.id, menu: menu, })
+    this.setData({ classify: e.id, menu: menu, name: e.name })
     this.getdata();
+    wx.setNavigationBarTitle({
+      title: that.data.name
+    })
   },
   listTopclick(e){//头部点击切换样式
     var that = this;
     var menuid = e.currentTarget.dataset.id;
     var selectkey = e.currentTarget.dataset.key;
     var menulist;
+    var n;
     if (menuid == 0 ){
       menulist = that.data.city 
     } else if (menuid == 1 ){
       menulist = that.data.listtype
+      if (this.data.layer ){
+        for ( let i=0; i<menulist.length;i++){
+          if (menulist[i].type_name == that.data.name ){
+            selectkey = i
+          }
+        }
+      }
     }else{
       menulist = that.data.sort
     }
@@ -99,8 +113,11 @@ Page({
     }else{
         sorttext = e.currentTarget.dataset.areaid;
     }
-    that.setData({ menu: menu, sorttext: sorttext, areaId: cityid, classify: typeid });
+    that.setData({ menu: menu, sorttext: sorttext, areaId: cityid, classify: typeid, name: text });
     this.getdata();
+    wx.setNavigationBarTitle({
+      title: that.data.name
+    })
   },
   
   detLink(e){ //详情
@@ -168,7 +185,6 @@ Page({
           typeHeight: typeHeight,
           list: list,
         })
-
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

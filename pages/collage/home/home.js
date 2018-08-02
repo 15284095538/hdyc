@@ -1,5 +1,4 @@
 var url = getApp().globalData.publicUrl;
-var WxParse = require('../../../wxParse/wxParse.js');
 
 Page({
 
@@ -12,13 +11,14 @@ Page({
     },
     data:[],
     timestamp:'',
+    openid:'',
   },
   onLoad: function (options) {
-    this.getdata();
     this.setData({
-      timestamp: Date.parse(new Date())/1000
+      timestamp: Date.parse(new Date())/1000,
+      openid: options.openid,
     })
-    
+    this.getdata();
   },
   countDown(times) {//倒计时
     var that = this;
@@ -53,6 +53,7 @@ Page({
   detClick(e){
     var id = e.currentTarget.dataset.id;
     var pid = e.currentTarget.dataset.pid;
+    var status = e.currentTarget.dataset.status;
     if (this.data.data.end_time < this.data.timestamp ){
       wx.showToast({
         title: '活动结束',
@@ -60,9 +61,16 @@ Page({
         duration: 1000,
         mask: true
       })
+    } else if ( status == "无法参加" ){
+      wx.showToast({
+        title: '无法参加',
+        icon: 'success',
+        duration: 1000,
+        mask: true
+      })
     }else{
       wx.navigateTo({
-        url: '/activity/pages/collage/details/details?id=' + id + '&pid=' + pid,
+        url: '/pages/collage/details/details?id=' + id + '&pid=' + pid,
       })
     }
   },
@@ -77,11 +85,10 @@ Page({
     wx.request({//获取分类
       url: url + 'Activity/get_list',
       data: {
-        openid: wx.getStorageSync('userinfo').openid,
+        openid: this.data.openid,
       },
       method: 'POST',
       success: function (res) {
-        WxParse.wxParse('article', 'html', res.data.data.rule, that, 5);
         if (res.data.code == 200) {
           that.setData({
             data: res.data.data

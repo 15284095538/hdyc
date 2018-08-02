@@ -6,9 +6,10 @@
 <image src='/images/more.png'></image>
 </view>
 </navigator>
+<navigator url='/pages/my/info/abouthd/abouthd'>
 <view class='input'>
 <view class='word'>关于海豆</view>
 <image src='/images/more.png'></image>
 </view>
-
+</navigator>
 </view>

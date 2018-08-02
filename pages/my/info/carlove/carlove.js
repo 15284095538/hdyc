@@ -10,15 +10,20 @@ Page({
     autoplay: true,
     interval: 5000,
     duration: 1000,
-    cars:[]
+    cars:[],
+    swiperindex:0,
   },
   onLoad: function (options) {
      this.getdata();
   },
   detClick(e){
-    wx.navigateTo({
-      url: '/pages/index/washcar/comment/comment?store_id=',
+    var id = e.currentTarget.dataset.id;
+    wx.redirectTo({
+      url: '/pages/my/info/mycar/infodata/infodata?id=' + id,
     })
+  },
+  swiperchangge(e){
+    this.setData({ swiperindex: e.detail.current })
   },
   getdata(e) {//获取数据
     var that = this;
@@ -49,7 +54,6 @@ Page({
           ['cars']: res.data.data
         })
         wx.hideToast();
-        console.log(res);
       } 
     })
   },

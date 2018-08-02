@@ -1,0 +1,25 @@
+<view class="collageTop">
+  <image src='{{data.img}}'></image>
+  <view class='countdown'>
+    <text>距结束</text>  <text class='t'>{{time.day}}</text> <text>:</text> <text class='t'>{{time.hour}}</text> <text>:</text> <text class='t'>{{time.minute}}</text> <text>:</text> <text class='t'>{{time.second}}</text>
+  </view>
+</view>
+
+<view class='collageNum'>
+  <view catchtap='detClick' data-status='{{item.status}}' wx:for="{{data.detail}}" data-pid='{{item.pid}}' data-id='{{item.id}}' wx:key="this" wx:for-item="item" class='li'>
+    <view class='t'>{{item.total_money}}元现金</view>
+    <view class='n'>{{item.peoples}}人瓜分</view>
+    <view  class='b'>{{item.status}}</view>
+  </view>
+</view>
+
+<view class='clooageNum' style='padding-top:40rpx;'>
+  <text>活动规则：</text>
+  <view>1、拼团抢券为一次抢券，有时间及人数限制</view>
+  <view>2、用户参与拼团抢券时，按页面提示可分享给好友</view>
+  <view>3、好友通过小程序参与拼团抢券</view>
+  <view>4、当参团人数在成团有效期内达到门槛值，即拼团成功</view>
+  <view>5、抢到的现金券不能体现，可在购买商品时进行抵扣</view>
+</view>
+
+<view class='next'>下一场时间：明日{{data.exit_time}}开始</view>

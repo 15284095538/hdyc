@@ -59,7 +59,7 @@
 }
 
 .mycars .title {
-  width: 400rpx;
+  width: 420rpx;
   font-size: 28rpx;
   line-height: 120rpx;
   white-space: nowrap;
@@ -194,4 +194,7 @@
   color: #fff;
   padding: 20rpx;
   border-radius: 10rpx;
+}
+.radio-group{
+  margin: 30rpx 0rpx 0 40rpx;
 }

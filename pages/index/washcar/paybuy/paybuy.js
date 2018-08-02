@@ -7,6 +7,7 @@ Page({
       price:'',
       goods_id: '',
       store_id: '',
+      value_id:'',
     },
     phone:'',
     name:'',
@@ -17,6 +18,7 @@ Page({
       ['pay.price']: options.price,
       ['pay.goods_id']: options.goods_id,
       ['pay.store_id']: options.store_id,
+      ['pay.value_id']: options.value_id
     })
   },
   phoneinput(e){
@@ -70,6 +72,7 @@ Page({
         goods_id: this.data.pay.goods_id,
         phone: this.data.phone,
         linkman: this.data.name,
+        value_id: this.data.pay.value_id
       },
       method: 'POST',
       success: res => {

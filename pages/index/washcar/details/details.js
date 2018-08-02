@@ -47,7 +47,7 @@ Page({
       url: '/pages/index/washcar/comment/comment?store_id=' + store_id +'&goods_id=',
     })
   },
-  orderClick(e){
+  orderClick(e){//
     var store_id = e.currentTarget.dataset.store_id;
     var class_id = e.currentTarget.dataset.class_id;
     wx.navigateTo({

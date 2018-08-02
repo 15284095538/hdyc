@@ -27,6 +27,8 @@ Page({
     num: 1,
     minusStatus: 'disabled',
     category_id:'',
+    leixpand:'',
+    leixpandtext:'',
   },
   onLoad(e){
     this.setData({ goods_id: e.goods_id, category_id: e.category_id, })
@@ -126,50 +128,6 @@ Page({
     }
 
   },
-  goshoppingcar(e){
-    wx.showToast({
-      title: '请稍后',
-      icon: 'loading',
-      duration: 55000,
-      mask: true
-    })
-    var value_id;
-    if (this.data.selectSx ){
-      value_id = this.data.selectSx.value_id
-    }else{
-      value_id = ''
-    }
-    var that = this;
-    wx.request({//获取分类
-      url: url + 'shopping/setCar',
-      method: 'POST',
-      data: {
-        openid: wx.getStorageSync('userinfo').openid,
-        goods_id: this.data.goods_id,
-        number: this.data.num,
-        goods_type:0,
-        value_id: value_id,
-      },
-      success: function (res) {
-        if( res.data.code == 200 ){
-          wx.showToast({
-            title: '加入购物车成功',
-            icon: 'success',
-            duration: 500,
-            mask: true
-          })
-        }else{
-          wx.showToast({
-            title: '重新加入购物车',
-            icon: 'success',
-            duration: 500,
-            mask: true
-          })
-        }
-        
-      }
-    })
-  },
   onReachBottom: function () {
     this.setData({ bot: true })
   },
@@ -206,16 +164,67 @@ Page({
       ershuxIndex: index,
     })
   },
-  payclick(e) {
+  payLIKClick(e){
+    var that = this;
     var value_id;
-    if (this.data.selectSx) {
-      value_id = this.data.selectSx.value_id
-    } else {
-      value_id = ''
-    }
-    wx.navigateTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + value_id + '&goods_type=0' + '&num=' + this.data.num + '&classify=' + this.data.category_id
+    wx.showToast({
+      title: '请稍后',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
     })
+    if (this.data.leixpand == 0 ){
+      var value_id;
+      if (this.data.selectSx) {
+        value_id = this.data.selectSx.value_id
+      } else {
+        value_id = ''
+      }
+      wx.request({//获取分类
+        url: url + 'shopping/setCar',
+        method: 'POST',
+        data: {
+          openid: wx.getStorageSync('userinfo').openid,
+          goods_id: this.data.goods_id,
+          number: this.data.num,
+          goods_type: 0,
+          value_id: value_id,
+        },
+        success: function (res) {
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: '加入购物车成功',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+          } else {
+            wx.showToast({
+              title: '重新加入购物车',
+              icon: 'success',
+              duration: 500,
+              mask: true
+            })
+          }
+
+        }
+      })
+    }else{
+      if (this.data.selectSx) {
+        value_id = this.data.selectSx.value_id
+      } else {
+        value_id = ''
+      }
+      wx.navigateTo({
+        url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + value_id + '&goods_type=0' + '&num=' + this.data.num + '&classify=' + this.data.category_id
+      })
+    }
+  },
+  goshoppingcar(e) {
+    this.setData({ leixpand: 0, layerColorDisplay: "block", leixpandtext:'加入购物车' })
+  },
+  payclick(e) {
+    this.setData({ leixpand: 1, layerColorDisplay: "block", leixpandtext:'立即购买' })
   },
   getAttr(e){
     var that = this;

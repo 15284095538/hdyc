@@ -3,13 +3,14 @@
 
   <view wx:for="{{carts}}"  wx:key="this">
     <view class="cart_container" catchtap='carClick' data-carid='{{item.id}}' data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
-      <view style='width:30rpx;' ></view>
-      
+      <radio-group class="radio-group" bindchange="radioChange">
+          <radio value="{{index}}" checked="{{item.checked}}"/>
+      </radio-group>
       <image class="item-image" src="{{item.car_logo}}"></image>
       <view class="column">
         <text class="title">{{item.car_brand}}</text>
       </view>
-      <view id='{{item.id}}' data-index="{{index}}"  class="inner mrcar del" style='{{carts[index].txtStyle}}' bindtap="getmr">默认</view>
+      <!-- <view id='{{item.id}}' data-index="{{index}}"  class="inner mrcar del" style='{{carts[index].txtStyle}}' bindtap="getmr">默认</view> -->
        <view id='{{item.id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>
        
     </view>

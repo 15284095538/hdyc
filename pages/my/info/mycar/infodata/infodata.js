@@ -1,4 +1,5 @@
 var dateTimePicker = require('../../../../../utils/dateTimePicker.js');
+var url = getApp().globalData.publicUrl;
 Page({
 
   /**
@@ -8,7 +9,7 @@ Page({
     scdate: '请选择生产年份',
     gmdate:'请选择购买年份',
     cartypeTetx:'请选择车型',
-    cartype:'',
+    cartype:0,
     dateTimeArray: null,
     dateTime: null,
     startYear: 2000,
@@ -21,6 +22,7 @@ Page({
     pl:'',
     lc:'',
     sy:'',
+    id:'',
   },
 
   onLoad: function (options) {
@@ -29,7 +31,9 @@ Page({
     this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
+      id: options.id
     });
+    this.getdata();
   },
   changescDate(e) {
     this.setData({ scdate: e.detail.value });
@@ -59,19 +63,9 @@ Page({
     this.setData({ sy: e.detail.value });
   },
   baocunClick(e){
-
     if (this.data.carid == '' ){
       wx.showToast({
         title: '请输入车牌号',
-        icon: 'success',
-        duration: 500,
-        mask: true
-      })
-      return false
-    }
-    if (this.data.cartype == '') {
-      wx.showToast({
-        title: '请选择车型',
         icon: 'success',
         duration: 500,
         mask: true
@@ -130,9 +124,17 @@ Page({
       mask: true
     })
     wx.request({//添加车辆
-      url: url + 'user/set_lovecar',
+      url: url + 'user/info_complete',
       data: {
-        'car_type': carid,
+        id: this.data.id,
+        edit: 1,
+        car_code: this.data.carid,
+        type: this.data.cartype,
+        displacement: this.data.pl,
+        route: this.data.lc,
+        pro_year: this.data.scdate,
+        buy_year: this.data.gmdate,
+        term: this.data.sy,
       },
       method: 'POST',
       success: function (res) {
@@ -142,8 +144,61 @@ Page({
           duration: 500,
           mask: true
         })
-        wx.navigateBack();
+        wx.redirectTo({
+          url: '/pages/my/info/carlove/carlove',
+        })
       }
     })
-  }
+  },
+  getdata(e){
+    var that = this;
+    var text, scdate, gmdate, cartype;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取爱车信息
+      url: url + 'user/info_complete',
+      data: {
+        id: this.data.id,
+        edit:0,
+        car_code: this.data.carid,
+        type: this.data.cartype,
+        displacement: this.data.pl,
+        route: this.data.lc,
+        pro_year: this.data.scdate,
+        buy_year: this.data.gmdate,
+        term: this.data.sy,
+      },
+      method: 'POST',
+      success: function (res) {
+        if ( res.data.data.type == 0) {
+          text = '小'
+          cartype = 0
+        } else {
+          text = '大'
+          cartype = 1
+        }
+        if (res.data.data.pro_year == '') {
+          scdate = '请选择生产年份'
+        }
+        if (res.data.data.buy_year == '') {
+          gmdate = '请选择购买年份'
+        }
+        that.setData({
+          carid: res.data.data.car_code,
+          cartype: cartype,
+          pl: res.data.data.displacement,
+          lc: res.data.data.route,
+          scdate: scdate,
+          gmdate: gmdate,
+          sy: res.data.data.term,
+          cartypeTetx: text,
+        })
+        wx.hideToast();
+      }
+    })
+  },
 })

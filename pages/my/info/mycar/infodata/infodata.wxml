@@ -1,7 +1,7 @@
 <view class='carInfo'>
   <view class='li'>
     <text class='l'>车牌号</text>
-    <input class='r' placeholder-class="sc" bindinput="carid" placeholder='请输入车牌号' value='{{}}' ></input>
+    <input class='r' placeholder-class="sc" bindinput="carid" placeholder='请输入车牌号' value='{{carid}}' ></input>
   </view>
   <view class='li'>
     <text class='l'>车型</text>
@@ -13,11 +13,11 @@
   </view>
   <view class='li'>
     <text class='l'>排量</text>
-    <input class='r' placeholder-class="sc" bindinput="pl" placeholder='请输入排量' type="number" value='{{}}' ></input>
+    <input class='r' placeholder-class="sc" bindinput="pl" placeholder='请输入排量' type="number" value='{{pl}}' ></input>
   </view>
   <view class='li'>
     <text class='l'>行驶里程</text>
-    <input class='r' placeholder-class="sc" bindinput="lc" placeholder='请输入行驶里程' type="number" value='{{}}' ></input>
+    <input class='r' placeholder-class="sc" bindinput="lc" placeholder='请输入行驶里程' type="number" value='{{lc}}' ></input>
   </view>
   <view class='li'>
     <text class='l'>生产年份</text>
@@ -41,7 +41,7 @@
   </view>
   <view style='border:0;' class='li'>
     <text class='l'>使用年限</text>
-    <input class='r' placeholder-class="sc" bindinput="sy" placeholder='请输入使用年限' type="number" value='{{}}' ></input>
+    <input class='r' placeholder-class="sc" bindinput="sy" placeholder='请输入使用年限' type="number" value='{{sy}}' ></input>
   </view>
 </view>
 

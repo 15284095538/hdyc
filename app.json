@@ -59,14 +59,15 @@
     "pages/my/info/integral/list/list",
     "pages/orderStore/orderStore",
     "pages/my/info/customerservice/customerservice",
-    "pages/my/info/mycar/infodata/infodata"
+    "pages/my/info/mycar/infodata/infodata",
+    "pages/my/info/abouthd/abouthd",
+    "pages/collage/home/home",
+    "pages/collage/details/details"
   ],
   "subPackages": [
     {
       "root": "activity",
       "pages": [
-        "pages/collage/home/home",
-        "pages/collage/details/details",
         "pages/search/home/home",
         "pages/search/list/list"
       ]

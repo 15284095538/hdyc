@@ -63,13 +63,16 @@ Page({
   },
   buycarlink(e){
     var id = e.currentTarget.dataset.id;
-    console.log( id )
     wx.navigateTo({
       url: '/pages/index/buycar/details/details?id=' + id,
     })
   },
   imgClick(e){
     var link = e.currentTarget.dataset.link;
+    if (link == "/pages/collage/home/home" ){
+      link = '/pages/collage/home/home?openid=' + wx.getStorageSync('userinfo').openid
+    }
+    console.log( link )
     wx.navigateTo({
       url: link
     })

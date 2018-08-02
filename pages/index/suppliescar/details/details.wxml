@@ -118,7 +118,7 @@
         <text class="normal" catchtap="bindPlus">+</text>
       </view>
 
-    <view class='sure'>确定</view>
+    <view catchtap='payLIKClick' class='sure'>{{leixpandtext}}</view>
   </view>
 </view>
 

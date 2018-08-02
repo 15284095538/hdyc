@@ -1,3 +1,11 @@
+
+<view class='paselectTit'>您当前购买洗车服务的车型</view>
+
+<view catchtap='carselect' class='paselectType'>{{detdata.my_car}}<image src='/images/car_eit.png'></image> </view>
+
+<view class='paselectTs'> <text>* </text> 请您确认车型，如果到店车型与所选车型不符，门店有权拒绝服
+务或要求您补车型差价和请选择所需服务的爱车为默认车型才能购买服务喔~</view>
+
 <view class='washlist'>
   <view class='li'>
     <view class='img'> <image src='{{detdata.s_img}}'></image> <view class='t'>{{detdata.tag}}</view> </view>
@@ -16,9 +24,11 @@
   </view>
 </view>
 
+
+
 <view class='washselect'>
   <view class='tit'>基本信息</view>
-  <view catchtap='selectclick' data-id='{{item.id}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{detdata.goods}}" data-goods_idprice='{{item.price}}' wx:for-index="index" wx:for-item="item" wx:key="this" >
+  <view catchtap='selectclick' data-value_id='{{item.value_id}}' data-id='{{item.id}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{detdata.goods}}" data-goods_idprice='{{item.price}}' wx:for-index="index" wx:for-item="item" wx:key="this" >
     <image class='washsure' src='/images/washsure.png'></image>
     <view style='overflow: hidden' >
       <view class='img'> <image src='{{item.g_picture}}'></image> </view>

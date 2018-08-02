@@ -19,7 +19,7 @@
   </view>
 </view>
 
-<view class='detalsAdr'>
+<view catchtap='Navigation' class='detalsAdr'>
   <view class='name'>{{details.s_name}}</view>
   <view class='adr'>{{details.s_address}}</view>
   <view class='Navigation' catchtap='Navigation' data-longitude='{{details.longitude}}' data-latitude='{{details.latitude}}' >
