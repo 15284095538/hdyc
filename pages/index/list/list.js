@@ -11,7 +11,6 @@ Page({
     areaId:'',
     menulist:[],
     IMgFalse:false,
-    layerid:99999,
     menu: [//导航
       {
         "path": "/images/xiala_normal@2x.png",
@@ -37,6 +36,7 @@ Page({
     sort: [],//排序
     list:[],
     name:'',
+    store_id:'',
   },
   page:{
     pages:1,
@@ -58,7 +58,8 @@ Page({
     var that = this;
     var menu = this.data.menu;
     menu[1].text = e.name;
-    this.setData({ classify: e.id, menu: menu, name: e.name })
+    if (!e.store_id) { e.store_id = '' }
+    this.setData({ classify: e.id, menu: menu, name: e.name, store_id: e.store_id })
     this.getdata();
     wx.setNavigationBarTitle({
       title: that.data.name
@@ -113,7 +114,7 @@ Page({
     }else{
         sorttext = e.currentTarget.dataset.areaid;
     }
-    that.setData({ menu: menu, sorttext: sorttext, areaId: cityid, classify: typeid, name: text });
+    that.setData({ menu: menu, sorttext: sorttext, areaId: cityid, classify: typeid, name: text, store_id:'' });
     this.getdata();
     wx.setNavigationBarTitle({
       title: that.data.name
@@ -146,6 +147,7 @@ Page({
         level: wx.getStorageSync('userinfo').level,
         page: this.page.pages * 10,
         areaId: this.data.areaId,
+        store_id: this.data.store_id,
       },
       method: 'POST',
       success: function (res) {

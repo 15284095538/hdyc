@@ -26,7 +26,9 @@ Page({
       url: url + 'lists/getShow',
       data: {
         gid: options.goods_id,
-        type:'',
+        type: '-1',
+        to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+        level: wx.getStorageSync('userinfo').level,
       },
       method: 'POST',
       success: res => {

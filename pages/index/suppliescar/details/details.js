@@ -106,7 +106,7 @@ Page({
       if (ty < 0)
         text = "向上滑动", this.data.isScroll = true
       else if (ty > 0)
-        text = "向下滑动", this.setData({ isScroll: false })
+        text = "向下滑动", this.setData({ isScroll: false, bot: false })
     }
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX
@@ -124,7 +124,7 @@ Page({
       wx.navigateTo({
         url: '/pages/index/suppliescar/pic/pic?goods_id=' + this.data.goods_id
       })
-      this.setData({ isScroll: false, bot: false })
+      this.setData({ isScroll: false, })
     }
 
   },
@@ -219,6 +219,7 @@ Page({
         url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + '&value_id=' + value_id + '&goods_type=0' + '&num=' + this.data.num + '&classify=' + this.data.category_id
       })
     }
+    this.setData({ layerColorDisplay:"none" })
   },
   goshoppingcar(e) {
     this.setData({ leixpand: 0, layerColorDisplay: "block", leixpandtext:'加入购物车' })

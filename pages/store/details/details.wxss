@@ -207,7 +207,6 @@
 .body .ptext{
   width: 577rpx;
   margin-left: 16%;
-  margin-top: 20rpx;
 }
 .body .ptext image{
  width: 165rpx;

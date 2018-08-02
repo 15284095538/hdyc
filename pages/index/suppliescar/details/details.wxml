@@ -69,6 +69,7 @@
           </view>
           <view class='time'>{{item.time}}</view>
         </view>
+        <view style='margin:10rpx 0;'>{{item.content}}</view>
         <view class='text'>{{item.create_time}}</view>
         <view class='plimg'>
           <image wx:if="{{item.images}}" wx:for="{{item.images}}" wx:key="this" wx:for-item="iitem" src='{{iitem.path}}'></image>

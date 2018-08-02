@@ -1,7 +1,7 @@
 <!--pages/store/home/index.wxml-->
 <view class="row" id='menu'>
   <view class="col">
-    <view class="col-4 menu-item" wx:for="{{menu}}" wx:key="menu" wx:for-item="item" data-link='/pages/store/list/list?id={{item.id}}' bindtap="ToPage">
+    <view class="col-4 menu-item" data-type_name='{{item.type_name}}' wx:for="{{menu}}" wx:key="menu" wx:for-item="item" data-link='/pages/store/list/list?id={{item.id}}' bindtap="ToPage">
       <view class='menu-img'>
         <image src="{{item.menu_logo}}" />
       </view>

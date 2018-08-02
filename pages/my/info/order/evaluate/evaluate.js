@@ -11,7 +11,8 @@ Page({
     two_2: 5,
     imgs: [],
     pingjia: '',
-    postimg: ''
+    postimg: '',
+    arry:[],
   },
   // 上传图片
   chooseImg: function(e) {
@@ -133,8 +134,8 @@ Page({
   upImg(num) { //上传图片
     var that = this
     var imgs = that.data.imgs
-    var postimg = that.data.postimg
-    console.log(that.data.postimg);
+    var postimg='';
+    var arry = this.data.arry;
     wx.uploadFile({
       url: url + 'lists/evaluate_imgs', //仅为示例，非真实的接口地址
       filePath: imgs[num],
@@ -142,7 +143,10 @@ Page({
       success: function(res) {
         var data = JSON.parse(res.data)
         if (data.code == 200) {
-          postimg = postimg + data.data + ','
+          arry.push( data.data )
+          for (var i = 0; i < arry.length;i++  ){
+            postimg += arry[i] + ','
+          }
           that.setData({
             postimg: postimg
           });
@@ -165,6 +169,15 @@ Page({
     }
   },
   postData(is_img) {
+    if ( this.data.one_2 == 0 ){
+      wx.showToast({
+        title: '请选择评分',
+        icon: 'success',
+        duration: 1000,
+        mask: true
+      })
+      return false
+    }
     wx.showToast({
       title: '加载中',
       icon: 'loading',

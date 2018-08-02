@@ -25,9 +25,6 @@ Page({
     this.setData({ goods_id: e.goods_id, classify: e.classify })
     this.getdata();
   },
-  onShow(e) {
-    this.onLoad();
-  },
   onReachBottom: function () {
     this.setData({ bot:true })
   },
@@ -76,7 +73,7 @@ Page({
       if (ty < 0)
         text = "向上滑动", this.setData({ isScroll: true })
       else if (ty > 0)
-        text = "向下滑动", this.setData({ isScroll: false })
+        text = "向下滑动", this.setData({ isScroll: false, bot: false })
     }
     //将当前坐标进行保存以进行下一次计算
     this.data.lastX = currentX
@@ -94,7 +91,7 @@ Page({
       wx.navigateTo({
         url: '/pages/index/yhpic/yhpic?goods_id=' + this.data.goods_id
       })
-      this.setData({ isScroll: false, bot:false })
+      this.setData({ isScroll: false, })
     }
   },
   onShareAppMessage(e) {//分享
@@ -128,7 +125,6 @@ Page({
             pinglun: res.data.data.eval,
             store_id: res.data.data.details[0].store_id
           })
-          console.log(res);
           wx.hideToast();
         }
       }

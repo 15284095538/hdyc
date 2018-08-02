@@ -171,7 +171,7 @@ left: 175rpx;
   position: relative;
   top: 30rpx;
   margin-left: 20rpx;
-  left: 180rpx;
+  left: 350rpx;
 }
 .order_details .footter .first2 {
 border:1px solid #aeaeae;

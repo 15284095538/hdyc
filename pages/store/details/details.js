@@ -3,11 +3,7 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     aheight:"",
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    imgUrls: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -17,37 +13,7 @@ Page({
     store:{
       s_level:'1',
     },
-    pinglun:[
-      {
-        npic:'/images/car_03.png',
-        name:'李小姐',
-        flag:5,
-        time:'2018-05-21',
-        message:'每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic:[
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype:'标准洗车'
-      },
-      {
-        npic: '/images/car_03.png',
-        name: '李小姐',
-        flag: 4,
-        time: '2018-05-21',
-        message: '每次都在这里洗车，洗的非常专业，服务特别好，很用心。',
-        pic: [
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-          '/images/car_03.png',
-        ],
-        stype: '标准洗车'
-      },
-      
-    ]
+    pinglun:[]
   },
   Navigation(e) {
     var longitude = Number(e.currentTarget.dataset.longitude);
@@ -159,47 +125,18 @@ Page({
       })
     }
   }  ,
-  
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  listClick(e){
+    var class_id = e.currentTarget.dataset.class_id;
+    var name = e.currentTarget.dataset.name;
+    var store_id = e.currentTarget.dataset.store_id;
+    if( name == "洗车" ){
+      wx.navigateTo({
+        url: '/pages/index/washcar/payselect/payselect?class_id=' + class_id + "&store_id=" + store_id,
+      })
+    }else{
+      wx.navigateTo({
+        url: '/pages/index/list/list?id=' + class_id + '&name=' + name + "&store_id=" + store_id,
+      })
+    }
   }
 })

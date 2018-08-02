@@ -30,7 +30,7 @@
 
     <view class="first" hidden="{{currentIndex!==0}}">
       <block wx:for="{{store.class}}" wx:key="this" wx:for-item="item" wx:for-index="index">
-        <view class='type'>
+        <view catchtap='listClick' data-class_id='{{item.class_id}}' data-name='{{item.type_name}}' data-store_id='{{store.store_id}}' class='type'>
           <image src='{{item.menu_logo}}'></image>
           <view class='text'>{{item.type_name}}</view>
         </view>
@@ -72,7 +72,7 @@
             <view class='clear'></view>
 
             <view class='ptext'>
-              <view style='color:#333;font-size:28rpx;'>{{item.content}}</view>
+              <view style='color:#333;font-size:28rpx; margin:10rpx 0;'>{{item.content}}</view>
               <block wx:for="{{item.images}}" wx:key="this" wx:for-item="items" wx:for-index="index">
                 <image src='{{items.path}}'></image>
               </block>

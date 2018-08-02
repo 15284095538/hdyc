@@ -72,7 +72,6 @@ Page({
     if (link == "/pages/collage/home/home" ){
       link = '/pages/collage/home/home?openid=' + wx.getStorageSync('userinfo').openid
     }
-    console.log( link )
     wx.navigateTo({
       url: link
     })

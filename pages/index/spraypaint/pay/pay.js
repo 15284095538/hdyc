@@ -144,6 +144,9 @@ Page({
               duration: 500,
               mask: true
             })
+            wx.switchTab({
+              url: '/pages/my/home/index'
+            })
           }
         })
       }
