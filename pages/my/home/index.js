@@ -52,9 +52,16 @@ Page({
   },
   ToPage(e) {//导航跳转
     var link = e.currentTarget.dataset.link;
-    wx.navigateTo({
-      url: link
-    })
+    if (link == '/pages/my/info/shoppingcar/shoppingcar' ){
+      wx.switchTab({
+        url: link
+      })
+    }else{
+      wx.navigateTo({
+        url: link
+      })
+    }
+    
   },
   onGotUserInfo(e) {//用户授权
     var that = this;

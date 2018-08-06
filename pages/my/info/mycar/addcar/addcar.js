@@ -36,7 +36,7 @@ Page({
        data: {
          'car_type': carid,
          'openid': value.openid,
-        'is_default':this.data.mycar,
+        'is_default':1,
        },
        method: 'POST',
        success: function (res) {

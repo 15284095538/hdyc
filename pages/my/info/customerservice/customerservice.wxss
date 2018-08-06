@@ -22,13 +22,13 @@ page{
 }
 
 .content .img{
-  width: 300rpx;
+  width: 320rpx;
   height: 300rpx;
   margin: 300rpx auto;
   text-align: center;
 }
 .content .img image{
-  width: 300rpx;
+  width: 320rpx;
   height: 300rpx;
 }
 .content .img text{

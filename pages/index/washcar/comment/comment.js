@@ -68,8 +68,12 @@ Page({
         if (res.data.data.list.length != 0) {
           list = res.data.data.list
           wx.hideToast();
+          that.setData({
+            allpinglun: res.data.data,
+            xhpinlun: list,
+            isMsl: false
+          });
         } else {
-          list = '';
           wx.showToast({
             title: '没有更多数据',
             icon: 'success',
@@ -77,10 +81,12 @@ Page({
             mask: true
           })
         }
-        that.setData({
-          allpinglun: res.data.data,
-          xhpinlun: list
-        });
+        
+        if (that.page.pages == 1) {
+          if (res.data.data.list == '' ){
+            that.setData({ isMsl: true })
+          }
+        }
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

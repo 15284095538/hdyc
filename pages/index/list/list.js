@@ -71,23 +71,32 @@ Page({
     var selectkey = e.currentTarget.dataset.key;
     var menulist;
     var n;
+    var display;
     if (menuid == 0 ){
       menulist = that.data.city 
     } else if (menuid == 1 ){
       menulist = that.data.listtype
-      if (this.data.layer ){
-        for ( let i=0; i<menulist.length;i++){
+      if (that.data.layerid ){
+        for ( var i=0; i<menulist.length;i++){
           if (menulist[i].type_name == that.data.name ){
             selectkey = i
+            console.log(menulist)
           }
         }
       }
+      
     }else{
       menulist = that.data.sort
     }
+    if (this.data.display == 'block' ){
+      display = 'none'
+      menuid = 99
+    }else{
+      display = 'block'
+    }
     that.setData({
       menuid: menuid,
-      display: 'block',
+      display: display,
       menuIndex: menuid,
       layerid: selectkey,
       menulist: menulist,

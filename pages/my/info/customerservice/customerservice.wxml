@@ -5,7 +5,7 @@
 <view wx:if="{{ selectid == 0 }}" class='content'>
   <view class='img'>
     <image src='{{data.code.image}}'></image>
-    <text>长按二维码进行关注</text>
+    <text>截图保存识别二维码，微信识别关注</text>
   </view>
 </view>
 

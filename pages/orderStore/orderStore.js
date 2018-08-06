@@ -117,7 +117,7 @@ Page({
        
         if( res.data.code == 200 ){
           that.setData({
-            list: res.data.data
+            list: res.data.data,
           })
         }else{
           wx.showToast({

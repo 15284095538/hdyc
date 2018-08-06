@@ -31,8 +31,12 @@ Page({
     this.setData({
       dateTime: obj.dateTime,
       dateTimeArray: obj.dateTimeArray,
-      id: options.id
+      id: options.id,
+      store_id: options.store_id,
+      class_id: options.class_id,
+      type: options.type
     });
+    console.log(options )
     this.getdata();
   },
   changescDate(e) {
@@ -63,6 +67,7 @@ Page({
     this.setData({ sy: e.detail.value });
   },
   baocunClick(e){
+    var that = this;
     if (this.data.carid == '' ){
       wx.showToast({
         title: '请输入车牌号',
@@ -144,9 +149,15 @@ Page({
           duration: 500,
           mask: true
         })
-        wx.redirectTo({
-          url: '/pages/my/info/carlove/carlove',
-        })
+        if( that.data.type == 3 ){
+          wx.redirectTo({
+            url: '/pages/index/washcar/payselect/payselect?store_id=' + that.data.store_id + '&class_id=' + that.data.class_id + '&carid=' + that.data.carid
+          })
+        }else{
+          wx.redirectTo({
+            url: '/pages/my/info/carlove/carlove',
+          })
+        }
       }
     })
   },
@@ -183,9 +194,13 @@ Page({
         }
         if (res.data.data.pro_year == '') {
           scdate = '请选择生产年份'
+        }else{
+          scdate = res.data.data.pro_year
         }
         if (res.data.data.buy_year == '') {
           gmdate = '请选择购买年份'
+        }else{
+          gmdate = res.data.data.buy_year
         }
         that.setData({
           carid: res.data.data.car_code,

@@ -20,6 +20,9 @@ Page({
     })
     this.getdata();
   },
+  onShow(e){
+    this.onLoad();
+  },
   countDown(times) {//倒计时
     var that = this;
     var timer = null;

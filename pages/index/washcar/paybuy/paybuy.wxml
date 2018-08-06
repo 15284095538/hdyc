@@ -7,11 +7,11 @@
 
   <view class='int'>
     <view class='text'>联系电话</view>
-    <input placeholder='联系电话' type='number' confirm-type="next" bindinput="phoneinput" class='name'></input>
+    <input placeholder='联系电话' type='number' confirm-type="next" value='{{phone}}' bindinput="phoneinput" class='name'></input>
   </view>
   <view class='int'>
     <view class='text'>联系人</view>
-    <input placeholder='联系人' bindinput='nameinput' confirm-type="done" class='name'></input>
+    <input placeholder='联系人' bindinput='nameinput' value='{{name}}' confirm-type="done" class='name'></input>
   </view>
 
   <view class='tit'>服务项目</view>

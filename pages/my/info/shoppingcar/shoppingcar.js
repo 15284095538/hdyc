@@ -13,6 +13,7 @@ Page({
     ],
     gid:"",
     vule_id:'',
+    Userinfo: true,
   },
   bindMinus: function (e) {
     var number = e.currentTarget.dataset.number;
@@ -228,9 +229,10 @@ Page({
   },
   // 去结算
   toBuy() {
+    var that = this;
     if (this.data.vule_id ){
       wx.navigateTo({
-        url: '/pages/orderPay/orderPay?goods_id=' + this.data.vule_id + '&store_id=' + '&value_id=' + '&goods_type=0' + '&num='
+        url: '/pages/orderPay/orderPay?goods_id=' + that.data.vule_id + '&store_id=' + '&value_id=' + '&goods_type=0' + '&num='
       })
     }else{
       wx.showToast({
@@ -331,7 +333,9 @@ Page({
   },  
 
 onLoad: function (options) {
+  this.onGoUserinfoSetting();
   this.getdata();
+  
   },
 
   getdata(e){
@@ -409,6 +413,46 @@ onLoad: function (options) {
     }
   })
 },
+  onGotUserInfo(e) {//用户授权
+    var that = this;
+    wx.login({
+      success: res => {
+        var code = res.code;
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
+              url: url + 'user/myInfo',
+              method: 'post',
+              data: {
+                encryptedData: res.encryptedData,
+                iv: res.iv,
+                code: code
+              },
+              success: function (data) {
+                wx.setStorageSync('userinfo', data.data.data)
+                that.setData({
+                  Userinfo: false
+                })
+                that.onLoad();
+              }
+            })
+          }
+        })
+      }
+    })
+  },
+  onGoUserinfoSetting(e) {//授权判断
+    var that = this;
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          that.setData({
+            Userinfo: false
+          })
+        }
+      }
+    })
+  },
 });
 
  

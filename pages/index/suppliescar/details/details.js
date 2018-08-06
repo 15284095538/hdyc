@@ -28,7 +28,7 @@ Page({
     minusStatus: 'disabled',
     category_id:'',
     leixpand:'',
-    leixpandtext:'',
+    leixpandtext:'加入购物车',
   },
   onLoad(e){
     this.setData({ goods_id: e.goods_id, category_id: e.category_id, })

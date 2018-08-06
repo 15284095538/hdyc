@@ -10,7 +10,7 @@
 <view bindtap="listToplayerclick" class='listToplayer {{display}}' >
   <scroll-view scroll-y style='height:{{ windowHeight + "px" }}'  class='listToplayeranment'>
     <block wx:for="{{menulist}}" wx:key="this" wx:for-index="index" wx:for-item="item" >
-      <view catchtap="listToplayerLiclick" data-areaid='{{item.areaId}}' data-id="{{index}}" data-text="{{item.areaName}}" class='li {{ index == layerid ? "select":"" }}'>{{item.areaName}}</view>
+      <view catchtap="listToplayerLiclick" data-areaName='{{item.areaName}}' data-areaid='{{item.areaId}}' data-id="{{index}}" data-text="{{item.areaName}}" class='li {{ index == layerid ? "select":"" }}'>{{item.areaName}}</view>
     </block>
   </scroll-view>
 </view>

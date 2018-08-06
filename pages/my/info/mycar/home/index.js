@@ -95,8 +95,8 @@ Page({
   },
 
   onLoad: function (options) {
-    this.getdata();
     this.setData({ type: options.type, text: options.text, class_id: options.class_id, store_id: options.store_id })
+    this.getdata();
   },
   radioChange(e){
     var that = this;
@@ -114,42 +114,7 @@ Page({
     this.setData({ carts:car })
   },
   onShow: function () {
-    var that = this;
-    wx.showToast({
-      title: '加载中',
-      icon: 'loading',
-      duration: 55000,
-      mask: true
-    });
-    var value = wx.getStorageSync('userinfo');
-    wx.request({//获取爱车信息
-      url: url + 'user/myCar',
-      data: {
-        'openid': value.openid,
-      },
-      method: 'POST',
-      success: function (res) {
-        if (res.data.data == "") {
-          that.setData({
-            IMgFalse: true,
-          })
-        } else {
-          that.setData({
-            IMgFalse: false,
-          })
-        }
-        if (res.data.code == 400) {
-          that.setData({
-            ['mycar']: 1
-          })
-        }
-        that.setData({
-          ['carts']: res.data.data
-        })
-        wx.hideToast();
-        console.log(res);
-      }
-    })
+    this.getdata();
   },
   getdata(e) {//获取数据
     var that = this;
@@ -167,6 +132,24 @@ Page({
       },
       method: 'POST',
       success: function (res) {
+        if (that.data.type == 3) {
+          for (var i = 0; i < res.data.data.length; i++) {
+            if (res.data.data[i].checked) {
+              if (res.data.data[i].is_complete == 0) {
+                wx.showToast({
+                  title: '请点击默认爱车完善爱车信息',
+                  icon: 'none',
+                  duration: 1000,
+                  mask: true
+                })
+              }
+            }else{
+              wx.hideToast();
+            }
+          }
+        }else{
+          wx.hideToast();
+        }
         if(res.data.code==400){
           that.setData({
             ['mycar']: 1
@@ -175,26 +158,16 @@ Page({
         that.setData({
           ['carts']: res.data.data
         })
-        wx.hideToast();
-        console.log(res);
+        
+        
+        
+        
+        
       }
     })
 
   },
-  carClick(e){
-    var carid = e.currentTarget.dataset.carid;
-    if (this.data.type == 2) {
-      wx.redirectTo({
-        url: '/pages/index/spraypaint/payselect/payselect?text=' + this.data.text + '&class_id=' + this.data.class_id + '&carid=' + carid
-      })
-    }
-    if (this.data.type == 3) {
-      wx.redirectTo({
-        url: '/pages/index/washcar/payselect/payselect?store_id=' + this.data.store_id + '&class_id=' + this.data.class_id + '&carid=' + carid
-      })
-    }
-  },
-  getmr:function(id){
+  getdatadata(e) {//重复获取
     var that = this;
     var value = wx.getStorageSync('userinfo');
     wx.showToast({
@@ -203,6 +176,62 @@ Page({
       duration: 55000,
       mask: true
     })
+    wx.request({//获取爱车信息
+      url: url + 'user/myCar',
+      data: {
+        'openid': value.openid,
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        if (res.data.code == 400) {
+          that.setData({
+            ['mycar']: 1
+          })
+        }
+        that.setData({
+          ['carts']: res.data.data
+        })
+
+
+
+
+
+      }
+    })
+
+  },
+  carClick(e) {
+    
+    var carid = e.currentTarget.dataset.carid;
+    var is_complete = e.currentTarget.dataset.is_complete;
+    
+
+    if (this.data.type == 2) {
+      wx.redirectTo({
+        url: '/pages/index/spraypaint/payselect/payselect?text=' + this.data.text + '&class_id=' + this.data.class_id + '&carid=' + carid
+      })
+    }
+    
+    if (this.data.type == 3) {
+      
+      if (is_complete == 0) {//未完善
+        
+        wx.redirectTo({
+          url: '/pages/my/info/mycar/infodata/infodata?id=' + carid + '&store_id=' + this.data.store_id + ' &class_id=' + this.data.class_id + '&carid=' + carid + '&type=' + this.data.type,
+        })
+      }else{
+        wx.redirectTo({
+          url: '/pages/index/washcar/payselect/payselect?store_id=' + this.data.store_id + '&class_id=' + this.data.class_id + '&carid=' + carid
+        })
+      }
+    }
+
+    this.getmr(carid)
+  },
+  getmr:function(id){
+    var that = this;
+    var value = wx.getStorageSync('userinfo');
     wx.request({//设置默认爱车
       url: url + 'user/set_default',
       data: {
@@ -211,13 +240,7 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        wx.hideToast();
-        wx.showToast({
-          title: '设置成功',
-          icon: 'success',
-          duration: 500,
-          mask: true
-        })
+        that.getdatadata();
       }
     })
   },
@@ -249,7 +272,6 @@ Page({
           duration: 500,
           mask: true
         })
-        console.log(res);
       }
     })
   }

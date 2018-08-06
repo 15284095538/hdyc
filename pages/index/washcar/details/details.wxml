@@ -16,12 +16,9 @@
       <image wx:if="{{ detdata.s_level == 2 }}" class='pic' src='/images/grade_02.png'></image>
       <image wx:if="{{ detdata.s_level == 1 }}" class='pic' src='/images/grade_03.png'></image>
       <view class='clear'></view>
-      <view catchtap='Navigation' class='adressName'>{{detdata.s_address}}</view>
+      <view catchtap='Navigation' style='margin-top:10rpx;' class='adressName'> <view style='float:left; width:27rpx;height:37rpx; margin-right:10rpx;'><image style='width:27rpx;height:37rpx;display:block; padding:0;margin:0;' src='/images/dinwei.png'></image></view> <view style='float:left' >{{detdata.s_address}}</view> </view>
     </view>
-    <view catchtap='Navigation' class='address_right'>
-      <view><image src='/images/dh.png'></image></view>
-      <text style='margin-top:-5rpx; line-height:10rpx;'>{{detdata.km}} \n 导航</text>
-    </view>
+
   </view>
   <view class='fl'>
     <view class="navbar">
@@ -46,8 +43,8 @@
 
 
     <view class='secend' hidden="{{currentIndex!==1}}">
-      <view class='tou'>
-        <view class='q'>全部评价（{{pinglun.counts.count}}）</view>
+      <view data-store_id='{{store_id}}' bindtap='ToPage' class='tou'>
+        <view  class='q'>全部评价（{{pinglun.counts.count}}）</view>
         <view class='h'>好评度
           <text class='nu'>{{pinglun.pl}}</text>
           <image src='/images/more.png'></image>

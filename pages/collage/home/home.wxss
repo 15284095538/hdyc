@@ -37,7 +37,7 @@ page{
   background-color: #fff;
   border-radius: 10rpx;
   margin: 0 5rpx;
-  color: #ffa546;
+  color: #11a8e1;
 }
 
 .collageNum {
@@ -57,7 +57,7 @@ page{
 }
 .collageNum .li .t{
   font-size: 32rpx;
-  color: #ffa546;
+  color: #11a8e1;
   margin-top: 50rpx;
 }
 .collageNum .li .n{
@@ -69,7 +69,7 @@ page{
   width: 150rpx;
   height: 60rpx;
   margin: 30rpx auto 0;
-  background-color: #fb6e14;
+  background-color: #11a8e1;
   color: #fff;
   border-radius: 30rpx;
   font-size: 28rpx;
@@ -101,4 +101,22 @@ page{
   position: fixed;
   left: 0;
   bottom:0;
+}
+
+.content .img{
+  width: 320rpx;
+  height: 300rpx;
+  margin: 20rpx auto;
+  text-align: center;
+  font-size: 28rpx;
+  padding-bottom: 30rpx;
+}
+.content .img image{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  display: block;
+}
+.content .img text{
+  line-height: 40rpx;
 }

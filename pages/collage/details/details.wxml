@@ -19,7 +19,7 @@
       <view wx:if="{{ item.is_first == 1 }}" class='t'>团长</view>
     </view>
 
-    <button class='btn' wx:if="{{ getuserinfo }}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">加入</button>
+    <button class='btn' wx:if="{{ getuserinfo }}" bindtap="join">加入</button>
 
 
   </view>
@@ -27,7 +27,7 @@
   <button wx:if="{{ yqo }}" class='sure' open-type="share">邀请好友</button>
 </view>
 
-<view class='layerbg {{bgCOolo}}'>
+<view catchtap='indexClick' class='layerbg {{bgCOolo}}'>
   <image src='/images/ptcg.png'></image>
   <view class='OneText'>{{date.money}}元</view>
   <view class='TwoText'>恭喜您获得{{date.money}}元优惠券，可在购买商品时进行抵扣!</view>

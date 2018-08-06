@@ -21,11 +21,8 @@
 
 <view catchtap='Navigation' class='detalsAdr'>
   <view class='name'>{{details.s_name}}</view>
-  <view class='adr'>{{details.s_address}}</view>
-  <view class='Navigation' catchtap='Navigation' data-longitude='{{details.longitude}}' data-latitude='{{details.latitude}}' >
-    <view class='img'> <image src='/images/dh.png'></image> </view>
-    <view class='jl'>{{details.km}} \n\t 导航 </view>
-  </view>
+  <view class='adr' style='margin-top:10rpx;' > <image style='width:27rpx;height:37rpx;display:block;float:left; margin-right:10rpx;' src='/images/dinwei.png'></image> {{details.s_address}}</view>
+ 
 </view>
 
 <view class='detalsKnow'>
@@ -54,8 +51,8 @@
 </view> 
 
 <view class='detalsPl'>
-  <view class='tou'>
-    <view class='q'>全部评价（{{pingluntj.counts.count}}）</view>
+  <view bindtap='ToPage' class='tou'>
+    <view  class='q'>全部评价（{{pingluntj.counts.count}}）</view>
     <view class='h'>好评度
       <text class='nu'>{{pingluntj.pl}}</text>
       <image src='/images/more.png'></image>

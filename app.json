@@ -92,6 +92,12 @@
         "selectedIconPath": "/images/bar_13.png"
       },
       {
+        "pagePath": "pages/my/info/shoppingcar/shoppingcar",
+        "text": "购物车",
+        "iconPath": "/images/shpcar.png",
+        "selectedIconPath": "/images/selectshpcar.png"
+      },
+      {
         "pagePath": "pages/my/home/index",
         "text": "我的",
         "iconPath": "/images/bar_07.png",

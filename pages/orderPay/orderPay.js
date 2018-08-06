@@ -26,7 +26,7 @@ Page({
     if (!e.name){e.name = ''}
     if (!e.phone) { e.phone = ''}
     if (!e.address_id) {e.address_id = ''}
-    console.log(e)
+    if (!e.classify) { e.classify = '' }
     that.setData({
       goods_id: e.goods_id,
       goods_type: e.goods_type,
@@ -219,7 +219,9 @@ Page({
           that.setData({
             orderdata: res.data.data,
             ['paycoupon.id']: paycouponid,
-            ['paycoupon.cost']: paycouponcost
+            ['paycoupon.cost']: paycouponcost,
+            name: res.data.data.user.name,
+            phone: res.data.data.user.cellphone
           })
           wx.hideToast();
         }

@@ -45,7 +45,6 @@
             </block>
             </view>
             </view>
-
-<view class='NoneSj' wx:if="{{ xhpinlun.length == 0 }}" >
+<view class='NoneSj' wx:if="{{ isMsl }}" >
   <image src='/images/none.png'></image>
 </view>

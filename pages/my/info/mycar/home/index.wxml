@@ -2,7 +2,7 @@
 <view class='mycars'>
 
   <view wx:for="{{carts}}"  wx:key="this">
-    <view class="cart_container" catchtap='carClick' data-carid='{{item.id}}' data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
+    <view class="cart_container" catchtap='carClick' data-is_complete='{{item.is_complete}}' data-carid='{{item.id}}' data-index='{{index}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{carts[index].Style}}" >
       <radio-group class="radio-group" bindchange="radioChange">
           <radio value="{{index}}" checked="{{item.checked}}"/>
       </radio-group>

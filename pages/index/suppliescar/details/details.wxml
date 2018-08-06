@@ -46,8 +46,8 @@
 
 
 <view class='detalsPl'>
-  <view class='tou'>
-    <view class='q'>全部评价（{{dettels.count_evaluate}}）</view>
+  <view bindtap='ToPage' class='tou'>
+    <view  class='q'>全部评价（{{dettels.count_evaluate}}）</view>
     <view class='h'>好评度
       <text class='nu'>{{dettels.pl}}</text>
       <image src='/images/more.png'></image>

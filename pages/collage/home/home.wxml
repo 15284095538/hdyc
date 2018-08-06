@@ -15,11 +15,18 @@
 
 <view class='clooageNum' style='padding-top:40rpx;'>
   <text>活动规则：</text>
-  <view>1、拼团抢券为一次抢券，有时间及人数限制</view>
-  <view>2、用户参与拼团抢券时，按页面提示可分享给好友</view>
-  <view>3、好友通过小程序参与拼团抢券</view>
-  <view>4、当参团人数在成团有效期内达到门槛值，即拼团成功</view>
-  <view>5、抢到的现金券不能体现，可在购买商品时进行抵扣</view>
+  <view>1、每位用户只能发起并参与一次拼团，慎重选择</view>
+  <view>2、分享好友满团即可领取红包优惠购膜</view>
+  <view>3、活动时间于：2018年8.18，过期作废</view>
+  <view>4、留下正确的车牌号+姓名+电话，购买成功将会有工作人员电话与您联系确认贴膜细节</view>
+  <view>5、若有问题可以保存本页面，微信识别下方二维码，关注发送您的问题将有专人为您解答</view>
+</view>
+
+<view class='content'>
+  <view class='img'>
+    <image src='{{data.qr_code}}'></image>
+    <text>截图保存图标识别二维码</text>
+  </view>
 </view>
 
 <view class='next'>下一场时间：明日{{data.exit_time}}开始</view>

@@ -41,18 +41,25 @@ Page({
   },
   listTopclick(e){
     var menuid = e.currentTarget.dataset.id;
-    this.setData({ display: 'block', menuid: 0 })
+    if (this.data.display == 'block' ){
+      this.setData({ display: 'none', menuid: 2 })
+    }else{
+      this.setData({ display: 'block', menuid: 0 })
+    }
   },
-  listToplayerLiclick(e){
+  listToplayerLiclick(e) {
     var layerid = e.currentTarget.dataset.id;
     var areaId = e.currentTarget.dataset.areaid;
-    this.setData({ display: 'none', menuid: 2, layerid: layerid, areaId: areaId })
+    var areaname = e.currentTarget.dataset.areaname;
+    var menu = this.data.menu;
+    menu[0].text = areaname;
+    this.page.pages = 1;
+    this.setData({ display: 'none', menuid: 2, layerid: layerid, areaId: areaId, menu: menu, })
     this.getdata();
   },
   washdetClick(e){//列表点击
     var store_id = e.currentTarget.dataset.store_id;
     var class_id = e.currentTarget.dataset.class_id;
-    console.log( e )
     wx.navigateTo({
       url: '/pages/index/washcar/details/details?store_id=' + store_id + '&class_id=' + class_id,
     })
@@ -79,23 +86,30 @@ Page({
       },
       method: 'POST',
       success: res => {
-        if (res.data.code == 200) {
-          if (res.data.data.store.length !== 0 ){
-            if ( res.data.data.address.length * 100 >= wx.getSystemInfoSync().windowHeight ){//计算高度
-              height = wx.getSystemInfoSync().windowHeight
-            }else{
-              height = res.data.data.address.length*100
-            }
-            address = res.data.data.address
+        if (res.data.code == 200 ) {
+          if (res.data.data.address.length * 100 >= wx.getSystemInfoSync().windowHeight) {//计算高度
+            height = wx.getSystemInfoSync().windowHeight
+          } else {
+            height = res.data.data.address.length * 100
           }
+          address = res.data.data.address
           wx.hideToast();
+          
+          
           that.setData({
             menulist: address,
             windowHeight: height,
             washlist: res.data.data.store,
+            IMgFalse:false
           });
+
+          if (res.data.data.store == '') {
+            if (that.page.pages == 1) {
+              that.setData({ IMgFalse: true })
+            }
+          }
+
         }else{
-          
           that.page.pagebuler = false
           wx.showToast({
             title: '没有更多数据',
@@ -103,9 +117,8 @@ Page({
             duration: 1000,
             mask: true
           })
-          if (that.page.pages == 1) {
-            that.setData({ IMgFalse: true })
-          }
+          
+          
         }
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();

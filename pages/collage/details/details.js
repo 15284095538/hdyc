@@ -65,11 +65,10 @@ Page({
     }
   },
   onShareAppMessage(e){
-    console.log(this.data.pid )
     return {
       title: this.data.date.total_money + '元现金' + this.data.date.peoples + '人瓜分',
       imageUrl: this.data.date.img,
-      path: '/activity/pages/collage/details/details?pid=' + this.data.pid + '&id=' + this.data.group_id
+      path: '/pages/collage/details/details?pid=' + this.data.pid + '&id=' + this.data.group_id
     }
   },
   onGotUserInfo(e) {//用户授权
@@ -93,12 +92,17 @@ Page({
                   Userinfo: false,
                   openid: data.data.data.openid
                 })
-                that.join();
+                that.onLoad();
               }
             })
           }
         })
       }
+    })
+  },
+  indexClick(e){
+    wx.switchTab({
+      url: '/pages/index/home/index'
     })
   },
   onGoUserinfoSetting(e) {//授权判断

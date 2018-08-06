@@ -55,7 +55,7 @@ Page({
         }else{
           wx.showModal({
             title: '提示',
-            content: '请选择默认车，并且完善信息',
+            content: '请选择爱车完善信息并且设置为默认',
             success: function (res) {
               if (res.confirm) {
                 wx.redirectTo({

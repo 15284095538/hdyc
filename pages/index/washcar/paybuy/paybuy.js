@@ -19,7 +19,8 @@ Page({
       ['pay.goods_id']: options.goods_id,
       ['pay.store_id']: options.store_id,
       ['pay.value_id']: options.value_id
-    })
+    });
+    this.getdata();
   },
   phoneinput(e){
     this.setData({ phone: e.detail.value })
@@ -109,5 +110,28 @@ Page({
       }
     })
 
-  }
+  },
+  getdata(e) {
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取内容
+      url: url + 'user/userInfo',
+      data: {
+        openid: wx.getStorageSync('userinfo').openid,
+      },
+      method: 'POST',
+      success: res => {
+        that.setData({
+          name: res.data.data.name,
+          phone: res.data.data.cellphone,
+        })
+        wx.hideToast();
+      }
+    })
+  },
 })

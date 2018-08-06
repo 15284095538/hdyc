@@ -81,8 +81,9 @@ Page({
           duration: 500,
           mask: true
         })
-       
-        console.log(res);
+        wx.switchTab({
+          url: '/pages/my/home/index'
+        })
       }
     })
   },

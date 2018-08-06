@@ -80,8 +80,16 @@ Page({
         }
         that.setData({
           allpinglun: res.data.data,
-          xhpinlun: list
+          xhpinlun: list,
+          isMsl:false
         });
+
+        if (that.page.pages == 1) {
+          if (res.data.data.list == '') {
+            that.setData({ isMsl: true })
+          }
+        }
+
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  
