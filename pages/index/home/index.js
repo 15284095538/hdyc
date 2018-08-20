@@ -103,6 +103,10 @@ Page({
       }
     })
   },
+  onShow(e){
+    this.onGoUserinfoSetting();
+    console.log(wx.getStorageSync('userinfo') )
+  },
   onGoUserinfoSetting(e) {//授权判断
     var that = this;
     wx.getSetting({
@@ -111,6 +115,19 @@ Page({
           that.setData({
             Userinfo: false
           })
+          if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车' ){
+            wx.showToast({
+              title: '请添加爱车',
+              icon: 'loading',
+              duration: 3000,
+              mask: true,
+              success:function(){
+                wx.navigateTo({
+                  url: '/pages/my/info/mycar/addcar/addcar',
+                })
+              }
+            })
+          }
         }
       }
     })

@@ -58,22 +58,23 @@ page{
   width: 110rpx;
   height: 40rpx;
   position: relative;
-  top: 60rpx;
-  left: 60rpx;
+  top: 80rpx;
+  left: 30rpx;
 }
 .carname image{
-  width: 110rpx;
-  height: 110rpx;
+  width: 90rpx;
+  height: 90rpx;
 }
 .carlove .ping{
-  font-size: 28rpx;
   position: relative;
-  top: 62rpx;
-  left: 187rpx;
-  width: 300rpx;
+  top: 42rpx;
+  left: 157rpx;
+  width: 350rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: 12px;
+  line-height: 50rpx;
 }
 .carlove .kuan {
   font-size: 26rpx;
@@ -89,7 +90,7 @@ page{
   font-weight: bold;
   background-color: #ff7979;
   color: #fff;
-  padding: 15rpx 0 0 0;
+  padding: 5rpx 0 0 0;
   text-align: center;
   border-radius: 8rpx;
   position: relative;

@@ -5,7 +5,7 @@
       <view class="flex" id="{{group.groupName}}">
         <view class="group-name">{{group.groupName}}</view>
         <view class="flex group-users">
-          <view wx:for="{{group.value}}" wx:key="this" wx:for-item="user" wx:for-index="idx" id='{{user.id}}' class="user box box-lr" bindtap='listTopclick'>
+          <view wx:for="{{group.value}}" wx:key="this" wx:for-item="user" wx:for-index="idx" data-id='{{user.id}}' class="user box box-lr" bindtap='listTopclick'>
             <view class="user-avatar box box-lr box-pack-center box-align-center">
                <image class="user-avatar-img" src="{{user.car_logo}}"></image> 
             </view>
@@ -15,7 +15,6 @@
       </view>
     </block>
   </scroll-view>
-
   <view class="nav box box-tb" bindtouchmove="touchmove" bindtouchcancel="touchcancel" bindtouchend="touchend">
     <view bindtap="tabLetter" data-index="{{item}}" wx:for="{{letters}}" wx:key="this" class="flex box box-align-center box-pack-center letter" >
       <text class="letter-text {{selected == item ? 'letter-actived' : ''}}">{{item}}</text>
@@ -24,18 +23,29 @@
 </view>
 <view class='listToplayer {{display}}' catchtap='Close'>
   <view class='listToplayeranment' catchtap='CloseStop'>
-  <scroll-view scroll-y style="height: {{winHeight+'px'}};">
-    <block wx:for="{{menulist}}" wx:key="this" wx:for-item="menulist">
-      <view class="flex" id="{{menulist.id}}">
-        <view class="group-name">{{menulist.car_brand}}</view>
-        <view class="flex group-users">
-          <view wx:for="{{menulist.type}}" wx:key="this" wx:for-item="user" data-index='{{menulist.id}}' id='{{user.id}}' class="user box box-lr"  bindtap='addcar'>
-            <view class="flex user-name">{{user.car_brand}}</view>
+    <scroll-view scroll-y style="height: {{winHeight+'px'}};">
+      <block wx:for="{{menulist}}" wx:key="this" wx:for-item="menulist">
+        <view class="flex" id="{{menulist.id}}">
+          <view class="group-name">{{menulist.car_brand}}</view>
+          <view class="flex group-users">
+            <view wx:for="{{menulist.type}}" wx:key="this" wx:for-item="user" data-index='{{menulist.id}}' data-menulistid='{{menulist.id}}' data-id='{{user.id}}' class="user box box-lr" catchtap='cardisplacementClick' bindtap='addcar'>
+              <view class="flex user-name">{{user.car_brand}}</view>
+            </view>
           </view>
         </view>
-      </view>
-    </block>
+      </block>
     </scroll-view>
-    
   </view>
-  </view>
+</view>
+
+<view class='cardisplacement {{displaycardisplacement}}' style="height: {{winHeight+'px'}};" >
+  <scroll-view scroll-y style="height: {{winHeight+'px'}};">
+    <view wx:for="{{displacement}}" wx:key="this" wx:for-item="item" catchtap='caryearClick' data-id='{{item.id}}' class='li'>{{item.car_brand}}</view>
+  </scroll-view>
+</view>
+
+<view class='caryear {{displaycaryear}}'>
+  <scroll-view scroll-y style="height: {{winHeight+'px'}};">
+    <view wx:for="{{caryear}}" wx:key="this" wx:for-item="item" catchtap='addcar' data-id='{{item.id}}' class='li'>{{item.car_brand}}</view>
+  </scroll-view>
+</view>

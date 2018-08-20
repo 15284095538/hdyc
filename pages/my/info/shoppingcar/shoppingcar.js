@@ -66,6 +66,10 @@ Page({
       method: 'POST',
       success: function (res) {
         wx.hideToast();
+        that.setData({
+          gid:'',
+          vule_id:''
+        })
         that.onLoad();
       }
     })
@@ -337,7 +341,11 @@ onLoad: function (options) {
   this.getdata();
   
   },
-
+  onShow(e){
+    this.getdata();
+    this.onGoUserinfoSetting();
+    this.setData({ isAllSelect:false })
+  },
   getdata(e){
     //获取数据
     var that = this;
@@ -448,6 +456,19 @@ onLoad: function (options) {
         if (res.authSetting['scope.userInfo']) {
           that.setData({
             Userinfo: false
+          })
+        }
+        if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+          wx.showToast({
+            title: '请添加爱车',
+            icon: 'loading',
+            duration: 3000,
+            mask: true,
+            success: function () {
+              wx.navigateTo({
+                url: '/pages/my/info/mycar/addcar/addcar',
+              })
+            }
           })
         }
       }

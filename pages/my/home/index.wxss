@@ -190,17 +190,17 @@ page {
 }
 
 .archives-info {
-  height: 79rpx;
+  height: 99rpx;
   width: 446rpx;
   position: absolute;
-  top: 23rpx;
+  top: 13rpx;
   right: 30rpx;
 }
 
 .archives-info-img {
   width: 71rpx;
   height: 71rpx;
-  padding: 4rpx;
+  padding: 8rpx 4rpx 0 0;
   margin-right: 21rpx;
 }
 
@@ -212,7 +212,7 @@ page {
 
 .archives-info-box {
   width: 346rpx;
-  height: 79rpx;
+  height: 99rpx;
 }
 
 .archives-info-title {
@@ -223,7 +223,7 @@ page {
 .archives-title-name {
   width: 350rpx;
   font-size: 24rpx;
-  line-height: 79rpx;
+  line-height: 50rpx;
   letter-spacing: 1rpx;
   color: #484848;
    white-space: nowrap;

@@ -89,10 +89,12 @@ Page({
               title: '支付成功',
               icon: 'success',
               duration: 500,
-              mask: true
-            })
-            wx.switchTab({
-              url: '/pages/my/home/index'
+              mask: true,
+              success: function(){
+                wx.switchTab({
+                  url: '/pages/my/home/index'
+                })
+              }
             })
           },
           'fail': function (res) {
@@ -100,10 +102,12 @@ Page({
               title: '支付失败',
               icon: 'success',
               duration: 500,
-              mask: true
-            })
-            wx.switchTab({
-              url: '/pages/my/home/index'
+              mask: true,
+              success: function(){
+                wx.switchTab({
+                  url: '/pages/my/home/index'
+                })
+              }
             })
           }
         })

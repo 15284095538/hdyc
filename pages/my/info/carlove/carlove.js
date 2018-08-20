@@ -16,12 +16,12 @@ Page({
   onLoad: function (options) {
      this.getdata();
   },
-  detClick(e){
-    var id = e.currentTarget.dataset.id;
-    wx.redirectTo({
-      url: '/pages/my/info/mycar/infodata/infodata?id=' + id,
-    })
-  },
+  // detClick(e){
+  //   var id = e.currentTarget.dataset.id;
+  //   wx.redirectTo({
+  //     url: '/pages/my/info/mycar/infodata/infodata?id=' + id,
+  //   })
+  // },
   swiperchangge(e){
     this.setData({ swiperindex: e.detail.current })
   },

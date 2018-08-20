@@ -413,7 +413,7 @@ white-space: nowrap;
 .indCarthree .li:nth-child(8n-6) .t{
   position: absolute;
   left: 30rpx;
-  bottom: 30rpx;
+  bottom: 20rpx;
   text-align: center;
   font-size: 28rpx;
   color: #fff;

@@ -4,26 +4,15 @@ Page({
   data: {
     selectid: 0,
     text:'',
-    price:299,
     data:[],
     class_id:'',
     carid:'',
-    list: [
-      {
-        'path': '/images/xiche1.png',
-        'name': '标准漆',
-        'priceT': 299,
-        'price': '￥299.00/标准面',
-        't': '标准漆包括：打蜡、普通轮胎更换、7座机器打蜡'
-      },
-      {
-        'path': '/images/xiche2.png',
-        'name': '高端漆',
-        'priceT': 399,
-        'price': '￥399.00/标准面',
-        't': '高端漆包括：打蜡、普通轮胎更换、7座机器打蜡、强效动力进气系统清洗、空调系统内循环清洗'
-      }
-    ]
+    list: [],
+    all:{
+      id:'',
+      price:'',
+      total_price:'',
+    }
   },
   onShow() {
     this.getdata();
@@ -35,14 +24,15 @@ Page({
   },
   selectclick(e) {
     var selectid = e.currentTarget.dataset.selectid;
-    var pricet = e.currentTarget.dataset.pricet;
-    this.setData({ selectid: selectid, price: pricet, })
-    this.getdata();
+    var price = e.currentTarget.dataset.price;
+    var id = e.currentTarget.dataset.id;
+    var total_price = e.currentTarget.dataset.total_price;
+    this.setData({ selectid: selectid, ['all.price']: price, ['all.id']: id, ['all.total_price']: total_price })
   },
   payClick(e){
     if (this.data.data.my_car ){
       wx.navigateTo({
-        url: '/pages/index/spraypaint/pay/pay?store_id=' + '&&count_board=' + this.data.data.count_board + '&&count_price=' + this.data.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text
+        url: '/pages/index/spraypaint/pay/pay?store_id=' + '&&count_board=' + this.data.data.count_board + '&&count_price=' + this.data.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.all.total_price + '&&text=' + this.data.text + '&&paintId=' + this.data.all.id,
       })
     }else{
       wx.showToast({
@@ -78,7 +68,10 @@ Page({
       success: function (res) {
         if (res.data.code == 200) {
           that.setData({
-            data: res.data.data
+            data: res.data.data,
+            ['all.id']: res.data.data.goods[0].id,
+            ['all.price']: res.data.data.goods[0].price,
+            ['all.total_price']: res.data.data.goods[0].total_price,
           })
           wx.hideToast();
         }else{

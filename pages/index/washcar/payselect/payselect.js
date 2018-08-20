@@ -45,30 +45,13 @@ Page({
       },
       method: 'POST',
       success: res => {
-        if (res.data.code == 200) {
-          that.setData({
-            goods_id: res.data.data.goods[0].id,
-            goods_idprice: res.data.data.goods[0].price,
-            detdata: res.data.data,
-            value_id: res.data.data.goods[0].value_id,
-          })
-        }else{
-          wx.showModal({
-            title: '提示',
-            content: '请选择爱车完善信息并且设置为默认',
-            success: function (res) {
-              if (res.confirm) {
-                wx.redirectTo({
-                  url: '/pages/my/info/mycar/home/index?type=3&&store_id=' + that.data.store_id + '&class_id=' + that.data.class_id
-                })
-              } else if (res.cancel) {
-                wx.redirectTo({
-                  url: 'pages/index/home/index'
-                })
-              }
-            }
-          })
-        }
+        console.log(res )
+        that.setData({
+          goods_id: res.data.data.goods[0].id,
+          goods_idprice: res.data.data.goods[0].price,
+          detdata: res.data.data,
+          value_id: res.data.data.goods[0].value_id,
+        })
         wx.hideToast();
       }
     })

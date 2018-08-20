@@ -38,10 +38,10 @@
           </view>
           <view class='archives-info-box left'>
             <view class='archives-info-title'>
-              <text class='archives-title-name left'>{{userinfo.car.car_brand}}</text>
+              <text class='archives-title-name left'>{{userinfo.car.car_brand}} \n {{ userinfo.car.info }}</text>
             </view>
             <view class='archives-info-subtitle'>
-              {{userinfo.card_info}}
+              {{userinfo.card_info}} 
             </view>
           </view>
         </view>

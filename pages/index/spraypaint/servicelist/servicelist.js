@@ -8,6 +8,7 @@ Page({
     store_id: '',
     text: '',
     data: [],
+    paintId:'',
   },
 
   onLoad: function (e) {
@@ -18,6 +19,7 @@ Page({
       price: e.price,
       store_id: e.store_id,
       text: e.text,
+      paintId: e.paintId
     })
     this.getdata();
   },
@@ -39,6 +41,7 @@ Page({
         count_board: this.data.count_board,
         openid: wx.getStorageSync('userinfo').openid,
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+        paintId: this.data.paintId
       },
       method: 'POST',
       success: function (res) {

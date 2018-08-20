@@ -70,7 +70,7 @@
 
 <view class="payli" catchtap='listClick' style='margin-top:20rpx;'>
   <view class='li'>
-    <text class='l'>标准漆</text>
+    <text class='l'>{{data.paint}}</text>
     <text class='r'>共{{ data.count_board }}个标准面</text>
     <image class='more' src='/images/more.png'></image>
   </view>

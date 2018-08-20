@@ -82,7 +82,8 @@ Page({
         areaId: this.data.areaId ,
         type:1,
         sort:'2',
-        page: this.page.pages*10
+        page: this.page.pages*10,
+        openid: wx.getStorageSync('userinfo').openid
       },
       method: 'POST',
       success: res => {

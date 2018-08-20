@@ -23,6 +23,7 @@ Page({
       data: {
         goods_id: this.data.goods_id,
         level: wx.getStorageSync('userinfo').level,
+        openid: wx.getStorageSync('userinfo').openid
       },
       success: function (res) {
         wx.hideToast();

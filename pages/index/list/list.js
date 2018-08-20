@@ -157,6 +157,7 @@ Page({
         page: this.page.pages * 10,
         areaId: this.data.areaId,
         store_id: this.data.store_id,
+        openid: wx.getStorageSync('userinfo').openid,
       },
       method: 'POST',
       success: function (res) {

@@ -40,6 +40,7 @@ Page({
     text:'',
     phone: '',
     name: '',
+    paintId: '',
   },
   page: {
     pages: 1,
@@ -80,6 +81,7 @@ Page({
         text: e.text,
         phone: e.phone,
         name: e.name,
+        paintId: e.paintId
       })
       this.getdata();
     }
@@ -93,7 +95,7 @@ Page({
       })
     }else{
       wx.redirectTo({
-        url: '/pages/index/spraypaint/pay/pay?store_id=' + store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.classify + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone
+        url: '/pages/index/spraypaint/pay/pay?store_id=' + store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.classify + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone + '&&paintId=' + this.data.paintId
       })
     }
   },

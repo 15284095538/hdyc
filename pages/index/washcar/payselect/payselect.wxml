@@ -31,7 +31,7 @@
   <view catchtap='selectclick' data-value_id='{{item.value_id}}' data-id='{{item.id}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{detdata.goods}}" data-goods_idprice='{{item.price}}' wx:for-index="index" wx:for-item="item" wx:key="this" >
     <image class='washsure' src='/images/washsure.png'></image>
     <view style='overflow: hidden' >
-      <view class='img'> <image src='{{item.g_picture}}'></image> </view>
+      <view class='img'> <image src='{{item.img}}'></image> </view>
       <view class='text'>
         <view class='name'>{{item.g_name}}</view>
         <view class='price'>{{item.price}}</view>

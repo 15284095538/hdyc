@@ -132,24 +132,8 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        if (that.data.type == 3) {
-          for (var i = 0; i < res.data.data.length; i++) {
-            if (res.data.data[i].checked) {
-              if (res.data.data[i].is_complete == 0) {
-                wx.showToast({
-                  title: '请点击默认爱车完善爱车信息',
-                  icon: 'none',
-                  duration: 1000,
-                  mask: true
-                })
-              }
-            }else{
-              wx.hideToast();
-            }
-          }
-        }else{
-          wx.hideToast();
-        }
+        
+        wx.hideToast();
         if(res.data.code==400){
           that.setData({
             ['mycar']: 1
@@ -192,11 +176,6 @@ Page({
         that.setData({
           ['carts']: res.data.data
         })
-
-
-
-
-
       }
     })
 
@@ -214,17 +193,9 @@ Page({
     }
     
     if (this.data.type == 3) {
-      
-      if (is_complete == 0) {//未完善
-        
-        wx.redirectTo({
+wx.redirectTo({
           url: '/pages/my/info/mycar/infodata/infodata?id=' + carid + '&store_id=' + this.data.store_id + ' &class_id=' + this.data.class_id + '&carid=' + carid + '&type=' + this.data.type,
         })
-      }else{
-        wx.redirectTo({
-          url: '/pages/index/washcar/payselect/payselect?store_id=' + this.data.store_id + '&class_id=' + this.data.class_id + '&carid=' + carid
-        })
-      }
     }
 
     this.getmr(carid)
@@ -241,6 +212,7 @@ Page({
       method: 'POST',
       success: function (res) {
         that.getdatadata();
+        that.onGotUserInfo();
       }
     })
   },
@@ -259,18 +231,70 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        const index = e.currentTarget.dataset.index;
-        let carts = that.data.carts;
-        carts.splice(index, 1); // 删除购物车列表里这个商品
-        that.setData({
-          carts: carts
+        
+        
+        wx.login({
+          success: res => {
+            var code = res.code;
+            wx.getUserInfo({
+              success: function (res) {
+                wx.request({
+                  url: url + 'user/myInfo',
+                  method: 'post',
+                  data: {
+                    encryptedData: res.encryptedData,
+                    iv: res.iv,
+                    code: code
+                  },
+                  success: function (data) {
+                    wx.setStorageSync('userinfo', data.data.data)
+                    const index = e.currentTarget.dataset.index;
+                    let carts = that.data.carts;
+                    carts.splice(index, 1); // 删除购物车列表里这个商品
+                    that.setData({
+                      carts: carts
+                    })
+                    wx.hideToast();
+                    wx.showToast({
+                      title: '删除成功',
+                      icon: 'success',
+                      duration: 500,
+                      mask: true
+                    })
+                  }
+                })
+              }
+            })
+          }
         })
-        wx.hideToast();
-        wx.showToast({
-          title: '删除成功',
-          icon: 'success',
-          duration: 500,
-          mask: true
+
+        
+      }
+    })
+  },
+  onGotUserInfo(e){
+    var that = this;
+    wx.login({
+      success: res => {
+        var code = res.code;
+        wx.getUserInfo({
+          success: function (res) {
+            wx.request({
+              url: url + 'user/myInfo',
+              method: 'post',
+              data: {
+                encryptedData: res.encryptedData,
+                iv: res.iv,
+                code: code
+              },
+              success: function (data) {
+                wx.setStorageSync('userinfo', data.data.data)
+                that.setData({
+                  Userinfo: false
+                })
+              }
+            })
+          }
         })
       }
     })

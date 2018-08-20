@@ -1,10 +1,14 @@
-// pages/my/info/mycar/addcar/addcar.js
+
 var url = getApp().globalData.publicUrl;
 Page({
   data: {
     winHeight:'',
     display:'none',
-    fid:'',
+    displaycardisplacement:'none',
+    displacement:'',
+    caryear:'',
+    displaycaryear:"none",
+    car_type:'',
     mycar:'',
     // 当前选择的导航字母
     selected: 0,
@@ -13,51 +17,12 @@ Page({
     // 导航字母
     letters: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
       'U', 'V', 'W', 'X', 'Y', 'Z'],
-    groups: [
-
-    ],
-    menulist: [
-
-    ],
+    groups: [],
+    menulist: [],
   },
-  //添加爱车
-   addcar:function(e){
-     
-     var carid = this.data.fid + ',' + e.currentTarget.dataset.index + ',' + e.currentTarget.id;
-     var value = wx.getStorageSync('userinfo');
-     wx.showToast({
-       title: '加载中',
-       icon: 'loading',
-       duration: 55000,
-       mask: true
-     })
-     wx.request({//添加车辆
-       url: url + 'user/set_lovecar',
-       data: {
-         'car_type': carid,
-         'openid': value.openid,
-        'is_default':1,
-       },
-       method: 'POST',
-       success: function (res) {
-         wx.hideToast();
-         wx.showToast({
-           title: '添加成功',
-           icon: 'success',
-           duration: 500,
-           mask: true
-         })
-         wx.navigateBack();
-         console.log(res);
-       }
-     })
-   } ,
-
-  listTopclick(e) { //头部点击切换样式
+  listTopclick(e) { //车系
     var that = this;
-    var menuid = e.currentTarget.dataset.id;
-    var selectkey = e.currentTarget.dataset.key;
-    
+    var id = e.currentTarget.dataset.id;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -67,17 +32,146 @@ Page({
     wx.request({//获取车辆信息
       url: url + 'user/set_carclass',
       data: {
-        'id': e.currentTarget.id,
+        'id': id,
+        type: 2
       },
       method: 'POST',
       success: function (res) {
         that.setData({
           ['menulist']: res.data.data,
-          ['fid']: e.currentTarget.id,
+          cartype: id,
           display: 'block',
         })
         wx.hideToast();
-        console.log(res);
+      }
+    })
+  },
+  cardisplacementClick(e){//排量
+    var that = this;
+    const id = e.currentTarget.dataset.id;
+    var menulistid = e.currentTarget.dataset.menulistid;
+    var cartype = this.data.cartype + ',' + menulistid + ',' + id;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取车辆信息
+      url: url + 'user/set_carclass',
+      data: {
+        id: id,
+        type: 3
+      },
+      method: 'POST',
+      success: function (res) {
+        if( res.data.data.length > 0 ){
+          that.setData({
+            displacement: res.data.data,
+            displaycardisplacement: 'block',
+            display: 'none',
+            cartype: cartype
+          })
+          wx.hideToast();
+        }else{
+          that.setData({
+            displacement: res.data.data,
+            displaycardisplacement: 'none',
+            display: 'block'
+          })
+          wx.showToast({
+            title: '车辆详细待完善，敬请期待。',
+            icon: 'none',
+            duration: 500,
+            mask: true
+          })
+        }
+      }
+    })
+  },
+  caryearClick(e){//生产年限
+    const id = e.currentTarget.dataset.id;
+    var cartype = this.data.cartype + ',' + id;
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取车辆信息
+      url: url + 'user/set_carclass',
+      data: {
+        id: id,
+        type: 4
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.data.length > 0) {
+          that.setData({
+            caryear: res.data.data,
+            displaycardisplacement: 'none',
+            displaycaryear: 'block',
+            cartype: cartype
+          })
+          wx.hideToast();
+        }
+      }
+    })
+  },
+  addcar: function (e) {//添加爱车
+    const id = e.currentTarget.dataset.id;
+    var cartype = this.data.cartype + ',' + id;
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//添加车辆
+      url: url + 'user/set_lovecar',
+      data: {
+        'car_type': cartype,
+        'openid': wx.getStorageSync('userinfo').openid,
+        'is_default': 1,
+      },
+      method: 'POST',
+      success: function (res) {
+        
+        
+        wx.login({
+          success: res => {
+            var code = res.code;
+            wx.getUserInfo({
+              success: function (res) {
+                wx.request({
+                  url: url + 'user/myInfo',
+                  method: 'post',
+                  data: {
+                    encryptedData: res.encryptedData,
+                    iv: res.iv,
+                    code: code
+                  },
+                  success: function (data) {
+                    wx.setStorageSync('userinfo', data.data.data)
+                    wx.showToast({
+                      title: '添加成功',
+                      icon: 'success',
+                      duration: 300,
+                      mask: true,
+                      success:function(){
+                        wx.navigateBack();
+                      }
+                    })
+                  }
+                })
+              }
+            })
+          }
+        })
+
+        
       }
     })
   },
@@ -137,6 +231,7 @@ Page({
       url: url + 'user/set_carclass',
       data: {
         'id': 0,
+        type: 1
       },
       method: 'POST',
       success: function (res) {
@@ -144,11 +239,9 @@ Page({
           ['groups']: res.data.data
         })
         wx.hideToast();
-        console.log(res);
       }
     })
-  }
-  ,
+  },
   tabLetter(e) {
     const index = e.currentTarget.dataset.index;
     this.setData({

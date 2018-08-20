@@ -19,6 +19,7 @@ Page({
     },
     phone: '',
     name: '',
+    paintId:'',
   },
   onLoad(e) {
     var that = this;
@@ -32,6 +33,7 @@ Page({
       text: e.text,
       phone: e.phone,
       name: e.name,
+      paintId: e.paintId
      })
     this.getdata();
     wx.getSystemInfo({
@@ -115,7 +117,8 @@ Page({
         phone: this.data.phone,
         openid: wx.getStorageSync('userinfo').openid,
         coupon_id: this.data.paycoupon.id,
-        price: this.data.price
+        price: this.data.price,
+        goods_id: this.data.paintId
       },
       method: 'POST',
       success: function (res) {
@@ -157,12 +160,12 @@ Page({
   },
   listClick(e){
     wx.navigateTo({ //查看列表
-      url: '/pages/index/spraypaint/servicelist/servicelist?store_id=' + '&&count_board=' + this.data.data.count_board + '&&count_price=' + this.data.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text
+      url: '/pages/index/spraypaint/servicelist/servicelist?store_id=' + '&&count_board=' + this.data.data.count_board + '&&count_price=' + this.data.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text + '&&paintId=' + this.data.paintId
     })
   },
   storeClick(e){// 选择门店
     wx.redirectTo({
-      url: '/pages/orderStore/orderStore?store_id=' + this.data.store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone
+      url: '/pages/orderStore/orderStore?store_id=' + this.data.store_id + '&&count_board=' + this.data.count_board + '&&count_price=' + this.data.count_price + '&&class_id=' + this.data.class_id + '&&price=' + this.data.price + '&&text=' + this.data.text + '&name=' + this.data.name + '&phone=' + this.data.phone + '&&paintId=' + this.data.paintId
     })
   },
   getdata(e) {//获取数据
@@ -183,6 +186,7 @@ Page({
         count_board: this.data.count_board,
         openid: wx.getStorageSync('userinfo').openid,
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
+        paintId: this.data.paintId
       },
       method: 'POST',
       success: function (res) {

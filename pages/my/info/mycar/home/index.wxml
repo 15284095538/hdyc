@@ -8,7 +8,7 @@
       </radio-group>
       <image class="item-image" src="{{item.car_logo}}"></image>
       <view class="column">
-        <text class="title">{{item.car_brand}}</text>
+        <text class="title">{{item.car_brand}} \n {{item.info}}</text>
       </view>
       <!-- <view id='{{item.id}}' data-index="{{index}}"  class="inner mrcar del" style='{{carts[index].txtStyle}}' bindtap="getmr">默认</view> -->
        <view id='{{item.id}}' data-index="{{index}}"  class="inner del" style='{{carts[index].txtStyle}}' bindtap="deleteProd">删除</view>

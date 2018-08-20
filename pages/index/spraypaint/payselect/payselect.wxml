@@ -12,20 +12,20 @@
 
 <view class='washselect'>
   <view class='tit'>选择油漆产品</view>
-  <view catchtap='selectclick' data-priceT='{{item.priceT}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="this" >
+  <view catchtap='selectclick' data-total_price='{{item.total_price}}' data-price='{{item.price}}' data-selectid='{{index}}' data-id='{{item.id}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{data.goods}}" wx:for-index="index" wx:for-item="item" wx:key="this" >
     <image class='washsure' src='/images/washsure.png'></image>
     <view style='overflow: hidden' >
-      <view class='img'> <image src='{{item.path}}'></image> </view>
+      <view class='img'> <image src='{{item.img}}'></image> </view>
       <view class='text'>
         <view class='name'>{{item.name}}</view>
         <view class='price'>{{item.price}}</view>
       </view>
     </view>
-    <view class='bot'>{{item.t}}</view>
+    <view class='bot'>{{item.introduce}}</view>
   </view>
 </view>
 
 <view class='fot'>
-  <view class='l'>共计：<text>¥{{data.count_price}}</text></view>
+  <view class='l'>共计：<text>¥{{all.total_price}}</text></view>
   <view catchtap='payClick' class='r'>下一步</view>
 </view>

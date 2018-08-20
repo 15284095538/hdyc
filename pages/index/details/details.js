@@ -35,7 +35,7 @@ Page({
   },
   payclick(e){
     wx.navigateTo({
-      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + '&goods_type=1' + '&num=1' + '&classify=' + this.data.classify
+      url: '/pages/orderPay/orderPay?goods_id=' + this.data.goods_id + '&store_id=' + this.data.store_id + '&value_id=' + this.data.value_id + '&goods_type=1' + '&num=1' + '&classify=' + this.data.classify
     })
   },
   ToPage(){
@@ -116,6 +116,7 @@ Page({
         type: '-1',
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
         level: wx.getStorageSync('userinfo').level,
+        openid: wx.getStorageSync('userinfo').openid,
       },
       method: 'POST',
       success: function (res) {
@@ -123,7 +124,8 @@ Page({
           that.setData({
             details: res.data.data.details[0],
             pinglun: res.data.data.eval,
-            store_id: res.data.data.details[0].store_id
+            store_id: res.data.data.details[0].store_id,
+            value_id: res.data.data.details[0].value_id
           })
           wx.hideToast();
         }

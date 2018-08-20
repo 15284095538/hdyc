@@ -194,7 +194,7 @@
   right: 0;
   color: #fff;
   display: none;
-  padding-top: 80rpx;
+  padding-top: 100rpx;
   padding-left: 70rpx;
 }
 

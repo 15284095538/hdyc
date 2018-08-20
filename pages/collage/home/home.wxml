@@ -29,4 +29,4 @@
   </view>
 </view>
 
-<view class='next'>下一场时间：明日{{data.exit_time}}开始</view>
+<view class='next'>下一场时间：{{data.exit_time}}开始</view>
