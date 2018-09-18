@@ -238,22 +238,25 @@ button::after{
   border-right: 1rpx solid #efefef;
 }
 .indCartwo .li .t{
-  font-size: 28rpx;
+  font-size: 22rpx;
   color: #303033;
-  width: 100%;
+  width: 90%;
   text-align: center;
   position: absolute;
-  left: 0;
+  left: 5%;
   bottom: 80rpx;
   font-weight: bold;
+   overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
 }
 .indCartwo .li .c{
-  font-size: 24rpx;
+  font-size: 18rpx;
   color: #9b9b9b;
-  width: 100%;
+  width: 90%;
   text-align: center;
   position: absolute;
-  left: 0;
+  left: 5%;
   bottom: 40rpx;
   overflow: hidden;
 text-overflow:ellipsis;
@@ -347,23 +350,31 @@ white-space: nowrap;
 }
 
 .indCarthree .li .t{
-  font-size: 28rpx;
+  font-size: 20rpx;
   color: #303033;
-  width: 100%;
+  width: 90%;
   text-align: center;
   position: absolute;
-  left: 0;
+  left: 5%;
   bottom: 80rpx;
   font-weight: bold;
+  overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+
 }
 .indCarthree .li .c{
-  font-size: 24rpx;
+  font-size: 18rpx;
   color: #9b9b9b;
-  width: 100%;
+  width: 90%;
   text-align: center;
   position: absolute;
-  left: 0;
+  left: 5%;
   bottom: 40rpx;
+  overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+
 }
 .indCarthree .li image{
   width: 108rpx;

@@ -49,3 +49,16 @@
   padding: 30rpx;
   border-radius: 10rpx;
 }
+
+.getTel{
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #11a8e1;
+  border-radius: 10rpx;
+  color: #fff;
+  position: absolute;
+  right: 0rpx;
+  top: 25rpx;
+  font-size: 24rpx;
+}

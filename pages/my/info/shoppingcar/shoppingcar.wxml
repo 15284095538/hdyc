@@ -15,10 +15,10 @@
         <image class="item-select" bindtap="switchSelect" data-index="{{index}}" id="{{item.goods_id}}" src="{{item.isSelect?'/images/tongyi.png':'/images/dian.png'}}" hidden="{{currentIndex!==0}}" />
         <view style='width:30rpx;' hidden="{{currentIndex!==1&&currentIndex!==2}}"></view>
         <image hidden="{{currentIndex!==1&&currentIndex!==2}}" class="item-image" src="{{item.car_img}}"></image>
-        <image hidden="{{currentIndex!==0}}" class="item-image" src="{{item.g_picture}}"></image>
+        <image data-goods_id="{{item.goods_id}}" data-class_id="{{item.class_id}}" catchtap='carDetClick' hidden="{{currentIndex!==0}}" class="item-image" src="{{item.g_picture}}"></image>
         <view class="column">
           <text hidden="{{currentIndex!==1&&currentIndex!==2}}" class="title">{{item.car_name}}</text>
-          <text hidden="{{currentIndex!==0}}" class="title">{{item.g_name}}</text>
+          <text data-goods_id="{{item.goods_id}}" data-class_id="{{item.class_id}}" catchtap='carDetClick' catchtap='carDetClick' hidden="{{currentIndex!==0}}" class="title">{{item.g_name}}</text>
           <text class='xq' hidden="{{currentIndex!==0}}">已售{{item.ys}}件<text style='margin-left:100rpx;'>{{item.pl}}人评论</text></text>
           <text class='xq' hidden="{{currentIndex!==1&&currentIndex!==2}}">厂商指导价{{item.price}}万</text>
           <view class="row row1">

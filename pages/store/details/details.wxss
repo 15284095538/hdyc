@@ -28,7 +28,7 @@
 }
 
 .body .adress_left {
-  width: 377rpx;
+  width: 720rpx;
 }
 
 .body .adress_left image {

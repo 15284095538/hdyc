@@ -10,9 +10,10 @@
 <input  placeholder='请输入真实姓名'bindinput="voteTitle" value='{{user.name}}'></input>
 </view>
 <view style='clear:both;'></view>
-<view class='input'>
+<view class='input' style='position: relative;' >
 <view class='word'>手机号</view>
-<input class='zname' type="number" value='{{user.cellphone}}' bindinput="voteTitle1">{{user.cellphone}}</input>
+<button wx:if="{{gettel}}" class='getTel' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击绑定手机号</button> 
+<input wx:if="{{!gettel}}" class='zname' type="number" disabled='true' value='{{user.cellphone}}' bindinput="voteTitle1">{{user.cellphone}}</input>
 </view>
 <view style='clear:both;'></view>
 <view class='input' bindtap='ques'>

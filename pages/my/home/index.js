@@ -54,6 +54,7 @@ Page({
     this.onGoUserinfoSetting();
   },
   ToPage(e) {//导航跳转
+   
     var link = e.currentTarget.dataset.link;
     if (link == '/pages/my/info/shoppingcar/shoppingcar' ){
       wx.switchTab({
@@ -111,19 +112,6 @@ Page({
           that.onGotUserInfo();
           that.setData({
             Userinfo: false
-          })
-        }
-        if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
-          wx.showToast({
-            title: '请添加爱车',
-            icon: 'loading',
-            duration: 3000,
-            mask: true,
-            success: function () {
-              wx.navigateTo({
-                url: '/pages/my/info/mycar/addcar/addcar',
-              })
-            }
           })
         }
       }

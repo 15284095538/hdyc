@@ -29,6 +29,20 @@ Page({
     this.getLocation();
   },
   menulink(e){//导航跳转
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var name = e.currentTarget.dataset.name;
     var link = e.currentTarget.dataset.link;
     var id = e.currentTarget.dataset.menuid;
@@ -37,12 +51,40 @@ Page({
     })
   },
   carlink(e){//
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
       url: link 
     })
   },
   cypClick(e){
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var goods_id = e.currentTarget.dataset.goods_id;
     var category_id = e.currentTarget.dataset.category_id;
     wx.navigateTo({
@@ -50,6 +92,20 @@ Page({
     })
   },
   yhtjClick(e){
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var goods_id = e.currentTarget.dataset.goods_id;
     var classify = e.currentTarget.dataset.classify;
     wx.navigateTo({
@@ -57,17 +113,61 @@ Page({
     })
   },
   searchLink(e){
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     wx.navigateTo({
       url: '/activity/pages/search/home/home'
     })
   },
   buycarlink(e){
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/pages/index/buycar/details/details?id=' + id,
     })
   },
   imgClick(e){
+
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
+
     var link = e.currentTarget.dataset.link;
     if (link == "/pages/collage/home/home" ){
       link = '/pages/collage/home/home?openid=' + wx.getStorageSync('userinfo').openid
@@ -105,7 +205,6 @@ Page({
   },
   onShow(e){
     this.onGoUserinfoSetting();
-    console.log(wx.getStorageSync('userinfo') )
   },
   onGoUserinfoSetting(e) {//授权判断
     var that = this;
@@ -115,19 +214,6 @@ Page({
           that.setData({
             Userinfo: false
           })
-          if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车' ){
-            wx.showToast({
-              title: '请添加爱车',
-              icon: 'loading',
-              duration: 3000,
-              mask: true,
-              success:function(){
-                wx.navigateTo({
-                  url: '/pages/my/info/mycar/addcar/addcar',
-                })
-              }
-            })
-          }
         }
       }
     })

@@ -2,7 +2,7 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     IMgFalse: false,
-    navbar: ["车用品","新车"],
+    navbar: ["车用品"],
     currentIndex: 0,//tabbar索引
     isAllSelect: false,
     totalMoney: 0,
@@ -14,6 +14,14 @@ Page({
     gid:"",
     vule_id:'',
     Userinfo: true,
+  },
+  carDetClick(e) {//商品详情
+    console.log(e)
+    var class_id = e.currentTarget.dataset.class_id;
+    var goods_id = e.currentTarget.dataset.goods_id;
+    wx.navigateTo({
+      url: '/pages/index/suppliescar/details/details?goods_id=' + goods_id + '&category_id=' + class_id
+    })
   },
   bindMinus: function (e) {
     var number = e.currentTarget.dataset.number;
@@ -456,19 +464,6 @@ onLoad: function (options) {
         if (res.authSetting['scope.userInfo']) {
           that.setData({
             Userinfo: false
-          })
-        }
-        if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
-          wx.showToast({
-            title: '请添加爱车',
-            icon: 'loading',
-            duration: 3000,
-            mask: true,
-            success: function () {
-              wx.navigateTo({
-                url: '/pages/my/info/mycar/addcar/addcar',
-              })
-            }
           })
         }
       }

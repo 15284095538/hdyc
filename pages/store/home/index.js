@@ -33,12 +33,40 @@ Page({
     that.getdata();
   },
   ToPage(e) { //页面跳转
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var link = e.currentTarget.dataset.link;
     wx.navigateTo({
       url: link
     })
   },
   ToDetails(e) { //跳转详情
+    if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
+      wx.showToast({
+        title: '请添加爱车',
+        icon: 'loading',
+        duration: 3000,
+        mask: true,
+        success: function () {
+          wx.navigateTo({
+            url: '/pages/my/info/mycar/addcar/addcar',
+          })
+        }
+      })
+      return false
+    }
     var id = e.currentTarget.dataset.id;
     console.log(id);
     wx.navigateTo({
@@ -83,19 +111,6 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           that.setData({
             Userinfo: false
-          })
-        }
-        if (wx.getStorageSync('userinfo').car.car_brand == '暂未选择爱车') {
-          wx.showToast({
-            title: '请添加爱车',
-            icon: 'loading',
-            duration: 3000,
-            mask: true,
-            success: function () {
-              wx.navigateTo({
-                url: '/pages/my/info/mycar/addcar/addcar',
-              })
-            }
           })
         }
       }

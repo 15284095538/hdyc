@@ -7,16 +7,8 @@ Page({
    */
   data: {
         user:{
-          'pic':'/images/car_03.png',
-          'zname':'',
-          'tel':'13618045260',
-          'sex':'2',
-          'usname':'阴雨小城',
         },
-        items:[
-        {name: '1', value: '男' ,checked: 'true' },
-        { name: '2', value: '女' }
-        ],
+        gettel:false,
         name:'',
         tel:'',
   },
@@ -110,6 +102,30 @@ Page({
   onLoad: function (options) {
     this.getdata();
   },
+  getPhoneNumber(e){
+    console.log( e )
+    if (e.detail.errMsg == 'getPhoneNumber:ok' ){
+      wx.login({
+        success: res => {
+          var code = res.code;
+          console.log( code )
+          wx.request({
+            url: url + 'user/bandWx',
+            method: 'post',
+            data: {
+              encryptedData: e.detail.encryptedData,
+              iv: e.detail.iv,
+              code: code,
+              openid: wx.getStorageSync('userinfo').openid,
+            },
+            success: function (data) {
+              that.getdata();
+            }
+          })
+        }
+      })
+    }
+  },
   getdata(e) {//获取数据
     var that = this;
     wx.showToast({
@@ -129,59 +145,14 @@ Page({
           ['user']: res.data.data,
           ['name']: res.data.data.name,
           ['tel']: res.data.data.cellphone
-        }) 
+        })
+        if ( res.data.data.cellphone == ''  ){
+          that.setData({
+            gettel:true
+          })
+        }
         wx.hideToast();
-        console.log(res);
       }
     })
-
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
