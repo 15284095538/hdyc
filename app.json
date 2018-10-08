@@ -62,7 +62,8 @@
     "pages/my/info/mycar/infodata/infodata",
     "pages/my/info/abouthd/abouthd",
     "pages/collage/home/home",
-    "pages/collage/details/details"
+    "pages/collage/details/details",
+    "pages/index/home/newList/nes"
   ],
   "subPackages": [
     {

@@ -144,7 +144,7 @@ Page({
     var to = '';
     to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
     wx.request({ //获取内容
-      url: url + 'store/storeList',
+      url: url + 'store/recomStore',
       method: 'POST',
       data: {
         id: '',

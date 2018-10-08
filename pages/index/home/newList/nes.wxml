@@ -1,0 +1,14 @@
+<view class='tit'>{{ data.title }}</view>
+<view class='er'>
+  <view class='time'>
+    <image src='https://hd.mmqo.com/uploads/others/time.png'></image>
+    {{ data.create_time }}
+  </view>
+  <view class='time yan'>
+    <image src='https://hd.mmqo.com/uploads/others/brows.png'></image>
+    {{ data.read_number }}
+  </view>
+</view>
+
+<import src="../../../../wxParse/wxParse.wxml"/>
+<template is="wxParse" data="{{wxParseData:article.nodes}}"/>

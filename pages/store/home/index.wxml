@@ -11,7 +11,7 @@
 </view>
 <view id='ad'>
   <view class='line line-left'></view>
-  离我最近
+  推荐门店
   <view class='line line-right'></view>
 </view>
 <view id='list'>

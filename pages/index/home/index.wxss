@@ -90,7 +90,7 @@ button::after{
   overflow: hidden;
 }
 .indmenu .li{
-  width: 25%;
+  width: 20%;
   float: left;
   text-align: center;
   margin-top: 35rpx;
@@ -531,3 +531,66 @@ white-space:nowrap;
   z-index: 9999;
 }
 
+
+
+.HdTt{
+  padding: 0 30rpx;
+  height: 100rpx;
+  background-color: #fff;
+  overflow: hidden;
+  border-top: 30rpx solid #f6f6f6;
+  position: relative;
+}
+.HdTt .tt{
+  width: 71rpx;
+  height: 75rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 12.5rpx;
+}
+.HdTt .x{
+  width: 3rpx;
+  height: 72rpx;
+  position: absolute;
+  left: 136rpx;
+  top: 14rpx;
+}
+.HdTt .info{
+  width: 540rpx;
+  height: 75rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 12.5rpx;
+}
+.HdTt .info .hd{
+  height: 37.5rpx;
+  line-height: 37.5rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 26rpx;
+}
+.HdTt .info .hd image{
+  width: 55rpx;
+  height: 22rpx;
+  vertical-align: middle;
+  margin: 7.75rpx 20rpx 13rpx 0;
+}
+
+.cypbanner{
+  width: 750rpx;
+  height: 200rpx;
+  border-top: 30rpx solid #f6f6f6;
+  background-color: #f6f6f6;
+}
+.cypbanner .item{
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+.cypbanner .slide-image{
+  width: 750rpx;
+  height: 200rpx;
+  margin: 0 20rpx 0 20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
