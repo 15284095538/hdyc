@@ -594,3 +594,13 @@ white-space:nowrap;
   border-radius: 10rpx;
   overflow: hidden;
 }
+
+.wave{
+  width: 750rpx;
+  height: 49rpx;
+  background-color: #f6f6f6;
+}
+.wave image{
+  width: 750rpx;
+  height: 49rpx;
+}

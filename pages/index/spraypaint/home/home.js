@@ -1,5 +1,6 @@
 var url = getApp().globalData.publicUrl;
 
+var WxParse = require('../../../../wxParse/wxParse.js');
 Page({
   data: {
     class_id:'',
@@ -187,9 +188,15 @@ Page({
         'key':false
       },
     ],
+    selectid:0,
   },
   onLoad(e) {
     this.setData({ class_id: e.id })
+    this.getdata();
+  },
+  selectidCLick(e){
+    var id = e.currentTarget.dataset.id;
+    this.setData({ selectid:id })
   },
   liclick(e) {//点击添加样式
     var topimg = this.data.topimg;
@@ -319,6 +326,26 @@ Page({
     }
     wx.navigateTo({
       url: '/pages/index/spraypaint/payselect/payselect?text=' + text + '&class_id=' + this.data.class_id
+    })
+  },
+  getdata(e) {//获取数据
+    var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
+    wx.request({//获取分类
+      url: url + 'Webset/info',
+      data: {
+        cate:'1'
+      },
+      method: 'POST',
+      success: function (res) {
+        wx.hideToast();
+        WxParse.wxParse('article', 'html', res.data.data.text, that, 0);
+      }
     })
   }
 })

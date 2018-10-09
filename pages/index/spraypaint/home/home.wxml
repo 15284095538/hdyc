@@ -1,4 +1,15 @@
-<view class="topimg">
+
+<view class='top'>
+  <view catchtap='selectidCLick' data-id='0'  class='li {{ selectid == 0 ? "select":"" }} '>产品选择</view>
+  <view catchtap='selectidCLick' data-id='1' class='li {{ selectid == 1 ? "select":"" }} '>产品详细</view>
+</view>
+
+<view style='margin-top:80rpx;' wx:if="{{ selectid == 1 }}" >
+  <import src="../../../../wxParse/wxParse.wxml"/>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+
+<view wx:if="{{ selectid == 0 }}" class="topimg">
   <image src='https://hd.mmqo.com/SprayPaint/no@2x.png'></image>
 
     <image wx:for="{{topimg}}" data-index='{{index}}' class='{{ item.display ? "block":"none"}}' wx:key="this" wx:for-index="index" wx:for-item="item" src='{{item.path}}'></image>  
@@ -6,7 +17,7 @@
    <image wx:for="{{hbimg}}" data-index='{{index}}' class='{{ item.display ? "block":"none"}}' wx:key="this" wx:for-index="index" wx:for-item="item" src='{{item.path}}'></image> 
 </view>
 
-<view class='context'>
+<view wx:if="{{ selectid == 0 }}" class='context'>
    <view data-selectid='{{index}}'  wx:for="{{topimg}}" wx:key="this" wx:for-index="index" wx:for-item="item" class='li {{ item.key ? "select":""}}' catchtap='liclick' >
     {{item.text}}
   </view> 

@@ -25,7 +25,7 @@
         <image wx:if="{{ item.s_level == 2 }}" src='/images/grade_02.png'></image>
         <image wx:if="{{ item.s_level == 1 }}" src='/images/grade_03.png'></image>
       </view>
-      <view class='num'>总评价：<text>{{item.grade}}</text>分  |  总订单：<text>{{item.count}}</text>笔</view>
+      <view class='num'> 价格：<text style='color:red' > ￥{{ item.price }} </text>  |  总评价：<text>{{item.grade}}</text>分</view>
       <view class='address'>{{item.s_address}}</view>
       <view class='bot'>
         <view class='l'>

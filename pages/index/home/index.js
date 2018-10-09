@@ -35,6 +35,11 @@ Page({
     this.cypbanner();
     this.yhtjbanner();
   },
+  suspensioncar(){
+    wx.switchTab({
+      url:'/pages/my/info/shoppingcar/shoppingcar'
+    })
+  },
   newListClick(e){
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({

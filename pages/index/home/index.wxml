@@ -47,6 +47,8 @@
   <text class='t'>新车购买推荐</text>
 </view>
 
+<!-- <view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view> -->
+
 <view class='indCarone' wx:if="{{ classify.xc.length > 0 }}" >
   <block wx:for="{{classify.xc}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
     <view catchtap='buycarlink' class='li' data-id='{{item.id}}' >
@@ -70,6 +72,8 @@
 <view class='indTit' wx:if="{{ classify.cyp.length > 0 }}" >
   <text class='t'>车用品推荐</text>
 </view>
+
+<view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view>
 
 <view class='indCartwo' wx:if="{{ classify.cyp.length > 0 }}" >
   <block wx:for="{{classify.cyp}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
@@ -95,6 +99,8 @@
   <text class='t'>养护推荐</text>
 </view>
 
+<view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view>
+
 <view class='indCarthree' wx:if="{{ classify.yhtj.length > 0 }}" >
   <block wx:for="{{classify.yhtj}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
     <view class='li' data-classify='{{item.category_id}}' data-goods_id='{{item.goods_id}}' catchtap='yhtjClick' >
@@ -107,6 +113,6 @@
   </block>
 </view>
 
-<view class=''></view>
+<view catchtap='suspensioncar' class='suspensioncar'></view>
 
 <button class='Userinfo' wx:if="{{Userinfo}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo"></button>
