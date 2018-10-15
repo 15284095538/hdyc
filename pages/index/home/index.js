@@ -26,6 +26,7 @@ Page({
     newLits:[],
     cypbanner:[],
     yhtjbanner:[],
+    currentSwiper:0,
   },
   onLoad(){
     this.getdata();
@@ -34,6 +35,11 @@ Page({
     this.getnewLits();
     this.cypbanner();
     this.yhtjbanner();
+  },
+  swiperChange: function (e) {
+    this.setData({
+      currentSwiper: e.detail.current
+    })
   },
   suspensioncar(){
     wx.switchTab({

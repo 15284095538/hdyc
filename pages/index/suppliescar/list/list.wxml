@@ -1,11 +1,14 @@
 <view id='top'>
-  <scroll-view scroll-x style='width:{{ scrollWidth + "rpx" }}' class='row'>
+  <scroll-view scroll-x style='width:{{ scrollWidth - 20 + "rpx" }}' class='row'>
     <view class='col'>
       <view style='width:187.5rpx;' wx:for="{{menu}}" data-category_id='{{item.id}}' wx:key="index" wx:for-item="item" class='col-4 top-menu {{ index == selectid ? "select":"" }}' data-id='{{index}}' bindtap='ChangeSelect'>
         {{item.type_name}}
       </view>
     </view>
   </scroll-view>
+
+  <view class='right'> > </view>
+
 </view>
 
 

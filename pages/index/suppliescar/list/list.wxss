@@ -66,6 +66,12 @@
   overflow: hidden;
 }
 
+#top .right{
+  position: absolute;
+  right: 10rpx;
+  top: 21rpx;
+}
+
 .top-menu {
   font-size: 30rpx;
   line-height: 98rpx;

@@ -1,28 +1,43 @@
 <view class='indTop'>
-  <view class='city' >
-    <view wx:if="{{loadCityFail}}" >{{loadCity.text}}</view> 
-    <button  wx:else="{{loadCityFail}}" bindopensetting="onGoopenSetting" open-type="openSetting">打开授权设置页</button>
+  <view class='city'>
+    <view wx:if="{{loadCityFail}}">{{loadCity.text}}</view>
+    <button wx:else="{{loadCityFail}}" bindopensetting="onGoopenSetting" open-type="openSetting">打开授权设置页</button>
   </view>
   <view class='search' bindtap='searchLink'>
-    <view class='button'> <image src='/images/sousuo@3x.png'></image> </view>
+    <view class='button'>
+      <image src='/images/sousuo@3x.png'></image>
+    </view>
     <view class='text'>请输入您想要的商品</view>
   </view>
 </view>
 
-<swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
-  indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
-  interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
-  <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
-    <swiper-item>
-      <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image"/>
-    </swiper-item>
-  </block>
-</swiper>
+<view class='indDost' style='position: relative;width: 100%;height: 320rpx;'>
+  <swiper class='indSwiper' bindchange="swiperChange" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}">
+    <block wx:for="{{swiper.imgUrl}}" wx:for-item="item" wx:key="this" wx:for-index="index">
+      <swiper-item>
+        <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="dots">
+    <block wx:for="{{swiper.imgUrl}}">
+      <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+    </block>
+  </view>
+
+  <image style='position: absolute; left:0; bottom:0rpx; width:100%; height:49rpx;' src='https://hd.mmqo.com/uploads/others/wave.png'></image>
+
+</view>
+
+
 
 <view class='indmenu'>
-  <block wx:for="{{menu}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+  <block wx:for="{{menu}}" wx:for-item="item" wx:key="this" wx:for-index="index">
     <view wx:if="{{  index < indexmenuMore  }}" data-menuid="{{item.id}}" bindtap='menulink' data-name='{{item.type_name}}' data-link='{{item.link}}' class='li'>
-      <view class='img'><image src='{{item.menu_logo}}'></image></view>
+      <view class='img'>
+        <image src='{{item.menu_logo}}'></image>
+      </view>
       <view class='t'>{{item.type_name}}</view>
     </view>
   </block>
@@ -30,7 +45,7 @@
 
 <view class='HdTt'>
   <image class='tt' src='https://hd.mmqo.com/uploads/others/headline.png'></image>
-  <image class='x' src='https://hd.mmqo.com/uploads/others/line.png' ></image>
+  <image class='x' src='https://hd.mmqo.com/uploads/others/line.png'></image>
   <view class='info'>
     <view catchtap='newListClick' data-id='{{ newLits.hot.id  }}' class='hd'>
       <image src='http://hd.mmqo.com/uploads/others/HOT.png'></image>
@@ -43,15 +58,15 @@
   </view>
 </view>
 
-<view class='indTit' data-link='/pages/index/buycar/home/home' catchtap='carlink' wx:if="{{ classify.xc.length > 0 }}" >
+<view class='indTit' data-link='/pages/index/buycar/home/home' catchtap='carlink' wx:if="{{ classify.xc.length > 0 }}">
   <text class='t'>新车购买推荐</text>
 </view>
 
 <!-- <view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view> -->
 
-<view class='indCarone' wx:if="{{ classify.xc.length > 0 }}" >
-  <block wx:for="{{classify.xc}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
-    <view catchtap='buycarlink' class='li' data-id='{{item.id}}' >
+<view class='indCarone' wx:if="{{ classify.xc.length > 0 }}">
+  <block wx:for="{{classify.xc}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+    <view catchtap='buycarlink' class='li' data-id='{{item.id}}'>
       <view class='text'>
         <text class='t'>{{item.rec_title}}</text>
         <text class='c'>{{item.rec_decribe}}</text>
@@ -61,23 +76,25 @@
   </block>
 </view>
 
-<swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px" >
-  <block wx:for="{{cypbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
-    <swiper-item class="item" >
+<swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px">
+  <block wx:for="{{cypbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index">
+    <swiper-item class="item">
       <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>
 
-<view class='indTit' wx:if="{{ classify.cyp.length > 0 }}" >
+<view class='indTit' wx:if="{{ classify.cyp.length > 0 }}">
   <text class='t'>车用品推荐</text>
 </view>
 
-<view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view>
+<view class='wave'>
+  <image src='https://hd.mmqo.com/uploads/others/wave.png'></image>
+</view>
 
-<view class='indCartwo' wx:if="{{ classify.cyp.length > 0 }}" >
-  <block wx:for="{{classify.cyp}}" wx:key="this" wx:for-item="item" wx:for-index="index"  >
-    <view class='li' data-category_id='{{item.category_id}}' data-goods_id='{{item.goods_id}}' catchtap='cypClick' >
+<view class='indCartwo' wx:if="{{ classify.cyp.length > 0 }}">
+  <block wx:for="{{classify.cyp}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+    <view class='li' data-category_id='{{item.category_id}}' data-goods_id='{{item.goods_id}}' catchtap='cypClick'>
       <view class='text'>
         <text class='t'>{{item.wechat_rec_title}}</text>
         <text class='c'>{{item.wechat_rec_decribe}}</text>
@@ -87,23 +104,25 @@
   </block>
 </view>
 
-<swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px" >
-  <block wx:for="{{cypbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
-    <swiper-item class="item" >
+<swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px">
+  <block wx:for="{{cypbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index">
+    <swiper-item class="item">
       <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>
 
-<view class='indTit' wx:if="{{ classify.yhtj.length > 0 }}" >
+<view class='indTit' wx:if="{{ classify.yhtj.length > 0 }}">
   <text class='t'>养护推荐</text>
 </view>
 
-<view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view>
+<view class='wave'>
+  <image src='https://hd.mmqo.com/uploads/others/wave.png'></image>
+</view>
 
-<view class='indCarthree' wx:if="{{ classify.yhtj.length > 0 }}" >
-  <block wx:for="{{classify.yhtj}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
-    <view class='li' data-classify='{{item.category_id}}' data-goods_id='{{item.goods_id}}' catchtap='yhtjClick' >
+<view class='indCarthree' wx:if="{{ classify.yhtj.length > 0 }}">
+  <block wx:for="{{classify.yhtj}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+    <view class='li' data-classify='{{item.category_id}}' data-goods_id='{{item.goods_id}}' catchtap='yhtjClick'>
       <view class='text'>
         <text class='t'>{{item.wechat_rec_title}}</text>
         <text class='c'>{{item.wechat_rec_decribe}}</text>

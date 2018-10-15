@@ -604,3 +604,28 @@ white-space:nowrap;
   width: 750rpx;
   height: 49rpx;
 }
+
+/*用来包裹所有的小圆点  */
+.indDost .dots{  
+  height: 36rpx; 
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 50%;
+  bottom: 40rpx;
+  transform: translate(-50%, -0%);
+}  
+/*未选中时的小圆点样式 */
+.indDost .dot{  
+  width: 18rpx;  
+  height: 18rpx;   
+  border-radius: 50%;
+  margin-right: 18rpx;
+  background-color: #d5d5d5;
+}  
+/*选中以后的小圆点样式  */
+.indDost .active{  
+  width: 18rpx;   
+  height: 18rpx;
+  background-color: #0084ff;
+}
