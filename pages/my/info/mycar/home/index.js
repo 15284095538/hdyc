@@ -95,7 +95,7 @@ Page({
   },
 
   onLoad: function (options) {
-    this.setData({ type: options.type, text: options.text, class_id: options.class_id, store_id: options.store_id })
+    this.setData({ type: options.type, text: options.text, class_id: options.class_id, store_id: options.store_id, mend: options.mend })
     this.getdata();
   },
   radioChange(e){
@@ -196,6 +196,12 @@ Page({
 wx.redirectTo({
           url: '/pages/my/info/mycar/infodata/infodata?id=' + carid + '&store_id=' + this.data.store_id + ' &class_id=' + this.data.class_id + '&carid=' + carid + '&type=' + this.data.type,
         })
+    }
+
+    if (this.data.type == 4) {//洗车
+      wx.redirectTo({
+        url: '/pages/index/washcar/payselect/payselect?store_id=' + this.data.store_id + '&class_id=' + this.data.class_id + '&goods_id=' + this.data.goods_id + '&goods_idprice=' + this.data.goods_idprice + '&value_id=' + this.data.value_id + '&type=4' + '&mend=' + this.data.mend,
+      })
     }
 
     this.getmr(carid)

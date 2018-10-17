@@ -13,6 +13,7 @@ Page({
     name:'',
   },
   onLoad: function (options) {
+    console.log( options )
     this.setData({
       ['pay.mend']: options.mend,
       ['pay.price']: options.price,

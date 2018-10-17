@@ -10,11 +10,11 @@
     </swiper>
   </view>
   <view class='address'>
-    <view catchtap='Navigation'data-longitude='{{store.longitude}}' data-latitude='{{store.latitude}}' class='adress_left'>
+    <view catchtap='Navigation' data-longitude='{{store.longitude}}' data-latitude='{{store.latitude}}' class='adress_left'>
       <view class='name'>{{store.s_name}}</view>
       <image src='/images/grade_0{{store.s_level}}.png' class='pic' />
       <view class='clear'></view>
-      <view catchtap='Navigation' style='margin-top:10rpx;' class='adressName'> <view style='float:left; width:27rpx;height:37rpx; margin-right:10rpx;'><image style='width:27rpx;height:37rpx;display:block; padding:0;margin:0;' src='/images/dinwei.png'></image></view> <view style='float:left' >{{store.s_address}}</view> </view>
+      <view style='margin-top:10rpx;' class='adressName'> <view style='float:left; width:27rpx;height:37rpx; margin-right:10rpx;'><image style='width:27rpx;height:37rpx;display:block; padding:0;margin:0;' src='/images/dinwei.png'></image></view> <view style='float:left' >{{store.s_address}}</view> </view>
     </view>
   </view>
   <view class='fl'>

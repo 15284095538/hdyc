@@ -19,8 +19,8 @@ Page({
     var longitude = Number(e.currentTarget.dataset.longitude);
     var latitude = Number(e.currentTarget.dataset.latitude);
     wx.openLocation({
-      latitude: Number(longitude),
-      longitude: Number(latitude),
+      latitude: latitude,
+      longitude: longitude,
       name: this.data.store.s_address,
       scale: 30
     })

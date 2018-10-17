@@ -4,14 +4,17 @@ var WxParse = require('../../../../wxParse/wxParse.js');
 
 Page({
   data: {
-    id:''
+    
   },
   onLoad: function (options) {
-    this.setData({ id: options.id });
-    this.getdata();
+    var that = this;
+    that.setData({ id: options.id });
+    that.getdata();
   },
   getdata(e) {//获取数据
     var that = this;
+    var id = that.data.id;
+    console.log( id )
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -22,12 +25,13 @@ Page({
       url: url + 'home/articlesInfo',
       method: 'POST',
       data: {
-        id: this.data.id,
+        id: id
       },
       success: function (res) {
         wx.hideToast();
         WxParse.wxParse('article', 'html', res.data.data.content, that, 0);
         that.setData({ data: res.data.data })
+        console.log( 1 )
       }
     })
   }

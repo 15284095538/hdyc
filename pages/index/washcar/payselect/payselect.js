@@ -11,7 +11,8 @@ Page({
   onLoad: function (e) {
     this.setData({ 
       store_id: e.store_id,
-      class_id: e.class_id
+      class_id: e.class_id,
+      mend: e.mend,
     })
     this.getdata();
   },
@@ -22,9 +23,14 @@ Page({
     var value_id = e.currentTarget.dataset.value_id;
     this.setData({ selectid: selectid, goods_id: id, goods_idprice: goods_idprice, value_id:value_id })
   },
+  carselect(e){
+    wx.navigateTo({
+      url: '/pages/my/info/mycar/home/index?store_id=' + this.data.store_id + '&class_id=' + this.data.class_id + '&goods_id=' + this.data.goods_id + '&goods_idprice=' + this.data.goods_idprice + '&mend=' + this.data.mend + '&value_id=' + this.data.value_id + '&type=4',
+    })
+  },
   payorder(e){
     wx.navigateTo({
-      url: '/pages/index/washcar/paybuy/paybuy?goods_id=' + this.data.goods_id + '&mend=' + this.data.detdata.s_name + '&store_id=' + this.data.store_id + '&price=' + this.data.goods_idprice + '&value_id=' + this.data.value_id ,
+      url: '/pages/index/washcar/paybuy/paybuy?goods_id=' + this.data.goods_id + '&mend=' + this.data.mend + '&store_id=' + this.data.store_id + '&price=' + this.data.goods_idprice + '&value_id=' + this.data.value_id ,
     })
   },
   getdata(e) {
