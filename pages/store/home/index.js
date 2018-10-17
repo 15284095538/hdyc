@@ -73,13 +73,19 @@ Page({
       url: '/pages/store/details/details?id=' + id + ''
     })
   },
-  onGotUserInfo(e) { //用户授权
+  onGotUserInfo(e) {//用户授权
     var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     wx.login({
       success: res => {
         var code = res.code;
         wx.getUserInfo({
-          success: function(res) {
+          success: function (res) {
             wx.request({
               url: url + 'user/myInfo',
               method: 'post',
@@ -88,12 +94,12 @@ Page({
                 iv: res.iv,
                 code: code
               },
-              success: function(data) {
-                wx.setStorageSync('userinfo', data.data.data)
+              success: function (data) {
+                wx.setStorageSync('userinfo', data.data.data);
                 that.setData({
                   Userinfo: false
-                })
-                that.getdata()
+                });
+                wx.hideToast();
               }
             })
           }

@@ -215,6 +215,12 @@ Page({
   },
   onGotUserInfo(e) {//用户授权
     var that = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 55000,
+      mask: true
+    })
     wx.login({
       success: res => {
         var code = res.code;
@@ -229,10 +235,11 @@ Page({
                 code: code
               },
               success: function (data) {
-                wx.setStorageSync('userinfo', data.data.data)
+                wx.setStorageSync('userinfo', data.data.data);
                 that.setData({
                   Userinfo: false
-                })
+                });
+                wx.hideToast();
               }
             })
           }

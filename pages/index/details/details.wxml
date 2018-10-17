@@ -19,9 +19,11 @@
   </view>
 </view>
 
-<view catchtap='Navigation' class='detalsAdr'>
+<view catchtap='Navigation' style='position:relative;' class='detalsAdr'>
   <view class='name'>{{details.s_name}}</view>
   <view class='adr' style='margin-top:10rpx;' > <image style='width:27rpx;height:37rpx;display:block;float:left; margin-right:10rpx;' src='/images/dinwei.png'></image> {{details.s_address}}</view>
+
+  <image src='https://hd.mmqo.com/uploads/others/dh.png' style='width:33rpx;height:33rpx;position:absolute;right:50rpx;top:30rpx;' ></image>
  
 </view>
 
