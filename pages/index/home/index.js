@@ -364,6 +364,7 @@ Page({
         for (let i = 0; i < res.data.data.length; i++) {
           res.data.data[i].link = '/pages/index/list/list?id='
         }
+        res.data.data[1].link = '/pages/maintain/home/home?id=';//保养
         res.data.data[1].link = '/pages/index/washcar/list/list?id=';//洗车
         res.data.data[6].link = '/pages/index/spraypaint/home/home?id=';//钣金喷漆
         res.data.data[8].link = '/pages/index/suppliescar/list/list?id=';//车用品购买
