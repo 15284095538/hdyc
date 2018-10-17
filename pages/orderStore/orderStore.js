@@ -113,6 +113,7 @@ Page({
         to: wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude'),
         class_id: this.data.classify,
         page: this.page.pages * 10,
+        goods_id: this.data.goods_id,
       },
       method: 'POST',
       success: function (res) {
