@@ -58,9 +58,9 @@ Page({
     var longitude = Number(this.data.detdata.longitude);
     var latitude = Number(this.data.detdata.latitude);
     wx.openLocation({
-      latitude: Number(longitude),
-      longitude: Number(latitude),
-      name: this.data.detdata.s_address,
+      latitude: latitude,
+      longitude: longitude,
+      name: this.data.detdata.s_name,
       scale: 30
     })
   },

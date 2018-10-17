@@ -9,14 +9,14 @@
       </block>
     </swiper>
   </view>
-  <view class='address'>
-    <view class='adress_left'>
+  <view catchtap='Navigation' class='address'>
+    <view  class='adress_left'>
       <view class='name'>{{detdata.s_name}}</view>
       <image wx:if="{{ detdata.s_level == 3 }}" class='pic' src='/images/grade_01.png'></image>
       <image wx:if="{{ detdata.s_level == 2 }}" class='pic' src='/images/grade_02.png'></image>
       <image wx:if="{{ detdata.s_level == 1 }}" class='pic' src='/images/grade_03.png'></image>
       <view class='clear'></view>
-      <view catchtap='Navigation' style='margin-top:10rpx;' class='adressName'> <view style='float:left; width:27rpx;height:37rpx; margin-right:10rpx;'><image style='width:27rpx;height:37rpx;display:block; padding:0;margin:0;' src='/images/dinwei.png'></image></view> <view style='float:left' >{{detdata.s_address}}</view> </view>
+      <view  style='margin-top:10rpx;' class='adressName'> <view style='float:left; width:27rpx;height:37rpx; margin-right:10rpx;'><image style='width:27rpx;height:37rpx;display:block; padding:0;margin:0;' src='/images/dinwei.png'></image></view> <view style='float:left' >{{detdata.s_address}}</view> </view>
     </view>
 
   </view>

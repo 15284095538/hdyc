@@ -21,7 +21,7 @@ Page({
     wx.openLocation({
       latitude: latitude,
       longitude: longitude,
-      name: this.data.store.s_address,
+      name: this.data.store.s_name,
       scale: 30
     })
 

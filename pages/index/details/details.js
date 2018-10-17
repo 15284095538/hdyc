@@ -44,11 +44,11 @@ Page({
     })
   },
   Navigation(e){
-    var longitude = Number(e.currentTarget.dataset.longitude);
-    var latitude = Number(e.currentTarget.dataset.latitude);
+    var longitude = Number(this.data.details.longitude);
+    var latitude = Number(this.data.details.latitude);
     wx.openLocation({
-      latitude: Number(longitude),
-      longitude: Number(latitude),
+      latitude: latitude,
+      longitude: longitude,
       name: this.data.details.s_address,
       scale: 30
     })
