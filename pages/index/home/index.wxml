@@ -60,6 +60,7 @@
 
 <view class='indTit' data-link='/pages/index/buycar/home/home' catchtap='carlink' wx:if="{{ classify.xc.length > 0 }}">
   <text class='t'>新车购买推荐</text>
+  <text class='r'> 更多 > </text>
 </view>
 
 <!-- <view class='wave'><image src='https://hd.mmqo.com/uploads/others/wave.png'></image></view> -->
@@ -84,8 +85,9 @@
   </block>
 </swiper>
 
-<view class='indTit' wx:if="{{ classify.cyp.length > 0 }}">
+<view class='indTit' bindtap='menulink' data-link="/pages/index/suppliescar/list/list?id=" data-menuid="9" data-name="汽车用品" wx:if="{{ classify.cyp.length > 0 }}">
   <text class='t'>车用品推荐</text>
+  <text class='r'> 更多 > </text>
 </view>
 
 <view class='wave'>
@@ -105,15 +107,16 @@
 </view>
 
 <swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px">
-  <block wx:for="{{cypbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index">
+  <block wx:for="{{yhtjbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index">
     <swiper-item class="item">
       <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image" />
     </swiper-item>
   </block>
 </swiper>
 
-<view class='indTit' wx:if="{{ classify.yhtj.length > 0 }}">
+<view bindtap='menulink' data-link="/pages/index/list/list?id=" data-menuid="26" data-name="养护推荐" class='indTit' wx:if="{{ classify.yhtj.length > 0 }}">
   <text class='t'>养护推荐</text>
+  <text class='r'> 更多 > </text>
 </view>
 
 <view class='wave'>

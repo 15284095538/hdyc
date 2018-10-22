@@ -23,7 +23,11 @@
   <view class='name'>{{details.s_name}}</view>
   <view class='adr' style='margin-top:10rpx;' > <image style='width:27rpx;height:37rpx;display:block;float:left; margin-right:10rpx;' src='/images/dinwei.png'></image> {{details.s_address}}</view>
 
-  <image src='https://hd.mmqo.com/uploads/others/dh.png' style='width:33rpx;height:33rpx;position:absolute;right:50rpx;top:30rpx;' ></image>
+  <view style='position:absolute; right:30rpx;top:40rpx;font-size:24rpx;color:#666;text-align:center;' >
+    <view><image src='https://hd.mmqo.com/uploads/others/dh.png' style='position:static;width:33rpx;height:33rpx;' ></image></view>
+    <view>{{ details.km }}</view>
+    <view>导航</view>
+  </view>
  
 </view>
 

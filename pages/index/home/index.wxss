@@ -629,3 +629,13 @@ white-space:nowrap;
   height: 18rpx;
   background-color: #0084ff;
 }
+
+
+.indTit .r{
+  display: block;
+  float: right;
+  font-size: 28rpx;
+  margin-right: 30rpx;
+  line-height: 60rpx;
+  color: #666;
+}

@@ -129,7 +129,7 @@ Page({
     var class_id = e.currentTarget.dataset.class_id;
     var name = e.currentTarget.dataset.name;
     var store_id = e.currentTarget.dataset.store_id;
-    if( name == "洗车" ){
+    if( name == "便捷洗车" ){
       wx.navigateTo({
         url: '/pages/index/washcar/payselect/payselect?class_id=' + class_id + "&store_id=" + store_id,
       })

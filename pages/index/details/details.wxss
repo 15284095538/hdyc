@@ -1,69 +1,84 @@
-.indSwiper{
+.indSwiper {
   width: 100%;
   height: 420rpx;
 }
-.indSwiper .slide-image{
+
+.indSwiper .slide-image {
   width: 100%;
   height: 420rpx;
 }
-.detalsCon{
+
+.detalsCon {
   padding: 0 30rpx;
   border-bottom: 20rpx solid #f6f6f6;
 }
-.detalsCon .price{
+
+.detalsCon .price {
   height: 80rpx;
   line-height: 80rpx;
   color: #ff7979;
   font-size: 44rpx;
 }
-.detalsCon .price text{
+
+.detalsCon .price text {
   font-size: 28rpx;
   color: #aeaeae;
   line-height: 80rpx;
   margin-left: 30rpx;
 }
-.detalsCon .name{
+
+.detalsCon .name {
   height: 90rpx;
   line-height: 90rpx;
   border-bottom: 1rpx solid #e7e7e7;
   font-size: 36rpx;
   color: #333;
 }
-.detalsCon .label{
+
+.detalsCon .label {
   height: 70rpx;
   line-height: 70rpx;
 }
-.detalsCon .label .t{
+
+.detalsCon .label .t {
   margin-left: 20rpx;
   float: left;
   font-size: 24rpx;
   color: #aeaeae;
 }
-.detalsCon .label .t image{
+
+.detalsCon .label .t image {
   width: 27rpx;
   height: 27rpx;
   vertical-align: middle;
   margin: 0 10rpx 4rpx 0;
 }
-.detalsAdr{
+
+.detalsAdr {
   padding: 10rpx 30rpx;
   border-bottom: 20rpx solid #f6f6f6;
   position: relative;
 }
-.detalsAdr .name{
+
+.detalsAdr .name {
   height: 70rpx;
   line-height: 70rpx;
   font-size: 30rpx;
   color: #333;
 }
-.detalsAdr .adr{
+
+.detalsAdr .adr {
   height: 80rpx;
   line-height: 40rpx;
   font-size: 30rpx;
   color: #aeaeae;
-  width: 700rpx;
+  width: 580rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.detalsAdr .Navigation{
+
+.detalsAdr .Navigation {
   width: 100rpx;
   height: 150rpx;
   position: absolute;
@@ -73,160 +88,189 @@
   font-size: 30rpx;
   color: #aeaeae;
 }
-.detalsAdr .Navigation .img{
+
+.detalsAdr .Navigation .img {
   height: 33rpx;
   line-height: 33rpx;
   margin-top: 30rpx;
 }
-.detalsAdr .Navigation .img image{
+
+.detalsAdr .Navigation .img image {
   width: 33rpx;
   height: 33rpx;
 }
-.detalsAdr .Navigation .jl{
+
+.detalsAdr .Navigation .jl {
   line-height: 40rpx;
   margin-top: 15rpx;
 }
 
-.detalsKnow .tit{
+.detalsKnow .tit {
   padding: 0 30rpx;
   height: 95rpx;
   border-bottom: 1px solid #e7e7e7;
   font-size: 30rpx;
   line-height: 95rpx;
 }
-.detalsKnow .li{
+
+.detalsKnow .li {
   width: 690rpx;
   height: 100rpx;
   margin: 0 auto;
   border-bottom: 1px solid #e7e7e7;
 }
-.detalsKnow .li .img{
+
+.detalsKnow .li .img {
   width: 70rpx;
   height: 100rpx;
   float: left;
 }
-.detalsKnow .li .img image{
+
+.detalsKnow .li .img image {
   width: 36rpx;
   height: 36rpx;
   margin-top: 33rpx;
 }
-.detalsKnow .li .text{
+
+.detalsKnow .li .text {
   height: 100rpx;
 }
-.detalsKnow .li .text .t{
+
+.detalsKnow .li .text .t {
   height: 50rpx;
   line-height: 70rpx;
   font-size: 28rpx;
   color: #333;
 }
-.detalsKnow .li .text .c{
+
+.detalsKnow .li .text .c {
   height: 50rpx;
   line-height: 50rpx;
   font-size: 24rpx;
   color: #aeaeae;
 }
-.detalsKnow .li:last-child{
+
+.detalsKnow .li:last-child {
   border: 0;
 }
 
-.detalsPl{
+.detalsPl {
   border-top: 25rpx solid #f6f6f6;
   padding: 0 30rpx 111rpx 30rpx;
 }
-.detalsPl .tou{
+
+.detalsPl .tou {
   height: 100rpx;
   line-height: 100rpx;
   font-size: 30rpx;
 }
-.detalsPl .tou .q{
+
+.detalsPl .tou .q {
   float: left;
   width: 300rpx;
-  height:100rpx;
+  height: 100rpx;
 }
-.detalsPl .tou .h{
+
+.detalsPl .tou .h {
   float: right;
 }
-.detalsPl .tou .h image{
+
+.detalsPl .tou .h image {
   width: 17rpx;
   height: 33rpx;
   vertical-align: middle;
   margin: 0 5rpx 3rpx 0;
 }
-.detalsPl .tou .h .nu{
+
+.detalsPl .tou .h .nu {
   color: #11a8e1;
   margin: 0 10rpx;
 }
 
-.detalsPl  .con{
+.detalsPl  .con {
   font-size: 28rpx;
 }
-.detalsPl  .con .li{
+
+.detalsPl  .con .li {
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #e7e7e7;
 }
-.detalsPl  .con .li .portrait{
+
+.detalsPl  .con .li .portrait {
   width: 86rpx;
   height: 86rpx;
   border-radius: 50%;
   overflow: hidden;
   float: left;
 }
-.detalsPl  .con .li .portrait image{
+
+.detalsPl  .con .li .portrait image {
   width: 100%;
   height: 100%;
 }
-.detalsPl  .con .li .righttext{
+
+.detalsPl  .con .li .righttext {
   float: right;
   width: 580rpx;
 }
-.detalsPl  .con .li .righttext .name{
+
+.detalsPl  .con .li .righttext .name {
   height: 50rpx;
   line-height: 50rpx;
   font-size: 28rpx;
   color: #333;
 }
-.detalsPl  .con .li .righttext .Stars{
+
+.detalsPl  .con .li .righttext .Stars {
   height: 40rpx;
   font-size: 24rpx;
   color: #aeaeae;
 }
-.detalsPl  .con .li .righttext .Stars .img{
+
+.detalsPl  .con .li .righttext .Stars .img {
   float: left;
 }
-.detalsPl  .con .li .righttext .Stars .img image{
+
+.detalsPl  .con .li .righttext .Stars .img image {
   width: 26rpx;
   height: 26rpx;
   float: left;
   vertical-align: middle;
   margin: 7rpx 5rpx 0 0;
 }
-.detalsPl  .con .li .righttext .Stars .time{
+
+.detalsPl  .con .li .righttext .Stars .time {
   float: right;
   line-height: 40rpx;
 }
-.detalsPl  .con .li .righttext .text{
+
+.detalsPl  .con .li .righttext .text {
   line-height: 40rpx;
   margin-top: 10rpx;
   font-size: 28rpx;
   color: #333;
 }
-.detalsPl  .con .li .righttext .plimg image{
+
+.detalsPl  .con .li .righttext .plimg image {
   width: 181rpx;
   height: 181rpx;
   margin-right: 20rpx;
   margin-top: 20rpx;
 }
-.detalsPl  .con .li .righttext .plimg image:nth-child(3n){
+
+.detalsPl  .con .li .righttext .plimg image:nth-child(3n) {
   margin-right: 0;
 }
-.detalsPl  .con .li .righttext .type{
+
+.detalsPl  .con .li .righttext .type {
   height: 50rpx;
   line-height: 50rpx;
   color: #aeaeae;
   font-size: 24rpx;
   padding-bottom: 10rpx;
 }
+
 .detalsPl .fotter {
   height: 50rpx;
   text-align: center;
@@ -239,7 +283,7 @@
   color: #11a8e1;
 }
 
-.detalsPay{
+.detalsPay {
   width: 100%;
   height: 110rpx;
   position: fixed;
@@ -249,7 +293,8 @@
   background-color: #fff;
   border-top: 1px solid #e7e7e7;
 }
-.detalsPay .price{
+
+.detalsPay .price {
   width: 334rpx;
   height: 60rpx;
   margin-top: 25rpx;
@@ -260,11 +305,13 @@
   text-align: center;
   float: left;
 }
-.detalsPay .price text{
+
+.detalsPay .price text {
   font-size: 30rpx;
   color: #ff7979;
 }
-.detalsPay .img{
+
+.detalsPay .img {
   width: 145rpx;
   text-align: center;
   float: left;
@@ -273,11 +320,13 @@
   height: 60rpx;
   margin-top: 25rpx;
 }
-.detalsPay .img image{
+
+.detalsPay .img image {
   width: 30rpx;
   height: 30rpx;
 }
-.detalsPay .pay{
+
+.detalsPay .pay {
   width: 270rpx;
   height: 110rpx;
   text-align: center;
@@ -288,7 +337,7 @@
   float: left;
 }
 
-.upMore{
+.upMore {
   width: 100%;
   height: 100rpx;
   text-align: center;
@@ -296,7 +345,8 @@
   color: #333;
   font-size: 28rpx;
 }
-.upMore image{
+
+.upMore image {
   width: 28rpx;
   height: 15rpx;
   vertical-align: middle;

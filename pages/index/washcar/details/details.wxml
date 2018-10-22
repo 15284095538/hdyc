@@ -18,7 +18,11 @@
       <view class='clear'></view>
       <view  style='margin-top:10rpx;' class='adressName'> <view style='float:left; width:27rpx;height:37rpx; margin-right:10rpx;'><image style='width:27rpx;height:37rpx;display:block; padding:0;margin:0;' src='/images/dinwei.png'></image></view> <view style='float:left' >{{detdata.s_address}}</view> </view>
 
-      <image src='https://hd.mmqo.com/uploads/others/dh.png' style='width:33rpx;height:33rpx;position:absolute;right:50rpx;top:10rpx;' ></image>
+     <view style='position:absolute; right:30rpx;top:10rpx;font-size:24rpx;color:#666;text-align:center;' >
+        <view><image src='https://hd.mmqo.com/uploads/others/dh.png' style='position:static;width:33rpx;height:33rpx;' ></image></view>
+        <view>{{ detdata.km }}</view>
+        <view>导航</view>
+      </view>
     </view>
 
   </view>
