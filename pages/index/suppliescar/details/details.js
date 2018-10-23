@@ -270,11 +270,13 @@ Page({
         level: wx.getStorageSync('userinfo').level,
       },
       success: function (res) {
+        
         if( res.data.code == 200 ){
           that.setData({
             dettels: res.data.data,
             selectSx: res.data.data.sx.data[0]
           })
+          console.log(res.data.data.sx.data )
           if (res.data.data.sx.data.length > 0 ){
             that.getAttr();
           }else{

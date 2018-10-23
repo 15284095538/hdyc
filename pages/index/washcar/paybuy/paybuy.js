@@ -79,7 +79,14 @@ Page({
       method: 'POST',
       success: res => {
         wx.hideToast();
-        if( res.data.code == 200 ){
+        if( res.data.code == 400 ){
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+        }else{
           wx.requestPayment({
             'timeStamp': res.data.timeStamp,
             'nonceStr': res.data.nonceStr,
@@ -116,13 +123,6 @@ Page({
                 }
               })
             }
-          })
-        }else{
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'success',
-            duration: 1000,
-            mask: true
           })
         }
       }

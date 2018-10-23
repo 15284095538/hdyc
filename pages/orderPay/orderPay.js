@@ -174,20 +174,28 @@ Page({
       method: 'POST',
       success: function(res) {
         wx.hideToast();
-        if (res.data.code == 200) {
+        console.log( res )
+        if (res.data.code == 400) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'success',
+            duration: 1000,
+            mask: true
+          })
+        } else {
           wx.requestPayment({
             'timeStamp': res.data.timeStamp,
             'nonceStr': res.data.nonceStr,
             'package': res.data.package,
             'signType': 'MD5',
             'paySign': res.data.paySign,
-            'success': function(res) {
+            'success': function (res) {
               wx.showToast({
                 title: '支付成功',
                 icon: 'success',
                 duration: 500,
                 mask: true,
-                success: function() {
+                success: function () {
                   setTimeout(function () {
                     wx.switchTab({
                       url: '/pages/my/home/index'
@@ -196,13 +204,13 @@ Page({
                 }
               })
             },
-            'fail': function(res) {
+            'fail': function (res) {
               wx.showToast({
                 title: '支付失败',
                 icon: 'success',
                 duration: 500,
                 mask: true,
-                success: function() {
+                success: function () {
                   setTimeout(function () {
                     wx.switchTab({
                       url: '/pages/my/home/index'
@@ -211,13 +219,6 @@ Page({
                 }
               })
             }
-          })
-        } else {
-          wx.showToast({
-            title: res.data.msg,
-            icon: 'success',
-            duration: 1000,
-            mask: true
           })
         }
       }
