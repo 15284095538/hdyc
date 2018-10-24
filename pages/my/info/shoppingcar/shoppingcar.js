@@ -102,6 +102,7 @@ Page({
         success: function (res) {
           wx.hideToast();
           that.setData({ currentIndex: e.currentTarget.dataset.index, })
+          console.log( res )
           if (res.data.data.data.length == 0) {
             that.setData({
               ['carts']: res.data.data.data,
