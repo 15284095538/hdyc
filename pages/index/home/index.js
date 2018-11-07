@@ -41,6 +41,13 @@ Page({
       currentSwiper: e.detail.current
     })
   },
+  onShareAppMessage(e) {//分享
+    return {
+      title: '海豆养车',
+      imageUrl: this.data.swiper.imgUrl[0].b_image,
+      path: '/pages/index/home/index'
+    }
+  },
   suspensioncar(){
     wx.switchTab({
       url:'/pages/my/info/shoppingcar/shoppingcar'

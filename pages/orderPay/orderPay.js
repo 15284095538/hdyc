@@ -228,6 +228,7 @@ Page({
     var that = this;
     var spprice = 0;
     var paycouponid, paycouponcost;
+    var num = 0;
     wx.showToast({
       title: '加载中',
       icon: 'loading',
@@ -257,12 +258,24 @@ Page({
             paycouponid = ''
             paycouponcost = ''
           }
+
+          if (that.data.goods_type == 1 ){
+            num = (Number(res.data.data.count_price) + Number(res.data.data.store.service_price) - Number(paycouponcost)).toFixed(1);
+          }else{
+            num = (Number(res.data.data.count_price) + Number(res.data.data.count_exp) - Number(paycouponcost)).toFixed(1);
+          }
+
+          if( num < 0 ){
+            num = 0.01;
+          }
+
           that.setData({
             orderdata: res.data.data,
             ['paycoupon.id']: paycouponid,
             ['paycoupon.cost']: paycouponcost,
             name: res.data.data.user.name,
-            phone: res.data.data.user.cellphone
+            phone: res.data.data.user.cellphone,
+            num: num
           })
           wx.hideToast();
         }

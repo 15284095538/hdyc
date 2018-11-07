@@ -3,12 +3,12 @@ var url = getApp().globalData.publicUrl;
 Page({
   data: {
     IMgFalse: false,
-    navbar: ["全部", "待付款", "待安装","待评价","已完成"],
+    navbar: ["全部", "待付款", "待安装", "待评价", "已完成", "退款"],
     currentIndex: 0,//tabbar索引
     carts:[],
     num: 5,
     scrollHeight:0,
-    status:10,
+    status:'',
   },
   page: {
     pages: 1,
@@ -50,7 +50,7 @@ Page({
     if (e.currentTarget.dataset.index == 0) {//全部
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
-        status:10,
+        status:'',
       })
     }
     if (e.currentTarget.dataset.index == 1) {//待付款
@@ -71,18 +71,18 @@ Page({
         status:2
       })
     }
-    if (e.currentTarget.dataset.index == 4) {//退换货
+    if (e.currentTarget.dataset.index == 4) {//已完成
       this.setData({
         currentIndex: e.currentTarget.dataset.index,
         status:5
       })
     }
-    // if (e.currentTarget.dataset.index == 5) {//已完成
-    //   this.setData({
-    //     currentIndex: e.currentTarget.dataset.index,
-    //     status: 4
-    //   })
-    // }
+    if (e.currentTarget.dataset.index == 5) {//退款
+      this.setData({
+        currentIndex: e.currentTarget.dataset.index,
+        status: 7
+      })
+    }
     this.page.pages = 1;
     this.page.pagebuler = true;
     this.getdata();
@@ -184,6 +184,7 @@ Page({
     var index = 0;
     if (options.id == 10){
       index = 0;
+      options.id = '';
     }else{
       index = Number(options.id) + 1
     }
@@ -202,6 +203,42 @@ Page({
     })
     this.getdata(options.id);
   },
+  refund(e){
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    wx.showModal({
+      title: '提示',
+      content: '订单申请退款',
+      success(res) {
+        if (res.confirm) {
+          wx.showToast({
+            title: '加载中',
+            icon: 'loading',
+            duration: 55000,
+            mask: true
+          })
+          wx.request({//获取订单信息
+            url: url + 'order/apply_return',
+            data: {
+              'order_id': id,
+            },
+            method: 'POST',
+            success: function (res) {
+              console.log( res )
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'success',
+                duration: 1000
+              });
+              setTimeout(function () {
+                that.getdata();
+              }, 1000)
+            }
+          })
+        }
+      }
+    })
+  },
   getdata(e) {//获取数据
     var that = this;
     wx.showToast({
@@ -214,7 +251,7 @@ Page({
       url: url + 'user/myOrderList',
       data: {
         'openid': wx.getStorageSync('userinfo').openid,
-        'status': this.data.status, 
+        'order_status': this.data.status, 
         'page':that.page.pages*10,
       },
       method: 'POST',

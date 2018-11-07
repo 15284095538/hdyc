@@ -8,6 +8,7 @@ Page({
   data: {
     status:3,
     // loadCity: '',
+    id:'',
     carts: [
       {
         pic: "/images/car_03.png",
@@ -157,26 +158,70 @@ Page({
       }
     })
   },
+
+  refund(e) {
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    wx.showModal({
+      title: '提示',
+      content: '订单申请退款',
+      success(res) {
+        if (res.confirm) {
+          wx.showToast({
+            title: '加载中',
+            icon: 'loading',
+            duration: 55000,
+            mask: true
+          })
+          wx.request({//获取订单信息
+            url: url + 'order/apply_return',
+            data: {
+              'order_id': id,
+            },
+            method: 'POST',
+            success: function (res) {
+              console.log(res)
+              wx.showToast({
+                title: res.data.msg,
+                icon: 'success',
+                duration: 1000
+              });
+              setTimeout(function () {
+                that.getdata();
+              }, 1000)
+            }
+          })
+        }
+      }
+    })
+  },
+  getdata(){
+    var that = this;
+    var to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
+    wx.request({//获取订单详情
+      url: url + 'user/myOrderInfo',
+      data: {
+        'order_id': this.data.id,
+        'to': to,
+      },
+      method: 'POST',
+      success: function (res) {
+        that.setData({
+          ['carts']: res.data.data,
+        })
+        console.log(res);
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var to = wx.getStorageSync('latitude') + ',' + wx.getStorageSync('longitude');
-  wx.request({//获取订单详情
-    url: url + 'user/myOrderInfo',
-    data: {
-      'order_id': options.id,
-       'to': to,
-    },
-    method: 'POST',
-    success: function (res) {
-      that.setData({
-        ['carts']: res.data.data,
-      })
-      console.log(res);
-    }
-  })
+    this.setData({
+      id: options.id,
+    })
+    this.getdata();
   },
 
   /**

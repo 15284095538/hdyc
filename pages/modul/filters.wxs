@@ -10,6 +10,7 @@ var filters = {
     return text
   },
   NumberJs:function(val){
+    console.log( val )
     return Number(val)
   }
 }

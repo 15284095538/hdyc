@@ -11,7 +11,16 @@
   
 <view class='dingdan'>
 <view class='dingnum'>
-<text>订单编号：{{item.order_sn}} <text class='status'hidden="{{item.order_status!==0}}">待付款</text><text class='status'hidden="{{item.order_status!==1}}">待安装</text><text class='status'hidden="{{item.order_status!==2}}">待评价</text><text class='status'hidden="{{item.order_status!==5}}">已完成</text><text class='status'hidden="{{item.order_status!==4}}">已取消</text></text>
+    <text>订单编号：{{item.order_sn}} </text>
+    <text class='status'hidden="{{item.order_status!==0}}">待付款</text>
+    <text class='status'hidden="{{item.order_status!==1}}">待安装</text>
+    <text class='status'hidden="{{item.order_status!==2}}">待评价</text>
+    <text class='status'hidden="{{item.order_status!==3}}">退换货</text>
+    <text class='status'hidden="{{item.order_status!==4}}">已取消</text>
+    <text class='status'hidden="{{item.order_status!==5}}">已完成</text>
+    <text class='status'hidden="{{item.order_status!==6}}">待收货</text>
+    <text class='status'hidden="{{item.order_status!==7}}">退款中</text>
+    <text class='status'hidden="{{item.order_status!==8}}">已退款</text>
 </view>
 <view class='shang'  style="{{item.order_status==1?'height:175rpx':''}}">
 <view id='{{item.id}}' catchtap='detalis'>
@@ -23,12 +32,12 @@
 </view>
 
   <view class='button'>
-<view class='first' id="{{item.id}}" hidden="{{item.order_status!==0}}" bindtap="qxdd">取消订单</view>
-<view bindtap='ljfk' id="{{item.id}}" class='secend'hidden="{{item.order_status!==0}}">立即付款</view>
-<!-- <view catchtap='sqsh'id="{{item.id}}" class='first'hidden="{{item.goods_type===4||item.order_status!==2}}">申请售后</view> -->
-<view catchtap='pjsp' id="{{item.id}}" class='secend' hidden="{{item.goods_type===4||item.order_status!==2}}">评价商品</view>
-<!-- <view catchtap='sqsh'id="{{item.id}}" class='secend'hidden="{{item.goods_type!==4||item.order_status!==2}}">申请售后</view> -->
-<view class='secend'hidden="{{item.order_status!==3}}" style='border:none;'>退货中</view>
+    <view class='first' id="{{item.id}}" hidden="{{ item.order_status !== 0 }}" bindtap="qxdd">取消订单</view>
+    <view class='secend' id="{{item.id}}" hidden="{{ item.order_status !== 8 }}" bindtap="qxdd">取消订单</view>
+    <view bindtap='ljfk' id="{{item.id}}" class='secend'hidden="{{ item.order_status !==0 }}">立即付款</view>
+    <view catchtap='pjsp' id="{{item.id}}" class='secend' hidden="{{ item.goods_type ===4 || item.order_status !==2}}">评价商品</view>
+    <view class='secend' hidden="{{item.order_status !== 3 }}" style='border:none;'>退货中</view>
+    <view class='secend' data-id="{{item.id}}" catchtap='refund' wx-if="{{ item.order_status == 6 || item.order_status == 0 }}">申请退款</view>
 </view> 
 </view> 
 </view>

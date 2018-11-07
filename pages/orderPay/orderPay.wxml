@@ -77,8 +77,10 @@
 </view>
 
 <view class='fot'>
-  <view wx:if="{{ goods_type == 1 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
-  <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.count_exp) - filters.NumberJs(paycoupon.cost) }}</text> </view>
+  <!-- <view wx:if="{{ goods_type == 1 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
+  <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.count_exp) - filters.NumberJs(paycoupon.cost) }}</text> </view> -->
+
+  <view class='left'>实付：<text>¥{{ num }}</text> </view>
   <view catchtap='pay' class='right'>提交订单</view>
 </view>
 

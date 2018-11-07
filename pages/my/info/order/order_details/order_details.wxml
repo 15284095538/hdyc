@@ -44,7 +44,17 @@
 下单时间：<text class='text'>{{carts.create_time}}</text>
 </view>
 <view class='ddzt'> 
-订单状态： <text class='text'hidden="{{carts.order_status!==0}}">待付款</text><text class='text'hidden="{{carts.order_status!==1}}">待安装</text><text class='text'hidden="{{carts.order_status!==2}}">待评价</text><text class='text'hidden="{{carts.order_status!==3}}">退换货</text><text class='text'hidden="{{carts.order_status!==4}}">已取消</text>
+  <!-- 订单状态：  <text class='text'hidden="{{carts.order_status!==0}}">待付款</text><text class='text'hidden="{{carts.order_status!==1}}">待安装</text><text class='text'hidden="{{carts.order_status!==2}}">待评价</text><text class='text'hidden="{{carts.order_status!==3}}">退换货</text><text class='text'hidden="{{carts.order_status!==4}}">已取消</text> -->
+  订单状态： 
+  <text class='text' hidden="{{carts.order_status!==0}}">待付款</text>
+  <text class='text' hidden="{{carts.order_status!==1}}">待安装</text>
+  <text class='text' hidden="{{carts.order_status!==2}}">待评价</text>
+  <text class='text' hidden="{{carts.order_status!==3}}">退换货</text>
+  <text class='text' hidden="{{carts.order_status!==4}}">已取消</text>
+  <text class='text' hidden="{{carts.order_status!==5}}">已完成</text>
+  <text class='text' hidden="{{carts.order_status!==6}}">待收货</text>
+  <text class='text' hidden="{{carts.order_status!==7}}">退款中</text>
+  <text class='text' hidden="{{carts.order_status!==8}}">已退款</text>
 </view>
 </view>
 
@@ -72,4 +82,9 @@
 <view class="footter {{carts.order_status!==4&&carts.goods_type!==4?'dis':''}}" >
 <view class='first2' id='{{carts.id}}' bindtap="scdd">删除订单</view>
 </view>
+
+<view class="footter {{ carts.order_status !== 6 || carts.goods_type !== 0 ?'dis':''}}" >
+<view class='first2' data-id='{{carts.id}}' bindtap="refund">申请退款</view>
+</view>
+
 </view>
