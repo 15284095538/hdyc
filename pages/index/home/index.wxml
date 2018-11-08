@@ -77,7 +77,7 @@
   </block>
 </view>
 
-<swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px">
+<swiper class='cypbanner' autoplay="true" interval="3000" circular="true" previous-margin="20px" next-margin="30px">
   <block wx:for="{{cypbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index">
     <swiper-item class="item">
       <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image" />
@@ -106,9 +106,9 @@
   </block>
 </view>
 
-<swiper class='cypbanner' autoplay="true" current="1" interval="3000" circular="true" previous-margin="30px" next-margin="30px">
+<swiper class='cypbanner' autoplay="true" interval="3000" circular="true" previous-margin="20px" next-margin="30px">
   <block wx:for="{{yhtjbanner}}" wx:for-item="item" wx:key="this" wx:for-index="index">
-    <swiper-item class="item">
+    <swiper-item class="item" >
       <image data-link='{{item.b_link}}' catchtap='imgClick' src="{{item.b_image}}" class="slide-image" />
     </swiper-item>
   </block>
