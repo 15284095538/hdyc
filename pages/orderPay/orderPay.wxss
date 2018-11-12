@@ -345,3 +345,12 @@ page{
   font-size:30rpx;
   color:#333;
 }
+
+
+.datatime{
+  width: 200rpx;
+  float: right;
+}
+.datatime .picker{
+  text-align: right;
+}

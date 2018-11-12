@@ -76,6 +76,37 @@
   </view>
 </view>
 
+<view class='orderpay' wx:if="{{ goods_type == 1 }}" style='background-color:#e7e7e7' >
+  <view class='li'>
+    <text>预约时间</text>
+  </view>
+</view>
+
+<view wx:if="{{ goods_type == 1 }}" class="orderpay">
+  <view class='li'>
+    <text>预约日期</text>
+    <view class='datatime' >
+      <picker mode="date" bindchange="bindPickerdate" >
+        <view class="picker">
+          {{ changeTimeYear }}
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view wx:if="{{ goods_type == 1 }}" style='border:0;' class="orderpay">
+  <view class='li'>
+    <text>预约时间</text>
+    <view class='datatime' >
+      <picker mode="selector" bindchange="bindPickerselector" range="{{ getBespokeTimePoint }}" >
+        <view class="picker">
+          {{ changeTimeTime }}
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+
 <view class='fot'>
   <!-- <view wx:if="{{ goods_type == 1 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
   <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.count_exp) - filters.NumberJs(paycoupon.cost) }}</text> </view> -->
