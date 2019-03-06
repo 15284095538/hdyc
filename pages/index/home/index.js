@@ -249,6 +249,9 @@ Page({
                 wx.hideToast();
               }
             })
+          },
+          fail: function () {
+            wx.hideToast();
           }
         })
       }

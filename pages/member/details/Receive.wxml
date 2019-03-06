@@ -1,0 +1,18 @@
+<view wx:if="{{ id  }}" class="info">
+  <view class='top'>
+    <text>{{ realname }}</text> <text>{{ phone }}</text>
+  </view>
+  <view class='address'>{{ area }}</view>
+</view>
+
+<view catchtap='typeClick' wx:if="{{ !id }}" class='type'>
+  <text class='fl'>选择收货地址</text>
+  <image src='/images/more.png'></image>
+</view>
+
+<view class='type'>
+  <text class='fl'>海豆玻璃水</text>
+  <text class='fr'>x{{ surplus_num }}</text>
+</view>
+
+<view catchtap='menberBtn' class='menberBtn'>立即领取</view>

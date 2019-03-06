@@ -1,0 +1,26 @@
+<!--pages/my/info/receivingaddress/home/index.wxml-->
+<view id='main'>
+  <view class='list' wx:for="{{list}}" wx:key="this" wx:for-item="item">
+    <view data-index='{{ index }}' catchtap='info' class='info'>
+      <view class='user'>
+        <view class='name left'>{{item.realname}}</view>
+        <view class='phone left'>{{item.phone}}</view>
+        <view class='clear'></view>
+      </view>
+      <view class='address indent'>
+        {{item.area}}
+      </view>
+    </view>
+    <view class='menu'>
+      <view class='radio left' data-id='{{item.id}}' bindtap="Default">
+        <radio value="r1" color="#11a8e1" checked="{{item.is_default}}" />
+        <view class='default left'>设为默认</view>
+      </view>
+      <view class='btn right delete' data-id='{{item.id}}' bindtap="Delete">删除地址</view>
+      <view class='btn right' data-id='{{item.id}}' bindtap="Change">编辑地址</view>
+    </view>
+  </view>
+</view>
+<view id='add' bindtap="Add">
+  添加收货地址
+</view>

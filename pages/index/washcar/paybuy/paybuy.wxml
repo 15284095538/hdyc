@@ -17,8 +17,36 @@
   <view class='tit'>服务项目</view>
   <view class='int'>
     <view class='text'>普通洗车</view>
-    <view class='name price'>￥{{pay.price}}</view>
+    <view class='name price'>
+      <text >￥{{pay.price}}</text>
+    </view>
   </view>
+
+<view class='tit'>预约</view>
+
+<view class='int'>
+  <view class='text'>预约日期</view>
+  <view class='datatime' >
+    <picker mode="date" bindchange="bindPickerdate" >
+      <view class="picker">
+        {{ changeTimeYear }}
+      </view>
+    </picker>
+  </view>
+</view>
+
+<view class='int'>
+  <view class='text'>预约时间</view>
+  <view class='datatime' >
+    <picker mode="selector" bindchange="bindPickerselector" range="{{ getBespokeTimePoint }}" >
+      <view class="picker">
+        {{ changeTimeTime }}
+      </view>
+    </picker>
+  </view>
+</view>
+
+
 
   <view class='fot'>
     <view class='l'>在线支付：<text>¥{{pay.price}}</text></view>

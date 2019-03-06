@@ -37,7 +37,7 @@
     <view bindtap='ljfk' id="{{item.id}}" class='secend'hidden="{{ item.order_status !==0 }}">立即付款</view>
     <view catchtap='pjsp' id="{{item.id}}" class='secend' hidden="{{ item.goods_type ===4 || item.order_status !==2}}">评价商品</view>
     <view class='secend' hidden="{{item.order_status !== 3 }}" style='border:none;'>退货中</view>
-    <view class='secend' data-id="{{item.id}}" catchtap='refund' wx-if="{{ item.order_status == 6 || item.order_status == 0 }}">申请退款</view>
+    <view class='secend' data-id="{{item.id}}" catchtap='refund' wx-if="{{ item.order_status == 6}}">申请退款</view>
 </view> 
 </view> 
 </view>

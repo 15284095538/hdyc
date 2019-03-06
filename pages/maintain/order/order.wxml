@@ -1,0 +1,74 @@
+<view class='order'>
+  <view class='user'>
+    <view>联系人</view>
+    <view><input type='text' value='{{name}}' /></view>
+  </view>
+  <view class='tel'>
+    <view>联系电话</view>
+    <view><input type='text' value='{{cellphone}}' /></view>
+  </view>
+  <view class='address' catchtap='goaddress'>
+    <view wx:if='{{!store_name}}'>配送地址 请选择门店{{store_name}}</view>
+    <view wx:if='{{store_name}}'>配送地址 配送到{{store_name}}</view>
+    <view>{{km}} ></view>
+  </view>
+  <view class='goods'>
+    <view class='img'>
+      <image src='{{item}}' wx:for='{{goodsImgArr}}'></image>
+    </view>
+    <view>共{{num}}件商品 </view>
+  </view>
+  <view class='discount'>
+    <view>优惠券</view>
+    <view>有0张可用 ></view>
+  </view>
+  <view class='user'>
+    <view>商品总价</view>
+    <view style='color:red'>￥{{allprice}}</view>
+  </view>
+  <view class='user'>
+    <view>安装费</view>
+    <view style='color:red'>￥0.00</view>
+  </view>
+  <view class='user'>
+    <view>优惠券折扣</view>
+    <view style='color:red'>￥0.00</view>
+  </view>
+</view>
+  <view class='Settlement'>
+    <view class='allprice'>
+      <view class='all'>合计：<text>￥{{allprice}}</text></view>
+    </view>
+    <view class='gobuy' catchtap='gobuy'>提交订单</view>
+  </view>
+
+
+<view class='payli' style='background-color:#e7e7e7' >
+  <view style='border:0;' class='li'>
+    <text>预约</text>
+  </view>
+</view>
+<view class="payli">
+  <view class='li'>
+    <text>预约日期</text>
+    <view class='datatime' >
+      <picker mode="date" bindchange="bindPickerdate" >
+        <view class="picker">
+          {{ changeTimeYear }}
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+<view class="payli">
+  <view style='border:0;' class='li'>
+    <text>预约时间</text>
+    <view class='datatime' >
+      <picker mode="selector" bindchange="bindPickerselector" range="{{ getBespokeTimePoint }}" >
+        <view class="picker">
+          {{ changeTimeTime }}
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>

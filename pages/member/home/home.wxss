@@ -1,0 +1,302 @@
+page{
+  background-color: #f6f6f6;
+}
+
+.time{
+  position: absolute;
+  right: 30rpx;
+  bottom: 30rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.menberSwiper{
+  height: 420rpx;
+  position: relative;
+}
+.menberSwiper .blueBg{
+  background-color: #4db5e8;
+  height: 300rpx;
+  position: relative;
+  z-index: -1;
+}
+.menberSwiper .swiper{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 350rpx;
+  top: 35rpx;
+}
+.menberSwiper .swiper .item{
+  width: 494rpx;
+  height: 296rpx;
+  position: relative;
+  z-index: 5;
+  margin: 0 auto;
+}
+.menberSwiper .swiper .slide-image{
+  width: 494rpx;
+  height: 296rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.menberSwiper .swiper .tit{
+  width: 450rpx;
+  height: 39rpx;
+  line-height: 39rpx;
+  color: #fff;
+  position: absolute;
+  left: 22rpx;
+  top: 10rpx;
+  z-index: 10;
+  font-size: 28rpx;
+}
+.menberSwiper .swiper .tit image{
+  width: 43rpx;
+  height: 39rpx;
+  float: left;
+  margin: 0 20rpx 0 0;
+}
+.menberSwiper .swiper .tit text{
+  float: right;
+}
+.menberSwiper .swiper .Become{
+  width: 150rpx;
+  height: 97rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 9;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #fff;
+  margin: -48.5rpx 0 0 -75rpx;
+}
+.menberSwiper .swiper .Become image{
+  width: 47rpx;
+  height: 47rpx;
+  margin-bottom: 20rpx;
+}
+.menberSwiper .swiper .num{
+  width: 300rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20rpx 0 0 -150rpx;
+  z-index: 9;
+  text-align: center;
+  font-size: 24rpx;
+  letter-spacing: 2px;
+  line-height: 40rpx;
+  color: #fff;
+}
+
+.avatar{
+  position: absolute;
+  left: 50%;
+  top: 390rpx;
+  margin-left: -86.5rpx;
+  height: 202rpx;
+  width: 173rpx;
+}
+.avatar .vip_head{
+  width: 173rpx;
+  height: 173rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.avatar .vip_userName{
+  width: 160rpx;
+  height: 59rpx;
+  position: absolute;
+  left: 6.5rpx;
+  bottom: 0;
+  z-index: 2;
+}
+.avatar .userAvatarUrl{
+  width: 147rpx;
+  height: 147rpx;
+  position: absolute;
+  left: 13rpx;
+  top: 13rpx;
+  z-index: 3;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.avatar .userNickName{
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fff;
+  width: 120rpx;
+  position: absolute;
+  left: 26.5rpx;
+  bottom: 0;
+  font-size: 24rpx;
+  text-align: center;
+  z-index: 3;
+}
+
+.list{
+  width: 630rpx;
+  margin: 20rpx auto 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
+  height: 630rpx;
+  padding: 0 30rpx;
+}
+.list .tit{
+  font-size: 30rpx;
+  margin-top: 180rpx;
+}
+.list .li{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  font-size: 26rpx;
+  vertical-align: top;
+}
+.list .li .vip1{
+  width: 44rpx;
+  height: 44rpx;
+  margin: 23rpx 0 0 0;
+}
+.list .li .more{
+  width: 17rpx;
+  height: 33rpx;
+  margin: 30rpx 0 0 0;
+  float: right;
+}
+.list .li .img{
+  margin-right: 20rpx;
+  float: left;
+  width: 50rpx;
+}
+.list .li .vip2{
+  width: 50rpx;
+  height: 41rpx;
+  margin: 24.5rpx 0 0 0;
+}
+.list .li .vip3{
+  width: 22rpx;
+  height: 42rpx;
+  margin: 24rpx 0 0 10rpx;
+}
+.list .li .vip4{
+  width: 43rpx;
+  height: 43rpx;
+  margin: 23.5rpx 0 0 0;
+}
+.list .li .text{
+  float: right;
+  margin-right: 20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.list .li .text .blue{
+  color: #31aee4;
+}
+
+.menberBtn{
+  width: 690rpx;
+  height: 90rpx;
+  background-color: #11a8e1;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 25rpx auto 0;
+  line-height: 90rpx;
+}
+
+.layerMenber{
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.layerMenber .box{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  background-color: #fff;
+}
+.layerMenber .box .tit{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #414141;
+  border-bottom: 2rpx solid #e7e7e7;
+}
+.layerMenber .box .li{
+  width: 700rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 auto;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+.layerMenber .box .li .text{
+  width: 220rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  float: left;
+}
+.layerMenber .box .li .text image{
+  width: 50rpx;
+  height: 50rpx;
+  float: left;
+  margin: 25rpx 20rpx 0 0;
+}
+.layerMenber .box .li .select{
+  float: left;
+  margin: 20rpx 0 0 0;
+}
+.layerMenber .box .li .select .t{
+  width: 140rpx;
+  height: 60rpx;
+  border: 1rpx solid #ffe991;
+  float: left;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  text-align: center;
+  color: #ffe991;
+  margin-right: 10rpx;
+}
+.layerMenber .box .li .select .active{
+  color: #31aee4;
+  border: 1rpx solid #31aee4;
+}
+.layerMenber .box .li .price{
+  float: left;
+  font-size: 28rpx;
+}
+.layerMenber .box .li .price text{
+  color: #ff3f3f;
+  margin-right: 10rpx;
+}
+.layerMenber .box .agreement{
+  font-size: 22rpx;
+  text-align: center;
+  margin: 100rpx auto 20rpx;
+}
+.layerMenber .box .agreement text{
+  color: #11a8e1;
+}
+.layerMenber .menberBtn{
+  margin-bottom: 20rpx;
+  margin-top: 100rpx;
+}

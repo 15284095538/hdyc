@@ -1,0 +1,96 @@
+<view bindtap = "handletap" id='the-id' bindtouchstart = "handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+
+ <swiper class='indSwiper' indicator-dots="{{swiper.indicatorDots}}" indicator-color="{{swiper.indicatorcolor}}"
+  indicator-active-color="{{swiper.indicatoractivecolor}}" autoplay="{{swiper.autoplay}}" 
+  interval="{{swiper.interval}}" duration="{{swiper.duration}}" >
+  <block wx:for="{{list[0].img_path}}" wx:for-item="item" wx:key="this" wx:for-index="index" >
+    <swiper-item>
+      <image src="{{item.img_path}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='detalsCon'>
+  <view class='price'>￥{{list[0].price}}<text>已售{{list[0].count}}单</text> </view>
+  <view class='name'>{{list[0].g_name}}</view>
+  <view class='label'>
+    <view class='t'><image src='/images/wxf@2x.png'></image>未消费，随时退</view>
+    <view class='t'><image src='/images/wxf@2x.png'></image>过期退</view>
+  </view>
+</view>
+
+<view catchtap='Navigation' class='detalsAdr'>
+  <view class='name'>{{list[0].s_name}}</view>
+  <view class='adr' style='margin-top:10rpx;' > <image style='width:27rpx;height:37rpx;display:block;float:left; margin-right:10rpx;' src='/images/dinwei.png'></image> {{list[0].s_address}}</view>
+ 
+</view>
+
+<view class='detalsKnow'>
+  <view class='tit'>购买须知</view>
+  <view class='li'>
+    <view class='img'> <image src='/images/shiyongchexing@2x.png'></image> </view>
+    <view class='text'>
+      <view class='t'>适用车型</view>
+      <view class='c'>五座轿车</view>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/youxiaoqi@2x.png'></image> </view>
+    <view class='text'>
+      <view class='t'>有效期</view>
+      <view class='c'>付款成功后七天</view>
+    </view>
+  </view>
+  <view class='li'>
+    <view class='img'> <image src='/images/yuyuexinxi@2x.png'></image> </view>
+    <view class='text'>
+      <view class='t'>预约信息</view>
+      <view class='c'>此服务需提前致电门店进行预约</view>
+    </view>
+  </view>
+</view> 
+
+<view class='detalsPl'>
+  <view class='top'>
+    <view catchtap='selectidCLick' data-id='0'  class='li {{ selectid == 0 ? "select":"" }} '>详情</view>
+    <view catchtap='selectidCLick' data-id='1' class='li {{ selectid == 1 ? "select":"" }} '>客户评价</view>
+  </view>
+  <view class='detail' wx:if='{{selectid == 0}}'>
+    <image src='{{g_detail}}' mode='widthFix'></image>
+  </view>
+  <view bindtap='ToPage' class='tou' wx:if='{{selectid == 1}}'>
+    <view  class='q'>全部评价（0）</view>
+    <view class='h'>好评度
+      <text class='nu'>0</text>
+      <image src='/images/more.png'></image>
+    </view>
+  </view>
+  <view class='con'>
+    <view class='li' wx:for="{{pinglun}}" wx:for-index="index" wx:for-item="item" wx:key="key" >
+      <view class='portrait'> <image src='{{item.header}}'></image> </view>
+      <view class='righttext'>
+        <view class='name'>{{item.user_name}}</view>
+        <view class='Stars'>
+          <view class='img'>
+            <block wx:for="{{item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index" >
+              <image src='/images/rstart.png'></image>
+            </block> 
+            <block wx:for="{{5 - item.level}}" wx:key="this" wx:for-item="item" wx:for-index="index">
+              <image src='/images/start.png'></image>
+            </block>
+          </view>
+          <view class='time'>{{item.create_time}}</view>
+        </view>
+        <view class='text'>{{item.content}}</view>
+        <view class='plimg'>
+          <image wx:if="{{item.images}}" wx:for="{{item.images}}" wx:key="this" wx:for-item="iitem" src='{{iitem.path}}'></image>
+        </view>
+        <view class='type'>{{item.stype}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+</view>

@@ -51,7 +51,10 @@
 <view class="orderpay" style='margin-top:20rpx;' > 
   <view class='li'>
     <text>商品总价</text>
-    <view class='pri'>￥{{orderdata.count_price}}</view>
+    <view class='pri'>
+      <text class='NowPrice'>￥{{orderdata.count_price}}</text>
+      <text>￥{{orderdata.vip_discount}}</text>
+    </view>
   </view>
 </view>
 
@@ -78,7 +81,7 @@
 
 <view class='orderpay' wx:if="{{ goods_type == 1 }}" style='background-color:#e7e7e7' >
   <view class='li'>
-    <text>预约时间</text>
+    <text>预约</text>
   </view>
 </view>
 
@@ -86,7 +89,7 @@
   <view class='li'>
     <text>预约日期</text>
     <view class='datatime' >
-      <picker mode="date" bindchange="bindPickerdate" >
+      <picker start="{{ nowDate }}" mode="date" bindchange="bindPickerdate" >
         <view class="picker">
           {{ changeTimeYear }}
         </view>
@@ -111,7 +114,7 @@
   <!-- <view wx:if="{{ goods_type == 1 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.store.service_price) - filters.NumberJs(paycoupon.cost) }}</text> </view>
   <view wx:if="{{ goods_type == 0 }}" class='left'>实付：<text>¥{{ filters.NumberJs(orderdata.count_price) + filters.NumberJs(orderdata.count_exp) - filters.NumberJs(paycoupon.cost) }}</text> </view> -->
 
-  <view class='left'>实付：<text>¥{{ num }}</text> </view>
+  <view class='left'>实付：<text>¥{{ numSS }}</text> </view>
   <view catchtap='pay' class='right'>提交订单</view>
 </view>
 

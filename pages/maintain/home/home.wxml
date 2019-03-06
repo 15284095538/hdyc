@@ -1,0 +1,115 @@
+<view class='top'>
+  <view catchtap='selectidCLick' data-id='0'  class='li {{ selectid == 0 ? "select":"" }} '>大保养</view>
+  <view catchtap='selectidCLick' data-id='1' class='li {{ selectid == 1 ? "select":"" }} '>小保养</view>
+</view>
+<view class="chooseCar">
+ <view>服务车辆</view>
+ <view catchtap='linkTo'>{{car_info}}<span style='color:#999;font-size:32rpx;'> ></span></view>
+</view>
+<view class='title'>可根据您的爱车选择不同的保养类型</view>
+<view wx:if="{{ selectid == 0 }}" class='box'>   <!-- 大保养 -->   
+  <view class='list' wx:for='{{list}}' wx:key="this" wx:for-index="index" wx:for-item="item">
+    <view class='listone'>
+      <view class='close' bindtap="defaultClick" data-index='{{index}}' data-arr='{{item.list}}'>
+        <icon class="icon" type="{{item.checked ? 'success_circle' : 'circle'}}"></icon>
+        <span></span>
+      </view>
+      <view class='typename'>{{item.kind.type_name}}</view>
+      <view class='arrow' catchtap='show' data-index='{{index}}' data-arr='{{item.list}}'>
+        <image src='../img/turnR.png' wx:if='{{!item.turn}}'></image>
+        <image src='../img/turnB.png' wx:if='{{item.turn}}'></image>
+      </view>
+      <view class='handle' catchtap='handle' data-index='{{index}}' data-arr='{{item.list}}'>
+        <text wx:if='{{!item.handle}}'>编辑</text>
+        <text wx:if='{{item.handle}}'>保存</text>
+      </view>
+    </view>
+    <view class='listtwo' wx:if='{{item.sta}}'>
+      
+      <view class='start' wx:if='{{!item.stat}}' catchtap='godetail' data-goodsid='{{item.list[0].id}}'>
+        <view class='img'><image src='{{item.list[0].g_picture}}'></image></view>
+        <view class='start-con'>
+          <view class='start-name'>{{item.list[0].g_name}}</view>
+          <view class='start-price'>￥{{item.list[0].price}}</view>
+        </view>
+        <view class='start-num'>x{{item.list[0].number}}</view>
+      </view>
+      <view class='end' wx:if='{{item.stat}}' >
+        <view class='img'><image src='{{item.list[0].g_picture}}'></image></view>
+        <view class='num'>
+          <view class="stepper">
+              <text data-index='{{index}}' bindtap="bindMinus" data-id='{{item.id}}' data-num='{{item.list[0].number}}'>-</text>
+              <input type="number" disabled="true" value="{{item.list[0].number}}" />
+              <text data-index='{{index}}' bindtap="bindPlus" data-id='{{item.id}}' data-store='{{item.list[0].store}}' data-num='{{item.list[0].number}}'>+</text>
+          </view>
+        </view>
+      
+        <view class='delete' catchtap='delCar' data-index='{{index}}'>
+          <image src='../img/delect.png'></image>
+          <text>删除</text>
+        </view>
+        <view class='collection' catchtap='change' data-classid='0' data-oldid='{{item.list[0].goods_id}}' data-id='{{item.kind.id}}' data-sta='choose' data-index='{{index}}'>
+        <image src='../img/f5.png'></image>
+        <text>更换</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{ selectid == 1 }}" class="box">   <!-- 小保养 -->  
+  <view class='list' wx:for='{{list}}' wx:key="this" wx:for-index="index" wx:for-item="item">
+    <view class='listone'>
+      <view class='close' bindtap="defaultClick" data-index='{{index}}' data-arr='{{item.list}}'>
+        <icon class="icon" type="{{item.checked ? 'success_circle' : 'circle'}}"></icon>
+        <span></span>
+      </view>
+      <view class='typename'>{{item.kind.type_name}}</view>
+      <view class='arrow' catchtap='show' data-index='{{index}}' data-arr='{{item.list}}'>
+        <image src='../img/turnR.png' wx:if='{{!item.turn}}'></image>
+        <image src='../img/turnB.png' wx:if='{{item.turn}}'></image>
+      </view>
+      <view class='handle' catchtap='handle' data-index='{{index}}' data-arr='{{item.list}}'>
+        <text wx:if='{{!item.handle}}'>编辑</text>
+        <text wx:if='{{item.handle}}'>保存</text>
+      </view>
+    </view>
+    <view class='listtwo' wx:if='{{item.sta}}'>
+      
+      <view class='start' wx:if='{{!item.stat}}' catchtap='godetail' data-goodsid='{{item.list[0].id}}'>
+        <view class='img'><image src='{{item.list[0].g_picture}}'></image></view>
+        <view class='start-con'>
+          <view class='start-name'>{{item.list[0].g_name}}</view>
+          <view class='start-price'>￥{{item.list[0].price}}</view>
+        </view>
+        <view class='start-num'>x{{item.list[0].number}}</view>
+      </view>
+      <view class='end' wx:if='{{item.stat}}' >
+        <view class='img'><image src='{{item.list[0].g_picture}}'></image></view>
+        <view class='num'>
+          <view class="stepper">
+              <text data-index='{{index}}' bindtap="bindMinus" data-id='{{item.id}}' data-num='{{item.list[0].number}}'>-</text>
+              <input type="number" disabled="true" value="{{item.list[0].number}}" />
+              <text data-index='{{index}}' bindtap="bindPlus" data-id='{{item.id}}' data-store='{{item.list[0].store}}' data-num='{{item.list[0].number}}'>+</text>
+          </view>
+        </view>
+      
+        <view class='delete' catchtap='delCar' data-index='{{index}}'>
+          <image src='../img/delect.png'></image>
+          <text>删除</text>
+        </view>
+        <view class='collection' catchtap='change' data-classid='1' data-oldid='{{item.list[0].goods_id}}' data-id='{{item.kind.id}}' data-sta='choose' data-index='{{index}}'>
+        <image src='../img/f5.png'></image>
+        <text>更换</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='Settlement'>
+  <view class='allprice'>
+    <!-- <view class='all1'>{{allnum}} 合计：<text>￥{{all.allprice}}</text></view> -->
+    <view class='all1'>合计：<text>￥{{allprice}}</text></view>
+    <view class='all2'>不含包装费</view>
+  </view>
+  <view class='gobuy' catchtap='gobuy'>去结算</view>
+</view>

@@ -1,0 +1,73 @@
+page{
+  background-color: #f5f5f5;
+  font-size: 28rpx;
+  color: #333;
+  padding-bottom:120rpx; 
+}
+
+
+.list{
+  height: 160rpx;
+  padding: 30rpx 20rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+  box-sizing: border-box;
+}
+.list .img{
+  width: 100rpx;
+  height: 100rpx;
+  float: left;
+}
+.list .img image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.list .text{
+  float: left;
+  height: 100rpx;
+  margin-left: 40rpx;
+  width: 500rpx;
+}
+.list .text .t{
+  margin: 10rpx 0 0 0;
+  line-height: 50rpx;
+}
+.list .text .m{
+  margin: 5rpx 0 0 0;
+  font-size:24rpx;
+  line-height: 50rpx;
+}
+.list .text .b{
+  margin: 15rpx 0 0 0;
+  font-size:24rpx;
+  line-height: 50rpx;
+}
+.list .close{
+ float: right;
+ height: 100rpx;
+}
+.list .close .icon{
+ vertical-align: middle;
+ display: inline-block;
+}
+.list .close span{
+  width: 0;height: 100%;display: inline-block;vertical-align: middle;
+}
+.exceedOne span{
+  color: #f56600;
+  font-size: 24rpx;
+  background:rgb(253,242,236);
+  margin-left: 5px;
+}
+.addCar{
+  position: fixed;bottom:0;left: 0;
+  background: white;
+  font-size: 26rpx;
+  color: white;
+  width: 750rpx;height: 100rpx;
+  text-align: center;
+}
+.addCar view{
+  background: rgb(17, 168, 225);
+  width: 710rpx;margin: auto;line-height: 80rpx;
+  height: 80rpx;border-radius:10rpx; 
+}

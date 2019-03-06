@@ -1,0 +1,6 @@
+<import src="../../../wxParse/wxParse.wxml"/>
+
+<view class='content'>
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+<view wx:if="{{ type == 2 && is_vip != 0 }}" catchtap='menberBtn' class='menberBtn'>立即领取</view>

@@ -23,7 +23,8 @@ Page({
     getBespokeTimePoint: [],
     changeTimeYear: '请选择日期',
     changeTimeTime: '请选择时间',
-    payFlg: false
+    payFlg: false,
+    nowDate: '',
   },
   onLoad(e) {
     var that = this;
@@ -31,6 +32,18 @@ Page({
       e.name = '';
       e.phone = ''
     }
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    var nowDate = year + "-" + month + "-" + day;
+
     this.setData({
       class_id: e.class_id,
       count_board: e.count_board,
@@ -40,7 +53,8 @@ Page({
       text: e.text,
       phone: e.phone,
       name: e.name,
-      paintId: e.paintId
+      paintId: e.paintId,
+      nowDate: nowDate,
     })
     this.getdata();
     wx.getSystemInfo({
@@ -53,6 +67,15 @@ Page({
     this.getTime();
   },
   bindPickerdate(e) {//日期
+    if (this.data.store_id == '') {
+      wx.showToast({
+        title: '请选择门店',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
     let changeTimeYear = e.detail.value;
     this.setData({
       changeTimeYear: changeTimeYear
@@ -62,6 +85,15 @@ Page({
     }
   },
   bindPickerselector(e) {//时间
+    if (this.data.store_id == '' ){
+      wx.showToast({
+        title: '请选择门店',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
     let changeTimeTime = this.data.getBespokeTimePoint[e.detail.value];
     this.setData({
       changeTimeTime: changeTimeTime
@@ -97,20 +129,34 @@ Page({
   getgetBespokeNums(e) { //预约次数
     var that = this;
     var payFlg = false;
-
-    var date = this.data.changeTimeYear + ' ' + this.data.changeTimeTime + '',
-    date = date.substring(0, 19);
-    date = date.replace(/-/g, '/');
-    var timestamp = new Date(date).getTime();
-
-    console.log(timestamp )
-
+    var changeTimeYear = '请选择日期';
+    var changeTimeTime = '请选择时间';
     wx.showToast({
       title: '加载中',
       icon: 'loading',
       duration: 55000,
       mask: true
     })
+
+    var date = this.data.changeTimeYear + ' ' + this.data.changeTimeTime + '',
+      date = date.substring(0, 19);
+    date = date.replace(/-/g, '/');
+    var timestamp1 = new Date(date).getTime(); //选择时间戳
+
+    var timestamp2 = Date.parse(new Date()); //当前时间戳
+
+    if (timestamp2 > timestamp1) {
+      wx.showToast({
+        title: '请选择之后时间',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      this.setData({
+        payFlg: false
+      })
+      return false
+    }
     wx.request({ //获取分类
       url: url + 'order/getBespokeNums',
       data: {
@@ -121,9 +167,13 @@ Page({
       success: function (res) {
         if (res.data.code == 200) {
           if (res.data.data.nu > 0) {
-            payFlg = true
+            payFlg = true;
+            changeTimeYear = that.data.changeTimeYear;
+            changeTimeTime = that.data.changeTimeTime;
           } else {
-            payFlg = false
+            payFlg = false;
+            changeTimeYear = '请选择日期';
+            changeTimeTime = '请选择时间';
             wx.showToast({
               title: '预约次数满',
               icon: 'none',
@@ -133,8 +183,8 @@ Page({
           }
           that.setData({
             payFlg: payFlg,
-            changeTimeYear: '请选择日期',
-            changeTimeTime: '请选择时间',
+            changeTimeYear: changeTimeYear,
+            changeTimeTime: changeTimeTime
           })
         }
         wx.hideToast();
@@ -201,6 +251,24 @@ Page({
     if (this.data.store_id == '') {
       wx.showToast({
         title: '请选择门店',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    if (this.data.changeTimeYear == '请选择日期') {
+      wx.showToast({
+        title: '请选择日期',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      return false
+    }
+    if (this.data.changeTimeTime == '请选择时间') {
+      wx.showToast({
+        title: '请选择时间',
         icon: 'none',
         duration: 500,
         mask: true

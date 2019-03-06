@@ -9,3 +9,9 @@
   background-size: 100% 100%;
   border-radius: 50%;
 }
+
+.NowPrice{
+  text-decoration:line-through;
+  color: #ccc;
+  margin-right: 20rpx;
+}

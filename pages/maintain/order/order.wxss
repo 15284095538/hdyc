@@ -1,0 +1,92 @@
+.order{
+  background: #f2f2f2;
+}
+.order>view{
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom:1px solid #f2f2f2;
+  font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+}
+input{
+  display: inline-block;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  text-align: right;
+}
+.address,.goods,.discount{
+  margin-bottom:20rpx;
+}
+.order .goods{
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.goods .img{
+  box-sizing: border-box;
+  padding: 20rpx 0;
+}
+.goods image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+
+.Settlement{
+  height: 90rpx;
+  border-top: 1rpx solid #e0e0e0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 0 0 20rpx;
+}
+.Settlement .gobuy{
+  float: right;
+  width: 220rpx;
+  background-color: rgb(17,168,225);
+  color: #fff;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 26rpx;
+}
+.Settlement .allprice{
+  float: left;
+  margin-right: 20rpx;
+  height: 90rpx;
+  font-size: 24rpx;
+  box-sizing: border-box;padding: 10 0rpx;
+}
+.Settlement .allprice .all{
+  float: left;
+  width: 100%;
+  line-height: 90rpx;
+}
+.Settlement .allprice text{
+  color: #f56600;
+  font-size: 26rpx;
+}
+
+.payli{
+  padding: 0 20rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  position: relative;
+}
+
+.datatime{
+  width: 200rpx;
+  float: right;
+}
+.datatime .picker{
+  text-align: right;
+}

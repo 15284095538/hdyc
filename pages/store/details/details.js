@@ -131,7 +131,7 @@ Page({
     var store_id = e.currentTarget.dataset.store_id;
     if( name == "便捷洗车" ){
       wx.navigateTo({
-        url: '/pages/index/washcar/payselect/payselect?class_id=' + class_id + "&store_id=" + store_id,
+        url: '/pages/index/washcar/payselect/payselect?class_id=' + class_id + "&store_id=" + store_id + '&mend=' + this.data.store.s_name,
       })
     }else{
       wx.navigateTo({

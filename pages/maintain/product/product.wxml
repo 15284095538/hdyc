@@ -1,0 +1,9 @@
+<view class='product' wx:for='{{list}}' catchtap='choose' data-id='{{item.id}}'>
+  <view class='img'>
+    <image src='{{item.g_picture}}'></image>
+  </view>
+  <view class='content'>
+    <view class='title'>{{item.g_name}}</view>
+    <view class='price'>{{item.price}}</view>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+.content{
+  padding: 25rpx 25rpx 90rpx 25rpx;
+}
+
+.menberBtn{
+  width: 690rpx;
+  height: 90rpx;
+  background-color: #11a8e1;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 25rpx auto 0;
+  line-height: 90rpx;
+  position: fixed;
+  left: 30rpx;
+  bottom: 20rpx;
+}

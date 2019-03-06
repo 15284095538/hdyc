@@ -28,7 +28,7 @@
 
 <view class='washselect'>
   <view class='tit'>基本信息</view>
-  <view catchtap='selectclick' data-value_id='{{item.value_id}}' data-id='{{item.id}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{detdata.goods}}" data-goods_idprice='{{item.price}}' wx:for-index="index" wx:for-item="item" wx:key="this" >
+  <view catchtap='selectclick' data-value_id='{{item.value_id}}' data-id='{{item.id}}' data-selectid='{{index}}' class='li {{ index == selectid ? "select":"" }}' wx:for="{{detdata.goods}}" data-vip_price='{{ item.vip_price }}' data-goods_idprice='{{item.price}}' wx:for-index="index" wx:for-item="item" wx:key="this" >
     <image class='washsure' src='/images/washsure.png'></image>
     <view style='overflow: hidden' >
       <view class='img'> <image src='{{item.img}}'></image> </view>

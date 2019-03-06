@@ -14,7 +14,10 @@
 
 <view class='detalisTop'>
   <view class='price'>
-    <view class='p'>￥{{dettels.price}}</view>
+    <view class='p'>
+      <text class='NowPrice'>￥{{dettels.price}}</text>
+      <text>{{ dettels.vip_price }}</text>
+    </view>
   </view>
   <view class='name'>{{dettels.g_name}}</view>
   <view class='det'>

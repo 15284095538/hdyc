@@ -1,0 +1,17 @@
+<view wx:for="{{list}}" wx:key="this" wx:for-index="index" wx:for-item="item" class="list" catchtap='choose' data-id = "{{item.id}}" data-index='{{index}}'>
+    <view class='img'>
+    <!-- {{data.original_img}} -->
+      <image src="{{item.car_logo}} "/>
+    </view>
+    <view class='text'>
+    <!-- {{data.goods_name}}{{allData.info.goods_name}} -->
+      <view class='t exceedOne'>{{item.car_brand}}<span>{{item.default}}</span></view>
+      <text class='m exceedOne'>{{item.info}}</text>
+      <!-- <text class='b exceedOne'>{{item.model}}</text> -->
+    </view>
+    <view class='close' catchtap='choose' data-id = "{{item.id}}" data-index='{{index}}' data-car_type = '{{item.car_type}}'>
+      <icon class="icon" type="{{item.checked ? 'success_circle' : 'circle'}}"></icon>
+      <span></span>
+    </view>
+</view>
+<view class='addCar' bindtap='addCar'><view>添加爱车</view></view>

@@ -113,10 +113,9 @@
 
 <view class='payli' style='background-color:#e7e7e7' >
   <view style='border:0;' class='li'>
-    <text>预约时间</text>
+    <text>预约</text>
   </view>
 </view>
-
 <view class="payli">
   <view class='li'>
     <text>预约日期</text>

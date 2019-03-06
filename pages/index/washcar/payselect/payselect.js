@@ -6,7 +6,7 @@ Page({
     class_id:'',
     goods_id:'',//商品id
     goods_idprice:'',
-    value_id:'',
+    value_id:''
   },
   onLoad: function (e) {
     this.setData({ 
@@ -21,6 +21,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     var goods_idprice = e.currentTarget.dataset.goods_idprice;
     var value_id = e.currentTarget.dataset.value_id;
+    var vip_price = e.currentTarget.dataset.vip_price;
     this.setData({ selectid: selectid, goods_id: id, goods_idprice: goods_idprice, value_id:value_id })
   },
   carselect(e){
@@ -30,7 +31,7 @@ Page({
   },
   payorder(e){
     wx.navigateTo({
-      url: '/pages/index/washcar/paybuy/paybuy?goods_id=' + this.data.goods_id + '&mend=' + this.data.mend + '&store_id=' + this.data.store_id + '&price=' + this.data.goods_idprice + '&value_id=' + this.data.value_id ,
+      url: '/pages/index/washcar/paybuy/paybuy?goods_id=' + this.data.goods_id + '&mend=' + this.data.mend + '&store_id=' + this.data.store_id + '&price=' + this.data.goods_idprice + '&value_id=' + this.data.value_id,
     })
   },
   getdata(e) {
@@ -56,7 +57,7 @@ Page({
           goods_id: res.data.data.goods[0].id,
           goods_idprice: res.data.data.goods[0].price,
           detdata: res.data.data,
-          value_id: res.data.data.goods[0].value_id,
+          value_id: res.data.data.goods[0].value_id
         })
         wx.hideToast();
       }

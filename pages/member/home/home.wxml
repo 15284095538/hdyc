@@ -1,0 +1,100 @@
+
+
+<view class="menberSwiper">
+  <view class='blueBg'></view>
+  <swiper class='swiper' bindchange="swiperChang" previous-margin="90rpx" next-margin="90rpx" circular='true' indicator-dots='true' indicator-color="rgba(132,206,233,1)" indicator-active-color="rgba(16,170,244,1)">
+    <swiper-item wx:for="{{ menberData }}" wx:key="item">
+      <view class='item'>
+        <image src="/images/vip_bg.png" class="slide-image" />
+        <view class='tit'>
+          <image src='/images/vip_logo.png'></image>
+          {{ item.vip_grade }}
+          <text wx:if="{{ item.is_vip === 0 }}" >未申请</text>
+        </view>
+        <view catchtap='menberBtnClick' wx:if="{{ item.is_vip === 0 }}" class='Become'>
+          <view>
+            <image src='/images/vip_open.png'></image>
+          </view>
+          成为海豆优享
+        </view>
+        <view wx:if="{{ item.is_vip === 1 }}" class='num'>
+          {{ item.vip_sn }}
+        </view>
+        <view wx:if="{{item.time }}" class='time'>{{ item.time }}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class='avatar'>
+  <image class='vip_head' src='/images/vip_head.png'></image>
+  <image class='vip_userName' src='/images/vip_userName.png'></image>
+  <open-data class="userAvatarUrl" type="userAvatarUrl"></open-data>
+  <open-data class='userNickName' type="userNickName"></open-data>
+</view>
+
+<view class='list'>
+  <view class='tit'>海豆优选增值服务</view>
+  <block wx:for="{{activeData.equity}}" wx:key="this">
+    <view catchtap='equityClick' data-surplus_num='{{ item.surplus_num }}' data-is_vip='{{ item.is_vip }}' data-content='{{ item.content }}' data-type='{{ item.type }}' class='li'>
+      <view class='img'>
+        <image wx:if="{{ item.type == 1 }}" class='vip1' src='/images/vip1.png'></image>
+        <image wx:if="{{ item.type == 3 }}" class='vip1' src='/images/vip2.png'></image>
+        <image wx:if="{{ item.type == 2 }}" class='vip1' src='/images/vip3.png'></image>
+      </view>
+      <text wx:if="{{ item.type == 1 }}">海豆洗车</text>
+      <text wx:if="{{ item.type == 3 }}">海豆视频会员</text>
+      <text wx:if="{{ item.type == 2 }}">海豆玻璃水</text>
+      <image class='more' src='/images/more.png'></image>
+      <view wx:if="{{ item.is_vip === 1 }}" class='text'>
+        <text wx:if="{{ item.type == 1 }}" class='blue'>剩余{{ item.surplus_num }}</text>
+        <text wx:if="{{ item.type == 3 }}" class='blue'>{{ item.surplus_num }}</text>
+        <text wx:if="{{ item.type == 2 }}" class='blue'>待领取{{ item.surplus_num }}</text> 次
+      </view>
+    </view>
+    <view style='clear:both;'></view>
+  </block>
+  <view wx:if="{{ activeData.is_vip === 1 }}" class='li'>
+    <view class='img'>
+      <image class='vip4' src='/images/vip4.png'></image>
+    </view>
+    <text>折扣优享</text>
+    <image class='more' src='/images/more.png'></image>
+    <view class='text'>
+      <text class='blue'>{{ activeData.vip_discount * 10 }}</text> 折
+    </view>
+  </view>
+  <view style='clear:both;'></view>
+</view>
+
+<view wx:if="{{ activeData.is_vip === 0 }}" catchtap='menberBtnClick' class='menberBtn'>成为海豆优享</view>
+
+
+<view wx:if="{{ menberBtnClick }}" catchtap='layerMenberClick' wx:for-key="this" class='layerMenber'>
+  <view catchtap='layerMenberBoxClick' class='box'>
+    <view class='tit'>{{ activeData.vip_grade }}</view>
+    <view class='li time'>
+      <view class='text'>
+        <image src='/images/menber2.png'></image>
+        优享时限
+      </view>
+      <view class='select'>
+        <view wx:for="{{ activeData.price }}" catchtap='timeClick' data-vip_id='{{ item.vip_id }}' data-id='{{ item.id }}' data-price='{{ item.money }}' data-index='{{index}}' wx:key="this" wx:for-index="index" class='t {{ priceindex === index ? "active":"" }}'>
+          {{ item.time }}
+          <text wxif="{{ item.type == 0 }}">月</text>
+          <text wx:if="{{ item.type == 1 }}">年</text>
+        </view>
+      </view>
+    </view>
+    <view class='li time'>
+      <view class='text'>
+        <image src='/images/menber3.png'></image>
+        优享等级
+      </view>
+      <view class='price'>
+        <text>{{ parameter.price }}</text>元
+      </view>
+    </view>
+    <view catchtap='pay' class='menberBtn'>成为海豆优享</view>
+  </view>
+</view>

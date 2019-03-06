@@ -23,7 +23,8 @@ Page({
     getBespokeTimePoint: [],
     changeTimeYear:'请选择日期',
     changeTimeTime:'请选择时间',
-    payFlg:true
+    payFlg:true,
+    nowDate:'',
   },
   onLoad(e) {
     console.log(e)
@@ -40,6 +41,19 @@ Page({
     if (!e.classify) {
       e.classify = ''
     }
+
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    if (month < 10) {
+      month = "0" + month;
+    }
+    if (day < 10) {
+      day = "0" + day;
+    }
+    var nowDate = year + "-" + month + "-" + day;
+
     that.setData({
       goods_id: e.goods_id,
       goods_type: e.goods_type,
@@ -49,7 +63,8 @@ Page({
       classify: e.classify,
       name: e.name,
       phone: e.phone,
-      address_id: e.address_id
+      address_id: e.address_id,
+      nowDate: nowDate,
     })
     wx.getSystemInfo({
       success: function(res) {
@@ -309,9 +324,9 @@ Page({
           }
 
           if (that.data.goods_type == 1 ){
-            num = (Number(res.data.data.count_price) + Number(res.data.data.store.service_price) - Number(paycouponcost)).toFixed(1);
+            num = (Number(res.data.data.vip_discount) + Number(res.data.data.store.service_price) - Number(paycouponcost)).toFixed(1);
           }else{
-            num = (Number(res.data.data.count_price) + Number(res.data.data.count_exp) - Number(paycouponcost)).toFixed(1);
+            num = (Number(res.data.data.vip_discount) + Number(res.data.data.count_exp) - Number(paycouponcost)).toFixed(1);
           }
 
           if( num < 0 ){
@@ -324,7 +339,7 @@ Page({
             ['paycoupon.cost']: paycouponcost,
             name: res.data.data.user.name,
             phone: res.data.data.user.cellphone,
-            num: num
+            numSS: num
           })
           wx.hideToast();
         }
@@ -358,12 +373,34 @@ Page({
   getgetBespokeNums(e){ //预约次数
     var that = this;
     var payFlg = false;
+    var changeTimeYear = '请选择日期';
+    var changeTimeTime = '请选择时间';
     wx.showToast({
       title: '加载中',
       icon: 'loading',
       duration: 55000,
       mask: true
     })
+
+    var date = this.data.changeTimeYear + ' ' + this.data.changeTimeTime + '',
+    date = date.substring(0, 19);
+    date = date.replace(/-/g, '/');
+    var timestamp1 = new Date(date).getTime(); //选择时间戳
+
+    var timestamp2 = Date.parse(new Date()); //当前时间戳
+
+    if ( timestamp2 > timestamp1 ){
+      wx.showToast({
+        title: '请选择之后时间',
+        icon: 'none',
+        duration: 500,
+        mask: true
+      })
+      this.setData({
+        payFlg: false
+      })
+      return false
+    }
     wx.request({ //获取分类
       url: url + 'order/getBespokeNums',
       data: {
@@ -374,9 +411,13 @@ Page({
       success: function (res) {
         if (res.data.code == 200) {
           if (res.data.data.nu > 0 ){
-            payFlg = true
+            payFlg = true;
+            changeTimeYear = that.data.changeTimeYear;
+            changeTimeTime = that.data.changeTimeTime;
           }else{
-            payFlg = false
+            payFlg = false;
+            changeTimeYear = '请选择日期';
+            changeTimeTime = '请选择时间';
             wx.showToast({
               title: '预约次数满',
               icon: 'none',
@@ -386,8 +427,8 @@ Page({
           }
           that.setData({
             payFlg: payFlg,
-            changeTimeYear: '请选择日期',
-            changeTimeTime: '请选择时间',
+            changeTimeYear: changeTimeYear,
+            changeTimeTime: changeTimeTime
           })
         }
         wx.hideToast();

@@ -1,0 +1,18 @@
+<view class='list' wx:for='{{list}}' catchtap='goback' data-storeid ='{{item.store_id}}' data-storename = '{{item.s_name}}' data-km = '{{item.km}}'>
+  <view class='img'><image src='{{item.s_img}}'></image></view>
+  <view class='company'>
+    <view class='name'>{{item.s_name}}</view>
+    <view class='score'>
+      <view>总评分：<text>{{item.count}}分</text></view>
+      <view>总订单：<text>{{item.grade}}笔</text></view>
+    </view>
+    <view class='address'>{{item.s_address}}</view>
+    <view class='last'>
+      <view class='tag'>
+        <text wx:for='{{item.s_service_tag}}' wx:for-item="items">{{items}}</text>
+      </view>
+    <view class='distance'>{{item.km}}</view>
+    </view>
+    
+  </view>
+</view>

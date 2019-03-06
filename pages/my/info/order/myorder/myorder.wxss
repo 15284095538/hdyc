@@ -104,7 +104,8 @@ page{
   height: 50rpx;
 }
 .myorder .price{
-  margin-left: 330rpx;
+  float: right;
+  margin-top: 40rpx;
   color: #ff7979;
 }
 .myorder .button{

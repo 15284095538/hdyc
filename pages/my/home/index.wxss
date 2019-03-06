@@ -325,7 +325,7 @@ page {
 
 #more {
   width: 690rpx;
-  height: 600rpx;
+  height: 700rpx;
   background-color: #fff;
   border-radius: 22rpx;
   margin-left: calc((100% - 690rpx) / 2);

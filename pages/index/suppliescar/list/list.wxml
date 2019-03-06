@@ -18,7 +18,10 @@
     <view class='text'>
       <view class='name'>{{item.g_name}}</view>
       <view class='p'> <text>已售{{item.ys}}件</text> | <text>{{item.pl}}人评论</text> </view>
-      <view class='price'>{{item.price}}</view>
+      <view class='price'>
+        <text class='NowPrice'>{{item.price}}</text>
+        <text>{{ item.vip_price }}</text>
+      </view>
     </view>
   </view>
 </view>
